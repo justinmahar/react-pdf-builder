@@ -1,3 +1,4 @@
+import { Document, Page, PDFViewer, Text, View } from '@react-pdf/renderer';
 import React from 'react';
 import { DivProps } from 'react-html-props';
 
@@ -15,22 +16,23 @@ export interface ExampleProps extends DivProps {
 /**
  * This is the description for the Example component
  */
-export const Example = ({ backgroundColor = '#5454fc', label, ...props }: ExampleProps) => {
+export const Example = ({ label, ...props }: ExampleProps) => {
   return (
     <div
       {...props}
       style={{
-        backgroundColor,
-        padding: 10,
-        borderRadius: 5,
-        color: 'white',
-        display: 'inline-block',
-        cursor: 'pointer',
-        userSelect: 'none',
         ...props.style,
       }}
     >
-      {label}
+      <PDFViewer style={{ height: 600, width: 400 }}>
+        <Document>
+          <Page size="A4" style={{ flexDirection: 'column', padding: 30 }}>
+            <View>
+              <Text>Test2</Text>
+            </View>
+          </Page>
+        </Document>
+      </PDFViewer>
     </div>
   );
 };
