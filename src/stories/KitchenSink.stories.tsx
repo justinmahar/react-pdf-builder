@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Example } from '../components/Example';
+import { KitchenSink as KS } from '../components/KitchenSink';
 
 // === Setup ===
-const StoryComponent = Example; // <-- Set to your component
+const StoryComponent = KS; // <-- Set to your component
 const meta: Meta<typeof StoryComponent> = {
-  title: 'Stories/Example', // <-- Set to your story title
+  title: 'Stories/KitchenSink', // <-- Set to your story title
   component: StoryComponent,
   parameters: {
     options: { showPanel: false }, // Don't show addons panel
@@ -14,14 +14,8 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 // === Stories ===
-export const Hello: Story = {
+export const KitchenSink: Story = {
   args: {
-    label: 'Hello',
-  },
-};
-
-export const World: Story = {
-  args: {
-    label: 'World',
+    label: 'Kitchen Sink',
   },
 };

@@ -41,4 +41,4 @@ import { Example } from 'react-kindling';
 export function StoryExample() {
   return <Example label="Bomb Diggity!" />;
 }
-```
+```../components/KitchenSink
