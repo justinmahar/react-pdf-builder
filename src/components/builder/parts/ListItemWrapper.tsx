@@ -20,7 +20,7 @@ export const ListItemWrapper = ({ children, undecorated = false, num, ...props }
         (isNumbered ? (
           <Text style={{ fontSize: 18, minWidth: 15 }}>{num}.</Text>
         ) : (
-          <Text style={{ fontSize: 18, minWidth: 15, textAlign: 'right' }}>•</Text>
+          <Text style={{ fontSize: 18, minWidth: 15 }}>•</Text>
         ))}
       <BuilderChildren>{children}</BuilderChildren>
     </View>

@@ -63,9 +63,9 @@ export const KitchenSink = ({ label, ...props }: KitchenSinkProps) => {
               </RPB.UnorderedList>
               <RPB.Heading5>Ordered Lists</RPB.Heading5>
               <RPB.OrderedList>
-                <RPB.ListItem>List Item 1</RPB.ListItem>
-                <RPB.ListItem>List Item 2</RPB.ListItem>
-                <RPB.ListItem>List Item 3</RPB.ListItem>
+                <RPB.ListItem>List Item X</RPB.ListItem>
+                <RPB.ListItem>List Item X</RPB.ListItem>
+                <RPB.ListItem>List Item X</RPB.ListItem>
               </RPB.OrderedList>
             </RPB.Box>
           </Page>
