@@ -6,7 +6,7 @@ export interface ParagraphProps extends TextProps {
 }
 
 export const Paragraph = ({ children, ...props }: ParagraphProps) => {
-  const fontSize = 16;
+  const fontSize = 18;
   return (
     <Text {...props} style={{ fontSize, marginBottom: 10, ...props.style }}>
       {children}

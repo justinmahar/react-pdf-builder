@@ -1,15 +1,15 @@
-import { Box } from './parts/Box';
-import { Button } from './parts/Button';
-import { Heading1 } from './parts/Heading1';
-import { Heading2 } from './parts/Heading2';
-import { Heading3 } from './parts/Heading3';
-import { Heading4 } from './parts/Heading4';
-import { Heading5 } from './parts/Heading5';
-import { Heading6 } from './parts/Heading6';
-import { ListItem } from './parts/ListItem';
-import { OrderedList } from './parts/OrderedList';
-import { Paragraph } from './parts/Paragraph';
-import { UnorderedList } from './parts/UnorderedList';
+import { Box } from './parts/layout/Box';
+import { Button } from './parts/widgets/Button';
+import { ListItem } from './parts/lists/ListItem';
+import { OrderedList } from './parts/lists/OrderedList';
+import { Heading1 } from './parts/typography/Heading1';
+import { Heading2 } from './parts/typography/Heading2';
+import { Heading3 } from './parts/typography/Heading3';
+import { Heading4 } from './parts/typography/Heading4';
+import { Heading5 } from './parts/typography/Heading5';
+import { Heading6 } from './parts/typography/Heading6';
+import { Paragraph } from './parts/typography/Paragraph';
+import { UnorderedList } from './parts/lists/UnorderedList';
 
 export interface ReactPDFBuilderConfig {
   headingStartSize: number;
