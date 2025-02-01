@@ -1,4 +1,19 @@
-import { Document, Image, Link, Page, PDFViewer, Text } from '@react-pdf/renderer';
+import {
+  Canvas,
+  Circle,
+  Defs,
+  Document,
+  Image,
+  LinearGradient,
+  Link,
+  Page,
+  PDFViewer,
+  RadialGradient,
+  Rect,
+  Stop,
+  Svg,
+  Text,
+} from '@react-pdf/renderer';
 import React from 'react';
 import { DivProps } from 'react-html-props';
 import { Card } from './builder/parts/card/Card';
@@ -20,6 +35,8 @@ import { Heading6 } from './builder/parts/typography/Heading6';
 import { Paragraph } from './builder/parts/typography/Paragraph';
 import { Button } from './builder/parts/widgets/Button';
 import { PageNumber } from './builder/parts/pages/PageNumber';
+import { Painter } from './Painter';
+import { RectangleShape } from './builder/parts/shapes/RectangleShape';
 
 export interface KitchenSinkProps extends DivProps {
   /**
@@ -51,19 +68,20 @@ export const KitchenSink = ({ label, ...props }: KitchenSinkProps) => {
             size="A4"
             style={{ flexDirection: 'column', padding: 30, paddingBottom: footerHeight, backgroundColor: '#F8F9FA' }}
           >
-            {/* <Text
-              style={{
-                position: 'absolute',
-                left: '0px',
-                right: '0px',
-                top: '30%',
-                marginHorizontal: 'auto',
-                textAlign: 'center',
-                justifyContent: 'center',
-              }}
-            >
-              WOW AWESOME
-            </Text> */}
+            <Box>
+              <RectangleShape width={100} height={50} gradient={['blue', 'green']} />
+            </Box>
+            {/* <Box style={{ position: 'absolute' }}>
+              <Svg viewBox="0 0 20 20" width={1000}>
+                <Defs>
+                  <RadialGradient id="myRadialGradient">
+                    <Stop offset="10%" stopColor="gold" />
+                    <Stop offset="95%" stopColor="red" />
+                  </RadialGradient>
+                </Defs>
+                <Circle cx="10" cy="10" r="10" fill="url('#myRadialGradient')" />
+              </Svg>
+            </Box> */}
             <Box direction="y" style={{ gap: 10 }}>
               <Heading5 rule>Basic Typography</Heading5>
               <Heading1 rule>Heading1</Heading1>
@@ -370,6 +388,7 @@ export const KitchenSink = ({ label, ...props }: KitchenSinkProps) => {
                 bottom: 0,
                 left: 0,
                 right: 0,
+                marginHorizontal: 'auto',
                 justifyContent: 'space-between',
                 gap: 10,
                 alignItems: 'center',

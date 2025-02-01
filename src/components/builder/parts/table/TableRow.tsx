@@ -66,6 +66,7 @@ export const TableRow = ({
 
   const childArray = originalChildArray.map((c, i, arr) => {
     return React.cloneElement(c, {
+      key: `col-` + i,
       striped,
       stripeStyle,
       inverseStriped,
