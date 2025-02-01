@@ -1,4 +1,4 @@
-import { Document, Page, PDFViewer } from '@react-pdf/renderer';
+import { Document, Image, Link, Page, PDFViewer, Text } from '@react-pdf/renderer';
 import React from 'react';
 import { DivProps } from 'react-html-props';
 import { Card } from './builder/parts/card/Card';
@@ -19,6 +19,7 @@ import { Heading5 } from './builder/parts/typography/Heading5';
 import { Heading6 } from './builder/parts/typography/Heading6';
 import { Paragraph } from './builder/parts/typography/Paragraph';
 import { Button } from './builder/parts/widgets/Button';
+import { PageNumber } from './builder/parts/pages/PageNumber';
 
 export interface KitchenSinkProps extends DivProps {
   /**
@@ -36,7 +37,7 @@ export interface KitchenSinkProps extends DivProps {
  */
 export const KitchenSink = ({ label, ...props }: KitchenSinkProps) => {
   const buttonHref = 'https://github.com/justinmahar/react-pdf-builder';
-
+  const footerHeight = 50;
   return (
     <div
       {...props}
@@ -46,7 +47,10 @@ export const KitchenSink = ({ label, ...props }: KitchenSinkProps) => {
     >
       <PDFViewer style={{ height: 600, width: 400 }}>
         <Document>
-          <Page size="A4" style={{ flexDirection: 'column', padding: 30, backgroundColor: '#F8F9FA' }}>
+          <Page
+            size="A4"
+            style={{ flexDirection: 'column', padding: 30, paddingBottom: footerHeight, backgroundColor: '#F8F9FA' }}
+          >
             {/* <Text
               style={{
                 position: 'absolute',
@@ -150,13 +154,18 @@ export const KitchenSink = ({ label, ...props }: KitchenSinkProps) => {
                 </Box>
                 <Box
                   padding={10}
-                  style={{ width: 200, justifyContent: 'center', alignItems: 'center', backgroundColor: 'lightyellow' }}
+                  style={{
+                    width: 200,
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    backgroundColor: 'lightyellow',
+                  }}
                 >
                   <Paragraph style={{ marginBottom: 0 }}>200px</Paragraph>
                 </Box>
               </Box>
               <Heading6 break>Vertical Box</Heading6>
-              <Box direction="y" style={{ height: 730 }}>
+              <Box direction="y" style={{ height: 500 }}>
                 <Box
                   grow
                   padding={10}
@@ -195,7 +204,9 @@ export const KitchenSink = ({ label, ...props }: KitchenSinkProps) => {
                   </Paragraph>
                 </Box>
               </Box>
-              <Heading5 rule>Tables</Heading5>
+              <Heading5 rule break>
+                Tables
+              </Heading5>
               <Heading6>Plain and bordered inside, 400px</Heading6>
               <Box direction="x" style={{ justifyContent: 'center' }}>
                 <Table borderedInside style={{ width: 400 }}>
@@ -351,6 +362,34 @@ export const KitchenSink = ({ label, ...props }: KitchenSinkProps) => {
                   </Box>
                 </CardBody>
               </Card>
+            </Box>
+            <Box
+              direction="x"
+              style={{
+                position: 'absolute',
+                bottom: 0,
+                left: 0,
+                right: 0,
+                justifyContent: 'space-between',
+                gap: 10,
+                alignItems: 'center',
+                height: footerHeight,
+                backgroundColor: '#00000011',
+                paddingLeft: 30,
+                paddingRight: 30,
+              }}
+              fixed
+            >
+              <Link
+                href="https://github.com/justinmahar/react-pdf-builder"
+                style={{ textDecoration: 'none', color: 'inherit' }}
+              >
+                <Box direction="x" gap={10} style={{ alignItems: 'center' }}>
+                  <Image src="/images/github-250.png" style={{ height: 24, padding: 2 }}></Image>
+                  React PDF Builder
+                </Box>
+              </Link>
+              <PageNumber format="Page %n of %t" />
             </Box>
           </Page>
         </Document>

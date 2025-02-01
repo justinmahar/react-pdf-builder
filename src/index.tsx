@@ -24,5 +24,8 @@ export * from './components/builder/parts/typography/Heading5';
 export * from './components/builder/parts/typography/Heading6';
 export * from './components/builder/parts/typography/Paragraph';
 
+// Page Number
+export * from './components/builder/parts/pages/PageNumber';
+
 // Widgets
 export * from './components/builder/parts/widgets/Button';
