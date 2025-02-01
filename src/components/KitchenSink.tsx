@@ -217,7 +217,7 @@ export const KitchenSink = ({ label, ...props }: KitchenSinkProps) => {
                 </Table>
               </Box>
               <Heading6>Striped, horizontal bordered, with page wrapping demo</Heading6>
-              <Table borderedOutside borderedHorizontal borderWidth={1} striped colWidths={['30%', '50%', '20%']}>
+              <Table borderedOutside borderedHorizontal borderWidth={1} striped>
                 <TableRow>
                   <TableCell>Lorem ipsum dolor</TableCell>
                   <TableCell>Consectetur adipiscing elit</TableCell>
