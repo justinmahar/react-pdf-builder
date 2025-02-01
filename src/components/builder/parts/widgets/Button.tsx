@@ -1,6 +1,6 @@
 import { Link, View, ViewProps } from '@react-pdf/renderer';
 import React from 'react';
-import { PDFChildren } from '../PDFChildren';
+import { PDFSafeChildren } from '../PDFSafeChildren';
 
 export interface ButtonProps extends ViewProps {
   href?: string;
@@ -14,7 +14,9 @@ export const Button = ({ href, children, variant, pill, ...props }: ButtonProps)
   const color = variant ? defaultVariantForegrounds[variant] : defaultVariantForegrounds['primary'];
   const hasHref = typeof href !== 'undefined';
   const child = (
-    <PDFChildren textStyle={hasHref ? { textDecoration: 'no-underline' as any } : undefined}>{children}</PDFChildren>
+    <PDFSafeChildren textStyle={hasHref ? { textDecoration: 'no-underline' as any } : undefined}>
+      {children}
+    </PDFSafeChildren>
   );
 
   if (hasHref) {

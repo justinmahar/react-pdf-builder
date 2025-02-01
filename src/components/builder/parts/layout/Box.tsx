@@ -1,7 +1,7 @@
 import { Text, View, ViewProps } from '@react-pdf/renderer';
 import React from 'react';
 import { Style } from '../../../Style';
-import { PDFChildren } from '../PDFChildren';
+import { PDFSafeChildren } from '../PDFSafeChildren';
 
 export interface BoxProps extends ViewProps {
   children?: any;
@@ -23,7 +23,7 @@ export const Box = ({ children, direction, grow, shrink, gap, padding, ...props 
   };
   return (
     <View {...props} style={{ ...style, ...props.style }}>
-      <PDFChildren>{children}</PDFChildren>
+      <PDFSafeChildren>{children}</PDFSafeChildren>
     </View>
   );
 };

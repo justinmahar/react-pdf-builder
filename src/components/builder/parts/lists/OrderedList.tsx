@@ -1,7 +1,7 @@
 import { View, ViewProps } from '@react-pdf/renderer';
 import React from 'react';
 import { ListItemWrapper, ListItemWrapperProps } from './ListItemWrapper';
-import { PDFChildren } from '../PDFChildren';
+import { PDFSafeChildren } from '../PDFSafeChildren';
 import { Style } from '../../../Style';
 
 export interface OrderedListProps extends ViewProps {
@@ -31,7 +31,7 @@ export const OrderedList = ({
       key={'ol-li-' + i}
       {...wrapperProps}
     >
-      <PDFChildren>{c}</PDFChildren>
+      <PDFSafeChildren>{c}</PDFSafeChildren>
     </ListItemWrapper>
   ));
 

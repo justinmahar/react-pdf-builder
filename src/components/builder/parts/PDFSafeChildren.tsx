@@ -2,12 +2,15 @@ import { Text } from '@react-pdf/renderer';
 import React from 'react';
 import { Style } from '../../Style';
 
-export interface PDFChildrenProps {
+export interface PDFSafeChildrenProps {
   children?: any;
   textStyle?: Style;
 }
 
-export const PDFChildren = ({ children, textStyle, ...props }: PDFChildrenProps) => {
+/**
+ * Ensures children that are strings are wrapped in a Text component.
+ */
+export const PDFSafeChildren = ({ children, textStyle, ...props }: PDFSafeChildrenProps) => {
   const childArray: any[] = Array.isArray(children) ? children : [children];
   return childArray.map((c, i) => {
     if (typeof c === 'string') {

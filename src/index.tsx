@@ -14,6 +14,13 @@ export * from './components/builder/parts/lists/UnorderedList';
 // Pages
 export * from './components/builder/parts/pages/PageNumber';
 
+// Shapes
+export * from './components/builder/parts/shapes/CircleShape';
+export * from './components/builder/parts/shapes/EllipseShape';
+export * from './components/builder/parts/shapes/Gradients';
+export * from './components/builder/parts/shapes/RectangleShape';
+export * from './components/builder/parts/shapes/ShapeProps';
+
 // Table
 export * from './components/builder/parts/table/Table';
 export * from './components/builder/parts/table/TableRow';

@@ -1,6 +1,6 @@
 import { Text, View, ViewProps } from '@react-pdf/renderer';
 import React from 'react';
-import { PDFChildren } from '../PDFChildren';
+import { PDFSafeChildren } from '../PDFSafeChildren';
 import { Style } from '../../../Style';
 
 export interface ListItemWrapperProps extends ViewProps {
@@ -25,7 +25,7 @@ export const ListItemWrapper = ({
   return (
     <View {...props} style={{ display: 'flex', flexDirection: 'row', columnGap: 10, paddingRight: 30, ...props.style }}>
       {!undecorated && <Text style={markerStyle}>{isNumbered ? numberRenderer(num) : bullet}</Text>}
-      <PDFChildren>{children}</PDFChildren>
+      <PDFSafeChildren>{children}</PDFSafeChildren>
     </View>
   );
 };

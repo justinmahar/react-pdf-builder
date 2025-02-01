@@ -1,7 +1,7 @@
 import { View, ViewProps } from '@react-pdf/renderer';
 import React from 'react';
 import { ListItemWrapper, ListItemWrapperProps } from './ListItemWrapper';
-import { PDFChildren } from '../PDFChildren';
+import { PDFSafeChildren } from '../PDFSafeChildren';
 import { Style } from '../../../Style';
 
 export interface UnorderedListProps extends ViewProps {
@@ -24,7 +24,7 @@ export const UnorderedList = ({
 
   const liElements: JSX.Element[] = childArray.map((c, i) => (
     <ListItemWrapper bullet={bullet} markerStyle={markerStyle} wrap={wrapItems} key={'ul-li-' + i} {...wrapperProps}>
-      <PDFChildren>{c}</PDFChildren>
+      <PDFSafeChildren>{c}</PDFSafeChildren>
     </ListItemWrapper>
   ));
 

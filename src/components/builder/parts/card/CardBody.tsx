@@ -1,6 +1,6 @@
 import React from 'react';
 import { Style } from '../../../Style';
-import { PDFChildren } from '../PDFChildren';
+import { PDFSafeChildren } from '../PDFSafeChildren';
 import { Box, BoxProps } from '../layout/Box';
 
 export interface CardBodyProps extends BoxProps {
@@ -23,7 +23,7 @@ export const CardBody = ({ children, withHeader, withFooter, ...props }: CardBod
   };
   return (
     <Box {...props} style={{ ...style, ...props.style }}>
-      <PDFChildren>{children}</PDFChildren>
+      <PDFSafeChildren>{children}</PDFSafeChildren>
     </Box>
   );
 };

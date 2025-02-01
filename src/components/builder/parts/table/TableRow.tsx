@@ -1,6 +1,6 @@
 import React from 'react';
 import { Style } from '../../../Style';
-import { PDFChildren } from '../PDFChildren';
+import { PDFSafeChildren } from '../PDFSafeChildren';
 import { Box, BoxProps } from '../layout/Box';
 import { Text } from '@react-pdf/renderer';
 
@@ -90,7 +90,7 @@ export const TableRow = ({
 
   return (
     <Box wrap={false} direction="x" {...props} style={{ ...rowStyle, ...props.style }}>
-      <PDFChildren>{childArray}</PDFChildren>
+      <PDFSafeChildren>{childArray}</PDFSafeChildren>
     </Box>
   );
 };

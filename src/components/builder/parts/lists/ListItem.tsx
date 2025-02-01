@@ -1,6 +1,6 @@
 import { View, ViewProps } from '@react-pdf/renderer';
 import React from 'react';
-import { PDFChildren } from '../PDFChildren';
+import { PDFSafeChildren } from '../PDFSafeChildren';
 
 export interface ListItemProps extends ViewProps {
   children?: any;
@@ -9,7 +9,7 @@ export interface ListItemProps extends ViewProps {
 export const ListItem = ({ children, ...props }: ListItemProps) => {
   return (
     <View {...props}>
-      <PDFChildren>{children}</PDFChildren>
+      <PDFSafeChildren>{children}</PDFSafeChildren>
     </View>
   );
 };

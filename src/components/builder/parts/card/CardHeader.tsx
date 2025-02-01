@@ -1,7 +1,7 @@
 import { ViewProps } from '@react-pdf/renderer';
 import React from 'react';
 import { Style } from '../../../Style';
-import { PDFChildren } from '../PDFChildren';
+import { PDFSafeChildren } from '../PDFSafeChildren';
 import { Box, BoxProps } from '../layout/Box';
 import { Heading5 } from '../typography/Heading5';
 
@@ -32,7 +32,7 @@ export const CardHeader = ({ children, noBody, as, ...props }: CardHeaderProps) 
   };
   return (
     <Box {...props} style={{ ...style, ...props.style }}>
-      <PDFChildren>{child}</PDFChildren>
+      <PDFSafeChildren>{child}</PDFSafeChildren>
     </Box>
   );
 };
