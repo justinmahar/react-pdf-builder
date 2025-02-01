@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
-import { ListItem } from '../../components/builder/parts/lists/ListItem';
-import { OrderedList, OrderedListProps } from '../../components/builder/parts/lists/OrderedList';
-import { Heading4 } from '../../components/builder/parts/typography/Heading4';
-import { Heading5 } from '../../components/builder/parts/typography/Heading5';
+import { ListItem } from '../../components/lists/ListItem';
+import { OrderedList, OrderedListProps } from '../../components/lists/OrderedList';
+import { Heading4 } from '../../components/typography/Heading4';
+import { Heading5 } from '../../components/typography/Heading5';
 import { PDFStory } from '../parts/PDFStory';
 
 const StoryComponent = ({ liWidth, ...props }: OrderedListProps & { liWidth?: number }) => {

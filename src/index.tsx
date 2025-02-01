@@ -1,43 +1,43 @@
 // Card
-export * from './components/builder/parts/card/Card';
-export * from './components/builder/parts/card/CardBody';
-export * from './components/builder/parts/card/CardHeader';
+export * from './components/card/Card';
+export * from './components/card/CardBody';
+export * from './components/card/CardHeader';
 
 // Layout
-export * from './components/builder/parts/layout/Box';
+export * from './components/layout/Box';
 
 // Lists
-export * from './components/builder/parts/lists/ListItem';
-export * from './components/builder/parts/lists/OrderedList';
-export * from './components/builder/parts/lists/UnorderedList';
+export * from './components/lists/ListItem';
+export * from './components/lists/OrderedList';
+export * from './components/lists/UnorderedList';
 
 // Pages
-export * from './components/builder/parts/pages/PageNumber';
+export * from './components/pages/PageNumber';
 
 // Shapes
-export * from './components/builder/parts/shapes/CircleShape';
-export * from './components/builder/parts/shapes/EllipseShape';
-export * from './components/builder/parts/shapes/Gradients';
-export * from './components/builder/parts/shapes/RectangleShape';
-export * from './components/builder/parts/shapes/ShapeProps';
+export * from './components/shapes/CircleShape';
+export * from './components/shapes/EllipseShape';
+export * from './components/shapes/Gradients';
+export * from './components/shapes/RectangleShape';
+export * from './components/shapes/ShapeProps';
 
 // Table
-export * from './components/builder/parts/table/Table';
-export * from './components/builder/parts/table/TableRow';
-export * from './components/builder/parts/table/TableCell';
+export * from './components/table/Table';
+export * from './components/table/TableRow';
+export * from './components/table/TableCell';
 
 // Typography
-export * from './components/builder/parts/typography/Heading';
-export * from './components/builder/parts/typography/Heading1';
-export * from './components/builder/parts/typography/Heading2';
-export * from './components/builder/parts/typography/Heading3';
-export * from './components/builder/parts/typography/Heading4';
-export * from './components/builder/parts/typography/Heading5';
-export * from './components/builder/parts/typography/Heading6';
-export * from './components/builder/parts/typography/Paragraph';
+export * from './components/typography/Heading';
+export * from './components/typography/Heading1';
+export * from './components/typography/Heading2';
+export * from './components/typography/Heading3';
+export * from './components/typography/Heading4';
+export * from './components/typography/Heading5';
+export * from './components/typography/Heading6';
+export * from './components/typography/Paragraph';
 
 // Widgets
-export * from './components/builder/parts/widgets/Button';
+export * from './components/widgets/Button';
 
 // Style
 export * from './components/Style';

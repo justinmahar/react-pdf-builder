@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
-import { Box } from '../../components/builder/parts/layout/Box';
-import { Table } from '../../components/builder/parts/table/Table';
-import { TableCell } from '../../components/builder/parts/table/TableCell';
-import { TableRow } from '../../components/builder/parts/table/TableRow';
-import { Heading6 } from '../../components/builder/parts/typography/Heading6';
-import { ParagraphProps } from '../../components/builder/parts/typography/Paragraph';
+import { Box } from '../../components/layout/Box';
+import { Table } from '../../components/table/Table';
+import { TableCell } from '../../components/table/TableCell';
+import { TableRow } from '../../components/table/TableRow';
+import { Heading6 } from '../../components/typography/Heading6';
+import { ParagraphProps } from '../../components/typography/Paragraph';
 import { PDFStory } from '../parts/PDFStory';
 
 const StoryComponent = (props: ParagraphProps) => {

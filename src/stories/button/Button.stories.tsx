@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
-import { Button, ButtonProps } from '../../components/builder/parts/widgets/Button';
+import { Button, ButtonProps } from '../../components/widgets/Button';
 import { PDFStory } from '../parts/PDFStory';
-import { Box } from '../../components/builder/parts/layout/Box';
+import { Box } from '../../components/layout/Box';
 
 const StoryComponent = (props: ButtonProps) => {
   const label = props.variant ? props.variant.substring(0, 1).toUpperCase() + props.variant.substring(1) : 'Button';

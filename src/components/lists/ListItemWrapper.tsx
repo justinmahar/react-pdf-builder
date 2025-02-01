@@ -1,7 +1,7 @@
 import { Text, View, ViewProps } from '@react-pdf/renderer';
 import React from 'react';
+import { Style } from '../Style';
 import { PDFSafeChildren } from '../PDFSafeChildren';
-import { Style } from '../../../Style';
 
 export interface ListItemWrapperProps extends ViewProps {
   children?: any;

@@ -1,7 +1,7 @@
 import React from 'react';
-import { Style } from '../../../Style';
-import { PDFSafeChildren } from '../PDFSafeChildren';
+import { Style } from '../Style';
 import { Box, BoxProps } from '../layout/Box';
+import { PDFSafeChildren } from '../PDFSafeChildren';
 
 export interface CardProps extends BoxProps {
   children?: any;

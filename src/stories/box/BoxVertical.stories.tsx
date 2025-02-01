@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
-import { Box, BoxProps } from '../../components/builder/parts/layout/Box';
+import { Box, BoxProps } from '../../components/layout/Box';
 import { PDFStory } from '../parts/PDFStory';
-import { Paragraph } from '../../components/builder/parts/typography/Paragraph';
-import { Heading5 } from '../../components/builder/parts/typography/Heading5';
+import { Paragraph } from '../../components/typography/Paragraph';
+import { Heading5 } from '../../components/typography/Heading5';
 
 const StoryComponent = (props: BoxProps) => {
   return (

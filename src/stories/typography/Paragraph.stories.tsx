@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
-import { Heading1 } from '../../components/builder/parts/typography/Heading1';
-import { Heading2 } from '../../components/builder/parts/typography/Heading2';
-import { Heading3 } from '../../components/builder/parts/typography/Heading3';
-import { Heading4 } from '../../components/builder/parts/typography/Heading4';
-import { Heading5 } from '../../components/builder/parts/typography/Heading5';
-import { Heading6 } from '../../components/builder/parts/typography/Heading6';
-import { Paragraph, ParagraphProps } from '../../components/builder/parts/typography/Paragraph';
+import { Heading1 } from '../../components/typography/Heading1';
+import { Heading2 } from '../../components/typography/Heading2';
+import { Heading3 } from '../../components/typography/Heading3';
+import { Heading4 } from '../../components/typography/Heading4';
+import { Heading5 } from '../../components/typography/Heading5';
+import { Heading6 } from '../../components/typography/Heading6';
+import { Paragraph, ParagraphProps } from '../../components/typography/Paragraph';
 import { PDFStory } from '../parts/PDFStory';
 
 const StoryComponent = (props: ParagraphProps) => {

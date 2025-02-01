@@ -1,8 +1,7 @@
 import React from 'react';
-import { Style } from '../../../Style';
 import { PDFSafeChildren } from '../PDFSafeChildren';
+import { Style } from '../Style';
 import { Box, BoxProps } from '../layout/Box';
-import { Text } from '@react-pdf/renderer';
 
 export interface TableRowProps extends BoxProps {
   children?: any;

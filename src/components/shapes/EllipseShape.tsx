@@ -1,6 +1,6 @@
 import { Defs, Ellipse, EllipseProps, LinearGradient, RadialGradient, Stop, Svg } from '@react-pdf/renderer';
 import React from 'react';
-import { randomUuid } from '../../../util';
+import { randomUuid } from '../util';
 import { Gradients, GradientType } from './Gradients';
 import { ShapeProps } from './ShapeProps';
 

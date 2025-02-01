@@ -1,36 +1,29 @@
 import { View, ViewProps } from '@react-pdf/renderer';
 import React from 'react';
 import { ListItemWrapper, ListItemWrapperProps } from './ListItemWrapper';
+import { Style } from '../Style';
 import { PDFSafeChildren } from '../PDFSafeChildren';
-import { Style } from '../../../Style';
 
-export interface OrderedListProps extends ViewProps {
+export interface UnorderedListProps extends ViewProps {
   children?: any;
   wrapItems?: boolean;
   markerStyle?: Style;
   wrapperProps?: ListItemWrapperProps;
-  numberRenderer?: (num: number) => string;
+  bullet?: string;
 }
 
-export const OrderedList = ({
+export const UnorderedList = ({
   children,
   wrapItems = false,
   markerStyle,
   wrapperProps,
-  numberRenderer,
+  bullet,
   ...props
-}: OrderedListProps) => {
+}: UnorderedListProps) => {
   const childArray = Array.isArray(children) ? children : [children];
 
   const liElements: JSX.Element[] = childArray.map((c, i) => (
-    <ListItemWrapper
-      markerStyle={markerStyle}
-      wrap={wrapItems}
-      numberRenderer={numberRenderer}
-      num={i + 1}
-      key={'ol-li-' + i}
-      {...wrapperProps}
-    >
+    <ListItemWrapper bullet={bullet} markerStyle={markerStyle} wrap={wrapItems} key={'ul-li-' + i} {...wrapperProps}>
       <PDFSafeChildren>{c}</PDFSafeChildren>
     </ListItemWrapper>
   ));

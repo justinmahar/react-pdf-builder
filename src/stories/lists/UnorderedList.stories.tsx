@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
-import { ListItem } from '../../components/builder/parts/lists/ListItem';
-import { UnorderedList, UnorderedListProps } from '../../components/builder/parts/lists/UnorderedList';
+import { ListItem } from '../../components/lists/ListItem';
+import { UnorderedList, UnorderedListProps } from '../../components/lists/UnorderedList';
 import { PDFStory } from '../parts/PDFStory';
-import { Heading4 } from '../../components/builder/parts/typography/Heading4';
-import { Heading5 } from '../../components/builder/parts/typography/Heading5';
+import { Heading4 } from '../../components/typography/Heading4';
+import { Heading5 } from '../../components/typography/Heading5';
 
 const StoryComponent = ({ liWidth, ...props }: UnorderedListProps & { liWidth?: number }) => {
   return (

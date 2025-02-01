@@ -1,6 +1,6 @@
 import { ViewProps } from '@react-pdf/renderer';
 import React from 'react';
-import { Style } from '../../../Style';
+import { Style } from '../Style';
 import { PDFSafeChildren } from '../PDFSafeChildren';
 import { Box, BoxProps } from '../layout/Box';
 import { Heading5 } from '../typography/Heading5';

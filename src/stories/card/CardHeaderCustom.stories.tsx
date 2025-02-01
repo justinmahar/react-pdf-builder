@@ -1,19 +1,19 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
-import { Card } from '../../components/builder/parts/card/Card';
-import { CardBody } from '../../components/builder/parts/card/CardBody';
-import { CardHeader } from '../../components/builder/parts/card/CardHeader';
-import { Heading1 } from '../../components/builder/parts/typography/Heading1';
-import { Heading6 } from '../../components/builder/parts/typography/Heading6';
-import { Paragraph, ParagraphProps } from '../../components/builder/parts/typography/Paragraph';
+import { Card } from '../../components/card/Card';
+import { CardBody } from '../../components/card/CardBody';
+import { CardHeader } from '../../components/card/CardHeader';
+import { Heading1 } from '../../components/typography/Heading1';
+import { Heading6 } from '../../components/typography/Heading6';
+import { Paragraph, ParagraphProps } from '../../components/typography/Paragraph';
 import { PDFStory } from '../parts/PDFStory';
-import { Heading5 } from '../../components/builder/parts/typography/Heading5';
-import { Box } from '../../components/builder/parts/layout/Box';
-import { Button } from '../../components/builder/parts/widgets/Button';
-import { Heading3 } from '../../components/builder/parts/typography/Heading3';
-import { Heading4 } from '../../components/builder/parts/typography/Heading4';
-import { OrderedList } from '../../components/builder/parts/lists/OrderedList';
-import { ListItem } from '../../components/builder/parts/lists/ListItem';
+import { Heading5 } from '../../components/typography/Heading5';
+import { Box } from '../../components/layout/Box';
+import { Button } from '../../components/widgets/Button';
+import { Heading3 } from '../../components/typography/Heading3';
+import { Heading4 } from '../../components/typography/Heading4';
+import { OrderedList } from '../../components/lists/OrderedList';
+import { ListItem } from '../../components/lists/ListItem';
 
 const StoryComponent = (props: ParagraphProps) => {
   return (

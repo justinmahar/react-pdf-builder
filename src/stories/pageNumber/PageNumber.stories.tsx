@@ -1,13 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
-import { Button, ButtonProps } from '../../components/builder/parts/widgets/Button';
+import { Button, ButtonProps } from '../../components/widgets/Button';
 import { PDFStory } from '../parts/PDFStory';
-import { Box } from '../../components/builder/parts/layout/Box';
+import { Box } from '../../components/layout/Box';
 import { Image, Link } from '@react-pdf/renderer';
-import { PageNumber } from '../../components/builder/parts/pages/PageNumber';
-import { Paragraph } from '../../components/builder/parts/typography/Paragraph';
-import { Heading4 } from '../../components/builder/parts/typography/Heading4';
-import { Heading2 } from '../../components/builder/parts/typography/Heading2';
+import { PageNumber } from '../../components/pages/PageNumber';
+import { Paragraph } from '../../components/typography/Paragraph';
+import { Heading4 } from '../../components/typography/Heading4';
+import { Heading2 } from '../../components/typography/Heading2';
 
 interface StoryProps {
   format?: string;
