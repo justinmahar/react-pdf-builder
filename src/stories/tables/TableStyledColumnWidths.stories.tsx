@@ -11,7 +11,7 @@ import { PDFStory } from '../parts/PDFStory';
 const StoryComponent = (props: ParagraphProps) => {
   return (
     <PDFStory>
-      <Heading6>Styled with column widths 30%, 50%, 20%</Heading6>
+      <Heading6>Styled with custom column widths</Heading6>
       <Table
         bordered
         inverseStriped
@@ -27,13 +27,13 @@ const StoryComponent = (props: ParagraphProps) => {
           }}
         >
           <TableCell>
-            <Heading6 style={{ marginBottom: 0 }}>Lorem ipsum dolor</Heading6>
+            <Heading6 style={{ marginBottom: 0 }}>Col 30% </Heading6>
           </TableCell>
           <TableCell>
-            <Heading6 style={{ marginBottom: 0 }}>Consectetur adipiscing elit</Heading6>
+            <Heading6 style={{ marginBottom: 0 }}>Column 50%</Heading6>
           </TableCell>
           <TableCell>
-            <Heading6 style={{ marginBottom: 0 }}>Sed do eiusmod</Heading6>
+            <Heading6 style={{ marginBottom: 0 }}>20%</Heading6>
           </TableCell>
         </TableRow>
         <TableRow>
@@ -48,6 +48,14 @@ const StoryComponent = (props: ParagraphProps) => {
             aliqua.
           </TableCell>
           <TableCell>Dolore magna aliqua</TableCell>
+        </TableRow>
+        <TableRow colWidths={['80%', '20%']}>
+          <TableCell>This row has only two cells. The first is 80%, the second is 20%.</TableCell>
+          <TableCell>Dolore magna aliqua</TableCell>
+        </TableRow>
+        <TableRow colWidths={['50%', '50%']}>
+          <TableCell>50% col width</TableCell>
+          <TableCell>50% col width</TableCell>
         </TableRow>
         <TableRow>
           <TableCell>Lorem ipsum dolor</TableCell>

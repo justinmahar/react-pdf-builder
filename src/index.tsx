@@ -18,6 +18,7 @@ export * from './components/pages/PageNumber';
 export * from './components/shapes/CircleShape';
 export * from './components/shapes/EllipseShape';
 export * from './components/shapes/Gradients';
+export * from './components/shapes/LineShape';
 export * from './components/shapes/RectangleShape';
 export * from './components/shapes/ShapeProps';
 

@@ -9,6 +9,8 @@ import { ListItem } from './lists/ListItem';
 import { OrderedList } from './lists/OrderedList';
 import { UnorderedList } from './lists/UnorderedList';
 import { PageNumber } from './pages/PageNumber';
+import { CircleShape } from './shapes/CircleShape';
+import { GradientType } from './shapes/Gradients';
 import { RectangleShape } from './shapes/RectangleShape';
 import { Table } from './table/Table';
 import { TableCell } from './table/TableCell';
@@ -21,9 +23,7 @@ import { Heading5 } from './typography/Heading5';
 import { Heading6 } from './typography/Heading6';
 import { Paragraph } from './typography/Paragraph';
 import { Button } from './widgets/Button';
-import { GradientType } from './shapes/Gradients';
-import { EllipseShape } from './shapes/EllipseShape';
-import { CircleShape } from './shapes/CircleShape';
+import { PlaidBackground } from './backgrounds/PlaidBackground';
 
 export interface KitchenSinkProps extends DivProps {
   /**
@@ -51,6 +51,30 @@ export const KitchenSink = ({ label, ...props }: KitchenSinkProps) => {
     >
       <PDFViewer style={{ height: 600, width: 400 }}>
         <Document>
+          <Page size="A4" style={{ flexDirection: 'column', color: 'white' }}>
+            <PlaidBackground />
+            <Box direction="y" style={{ height: '100%' }}>
+              <Box style={{ height: '5%', backgroundColor: '#00000022' }} />
+              <Box style={{ height: '15%' }} />
+              <Box
+                shrink
+                style={{
+                  justifyContent: 'center',
+                  padding: 30,
+                  backgroundColor: '#00000022',
+                }}
+              >
+                <Heading1 style={{ textAlign: 'center', fontSize: 60 }}>React PDF Builder</Heading1>
+                <Heading5 style={{ textAlign: 'center', fontSize: 28 }}>
+                  Build beautiful PDF documents in React.
+                </Heading5>
+              </Box>
+              <Box grow style={{ justifyContent: 'center', alignItems: 'center' }}>
+                <Image src="/images/logo-red.png" style={{ width: 250 }} />
+              </Box>
+              <Box style={{ height: '5%', backgroundColor: '#00000022' }} />
+            </Box>
+          </Page>
           <Page
             size="A4"
             style={{ flexDirection: 'column', padding: 30, paddingBottom: footerHeight, backgroundColor: '#F8F9FA' }}
