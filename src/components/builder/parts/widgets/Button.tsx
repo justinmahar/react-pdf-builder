@@ -5,7 +5,7 @@ import { PDFChildren } from '../PDFChildren';
 export interface ButtonProps extends ViewProps {
   href?: string;
   variant?: string;
-  children: any;
+  children?: any;
   pill?: boolean;
 }
 

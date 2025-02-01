@@ -2,7 +2,7 @@ import { Document, Page, PageProps, PDFViewer } from '@react-pdf/renderer';
 import React from 'react';
 
 export interface PDFStoryProps {
-  children: any;
+  children?: any;
   pageProps?: PageProps;
 }
 

@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
-import { CardHeader } from '../../components/builder/parts/layout/CardHeader';
+import { CardHeader } from '../../components/builder/parts/card/CardHeader';
 import { Paragraph, ParagraphProps } from '../../components/builder/parts/typography/Paragraph';
 import { PDFStory } from '../parts/PDFStory';
 import { Heading4 } from '../../components/builder/parts/typography/Heading4';
-import { Card } from '../../components/builder/parts/layout/Card';
-import { CardBody } from '../../components/builder/parts/layout/CardBody';
+import { Card } from '../../components/builder/parts/card/Card';
+import { CardBody } from '../../components/builder/parts/card/CardBody';
 import { Heading6 } from '../../components/builder/parts/typography/Heading6';
 import { Heading5 } from '../../components/builder/parts/typography/Heading5';
 import { Image } from '@react-pdf/renderer';

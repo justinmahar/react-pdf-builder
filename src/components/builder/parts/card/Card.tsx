@@ -1,10 +1,10 @@
 import React from 'react';
 import { Style } from '../../../Style';
 import { PDFChildren } from '../PDFChildren';
-import { Box, BoxProps } from './Box';
+import { Box, BoxProps } from '../layout/Box';
 
 export interface CardProps extends BoxProps {
-  children: any;
+  children?: any;
 }
 
 export const Card = ({ children, ...props }: CardProps) => {

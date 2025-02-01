@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
-import { Card } from '../../components/builder/parts/layout/Card';
-import { CardBody } from '../../components/builder/parts/layout/CardBody';
-import { CardHeader } from '../../components/builder/parts/layout/CardHeader';
+import { Card } from '../../components/builder/parts/card/Card';
+import { CardBody } from '../../components/builder/parts/card/CardBody';
+import { CardHeader } from '../../components/builder/parts/card/CardHeader';
 import { Heading1 } from '../../components/builder/parts/typography/Heading1';
 import { Heading6 } from '../../components/builder/parts/typography/Heading6';
 import { Paragraph, ParagraphProps } from '../../components/builder/parts/typography/Paragraph';

@@ -1,8 +1,8 @@
 import { Image } from '@react-pdf/renderer';
 import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
-import { Card } from '../../components/builder/parts/layout/Card';
-import { CardBody } from '../../components/builder/parts/layout/CardBody';
+import { Card } from '../../components/builder/parts/card/Card';
+import { CardBody } from '../../components/builder/parts/card/CardBody';
 import { Heading6 } from '../../components/builder/parts/typography/Heading6';
 import { Paragraph, ParagraphProps } from '../../components/builder/parts/typography/Paragraph';
 import { PDFStory } from '../parts/PDFStory';

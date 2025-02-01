@@ -3,7 +3,7 @@ import React from 'react';
 import { Style } from '../../Style';
 
 export interface PDFChildrenProps {
-  children: any;
+  children?: any;
   textStyle?: Style;
 }
 

@@ -4,7 +4,7 @@ import { PDFChildren } from '../PDFChildren';
 import { Style } from '../../../Style';
 
 export interface ListItemWrapperProps extends ViewProps {
-  children: any;
+  children?: any;
   undecorated?: boolean;
   num?: number;
   markerStyle?: Style;

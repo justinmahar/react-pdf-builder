@@ -5,7 +5,7 @@ import { PDFChildren } from '../PDFChildren';
 import { Style } from '../../../Style';
 
 export interface UnorderedListProps extends ViewProps {
-  children: any;
+  children?: any;
   wrapItems?: boolean;
   markerStyle?: Style;
   wrapperProps?: ListItemWrapperProps;

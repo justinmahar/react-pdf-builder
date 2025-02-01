@@ -3,7 +3,7 @@ import React from 'react';
 import { HeadingProps, headingStartSize, headingStepSize } from './Heading';
 
 export interface Heading4Props extends HeadingProps {
-  children: any;
+  children?: any;
 }
 
 export const Heading4 = ({ children, rule, ...props }: Heading4Props) => {

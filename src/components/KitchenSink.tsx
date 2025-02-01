@@ -2,10 +2,14 @@ import { Document, Image, Page, PDFViewer, Text, View } from '@react-pdf/rendere
 import React from 'react';
 import { DivProps } from 'react-html-props';
 import { ReactPDFBuilder } from './builder/ReactPDFBuilder';
-import { Card } from './builder/parts/layout/Card';
-import { CardHeader } from './builder/parts/layout/CardHeader';
+import { Card } from './builder/parts/card/Card';
+import { CardHeader } from './builder/parts/card/CardHeader';
 import { Heading5 } from './builder/parts/typography/Heading5';
-import { CardBody } from './builder/parts/layout/CardBody';
+import { CardBody } from './builder/parts/card/CardBody';
+import { Box } from './builder/parts/layout/Box';
+import { Table } from './builder/parts/table/Table';
+import { TableRow } from './builder/parts/table/TableRow';
+import { TableCell } from './builder/parts/table/TableCell';
 
 export interface KitchenSinkProps extends DivProps {
   /**
@@ -36,6 +40,33 @@ export const KitchenSink = ({ label, ...props }: KitchenSinkProps) => {
       <PDFViewer style={{ height: 600, width: 400 }}>
         <Document>
           <Page size="A4" style={{ flexDirection: 'column', padding: 30, backgroundColor: '#F8F9FA' }}>
+            <Table
+              direction="y"
+              bordered
+              style={{
+                marginVertical: 50,
+              }}
+            >
+              <TableRow>
+                <TableCell style={{ width: '30%', padding: 8 }}>Lorem ipsum dolor</TableCell>
+                <TableCell style={{ width: '50%', padding: 8 }}>Consectetur adipiscing elit</TableCell>
+                <TableCell style={{ width: '20%', padding: 8 }}>Sed do eiusmod</TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell style={{ width: '30%', padding: 8 }}>Incididunt ut labore</TableCell>
+                <TableCell style={{ width: '50%', padding: 8 }}>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                  magna aliqua.
+                </TableCell>
+                <TableCell style={{ width: '20%', padding: 8 }}>Dolore magna aliqua</TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell style={{ width: '30%', padding: 8 }}>Lorem ipsum dolor</TableCell>
+                <TableCell style={{ width: '50%', padding: 8 }}>Consectetur adipiscing elit</TableCell>
+                <TableCell style={{ width: '20%', padding: 8 }}>Sed do eiusmod</TableCell>
+              </TableRow>
+            </Table>
+
             {/* <Text
               style={{
                 position: 'absolute',

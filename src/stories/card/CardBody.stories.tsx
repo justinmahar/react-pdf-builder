@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
-import { Card } from '../../components/builder/parts/layout/Card';
-import { CardBody } from '../../components/builder/parts/layout/CardBody';
+import { Card } from '../../components/builder/parts/card/Card';
+import { CardBody } from '../../components/builder/parts/card/CardBody';
 import { Heading4 } from '../../components/builder/parts/typography/Heading4';
 import { Paragraph, ParagraphProps } from '../../components/builder/parts/typography/Paragraph';
 import { PDFStory } from '../parts/PDFStory';
@@ -11,7 +11,7 @@ const StoryComponent = (props: ParagraphProps) => {
     <PDFStory pageProps={{ style: { backgroundColor: '#333388' } }}>
       <Card>
         <CardBody>
-          <Heading4>This card has no head! Ahhh!</Heading4>
+          <Heading4>This is a card with no header</Heading4>
           <Paragraph>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
             dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex

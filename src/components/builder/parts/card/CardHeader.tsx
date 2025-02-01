@@ -2,12 +2,12 @@ import { ViewProps } from '@react-pdf/renderer';
 import React from 'react';
 import { Style } from '../../../Style';
 import { PDFChildren } from '../PDFChildren';
-import { Box, BoxProps } from './Box';
+import { Box, BoxProps } from '../layout/Box';
 import { Heading5 } from '../typography/Heading5';
 
 export interface CardHeaderProps extends BoxProps {
   as?: any;
-  children: any;
+  children?: any;
   noBody?: boolean;
 }
 

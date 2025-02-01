@@ -4,7 +4,7 @@ import { Style } from '../../../Style';
 import { PDFChildren } from '../PDFChildren';
 
 export interface BoxProps extends ViewProps {
-  children: any;
+  children?: any;
   direction?: 'horizontal' | 'x' | 'vertical' | 'y';
   grow?: boolean;
   shrink?: boolean;
