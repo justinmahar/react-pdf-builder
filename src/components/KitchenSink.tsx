@@ -1,19 +1,4 @@
-import {
-  Canvas,
-  Circle,
-  Defs,
-  Document,
-  Image,
-  LinearGradient,
-  Link,
-  Page,
-  PDFViewer,
-  RadialGradient,
-  Rect,
-  Stop,
-  Svg,
-  Text,
-} from '@react-pdf/renderer';
+import { Document, Image, Link, Page, PDFViewer } from '@react-pdf/renderer';
 import React from 'react';
 import { DivProps } from 'react-html-props';
 import { Card } from './builder/parts/card/Card';
@@ -23,6 +8,8 @@ import { Box } from './builder/parts/layout/Box';
 import { ListItem } from './builder/parts/lists/ListItem';
 import { OrderedList } from './builder/parts/lists/OrderedList';
 import { UnorderedList } from './builder/parts/lists/UnorderedList';
+import { PageNumber } from './builder/parts/pages/PageNumber';
+import { RectangleShape } from './builder/parts/shapes/RectangleShape';
 import { Table } from './builder/parts/table/Table';
 import { TableCell } from './builder/parts/table/TableCell';
 import { TableRow } from './builder/parts/table/TableRow';
@@ -34,9 +21,6 @@ import { Heading5 } from './builder/parts/typography/Heading5';
 import { Heading6 } from './builder/parts/typography/Heading6';
 import { Paragraph } from './builder/parts/typography/Paragraph';
 import { Button } from './builder/parts/widgets/Button';
-import { PageNumber } from './builder/parts/pages/PageNumber';
-import { Painter } from './Painter';
-import { RectangleShape } from './builder/parts/shapes/RectangleShape';
 
 export interface KitchenSinkProps extends DivProps {
   /**
