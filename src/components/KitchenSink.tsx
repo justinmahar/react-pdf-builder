@@ -1,15 +1,24 @@
-import { Document, Image, Page, PDFViewer, Text, View } from '@react-pdf/renderer';
+import { Document, Page, PDFViewer } from '@react-pdf/renderer';
 import React from 'react';
 import { DivProps } from 'react-html-props';
-import { ReactPDFBuilder } from './builder/ReactPDFBuilder';
 import { Card } from './builder/parts/card/Card';
-import { CardHeader } from './builder/parts/card/CardHeader';
-import { Heading5 } from './builder/parts/typography/Heading5';
 import { CardBody } from './builder/parts/card/CardBody';
+import { CardHeader } from './builder/parts/card/CardHeader';
 import { Box } from './builder/parts/layout/Box';
+import { ListItem } from './builder/parts/lists/ListItem';
+import { OrderedList } from './builder/parts/lists/OrderedList';
+import { UnorderedList } from './builder/parts/lists/UnorderedList';
 import { Table } from './builder/parts/table/Table';
-import { TableRow } from './builder/parts/table/TableRow';
 import { TableCell } from './builder/parts/table/TableCell';
+import { TableRow } from './builder/parts/table/TableRow';
+import { Heading1 } from './builder/parts/typography/Heading1';
+import { Heading2 } from './builder/parts/typography/Heading2';
+import { Heading3 } from './builder/parts/typography/Heading3';
+import { Heading4 } from './builder/parts/typography/Heading4';
+import { Heading5 } from './builder/parts/typography/Heading5';
+import { Heading6 } from './builder/parts/typography/Heading6';
+import { Paragraph } from './builder/parts/typography/Paragraph';
+import { Button } from './builder/parts/widgets/Button';
 
 export interface KitchenSinkProps extends DivProps {
   /**
@@ -26,8 +35,6 @@ export interface KitchenSinkProps extends DivProps {
  * This is the description for the KitchenSink component
  */
 export const KitchenSink = ({ label, ...props }: KitchenSinkProps) => {
-  const RPB = new ReactPDFBuilder();
-
   const buttonHref = 'https://github.com/justinmahar/react-pdf-builder';
 
   return (
@@ -40,33 +47,6 @@ export const KitchenSink = ({ label, ...props }: KitchenSinkProps) => {
       <PDFViewer style={{ height: 600, width: 400 }}>
         <Document>
           <Page size="A4" style={{ flexDirection: 'column', padding: 30, backgroundColor: '#F8F9FA' }}>
-            <Table
-              direction="y"
-              bordered
-              style={{
-                marginVertical: 50,
-              }}
-            >
-              <TableRow>
-                <TableCell style={{ width: '30%', padding: 8 }}>Lorem ipsum dolor</TableCell>
-                <TableCell style={{ width: '50%', padding: 8 }}>Consectetur adipiscing elit</TableCell>
-                <TableCell style={{ width: '20%', padding: 8 }}>Sed do eiusmod</TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell style={{ width: '30%', padding: 8 }}>Incididunt ut labore</TableCell>
-                <TableCell style={{ width: '50%', padding: 8 }}>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                  magna aliqua.
-                </TableCell>
-                <TableCell style={{ width: '20%', padding: 8 }}>Dolore magna aliqua</TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell style={{ width: '30%', padding: 8 }}>Lorem ipsum dolor</TableCell>
-                <TableCell style={{ width: '50%', padding: 8 }}>Consectetur adipiscing elit</TableCell>
-                <TableCell style={{ width: '20%', padding: 8 }}>Sed do eiusmod</TableCell>
-              </TableRow>
-            </Table>
-
             {/* <Text
               style={{
                 position: 'absolute',
@@ -80,98 +60,62 @@ export const KitchenSink = ({ label, ...props }: KitchenSinkProps) => {
             >
               WOW AWESOME
             </Text> */}
-            <RPB.Box direction="y" style={{ gap: 10 }}>
-              <RPB.Heading5 rule>Basic Typography</RPB.Heading5>
-              <RPB.Heading1 rule>Heading1</RPB.Heading1>
-              <RPB.Heading2 rule>Heading2</RPB.Heading2>
-              <RPB.Heading3 rule>Heading3</RPB.Heading3>
-              <RPB.Heading4 rule>Heading4</RPB.Heading4>
-              <RPB.Heading5 rule>Heading5</RPB.Heading5>
-              <RPB.Heading6 rule>Heading6</RPB.Heading6>
-              <RPB.Paragraph>
+            <Box direction="y" style={{ gap: 10 }}>
+              <Heading5 rule>Basic Typography</Heading5>
+              <Heading1 rule>Heading1</Heading1>
+              <Heading2 rule>Heading2</Heading2>
+              <Heading3 rule>Heading3</Heading3>
+              <Heading4 rule>Heading4</Heading4>
+              <Heading5 rule>Heading5</Heading5>
+              <Heading6 rule>Heading6</Heading6>
+              <Paragraph>
                 Paragraph text. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
                 incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
                 laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
                 velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt
                 in culpa qui officia deserunt mollit anim id est laborum.
-              </RPB.Paragraph>
-              <Card>
-                <CardHeader>
-                  <Heading5 style={{ marginBottom: 0 }}>Buttons</Heading5>
-                </CardHeader>
-                <CardBody withHeader>
-                  <RPB.Box direction="x" style={{ flexWrap: 'wrap', justifyContent: 'center', gap: '10' }}>
-                    <RPB.Button variant="primary" href={buttonHref}>
-                      Primary
-                    </RPB.Button>
-                    <RPB.Button variant="secondary" href={buttonHref}>
-                      Secondary
-                    </RPB.Button>
-                    <RPB.Button variant="success" href={buttonHref}>
-                      Success
-                    </RPB.Button>
-                    <RPB.Button variant="danger" href={buttonHref}>
-                      Danger
-                    </RPB.Button>
-                    <RPB.Button variant="warning" href={buttonHref}>
-                      Warning
-                    </RPB.Button>
-                    <RPB.Button variant="info" href={buttonHref}>
-                      Info
-                    </RPB.Button>
-                    <RPB.Button variant="light" href={buttonHref}>
-                      Light
-                    </RPB.Button>
-                    <RPB.Button variant="dark" href={buttonHref}>
-                      Dark
-                    </RPB.Button>
-                    <RPB.Button variant="link" href={buttonHref}>
-                      Link
-                    </RPB.Button>
-                  </RPB.Box>
-                </CardBody>
-              </Card>
-              <RPB.Heading5 rule break>
+              </Paragraph>
+              <Heading5 rule break>
                 Unordered Lists
-              </RPB.Heading5>
-              <RPB.UnorderedList>
-                <RPB.ListItem>React</RPB.ListItem>
-                <RPB.ListItem>PDF</RPB.ListItem>
-                <RPB.ListItem>Builder</RPB.ListItem>
-                <RPB.ListItem>
+              </Heading5>
+              <UnorderedList>
+                <ListItem>React</ListItem>
+                <ListItem>PDF</ListItem>
+                <ListItem>Builder</ListItem>
+                <ListItem>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
                   dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
                   aliquip ex ea commodo consequat.
-                </RPB.ListItem>
-              </RPB.UnorderedList>
-              <RPB.Heading5 rule>Ordered Lists</RPB.Heading5>
-              <RPB.OrderedList>
-                <RPB.ListItem>List Item A</RPB.ListItem>
-                <RPB.ListItem>List Item B</RPB.ListItem>
-                <RPB.ListItem>List Item C</RPB.ListItem>
-                <RPB.ListItem>
+                </ListItem>
+              </UnorderedList>
+              <Heading5 rule>Ordered Lists</Heading5>
+              <OrderedList>
+                <ListItem>List Item A</ListItem>
+                <ListItem>List Item B</ListItem>
+                <ListItem>List Item C</ListItem>
+                <ListItem>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
                   dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
                   aliquip ex ea commodo consequat.
-                </RPB.ListItem>
-              </RPB.OrderedList>
-              <RPB.Heading5 rule>Layout</RPB.Heading5>
-              <RPB.Heading6>Horizontal Box</RPB.Heading6>
-              <RPB.Box direction="x">
-                <RPB.Box
+                </ListItem>
+              </OrderedList>
+              <Heading5 rule>Layout</Heading5>
+              <Heading6>Horizontal Box</Heading6>
+              <Box direction="x">
+                <Box
                   grow
                   padding={10}
                   style={{ justifyContent: 'center', alignItems: 'center', backgroundColor: 'lightblue' }}
                 >
-                  <RPB.Paragraph style={{ marginBottom: 0 }}>Grow</RPB.Paragraph>
-                </RPB.Box>
-                <RPB.Box
+                  <Paragraph style={{ marginBottom: 0 }}>Grow</Paragraph>
+                </Box>
+                <Box
                   padding={10}
                   style={{ justifyContent: 'center', alignItems: 'center', backgroundColor: 'lightpink' }}
                 >
-                  <RPB.Paragraph style={{ marginBottom: 0 }}>Shrink</RPB.Paragraph>
-                </RPB.Box>
-                <RPB.Box
+                  <Paragraph style={{ marginBottom: 0 }}>Shrink</Paragraph>
+                </Box>
+                <Box
                   direction="y"
                   padding={10}
                   style={{
@@ -182,51 +126,51 @@ export const KitchenSink = ({ label, ...props }: KitchenSinkProps) => {
                     textAlign: 'justify',
                   }}
                 >
-                  <RPB.Paragraph>Width 275. Specify a width to allow text wrapping.</RPB.Paragraph>
-                  <RPB.Paragraph style={{ marginBottom: 0 }}>
+                  <Paragraph>Width 275. Specify a width to allow text wrapping.</Paragraph>
+                  <Paragraph style={{ marginBottom: 0 }}>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
                     et dolore magna aliqua.
-                  </RPB.Paragraph>
-                </RPB.Box>
-              </RPB.Box>
-              <RPB.Box direction="x" gap={10}>
-                <RPB.Box
+                  </Paragraph>
+                </Box>
+              </Box>
+              <Box direction="x" gap={10}>
+                <Box
                   grow
                   padding={10}
                   style={{ justifyContent: 'center', alignItems: 'center', backgroundColor: 'lightblue' }}
                 >
-                  <RPB.Paragraph style={{ marginBottom: 0 }}>Grow</RPB.Paragraph>
-                </RPB.Box>
-                <RPB.Box
+                  <Paragraph style={{ marginBottom: 0 }}>Grow</Paragraph>
+                </Box>
+                <Box
                   shrink
                   padding={10}
                   style={{ justifyContent: 'center', alignItems: 'center', backgroundColor: 'lightpink' }}
                 >
-                  <RPB.Paragraph style={{ marginBottom: 0 }}>Shrink</RPB.Paragraph>
-                </RPB.Box>
-                <RPB.Box
+                  <Paragraph style={{ marginBottom: 0 }}>Shrink</Paragraph>
+                </Box>
+                <Box
                   padding={10}
                   style={{ width: 200, justifyContent: 'center', alignItems: 'center', backgroundColor: 'lightyellow' }}
                 >
-                  <RPB.Paragraph style={{ marginBottom: 0 }}>200px</RPB.Paragraph>
-                </RPB.Box>
-              </RPB.Box>
-              <RPB.Heading6 break>Vertical Box</RPB.Heading6>
-              <RPB.Box direction="y" style={{ height: 730 }}>
-                <RPB.Box
+                  <Paragraph style={{ marginBottom: 0 }}>200px</Paragraph>
+                </Box>
+              </Box>
+              <Heading6 break>Vertical Box</Heading6>
+              <Box direction="y" style={{ height: 730 }}>
+                <Box
                   grow
                   padding={10}
                   style={{ justifyContent: 'center', alignItems: 'center', backgroundColor: 'lightblue' }}
                 >
-                  <RPB.Paragraph style={{ marginBottom: 0 }}>Grow</RPB.Paragraph>
-                </RPB.Box>
-                <RPB.Box
+                  <Paragraph style={{ marginBottom: 0 }}>Grow</Paragraph>
+                </Box>
+                <Box
                   padding={10}
                   style={{ justifyContent: 'center', alignItems: 'center', backgroundColor: 'lightpink' }}
                 >
-                  <RPB.Paragraph style={{ marginBottom: 0 }}>Shrink</RPB.Paragraph>
-                </RPB.Box>
-                <RPB.Box
+                  <Paragraph style={{ marginBottom: 0 }}>Shrink</Paragraph>
+                </Box>
+                <Box
                   direction="y"
                   padding={10}
                   style={{
@@ -235,23 +179,185 @@ export const KitchenSink = ({ label, ...props }: KitchenSinkProps) => {
                     textAlign: 'justify',
                   }}
                 >
-                  <RPB.Paragraph>
+                  <Paragraph>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
                     et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
                     aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
                     cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
                     culpa qui officia deserunt mollit anim id est laborum.
-                  </RPB.Paragraph>
-                  <RPB.Paragraph style={{ marginBottom: 0 }}>
+                  </Paragraph>
+                  <Paragraph style={{ marginBottom: 0 }}>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
                     et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
                     aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
                     cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
                     culpa qui officia deserunt mollit anim id est laborum.
-                  </RPB.Paragraph>
-                </RPB.Box>
-              </RPB.Box>
-            </RPB.Box>
+                  </Paragraph>
+                </Box>
+              </Box>
+              <Heading5 rule>Tables</Heading5>
+              <Heading6>Plain and bordered inside, 400px</Heading6>
+              <Box direction="x" style={{ justifyContent: 'center' }}>
+                <Table borderedInside style={{ width: 400 }}>
+                  <TableRow>
+                    <TableCell style={{ textAlign: 'right' }}>Lorem ipsum dolor</TableCell>
+                    <TableCell style={{ textAlign: 'center' }}>Consectetur adipiscing elit</TableCell>
+                    <TableCell>Sed do eiusmod</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell style={{ textAlign: 'right' }}>Incididunt ut labore</TableCell>
+                    <TableCell style={{ textAlign: 'center' }}>Lorem ipsum dolor sit amet</TableCell>
+                    <TableCell>Dolore magna aliqua</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell style={{ textAlign: 'right' }}>Lorem ipsum dolor</TableCell>
+                    <TableCell style={{ textAlign: 'center' }}>Consectetur adipiscing elit</TableCell>
+                    <TableCell>Sed do eiusmod</TableCell>
+                  </TableRow>
+                </Table>
+              </Box>
+              <Heading6>Striped, horizontal bordered, with page wrapping demo</Heading6>
+              <Table
+                borderedOutside
+                borderedHorizontal
+                rowStyle={{ borderLeft: 2, borderRight: 2 }}
+                striped
+                colWidths={['30%', '50%', '20%']}
+              >
+                <TableRow>
+                  <TableCell>Lorem ipsum dolor</TableCell>
+                  <TableCell>Consectetur adipiscing elit</TableCell>
+                  <TableCell>Sed do eiusmod</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>Incididunt ut labore</TableCell>
+                  <TableCell>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et magna aliqua.
+                  </TableCell>
+                  <TableCell>Dolore magna aliqua</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>Lorem ipsum dolor</TableCell>
+                  <TableCell>Consectetur adipiscing elit</TableCell>
+                  <TableCell>Sed do eiusmod</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>Incididunt ut labore</TableCell>
+                  <TableCell>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et magna aliqua.
+                  </TableCell>
+                  <TableCell>Dolore magna aliqua</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>Lorem ipsum dolor</TableCell>
+                  <TableCell>Consectetur adipiscing elit</TableCell>
+                  <TableCell>Sed do eiusmod</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>Incididunt ut labore</TableCell>
+                  <TableCell>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et magna aliqua.
+                  </TableCell>
+                  <TableCell>Dolore magna aliqua</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>Lorem ipsum dolor</TableCell>
+                  <TableCell>Consectetur adipiscing elit</TableCell>
+                  <TableCell>Sed do eiusmod</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>Lorem ipsum dolor</TableCell>
+                  <TableCell>Consectetur adipiscing elit</TableCell>
+                  <TableCell>Sed do eiusmod</TableCell>
+                </TableRow>
+              </Table>
+              <Heading6>Styled with column widths 30%, 50%, 20%</Heading6>
+              <Table
+                bordered
+                inverseStriped
+                borderColor="#005BDF"
+                style={{ backgroundColor: 'white', borderRadius: 10 }}
+                stripeStyle={{ backgroundColor: '#007BFF22' }}
+                colWidths={['30%', '50%', '20%']}
+              >
+                <TableRow
+                  style={{
+                    backgroundColor: '#007BFF',
+                    color: 'white',
+                  }}
+                >
+                  <TableCell>
+                    <Heading6 style={{ marginBottom: 0 }}>Lorem ipsum dolor</Heading6>
+                  </TableCell>
+                  <TableCell>
+                    <Heading6 style={{ marginBottom: 0 }}>Consectetur adipiscing elit</Heading6>
+                  </TableCell>
+                  <TableCell>
+                    <Heading6 style={{ marginBottom: 0 }}>Sed do eiusmod</Heading6>
+                  </TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>Lorem ipsum dolor</TableCell>
+                  <TableCell>Consectetur adipiscing elit</TableCell>
+                  <TableCell>Sed do eiusmod</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>Incididunt ut labore</TableCell>
+                  <TableCell>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et magna aliqua.
+                  </TableCell>
+                  <TableCell>Dolore magna aliqua</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>Lorem ipsum dolor</TableCell>
+                  <TableCell>Consectetur adipiscing elit</TableCell>
+                  <TableCell>Sed do eiusmod</TableCell>
+                </TableRow>
+              </Table>
+              <Heading5 rule break>
+                Cards &amp; Buttons
+              </Heading5>
+              <Card>
+                <CardHeader>
+                  <Heading5 style={{ marginBottom: 0 }}>Card Title</Heading5>
+                </CardHeader>
+                <CardBody withHeader>
+                  <Box direction="x" style={{ flexWrap: 'wrap', justifyContent: 'center', gap: '10' }}>
+                    <Button variant="primary" href={buttonHref}>
+                      Primary
+                    </Button>
+                    <Button variant="secondary" href={buttonHref}>
+                      Secondary
+                    </Button>
+                    <Button variant="success" href={buttonHref}>
+                      Success
+                    </Button>
+                    <Button variant="danger" href={buttonHref}>
+                      Danger
+                    </Button>
+                    <Button variant="warning" href={buttonHref}>
+                      Warning
+                    </Button>
+                    <Button variant="info" href={buttonHref}>
+                      Info
+                    </Button>
+                    <Button variant="light" href={buttonHref}>
+                      Light
+                    </Button>
+                    <Button variant="dark" href={buttonHref}>
+                      Dark
+                    </Button>
+                    <Button variant="link" href={buttonHref}>
+                      Link
+                    </Button>
+                  </Box>
+                </CardBody>
+              </Card>
+            </Box>
           </Page>
         </Document>
       </PDFViewer>

@@ -10,7 +10,10 @@ export interface TableRowProps extends BoxProps {
   rowCount?: number;
 
   striped?: boolean;
-  stripeStyle?: Style;
+  stripeStyle?: Style | Style[];
+  inverseStriped?: boolean;
+  rowStyle?: Style | Style[];
+  cellStyle?: Style | Style[];
   bordered?: boolean;
   borderedOutside?: boolean;
   borderedInside?: boolean;
@@ -19,6 +22,7 @@ export interface TableRowProps extends BoxProps {
   borderColor?: string;
   borderStyle?: 'dashed' | 'dotted' | 'solid';
   borderWidth?: string | number;
+  colWidths?: (string | number)[];
 }
 
 export const TableRow = ({
@@ -27,6 +31,9 @@ export const TableRow = ({
   rowCount,
   striped,
   stripeStyle,
+  inverseStriped,
+  rowStyle: rowStyleProp,
+  cellStyle,
   bordered,
   borderedOutside,
   borderedInside,
@@ -35,24 +42,34 @@ export const TableRow = ({
   borderColor,
   borderStyle,
   borderWidth,
+  colWidths,
   ...props
 }: TableRowProps) => {
-  const firstRow = rowIndex === 0;
-  const lastRow = rowIndex === (rowCount ?? 0) - 1;
+  const originalChildArray = Array.isArray(children) ? children : [children];
 
-  const style: Style = {
+  const firstRow = rowIndex === 0;
+  const isRowEven = !((rowIndex ?? 0) % 2);
+  const isStripedRow = (striped && !isRowEven) || (inverseStriped && isRowEven);
+
+  const rowStyle: Style = {
     overflow: 'hidden',
     borderTop:
       (bordered && !firstRow) || (borderedInside && !firstRow) || (borderedHorizontal && !firstRow)
         ? borderWidth
         : undefined,
+    borderRight: bordered || borderedOutside || borderedVertical ? borderWidth : undefined,
+    borderLeft: bordered || borderedOutside || borderedVertical ? borderWidth : undefined,
     borderColor,
+    ...(isStripedRow ? stripeStyle : {}),
+    ...rowStyleProp,
   };
 
-  const childArray = (Array.isArray(children) ? children : [children]).map((c, i, arr) =>
-    React.cloneElement(c, {
+  const childArray = originalChildArray.map((c, i, arr) => {
+    return React.cloneElement(c, {
       striped,
       stripeStyle,
+      inverseStriped,
+      cellStyle,
       bordered,
       borderedOutside,
       borderedInside,
@@ -61,16 +78,17 @@ export const TableRow = ({
       borderColor,
       borderStyle,
       borderWidth,
+      colWidths,
       ...c.props,
       rowIndex,
       rowCount,
       colIndex: i,
       colCount: arr.length,
-    }),
-  );
+    });
+  });
 
   return (
-    <Box direction="x" {...props} style={{ ...style, ...props.style }}>
+    <Box wrap={false} direction="x" {...props} style={{ ...rowStyle, ...props.style }}>
       <PDFChildren>{childArray}</PDFChildren>
     </Box>
   );

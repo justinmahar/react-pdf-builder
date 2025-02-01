@@ -5,56 +5,49 @@ import { Box, BoxProps } from '../layout/Box';
 
 export interface TableCellProps extends BoxProps {
   children?: any;
-  rowIndex?: number;
-  rowCount?: number;
   colIndex?: number;
   colCount?: number;
+  colWidths?: (string | number)[];
 
-  striped?: boolean;
-  stripeStyle?: Style;
+  cellStyle?: Style | Style[];
   bordered?: boolean;
-  borderedOutside?: boolean;
   borderedInside?: boolean;
   borderedVertical?: boolean;
-  borderedHorizontal?: boolean;
   borderColor?: string;
-  borderStyle?: 'dashed' | 'dotted' | 'solid';
   borderWidth?: string | number;
 }
 
 export const TableCell = ({
   children,
-  rowIndex,
-  rowCount,
   colIndex,
   colCount,
-  striped,
-  stripeStyle,
+  colWidths,
+  cellStyle: cellStyleProp,
   bordered,
-  borderedOutside,
   borderedInside,
   borderedVertical,
-  borderedHorizontal,
   borderColor,
-  borderStyle,
   borderWidth,
   ...props
 }: TableCellProps) => {
-  const firstRow = rowIndex === 0;
-  const lastRow = rowIndex === (rowCount ?? 0) - 1;
-  const firstCol = colIndex === 0;
   const lastCol = colIndex === (colCount ?? 0) - 1;
 
-  const style: Style = {
+  // Use the defined width, or calculate a percentage if none was provided.
+  const colWidth =
+    colWidths && typeof colIndex !== 'undefined' ? colWidths[colIndex] : `${Math.round(100 / (colCount ?? 1))}%`;
+
+  const cellStyle: Style = {
     overflow: 'hidden',
     borderTop: undefined,
     borderBottom: undefined,
     borderRight: !lastCol && (bordered || borderedInside || borderedVertical) ? borderWidth : undefined,
-    // borderLeft: undefined,
     borderColor,
+    padding: 8,
+    width: colWidth,
+    ...cellStyleProp,
   };
   return (
-    <Box direction="y" {...props} style={{ ...style, ...props.style }}>
+    <Box direction="y" {...props} style={{ ...cellStyle, ...props.style }}>
       <PDFChildren>{children}</PDFChildren>
     </Box>
   );

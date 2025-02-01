@@ -5,7 +5,10 @@ import { Box, BoxProps } from '../layout/Box';
 export interface TableProps extends BoxProps {
   children?: any;
   striped?: boolean;
-  stripeStyle?: Style;
+  stripeStyle?: Style | Style[];
+  inverseStriped?: boolean;
+  rowStyle?: Style | Style[];
+  cellStyle?: Style | Style[];
   bordered?: boolean;
   borderedOutside?: boolean;
   borderedInside?: boolean;
@@ -14,12 +17,16 @@ export interface TableProps extends BoxProps {
   borderColor?: string;
   borderStyle?: 'dashed' | 'dotted' | 'solid';
   borderWidth?: string | number;
+  colWidths?: (string | number)[];
 }
 
 export const Table = ({
   children,
   striped = false,
-  stripeStyle = { backgroundColor: '#EEEEEE88' },
+  stripeStyle = { backgroundColor: '#00000015' },
+  inverseStriped = false,
+  rowStyle,
+  cellStyle,
   bordered = false,
   borderedOutside = false,
   borderedInside = false,
@@ -28,15 +35,16 @@ export const Table = ({
   borderColor = '#000000',
   borderStyle = 'solid',
   borderWidth = 2,
+  colWidths,
   ...props
 }: TableProps) => {
-  const style: Style = {
+  const tableStyle: Style = {
     marginBottom: 10,
     overflow: 'hidden',
     borderTop: bordered || borderedOutside || borderedHorizontal ? borderWidth : undefined,
     borderBottom: bordered || borderedOutside || borderedHorizontal ? borderWidth : undefined,
-    borderRight: bordered || borderedOutside || borderedVertical ? borderWidth : undefined,
-    borderLeft: bordered || borderedOutside || borderedVertical ? borderWidth : undefined,
+    // borderRight: bordered || borderedOutside || borderedVertical ? borderWidth : undefined,
+    // borderLeft: bordered || borderedOutside || borderedVertical ? borderWidth : undefined,
     borderColor,
   };
 
@@ -44,6 +52,9 @@ export const Table = ({
     return React.cloneElement(c, {
       striped,
       stripeStyle,
+      inverseStriped,
+      rowStyle,
+      cellStyle,
       bordered,
       borderedOutside,
       borderedInside,
@@ -52,6 +63,7 @@ export const Table = ({
       borderColor,
       borderStyle,
       borderWidth,
+      colWidths,
       ...c.props,
       rowIndex: i,
       rowCount: arr.length,
@@ -59,7 +71,7 @@ export const Table = ({
   });
 
   return (
-    <Box direction="y" {...props} style={{ ...style, ...props.style }}>
+    <Box direction="y" {...props} style={{ ...tableStyle, ...props.style }}>
       {childArray}
     </Box>
   );

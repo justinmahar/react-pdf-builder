@@ -13,7 +13,7 @@ export const Card = ({ children, ...props }: CardProps) => {
     overflow: 'hidden',
   };
   return (
-    <Box {...props} style={{ ...style, ...props.style }}>
+    <Box wrap={false} {...props} style={{ ...style, ...props.style }}>
       <PDFChildren>{children}</PDFChildren>
     </Box>
   );
