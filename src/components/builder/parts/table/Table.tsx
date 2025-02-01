@@ -34,7 +34,7 @@ export const Table = ({
   borderedHorizontal = false,
   borderColor = '#000000',
   borderStyle = 'solid',
-  borderWidth = 2,
+  borderWidth = 1,
   colWidths,
   ...props
 }: TableProps) => {
