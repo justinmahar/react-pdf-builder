@@ -1,24 +1,24 @@
-import { Defs, LinearGradient, RadialGradient, Rect, RectProps, Stop, Svg } from '@react-pdf/renderer';
+import { Defs, Ellipse, EllipseProps, LinearGradient, RadialGradient, Stop, Svg } from '@react-pdf/renderer';
 import React from 'react';
 import { randomUuid } from '../../../util';
 import { Gradients, GradientType } from './Gradients';
 import { ShapeProps } from './ShapeProps';
 
-export interface RectangleShapeProps extends ShapeProps {
-  rectProps?: RectProps;
+export interface EllipseShapeProps extends ShapeProps {
+  ellipseProps?: EllipseProps;
 }
 
-export const RectangleShape = ({
+export const EllipseShape = ({
   width = 100,
   height = 100,
   fill,
-  rectProps,
+  ellipseProps,
   linearGradientProps,
   radialGradientProps,
   gradient,
   gradientType = GradientType.topToBottom,
   ...svgProps
-}: RectangleShapeProps) => {
+}: EllipseShapeProps) => {
   const uuidRef = React.useRef(randomUuid());
   const linearId = `linear-${uuidRef.current}`;
   const radialId = `radial-${uuidRef.current}`;
@@ -26,8 +26,8 @@ export const RectangleShape = ({
   const gradientCoords = Gradients.toGradientCoords(gradientType);
   const widthNum = parseInt(`${width}`);
   const heightNum = parseInt(`${height}`);
-  const rectFill =
-    rectProps?.fill ??
+  const ellipseFill =
+    ellipseProps?.fill ??
     fill ??
     (!gradient ? 'black' : gradientType === GradientType.radial ? `url('#${radialId}')` : `url('#${linearId}')`);
   return (
@@ -48,7 +48,14 @@ export const RectangleShape = ({
           ))}
         </RadialGradient>
       </Defs>
-      <Rect width={widthNum} height={heightNum} {...rectProps} fill={rectFill} />
+      <Ellipse
+        cx={widthNum / 2}
+        cy={heightNum / 2}
+        rx={widthNum / 2}
+        ry={heightNum / 2}
+        {...ellipseProps}
+        fill={ellipseFill}
+      />
     </Svg>
   );
 };

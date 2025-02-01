@@ -21,6 +21,9 @@ import { Heading5 } from './builder/parts/typography/Heading5';
 import { Heading6 } from './builder/parts/typography/Heading6';
 import { Paragraph } from './builder/parts/typography/Paragraph';
 import { Button } from './builder/parts/widgets/Button';
+import { GradientType } from './builder/parts/shapes/Gradients';
+import { EllipseShape } from './builder/parts/shapes/EllipseShape';
+import { CircleShape } from './builder/parts/shapes/CircleShape';
 
 export interface KitchenSinkProps extends DivProps {
   /**
@@ -52,20 +55,6 @@ export const KitchenSink = ({ label, ...props }: KitchenSinkProps) => {
             size="A4"
             style={{ flexDirection: 'column', padding: 30, paddingBottom: footerHeight, backgroundColor: '#F8F9FA' }}
           >
-            <Box>
-              <RectangleShape width={100} height={50} gradient={['blue', 'green']} />
-            </Box>
-            {/* <Box style={{ position: 'absolute' }}>
-              <Svg viewBox="0 0 20 20" width={1000}>
-                <Defs>
-                  <RadialGradient id="myRadialGradient">
-                    <Stop offset="10%" stopColor="gold" />
-                    <Stop offset="95%" stopColor="red" />
-                  </RadialGradient>
-                </Defs>
-                <Circle cx="10" cy="10" r="10" fill="url('#myRadialGradient')" />
-              </Svg>
-            </Box> */}
             <Box direction="y" style={{ gap: 10 }}>
               <Heading5 rule>Basic Typography</Heading5>
               <Heading1 rule>Heading1</Heading1>
@@ -364,6 +353,32 @@ export const KitchenSink = ({ label, ...props }: KitchenSinkProps) => {
                   </Box>
                 </CardBody>
               </Card>
+              <Heading5 rule>Shapes</Heading5>
+              <Box direction="x" gap={20}>
+                <Box>
+                  <CircleShape size={75} fill="red" />
+                </Box>
+                <Box>
+                  <CircleShape size={150} gradient={['lightgray', 'black']} gradientType={GradientType.topToBottom} />
+                </Box>
+                <Box style={{ transform: 'translate(50, 50), rotate(-20deg)' }}>
+                  <RectangleShape width={200} height={5} fill="black" />
+                </Box>
+              </Box>
+              <Box direction="x" gap={20}>
+                <Box>
+                  <RectangleShape width={75} height={150} fill="orange" />
+                </Box>
+                <Box>
+                  <RectangleShape
+                    width={150}
+                    height={150}
+                    gradient={['lightblue', 'darkblue']}
+                    gradientType={GradientType.topLeftToBottomRight}
+                    style={{ transform: 'translate(100, 0), rotate(45deg)' }}
+                  />
+                </Box>
+              </Box>
             </Box>
             <Box
               direction="x"
