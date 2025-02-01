@@ -7,7 +7,9 @@ export * from './components/builder/parts/card/CardHeader';
 export * from './components/builder/parts/layout/Box';
 
 // Lists
-export * from './components/builder/parts/layout/Box';
+export * from './components/builder/parts/lists/ListItem';
+export * from './components/builder/parts/lists/OrderedList';
+export * from './components/builder/parts/lists/UnorderedList';
 
 // Table
 export * from './components/builder/parts/table/Table';
