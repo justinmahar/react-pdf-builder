@@ -5,7 +5,7 @@ import { Gradients, GradientType } from './Gradients';
 import { ShapeProps } from './ShapeProps';
 
 export interface EllipseShapeProps extends ShapeProps {
-  ellipseProps?: EllipseProps;
+  ellipseProps?: Partial<EllipseProps>;
 }
 
 export const EllipseShape = ({
@@ -26,6 +26,7 @@ export const EllipseShape = ({
   const gradientCoords = Gradients.toGradientCoords(gradientType);
   const widthNum = parseInt(`${width}`);
   const heightNum = parseInt(`${height}`);
+  const strokeWidthNum = parseInt(`${ellipseProps?.strokeWidth ?? 0}`);
   const ellipseFill =
     ellipseProps?.fill ??
     fill ??
@@ -51,8 +52,8 @@ export const EllipseShape = ({
       <Ellipse
         cx={widthNum / 2}
         cy={heightNum / 2}
-        rx={widthNum / 2}
-        ry={heightNum / 2}
+        rx={(widthNum - strokeWidthNum) / 2}
+        ry={(heightNum - strokeWidthNum) / 2}
         {...ellipseProps}
         fill={ellipseFill}
       />

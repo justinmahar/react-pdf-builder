@@ -2,8 +2,8 @@ import { LinearGradientProps, RadialGradientProps, SVGProps } from '@react-pdf/r
 import { GradientStop, GradientType } from './Gradients';
 
 export interface ShapeProps extends SVGProps {
-  linearGradientProps?: LinearGradientProps;
-  radialGradientProps?: RadialGradientProps;
+  linearGradientProps?: Partial<LinearGradientProps>;
+  radialGradientProps?: Partial<RadialGradientProps>;
   gradient?: GradientStop[] | string[];
   gradientType?: GradientType;
 }

@@ -5,7 +5,7 @@ import { Gradients, GradientType } from './Gradients';
 import { ShapeProps } from './ShapeProps';
 
 export interface RectangleShapeProps extends ShapeProps {
-  rectProps?: RectProps;
+  rectProps?: Partial<RectProps>;
 }
 
 export const RectangleShape = ({

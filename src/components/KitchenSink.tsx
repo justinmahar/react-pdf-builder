@@ -24,6 +24,7 @@ import { Heading6 } from './typography/Heading6';
 import { Paragraph } from './typography/Paragraph';
 import { Button } from './widgets/Button';
 import { PlaidBackground } from './backgrounds/PlaidBackground';
+import { LineShape } from './shapes/LineShape';
 
 export interface KitchenSinkProps extends DivProps {
   /**
@@ -79,6 +80,27 @@ export const KitchenSink = ({ label, ...props }: KitchenSinkProps) => {
             size="A4"
             style={{ flexDirection: 'column', padding: 30, paddingBottom: footerHeight, backgroundColor: '#F8F9FA' }}
           >
+            <Box
+              style={{
+                position: 'absolute',
+                left: 0,
+                top: 0,
+                transform: `scale(1)`,
+              }}
+              fixed
+            >
+              <RectangleShape
+                gradientType={GradientType.topLeftToBottomRight}
+                gradient={[
+                  { offset: '0%', stopColor: 'black', stopOpacity: 0 },
+                  { offset: '10%', stopColor: 'black', stopOpacity: 0 },
+                  { offset: '10%', stopColor: 'black', stopOpacity: 0 },
+                  { offset: '20%', stopColor: 'black', stopOpacity: 0.1 },
+                  { offset: '20%', stopColor: 'black', stopOpacity: 0 },
+                  { offset: '100%', stopColor: 'black', stopOpacity: 0 },
+                ]}
+              />
+            </Box>
             <Box direction="y" style={{ gap: 10 }}>
               <Heading5 rule>Basic Typography</Heading5>
               <Heading1 rule>Heading1</Heading1>
@@ -243,63 +265,82 @@ export const KitchenSink = ({ label, ...props }: KitchenSinkProps) => {
                 </Table>
               </Box>
               <Heading6>Striped, horizontal bordered, with page wrapping demo</Heading6>
-              <Table borderedOutside borderedHorizontal borderWidth={1} striped>
-                <TableRow>
-                  <TableCell>Lorem ipsum dolor</TableCell>
-                  <TableCell>Consectetur adipiscing elit</TableCell>
-                  <TableCell>Sed do eiusmod</TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell>Incididunt ut labore</TableCell>
-                  <TableCell>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                    et magna aliqua.
-                  </TableCell>
-                  <TableCell>Dolore magna aliqua</TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell>Lorem ipsum dolor</TableCell>
-                  <TableCell>Consectetur adipiscing elit</TableCell>
-                  <TableCell>Sed do eiusmod</TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell>Incididunt ut labore</TableCell>
-                  <TableCell>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                    et magna aliqua.
-                  </TableCell>
-                  <TableCell>Dolore magna aliqua</TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell>Lorem ipsum dolor</TableCell>
-                  <TableCell>Consectetur adipiscing elit</TableCell>
-                  <TableCell>Sed do eiusmod</TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell>Incididunt ut labore</TableCell>
-                  <TableCell>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                    et magna aliqua.
-                  </TableCell>
-                  <TableCell>Dolore magna aliqua</TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell>Lorem ipsum dolor</TableCell>
-                  <TableCell>Consectetur adipiscing elit</TableCell>
-                  <TableCell>Sed do eiusmod</TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell>Lorem ipsum dolor</TableCell>
-                  <TableCell>Consectetur adipiscing elit</TableCell>
-                  <TableCell>Sed do eiusmod</TableCell>
-                </TableRow>
-              </Table>
+              <Box style={{ position: 'relative', marginBottom: 10 }}>
+                <Table
+                  borderedOutside
+                  borderedHorizontal
+                  borderWidth={1}
+                  striped
+                  style={{ backgroundColor: 'white', marginBottom: 0 }}
+                >
+                  <TableRow>
+                    <TableCell>Lorem ipsum dolor</TableCell>
+                    <TableCell>Consectetur adipiscing elit</TableCell>
+                    <TableCell>Sed do eiusmod</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>Incididunt ut labore</TableCell>
+                    <TableCell>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                      labore et magna aliqua.
+                    </TableCell>
+                    <TableCell>Dolore magna aliqua</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>Lorem ipsum dolor</TableCell>
+                    <TableCell>Consectetur adipiscing elit</TableCell>
+                    <TableCell>Sed do eiusmod</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>Incididunt ut labore</TableCell>
+                    <TableCell>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                      labore et magna aliqua.
+                    </TableCell>
+                    <TableCell>Dolore magna aliqua</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>Lorem ipsum dolor</TableCell>
+                    <TableCell>Consectetur adipiscing elit</TableCell>
+                    <TableCell>Sed do eiusmod</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>Incididunt ut labore</TableCell>
+                    <TableCell>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                      labore et magna aliqua.
+                    </TableCell>
+                    <TableCell>Dolore magna aliqua</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>Lorem ipsum dolor</TableCell>
+                    <TableCell>Consectetur adipiscing elit</TableCell>
+                    <TableCell>Sed do eiusmod</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>Lorem ipsum dolor</TableCell>
+                    <TableCell>Consectetur adipiscing elit</TableCell>
+                    <TableCell>Sed do eiusmod</TableCell>
+                  </TableRow>
+                </Table>
+                <RectangleShape
+                  gradientType={GradientType.topToBottom}
+                  gradient={[
+                    { offset: '0%', stopColor: 'black', stopOpacity: 0.3 },
+                    { offset: '50%', stopColor: 'black', stopOpacity: 0.1 },
+                    { offset: '80%', stopColor: 'black', stopOpacity: 0.01 },
+                    { offset: '100%', stopColor: 'black', stopOpacity: 0 },
+                  ]}
+                  width={535}
+                  height={15}
+                />
+              </Box>
               <Heading6>Styled with column widths 30%, 50%, 20%</Heading6>
               <Table
                 bordered
                 inverseStriped
                 borderColor="#005BDF"
-                style={{ backgroundColor: 'white', borderRadius: 10 }}
+                style={{ backgroundColor: 'white', borderRadius: 10, marginBottom: 0 }}
                 stripeStyle={{ backgroundColor: '#007BFF22' }}
                 colWidths={['30%', '50%', '20%']}
               >
@@ -382,16 +423,26 @@ export const KitchenSink = ({ label, ...props }: KitchenSinkProps) => {
                 <Box>
                   <CircleShape size={75} fill="red" />
                 </Box>
-                <Box>
-                  <CircleShape size={150} gradient={['lightgray', 'black']} gradientType={GradientType.topToBottom} />
+                <Box style={{ padding: 10 }}>
+                  <CircleShape
+                    size={100}
+                    gradient={['white', 'darkgray']}
+                    ellipseProps={{ stroke: 'green', strokeWidth: 5 }}
+                    gradientType={GradientType.radial}
+                  />
                 </Box>
-                <Box style={{ transform: 'translate(50, 50), rotate(-20deg)' }}>
-                  <RectangleShape width={200} height={5} fill="black" />
+                <Box style={{ transform: 'translate(50, 50), rotate(-10deg)' }}>
+                  <LineShape
+                    length={200}
+                    width={5}
+                    gradient={['white', 'blue']}
+                    gradientType={GradientType.leftToRight}
+                  />
                 </Box>
               </Box>
               <Box direction="x" gap={20}>
                 <Box>
-                  <RectangleShape width={75} height={150} fill="orange" />
+                  <RectangleShape width={75} height={150} fill="orange" color="red" />
                 </Box>
                 <Box>
                   <RectangleShape
