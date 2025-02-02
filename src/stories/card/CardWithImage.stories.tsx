@@ -13,7 +13,7 @@ const StoryComponent = (props: ParagraphProps) => {
       <Card>
         <CardBody withFooter style={{ padding: 0 }}>
           <Image
-            src="/images/600x200.jpg"
+            src="https://justinmahar.github.io/react-pdf-builder/images/600x200.jpg"
             style={{ width: '100%', borderTopLeftRadius: 9, borderTopRightRadius: 9 }}
           ></Image>
         </CardBody>
