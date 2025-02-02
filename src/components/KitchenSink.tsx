@@ -71,7 +71,10 @@ export const KitchenSink = ({ label, ...props }: KitchenSinkProps) => {
                 </Heading5>
               </Box>
               <Box grow style={{ justifyContent: 'center', alignItems: 'center' }}>
-                <Image src="/images/logo-red.png" style={{ width: 250 }} />
+                <Image
+                  src="https://justinmahar.github.io/react-pdf-builder/images/logo-red.png"
+                  style={{ width: 250 }}
+                />
               </Box>
               <Box style={{ height: '5%', backgroundColor: '#00000022' }} />
             </Box>
@@ -478,7 +481,10 @@ export const KitchenSink = ({ label, ...props }: KitchenSinkProps) => {
                 style={{ textDecoration: 'none', color: 'inherit' }}
               >
                 <Box direction="x" gap={10} style={{ alignItems: 'center' }}>
-                  <Image src="/images/github-250.png" style={{ height: 24, padding: 2 }}></Image>
+                  <Image
+                    src="https://justinmahar.github.io/react-pdf-builder/images/github-250.png"
+                    style={{ height: 24, padding: 2 }}
+                  ></Image>
                   React PDF Builder
                 </Box>
               </Link>
