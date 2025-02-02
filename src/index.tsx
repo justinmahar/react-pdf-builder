@@ -1,3 +1,6 @@
+// Background
+export * from './components/backgrounds/PlaidBackground';
+
 // Card
 export * from './components/card/Card';
 export * from './components/card/CardBody';
@@ -40,5 +43,7 @@ export * from './components/typography/Paragraph';
 // Widgets
 export * from './components/widgets/Button';
 
-// Style
+// Misc
+export * from './components/KitchenSink';
+export * from './components/PDFSafeChildren';
 export * from './components/Style';
