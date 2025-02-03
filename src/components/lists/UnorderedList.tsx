@@ -2,7 +2,7 @@ import { View, ViewProps } from '@react-pdf/renderer';
 import React from 'react';
 import { ListItemWrapper, ListItemWrapperProps } from './ListItemWrapper';
 import { Style } from '../Style';
-import { PDFSafeChildren } from '../PDFSafeChildren';
+import { PDFSafeChildren } from '../builder/PDFSafeChildren';
 
 export interface UnorderedListProps extends ViewProps {
   children?: any;

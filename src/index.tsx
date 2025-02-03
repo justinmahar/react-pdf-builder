@@ -45,5 +45,5 @@ export * from './components/widgets/Button';
 
 // Misc
 export * from './components/KitchenSink';
-export * from './components/PDFSafeChildren';
+export * from './components/builder/PDFSafeChildren';
 export * from './components/Style';

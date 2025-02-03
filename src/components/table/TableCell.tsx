@@ -1,6 +1,6 @@
 import React from 'react';
 import { Style } from '../Style';
-import { PDFSafeChildren } from '../PDFSafeChildren';
+import { PDFSafeChildren } from '../builder/PDFSafeChildren';
 import { Box, BoxProps } from '../layout/Box';
 
 export interface TableCellProps extends BoxProps {

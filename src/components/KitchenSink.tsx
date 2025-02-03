@@ -1,4 +1,4 @@
-import { Document, Image, Link, Page, PDFViewer } from '@react-pdf/renderer';
+import { Document, Image, Link, Page, PDFViewer, Text } from '@react-pdf/renderer';
 import React from 'react';
 import { DivProps } from 'react-html-props';
 import { Card } from './card/Card';
@@ -25,6 +25,8 @@ import { Paragraph } from './typography/Paragraph';
 import { Button } from './widgets/Button';
 import { PlaidBackground } from './backgrounds/PlaidBackground';
 import { LineShape } from './shapes/LineShape';
+import { ThemedPage } from './pages/ThemedPage';
+import { Themes } from './theme/themes/Themes';
 
 export interface KitchenSinkProps extends DivProps {
   /**
@@ -43,6 +45,7 @@ export interface KitchenSinkProps extends DivProps {
 export const KitchenSink = ({ label, ...props }: KitchenSinkProps) => {
   const buttonHref = 'https://github.com/justinmahar/react-pdf-builder';
   const footerHeight = 50;
+  const showCoverPage = false;
   return (
     <div
       {...props}
@@ -52,58 +55,42 @@ export const KitchenSink = ({ label, ...props }: KitchenSinkProps) => {
     >
       <PDFViewer style={{ height: 600, width: 400 }}>
         <Document>
-          <Page size="A4" style={{ flexDirection: 'column', color: 'white' }}>
-            <PlaidBackground />
-            <Box direction="y" style={{ height: '100%' }}>
-              <Box style={{ height: '5%', backgroundColor: '#00000022' }} />
-              <Box style={{ height: '15%' }} />
-              <Box
-                shrink
-                style={{
-                  justifyContent: 'center',
-                  padding: 30,
-                  backgroundColor: '#00000022',
-                }}
-              >
-                <Heading1 style={{ textAlign: 'center', fontSize: 60 }}>React PDF Builder</Heading1>
-                <Heading5 style={{ textAlign: 'center', fontSize: 28 }}>
-                  Build beautiful PDF documents in React.
-                </Heading5>
+          {showCoverPage && (
+            <Page size="A4" style={{ flexDirection: 'column', color: 'white' }}>
+              <PlaidBackground />
+              <Box direction="y" style={{ height: '100%' }}>
+                <Box style={{ height: '5%', backgroundColor: '#00000022' }} />
+                <Box style={{ height: '15%' }} />
+                <Box
+                  shrink
+                  style={{
+                    justifyContent: 'center',
+                    padding: 30,
+                    backgroundColor: '#00000022',
+                  }}
+                >
+                  <Heading1 style={{ textAlign: 'center', fontSize: 60 }}>React PDF Builder</Heading1>
+                  <Heading5 style={{ textAlign: 'center', fontSize: 28 }}>
+                    Build beautiful PDF documents in React.
+                  </Heading5>
+                </Box>
+                <Box grow style={{ justifyContent: 'center', alignItems: 'center' }}>
+                  <Image
+                    src="https://justinmahar.github.io/react-pdf-builder/images/logo-red.png"
+                    style={{ width: 250 }}
+                  />
+                </Box>
+                <Box style={{ height: '5%', backgroundColor: '#00000022' }} />
               </Box>
-              <Box grow style={{ justifyContent: 'center', alignItems: 'center' }}>
-                <Image
-                  src="https://justinmahar.github.io/react-pdf-builder/images/logo-red.png"
-                  style={{ width: 250 }}
-                />
-              </Box>
-              <Box style={{ height: '5%', backgroundColor: '#00000022' }} />
-            </Box>
-          </Page>
-          <Page
+            </Page>
+          )}
+          <ThemedPage
             size="A4"
-            style={{ flexDirection: 'column', padding: 30, paddingBottom: footerHeight, backgroundColor: '#F8F9FA' }}
+            style={{
+              paddingBottom: footerHeight,
+              backgroundColor: '#F8F9FA',
+            }}
           >
-            <Box
-              style={{
-                position: 'absolute',
-                left: 0,
-                top: 0,
-                transform: `scale(1)`,
-              }}
-              fixed
-            >
-              <RectangleShape
-                gradientType={GradientType.topLeftToBottomRight}
-                gradient={[
-                  { offset: '0%', stopColor: 'black', stopOpacity: 0 },
-                  { offset: '10%', stopColor: 'black', stopOpacity: 0 },
-                  { offset: '10%', stopColor: 'black', stopOpacity: 0 },
-                  { offset: '20%', stopColor: 'black', stopOpacity: 0.1 },
-                  { offset: '20%', stopColor: 'black', stopOpacity: 0 },
-                  { offset: '100%', stopColor: 'black', stopOpacity: 0 },
-                ]}
-              />
-            </Box>
             <Box direction="y" style={{ gap: 10 }}>
               <Heading5 rule>Basic Typography</Heading5>
               <Heading1 rule>Heading1</Heading1>
@@ -201,7 +188,7 @@ export const KitchenSink = ({ label, ...props }: KitchenSinkProps) => {
                     backgroundColor: 'lightyellow',
                   }}
                 >
-                  <Paragraph style={{ marginBottom: 0 }}>200px</Paragraph>
+                  <Paragraph style={{ marginBottom: 0 }}>200pt</Paragraph>
                 </Box>
               </Box>
               <Heading6 break>Vertical Box</Heading6>
@@ -247,7 +234,7 @@ export const KitchenSink = ({ label, ...props }: KitchenSinkProps) => {
               <Heading5 rule break>
                 Tables
               </Heading5>
-              <Heading6>Plain and bordered inside, 400px</Heading6>
+              <Heading6>Plain and bordered inside, 400pt</Heading6>
               <Box direction="x" style={{ justifyContent: 'center' }}>
                 <Table borderedInside style={{ width: 400 }}>
                   <TableRow>
@@ -490,7 +477,7 @@ export const KitchenSink = ({ label, ...props }: KitchenSinkProps) => {
               </Link>
               <PageNumber format="Page %n of %t" />
             </Box>
-          </Page>
+          </ThemedPage>
         </Document>
       </PDFViewer>
     </div>

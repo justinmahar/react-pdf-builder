@@ -1,6 +1,6 @@
 import { View, ViewProps } from '@react-pdf/renderer';
 import React from 'react';
-import { PDFSafeChildren } from '../PDFSafeChildren';
+import { PDFSafeChildren } from '../builder/PDFSafeChildren';
 import { Style } from '../Style';
 
 export interface BoxProps extends ViewProps {

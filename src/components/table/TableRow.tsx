@@ -1,5 +1,5 @@
 import React from 'react';
-import { PDFSafeChildren } from '../PDFSafeChildren';
+import { PDFSafeChildren } from '../builder/PDFSafeChildren';
 import { Style } from '../Style';
 import { Box, BoxProps } from '../layout/Box';
 

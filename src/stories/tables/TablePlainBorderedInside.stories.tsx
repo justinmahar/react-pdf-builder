@@ -11,7 +11,7 @@ import { PDFStory } from '../parts/PDFStory';
 const StoryComponent = (props: ParagraphProps) => {
   return (
     <PDFStory>
-      <Heading6>Plain and bordered inside, 400px</Heading6>
+      <Heading6>Plain and bordered inside, 400pt</Heading6>
       <Box direction="x" style={{ justifyContent: 'center' }}>
         <Table borderedInside style={{ width: 400 }}>
           <TableRow>

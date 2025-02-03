@@ -1,6 +1,6 @@
 import { Text } from '@react-pdf/renderer';
 import React from 'react';
-import { Style } from './Style';
+import { Style } from '../Style';
 
 export interface PDFSafeChildrenProps {
   children?: any;

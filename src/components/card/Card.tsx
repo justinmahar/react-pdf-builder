@@ -1,19 +1,18 @@
 import React from 'react';
-import { Style } from '../Style';
+import { PDFSafeChildren } from '../builder/PDFSafeChildren';
 import { Box, BoxProps } from '../layout/Box';
-import { PDFSafeChildren } from '../PDFSafeChildren';
+import { Theme } from '../theme/Theme';
+import { Themes } from '../theme/themes/Themes';
 
 export interface CardProps extends BoxProps {
   children?: any;
+  theme?: Theme;
 }
 
-export const Card = ({ children, ...props }: CardProps) => {
-  const style: Style = {
-    marginBottom: 10,
-    overflow: 'hidden',
-  };
+export const Card = ({ theme = Themes.default.create(), children, ...props }: CardProps) => {
+  const themeProps = theme.cardProps;
   return (
-    <Box wrap={false} {...props} style={{ ...style, ...props.style }}>
+    <Box {...themeProps} {...props} style={{ ...themeProps?.style, ...props.style }}>
       <PDFSafeChildren>{children}</PDFSafeChildren>
     </Box>
   );
