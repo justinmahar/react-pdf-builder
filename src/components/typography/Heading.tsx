@@ -1,9 +1,9 @@
 import { TextProps } from '@react-pdf/renderer';
-
-export const headingStartSize = 20;
-export const headingStepSize = 4;
+import { Theme } from '../theme/Theme';
+import { Themes } from '../theme/themes/Themes';
 
 export interface HeadingProps extends TextProps {
   children?: any;
   rule?: boolean;
+  theme?: Theme;
 }

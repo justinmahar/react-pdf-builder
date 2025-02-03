@@ -1,15 +1,17 @@
 import { Text } from '@react-pdf/renderer';
 import React from 'react';
-import { HeadingProps, headingStartSize, headingStepSize } from './Heading';
+import { Style } from '../Style';
+import { Themes } from '../theme/themes/Themes';
+import { HeadingProps } from './Heading';
 
-export interface Heading3Props extends HeadingProps {
-  children?: any;
-}
-
-export const Heading3 = ({ children, rule, ...props }: Heading3Props) => {
-  const fontSize = headingStartSize + headingStepSize * 3;
+export const Heading3 = ({ theme = Themes.default.create(), children, rule, ...props }: HeadingProps) => {
+  const themeProps = theme?.heading3Props;
+  const style: Style = {};
+  if (!rule) {
+    style.borderBottom = 0;
+  }
   return (
-    <Text {...props} style={{ fontSize, marginBottom: 10, borderBottom: rule ? 3 : undefined, ...props.style }}>
+    <Text {...themeProps} {...props} style={{ ...themeProps?.style, ...style, ...props.style }}>
       {children}
     </Text>
   );
