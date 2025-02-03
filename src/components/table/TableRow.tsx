@@ -2,6 +2,7 @@ import React from 'react';
 import { PDFSafeChildren } from '../builder/PDFSafeChildren';
 import { Style } from '../Style';
 import { Box, BoxProps } from '../layout/Box';
+import { Theme } from '../theme/Theme';
 
 export interface TableRowProps extends BoxProps {
   children?: any;
@@ -22,6 +23,7 @@ export interface TableRowProps extends BoxProps {
   borderStyle?: 'dashed' | 'dotted' | 'solid';
   borderWidth?: string | number;
   colWidths?: (string | number)[];
+  theme?: Theme;
 }
 
 export const TableRow = ({
@@ -42,6 +44,7 @@ export const TableRow = ({
   borderStyle,
   borderWidth,
   colWidths,
+  theme,
   ...props
 }: TableRowProps) => {
   const originalChildArray = Array.isArray(children) ? children : [children];
@@ -79,6 +82,7 @@ export const TableRow = ({
       borderStyle,
       borderWidth,
       colWidths,
+      theme,
       ...c.props,
       rowIndex,
       rowCount,

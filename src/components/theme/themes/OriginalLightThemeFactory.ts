@@ -121,6 +121,21 @@ export class OriginalLightThemeFactory extends ThemeFactory {
           fontSize: 18 * scale,
         },
       },
+      tableProps: {
+        style: {
+          //
+        },
+      },
+      tableRowProps: {
+        style: {
+          //
+        },
+      },
+      tableCellProps: {
+        style: {
+          //
+        },
+      },
     };
   }
 }

@@ -2,6 +2,7 @@ import React from 'react';
 import { Style } from '../Style';
 import { PDFSafeChildren } from '../builder/PDFSafeChildren';
 import { Box, BoxProps } from '../layout/Box';
+import { Theme } from '../theme/Theme';
 
 export interface TableCellProps extends BoxProps {
   children?: any;
@@ -15,6 +16,7 @@ export interface TableCellProps extends BoxProps {
   borderedVertical?: boolean;
   borderColor?: string;
   borderWidth?: string | number;
+  theme?: Theme;
 }
 
 export const TableCell = ({
@@ -28,6 +30,7 @@ export const TableCell = ({
   borderedVertical,
   borderColor,
   borderWidth,
+  theme,
   ...props
 }: TableCellProps) => {
   const lastCol = colIndex === (colCount ?? 0) - 1;

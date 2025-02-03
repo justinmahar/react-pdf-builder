@@ -7,6 +7,9 @@ import { ParagraphProps } from '../typography/Paragraph';
 import { PageNumberProps } from '../pages/PageNumber';
 import { UnorderedListProps } from '../lists/UnorderedList';
 import { OrderedListProps } from '../lists/OrderedList';
+import { TableProps } from 'react-html-props';
+import { TableCellProps } from '../table/TableCell';
+import { TableRowProps } from '../table/TableRow';
 
 export interface Theme {
   heading1Props?: HeadingProps;
@@ -23,4 +26,7 @@ export interface Theme {
   pageNumberProps?: PageNumberProps;
   unorderedListProps?: UnorderedListProps;
   orderedListProps?: OrderedListProps;
+  tableProps?: TableProps;
+  tableCellProps?: TableCellProps;
+  tableRowProps?: TableRowProps;
 }

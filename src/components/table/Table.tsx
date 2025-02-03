@@ -1,6 +1,7 @@
 import React from 'react';
 import { Style } from '../Style';
 import { Box, BoxProps } from '../layout/Box';
+import { Theme } from '../theme/Theme';
 
 export interface TableProps extends BoxProps {
   children?: any;
@@ -18,6 +19,7 @@ export interface TableProps extends BoxProps {
   borderStyle?: 'dashed' | 'dotted' | 'solid';
   borderWidth?: string | number;
   colWidths?: (string | number)[];
+  theme?: Theme;
 }
 
 export const Table = ({
@@ -36,6 +38,7 @@ export const Table = ({
   borderStyle = 'solid',
   borderWidth = 1,
   colWidths,
+  theme,
   ...props
 }: TableProps) => {
   const tableStyle: Style = {
@@ -65,6 +68,7 @@ export const Table = ({
       borderStyle,
       borderWidth,
       colWidths,
+      theme,
       ...c.props,
       rowIndex: i,
       rowCount: arr.length,
