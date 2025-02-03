@@ -4,6 +4,7 @@ import { CardBodyProps } from '../card/CardBody';
 import { CardHeaderProps } from '../card/CardHeader';
 import { HeadingProps } from '../typography/Heading';
 import { ParagraphProps } from '../typography/Paragraph';
+import { PageNumberProps } from '../pages/PageNumber';
 
 export interface Theme {
   heading1Props?: HeadingProps;
@@ -17,4 +18,5 @@ export interface Theme {
   cardProps?: CardProps;
   cardBodyProps?: CardBodyProps;
   cardHeaderProps?: CardHeaderProps;
+  pageNumberProps?: PageNumberProps;
 }

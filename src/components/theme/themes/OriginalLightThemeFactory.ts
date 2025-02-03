@@ -100,6 +100,11 @@ export class OriginalLightThemeFactory extends ThemeFactory {
           overflow: 'hidden',
         },
       },
+      pageNumberProps: {
+        style: {
+          marginBottom: 0,
+        },
+      },
     };
   }
 }
