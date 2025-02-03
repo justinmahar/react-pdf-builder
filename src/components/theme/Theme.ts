@@ -5,6 +5,8 @@ import { CardHeaderProps } from '../card/CardHeader';
 import { HeadingProps } from '../typography/Heading';
 import { ParagraphProps } from '../typography/Paragraph';
 import { PageNumberProps } from '../pages/PageNumber';
+import { UnorderedListProps } from '../lists/UnorderedList';
+import { OrderedListProps } from '../lists/OrderedList';
 
 export interface Theme {
   heading1Props?: HeadingProps;
@@ -19,4 +21,6 @@ export interface Theme {
   cardBodyProps?: CardBodyProps;
   cardHeaderProps?: CardHeaderProps;
   pageNumberProps?: PageNumberProps;
+  unorderedListProps?: UnorderedListProps;
+  orderedListProps?: OrderedListProps;
 }

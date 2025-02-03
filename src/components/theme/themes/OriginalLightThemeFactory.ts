@@ -9,7 +9,7 @@ export class OriginalLightThemeFactory extends ThemeFactory {
       heading1Props: {
         style: {
           fontSize:
-            scale * (OriginalLightThemeFactory.headingStartSize + OriginalLightThemeFactory.headingStepSize * 5),
+            (OriginalLightThemeFactory.headingStartSize + OriginalLightThemeFactory.headingStepSize * 5) * scale,
           marginBottom: 10 * scale,
           borderBottom: 4 * scale,
         },
@@ -17,7 +17,7 @@ export class OriginalLightThemeFactory extends ThemeFactory {
       heading2Props: {
         style: {
           fontSize:
-            scale * (OriginalLightThemeFactory.headingStartSize + OriginalLightThemeFactory.headingStepSize * 4),
+            (OriginalLightThemeFactory.headingStartSize + OriginalLightThemeFactory.headingStepSize * 4) * scale,
           marginBottom: 10 * scale,
           borderBottom: 4 * scale,
         },
@@ -25,7 +25,7 @@ export class OriginalLightThemeFactory extends ThemeFactory {
       heading3Props: {
         style: {
           fontSize:
-            scale * (OriginalLightThemeFactory.headingStartSize + OriginalLightThemeFactory.headingStepSize * 3),
+            (OriginalLightThemeFactory.headingStartSize + OriginalLightThemeFactory.headingStepSize * 3) * scale,
           marginBottom: 10 * scale,
           borderBottom: 3 * scale,
         },
@@ -33,7 +33,7 @@ export class OriginalLightThemeFactory extends ThemeFactory {
       heading4Props: {
         style: {
           fontSize:
-            scale * (OriginalLightThemeFactory.headingStartSize + OriginalLightThemeFactory.headingStepSize * 2),
+            (OriginalLightThemeFactory.headingStartSize + OriginalLightThemeFactory.headingStepSize * 2) * scale,
           marginBottom: 10 * scale,
           borderBottom: 3 * scale,
         },
@@ -41,7 +41,7 @@ export class OriginalLightThemeFactory extends ThemeFactory {
       heading5Props: {
         style: {
           fontSize:
-            scale * (OriginalLightThemeFactory.headingStartSize + OriginalLightThemeFactory.headingStepSize * 1),
+            (OriginalLightThemeFactory.headingStartSize + OriginalLightThemeFactory.headingStepSize * 1) * scale,
           marginBottom: 10 * scale,
           borderBottom: 2 * scale,
         },
@@ -49,7 +49,7 @@ export class OriginalLightThemeFactory extends ThemeFactory {
       heading6Props: {
         style: {
           fontSize:
-            scale * (OriginalLightThemeFactory.headingStartSize + OriginalLightThemeFactory.headingStepSize * 0),
+            (OriginalLightThemeFactory.headingStartSize + OriginalLightThemeFactory.headingStepSize * 0) * scale,
           marginBottom: 10 * scale,
           borderBottom: 2 * scale,
         },
@@ -102,7 +102,23 @@ export class OriginalLightThemeFactory extends ThemeFactory {
       },
       pageNumberProps: {
         style: {
-          marginBottom: 0,
+          marginBottom: 0 * scale,
+        },
+      },
+      unorderedListProps: {
+        style: {
+          display: 'flex',
+          flexDirection: 'column',
+          marginBottom: 10 * scale,
+          fontSize: 18 * scale,
+        },
+      },
+      orderedListProps: {
+        style: {
+          display: 'flex',
+          flexDirection: 'column',
+          marginBottom: 10 * scale,
+          fontSize: 18 * scale,
         },
       },
     };
