@@ -45,7 +45,7 @@ export interface KitchenSinkProps extends DivProps {
 export const KitchenSink = ({ label, ...props }: KitchenSinkProps) => {
   const buttonHref = 'https://github.com/justinmahar/react-pdf-builder';
   const footerHeight = 50;
-  const showCoverPage = false;
+  const showCoverPage = true;
   return (
     <div
       {...props}
@@ -58,6 +58,19 @@ export const KitchenSink = ({ label, ...props }: KitchenSinkProps) => {
           {showCoverPage && (
             <Page size="A4" style={{ flexDirection: 'column', color: 'white' }}>
               <PlaidBackground />
+              {/* <Box direction="x" style={{ padding: 0, position: 'absolute', left: 0, right: 0, top: 0 }}>
+                <RectangleShape
+                  width={595.28}
+                  height={841.89}
+                  rectProps={{ strokeWidth: 10, stroke: 'red' }}
+                  style={{
+                    // width: '100%',
+                    // height: '100%',
+                    backgroundColor: 'yellow',
+                  }}
+                />
+              </Box> */}
+
               <Box direction="y" style={{ height: '100%' }}>
                 <Box style={{ height: '5%', backgroundColor: '#00000022' }} />
                 <Box style={{ height: '15%' }} />

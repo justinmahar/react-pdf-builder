@@ -5,10 +5,13 @@ import { RectangleShape } from '../shapes/RectangleShape';
 
 export interface PlaidBackgroundProps extends BoxProps {
   gradient?: string[] | GradientStop[];
-  scale?: number;
 }
 
-export const PlaidBackground = ({ gradient = ['#192D76', '#325788'], scale = 1, ...props }: PlaidBackgroundProps) => {
+//TODO: You can make this fix the area it's in, but you need to give it the right proportions.
+//TODO: Maybe add a page size prop to make this easy. Just give it A4 and it just works. Etc.
+export const PlaidBackground = ({ gradient = ['#192D76', '#325788'], ...props }: PlaidBackgroundProps) => {
+  const width = 595.28;
+  const height = 841.89;
   return (
     <Box
       {...props}
@@ -16,15 +19,16 @@ export const PlaidBackground = ({ gradient = ['#192D76', '#325788'], scale = 1, 
         position: 'absolute',
         left: 0,
         top: 0,
-        transform: `scale(${scale})`,
+        width: '100%',
+        height: '100%',
         ...props.style,
       }}
     >
-      <Box style={{ position: 'absolute', width: 600, height: 845, overflow: 'hidden' }}>
+      <Box style={{ position: 'absolute', width: '100%', height: '100%', overflow: 'hidden' }}>
         <RectangleShape
-          style={{ position: 'absolute', left: 0 }}
-          width={600}
-          height={845}
+          style={{ position: 'absolute', width: '100%', height: '100%', left: 0 }}
+          width={width}
+          height={height}
           gradient={gradient}
           gradientType={GradientType.topLeftToBottomRight}
         />

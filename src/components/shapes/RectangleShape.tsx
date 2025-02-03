@@ -24,8 +24,8 @@ export const RectangleShape = ({
   const radialId = `radial-${uuidRef.current}`;
   const gradientStops = Gradients.normalizeGradientStops(gradient);
   const gradientCoords = Gradients.toGradientCoords(gradientType);
-  const widthNum = parseInt(`${width}`);
-  const heightNum = parseInt(`${height}`);
+  const widthNum = parseFloat(`${width}`);
+  const heightNum = parseFloat(`${height}`);
   const rectFill =
     rectProps?.fill ??
     fill ??

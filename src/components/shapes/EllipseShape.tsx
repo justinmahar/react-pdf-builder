@@ -24,9 +24,9 @@ export const EllipseShape = ({
   const radialId = `radial-${uuidRef.current}`;
   const gradientStops = Gradients.normalizeGradientStops(gradient);
   const gradientCoords = Gradients.toGradientCoords(gradientType);
-  const widthNum = parseInt(`${width}`);
-  const heightNum = parseInt(`${height}`);
-  const strokeWidthNum = parseInt(`${ellipseProps?.strokeWidth ?? 0}`);
+  const widthNum = parseFloat(`${width}`);
+  const heightNum = parseFloat(`${height}`);
+  const strokeWidthNum = parseFloat(`${ellipseProps?.strokeWidth ?? 0}`);
   const ellipseFill =
     ellipseProps?.fill ??
     fill ??
