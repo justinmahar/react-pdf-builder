@@ -86,7 +86,6 @@ export class OriginalLightThemeFactory extends ThemeFactory {
         },
       },
       cardHeaderProps: {
-        wrap: false,
         style: {
           backgroundColor: '#EEEEEE',
           paddingVertical: 10 * scale,
@@ -107,33 +106,29 @@ export class OriginalLightThemeFactory extends ThemeFactory {
       },
       unorderedListProps: {
         style: {
-          display: 'flex',
-          flexDirection: 'column',
           marginBottom: 10 * scale,
           fontSize: 18 * scale,
         },
       },
       orderedListProps: {
         style: {
-          display: 'flex',
-          flexDirection: 'column',
           marginBottom: 10 * scale,
           fontSize: 18 * scale,
         },
       },
       tableProps: {
+        stripeStyle: { backgroundColor: '#00000015' },
+        borderColor: '#000000',
+        borderStyle: 'solid',
+        borderWidth: 1,
         style: {
-          //
+          marginBottom: 10 * scale,
         },
       },
-      tableRowProps: {
-        style: {
-          //
-        },
-      },
+      tableRowProps: {},
       tableCellProps: {
         style: {
-          //
+          padding: 8 * scale,
         },
       },
     };

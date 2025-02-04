@@ -2,6 +2,7 @@ import React from 'react';
 import { Style } from '../Style';
 import { Box, BoxProps } from '../layout/Box';
 import { Theme } from '../theme/Theme';
+import { Themes } from '../theme/themes/Themes';
 
 export interface TableProps extends BoxProps {
   children?: any;
@@ -22,52 +23,44 @@ export interface TableProps extends BoxProps {
   theme?: Theme;
 }
 
-export const Table = ({
-  children,
-  striped = false,
-  stripeStyle = { backgroundColor: '#00000015' },
-  inverseStriped = false,
-  rowStyle,
-  cellStyle,
-  bordered = false,
-  borderedOutside = false,
-  borderedInside = false,
-  borderedVertical = false,
-  borderedHorizontal = false,
-  borderColor = '#000000',
-  borderStyle = 'solid',
-  borderWidth = 1,
-  colWidths,
-  theme,
-  ...props
-}: TableProps) => {
-  const tableStyle: Style = {
-    marginBottom: 10,
-    overflow: 'hidden',
-    borderTop: bordered || borderedOutside || borderedHorizontal ? borderWidth : undefined,
-    borderBottom: bordered || borderedOutside || borderedHorizontal ? borderWidth : undefined,
-    // borderRight: bordered || borderedOutside || borderedVertical ? borderWidth : undefined,
-    // borderLeft: bordered || borderedOutside || borderedVertical ? borderWidth : undefined,
-    borderColor,
+export const Table = ({ children, theme = Themes.default.create(), style, ...props }: TableProps) => {
+  const themeTableProps = theme?.tableProps ?? {};
+  const mergedProps: TableProps = {
+    ...themeTableProps,
+    ...props,
   };
 
-  const childArray = (Array.isArray(children) ? children : [children]).map((c, i, arr) => {
+  const styleInnate: Style = {
+    overflow: 'hidden',
+  };
+
+  const styleOverride: Style = {};
+  if (mergedProps.bordered || mergedProps.borderedOutside || mergedProps.borderedHorizontal) {
+    styleOverride.borderTop = mergedProps.borderWidth;
+    styleOverride.borderBottom = mergedProps.borderWidth;
+    styleOverride.borderColor = mergedProps.borderColor;
+    styleOverride.borderStyle = mergedProps.borderStyle;
+  }
+
+  // Inject rows with props from Table, as well as the row index and count
+  const originalChildArray = Array.isArray(children) ? children : [children];
+  const injectedChildArray = originalChildArray.map((c, i, arr) => {
     return React.cloneElement(c, {
       key: `row-` + i,
-      striped,
-      stripeStyle,
-      inverseStriped,
-      rowStyle,
-      cellStyle,
-      bordered,
-      borderedOutside,
-      borderedInside,
-      borderedVertical,
-      borderedHorizontal,
-      borderColor,
-      borderStyle,
-      borderWidth,
-      colWidths,
+      striped: mergedProps.striped,
+      stripeStyle: mergedProps.stripeStyle,
+      inverseStriped: mergedProps.inverseStriped,
+      rowStyle: mergedProps.rowStyle,
+      cellStyle: mergedProps.cellStyle,
+      bordered: mergedProps.bordered,
+      borderedOutside: mergedProps.borderedOutside,
+      borderedInside: mergedProps.borderedInside,
+      borderedVertical: mergedProps.borderedVertical,
+      borderedHorizontal: mergedProps.borderedHorizontal,
+      borderColor: mergedProps.borderColor,
+      borderStyle: mergedProps.borderStyle,
+      borderWidth: mergedProps.borderWidth,
+      colWidths: mergedProps.colWidths,
       theme,
       ...c.props,
       rowIndex: i,
@@ -76,8 +69,17 @@ export const Table = ({
   });
 
   return (
-    <Box direction="y" {...props} style={{ ...tableStyle, ...props.style }}>
-      {childArray}
+    <Box
+      direction="y"
+      {...mergedProps}
+      style={{
+        ...styleInnate,
+        ...mergedProps.style,
+        ...styleOverride,
+        ...style,
+      }}
+    >
+      {injectedChildArray}
     </Box>
   );
 };

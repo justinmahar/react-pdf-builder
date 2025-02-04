@@ -235,9 +235,9 @@ export const KitchenSink = ({ label, ...props }: KitchenSinkProps) => {
               <Heading5 rule break>
                 Tables
               </Heading5>
-              <Heading6>Plain and bordered inside, 400pt</Heading6>
+              <Heading6>Plain and bordered inside, 80% width</Heading6>
               <Box direction="x" style={{ justifyContent: 'center' }}>
-                <Table borderedInside style={{ width: 400 }}>
+                <Table borderedInside style={{ width: '80%' }}>
                   <TableRow>
                     <TableCell style={{ textAlign: 'right' }}>Lorem ipsum dolor</TableCell>
                     <TableCell style={{ textAlign: 'center' }}>Consectetur adipiscing elit</TableCell>

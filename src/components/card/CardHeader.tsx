@@ -8,14 +8,19 @@ import { Theme } from '../theme/Theme';
 import { Themes } from '../theme/themes/Themes';
 
 export interface CardHeaderProps extends BoxProps {
-  as?: any;
   children?: any;
+  as?: any;
   noBody?: boolean;
   theme?: Theme;
 }
 
-export const CardHeader = ({ theme = Themes.default.create(), children, noBody, as, ...props }: CardHeaderProps) => {
-  const AsComponent = as ?? Heading5;
+export const CardHeader = ({ children, theme = Themes.default.create(), ...props }: CardHeaderProps) => {
+  const mergedProps = {
+    ...theme?.cardHeaderProps,
+    ...props,
+  };
+
+  const AsComponent = mergedProps.as ?? Heading5;
   let child = children;
   if (typeof child === 'string') {
     child = (
@@ -25,17 +30,15 @@ export const CardHeader = ({ theme = Themes.default.create(), children, noBody, 
     );
   }
 
-  const themeProps = theme?.cardHeaderProps;
-
-  const style: Style = {};
-  if (!noBody) {
-    style.borderBottomLeftRadius = 0;
-    style.borderBottomRightRadius = 0;
+  const styleOverride: Style = {};
+  if (!mergedProps.noBody) {
+    styleOverride.borderBottomLeftRadius = 0;
+    styleOverride.borderBottomRightRadius = 0;
   }
 
   return (
-    <Box {...themeProps} {...props} style={{ ...themeProps?.style, ...style, ...props.style }}>
-      <PDFSafeChildren>{child}</PDFSafeChildren>
+    <Box wrap={false} {...mergedProps} style={{ ...mergedProps?.style, ...styleOverride, ...props.style }}>
+      {child}
     </Box>
   );
 };

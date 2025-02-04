@@ -33,8 +33,13 @@ export const UnorderedList = ({
     </ListItemWrapper>
   ));
 
+  const styleInnate: Style = {
+    display: 'flex',
+    flexDirection: 'column',
+  };
+
   return (
-    <View {...themeProps} {...props} style={{ ...themeProps?.style, ...props.style }}>
+    <View {...themeProps} {...props} style={{ ...styleInnate, ...themeProps?.style, ...props.style }}>
       {liElements}
     </View>
   );

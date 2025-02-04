@@ -1,18 +1,22 @@
-import { Text, TextProps } from '@react-pdf/renderer';
+import { View, ViewProps } from '@react-pdf/renderer';
 import React from 'react';
 import { Theme } from '../theme/Theme';
 import { Themes } from '../theme/themes/Themes';
+import { PDFSafeChildren } from '../builder/PDFSafeChildren';
 
-export interface TemplateProps extends TextProps {
+export interface TemplateProps extends ViewProps {
   children?: any;
   theme?: Theme;
 }
 
-export const Template = ({ theme = Themes.default.create(), children, ...props }: TemplateProps) => {
-  const themeProps = theme?.paragraphProps; // TODO: Replace with correct props
+export const Template = ({ children, theme = Themes.default.create(), style, ...props }: TemplateProps) => {
+  const mergedProps = {
+    ...theme?.cardProps,
+    ...props,
+  };
   return (
-    <Text {...themeProps} {...props} style={{ ...themeProps?.style, ...props.style }}>
-      {children}
-    </Text>
+    <View {...mergedProps} style={{ ...mergedProps?.style, ...style }}>
+      <PDFSafeChildren>{children}</PDFSafeChildren>
+    </View>
   );
 };

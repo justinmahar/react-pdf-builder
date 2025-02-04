@@ -15,7 +15,7 @@ const StoryComponent = (props: ParagraphProps) => {
       <Table
         bordered
         inverseStriped
-        borderColor="#005BDF"
+        borderColor="#007BFF"
         style={{ backgroundColor: 'white', borderRadius: 10 }}
         stripeStyle={{ backgroundColor: '#007BFF22' }}
         colWidths={['30%', '50%', '20%']}

@@ -12,25 +12,22 @@ export interface CardBodyProps extends BoxProps {
   theme?: Theme;
 }
 
-export const CardBody = ({
-  theme = Themes.default.create(),
-  children,
-  withHeader,
-  withFooter,
-  ...props
-}: CardBodyProps) => {
-  const themeProps = theme.cardBodyProps;
-  const style: Style = {};
-  if (withHeader) {
-    style.borderTopLeftRadius = 0;
-    style.borderTopRightRadius = 0;
+export const CardBody = ({ children, theme = Themes.default.create(), ...props }: CardBodyProps) => {
+  const mergedProps = {
+    ...theme.cardBodyProps,
+    ...props,
+  };
+  const styleOverride: Style = {};
+  if (mergedProps.withHeader) {
+    styleOverride.borderTopLeftRadius = 0;
+    styleOverride.borderTopRightRadius = 0;
   }
-  if (withFooter) {
-    style.borderBottomLeftRadius = 0;
-    style.borderBottomRightRadius = 0;
+  if (mergedProps.withFooter) {
+    styleOverride.borderBottomLeftRadius = 0;
+    styleOverride.borderBottomRightRadius = 0;
   }
   return (
-    <Box {...themeProps} {...props} style={{ ...themeProps?.style, ...style, ...props.style }}>
+    <Box {...mergedProps} style={{ ...mergedProps?.style, ...styleOverride, ...props.style }}>
       <PDFSafeChildren>{children}</PDFSafeChildren>
     </Box>
   );

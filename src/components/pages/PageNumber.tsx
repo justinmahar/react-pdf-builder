@@ -11,30 +11,25 @@ export interface PageNumberProps extends TextProps {
   theme?: Theme;
 }
 
-export const PageNumber = ({
-  theme = Themes.default.create(),
-  offset = 0,
-  format = '%n / %t',
-  showAfter = 0,
-  ...props
-}: PageNumberProps) => {
-  const themeProps = theme.pageNumberProps;
+export const PageNumber = ({ theme = Themes.default.create(), style, ...props }: PageNumberProps) => {
+  const mergedProps = { ...theme.pageNumberProps, ...props };
+  const defaultFormat = '%n / %t';
   return (
     <Paragraph
       render={({ pageNumber, totalPages }) => {
-        const num = pageNumber + offset;
-        if (num > showAfter) {
-          return format
+        const num = pageNumber + (mergedProps.offset ?? 0);
+        if (num > (mergedProps.showAfter ?? 0)) {
+          return (mergedProps.format ?? defaultFormat)
             .split('%n')
             .join(`${num}`)
             .split('%t')
-            .join(`${totalPages + offset}`);
+            .join(`${totalPages + (mergedProps.offset ?? 0)}`);
         } else {
           return '';
         }
       }}
-      {...themeProps}
-      {...props}
+      {...mergedProps}
+      style={{ ...mergedProps.style, ...style }}
     />
   );
 };

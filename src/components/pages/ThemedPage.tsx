@@ -9,11 +9,14 @@ export interface ThemedPageProps extends PageProps {
   theme?: Theme;
 }
 
-export const ThemedPage = ({ theme = Themes.default.create(), ...props }: ThemedPageProps) => {
-  const themeProps = theme.pageProps ?? {};
+export const ThemedPage = ({ children, theme = Themes.default.create(), style, ...props }: ThemedPageProps) => {
+  const mergedProps = {
+    ...theme.pageProps,
+    ...props,
+  };
   return (
-    <Page {...themeProps} {...props} style={{ ...themeProps.style, ...props.style }}>
-      <PDFSafeChildren>{props.children}</PDFSafeChildren>
+    <Page {...mergedProps} style={{ ...mergedProps.style, ...style }}>
+      <PDFSafeChildren>{children}</PDFSafeChildren>
     </Page>
   );
 };

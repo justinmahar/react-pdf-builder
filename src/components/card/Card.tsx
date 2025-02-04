@@ -9,10 +9,13 @@ export interface CardProps extends BoxProps {
   theme?: Theme;
 }
 
-export const Card = ({ theme = Themes.default.create(), children, ...props }: CardProps) => {
-  const themeProps = theme.cardProps;
+export const Card = ({ children, theme = Themes.default.create(), ...props }: CardProps) => {
+  const mergedProps = {
+    ...theme.cardProps,
+    ...props,
+  };
   return (
-    <Box {...themeProps} {...props} style={{ ...themeProps?.style, ...props.style }}>
+    <Box {...mergedProps} style={{ ...mergedProps?.style, ...props.style }}>
       <PDFSafeChildren>{children}</PDFSafeChildren>
     </Box>
   );
