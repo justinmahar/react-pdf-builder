@@ -1,6 +1,10 @@
 // Background
 export * from './components/backgrounds/PlaidBackground';
 
+// Builder
+export * from './components/builder/ReactPDFBuilder';
+export * from './components/builder/PDFSafeChildren';
+
 // Card
 export * from './components/card/Card';
 export * from './components/card/CardBody';
@@ -16,6 +20,7 @@ export * from './components/lists/UnorderedList';
 
 // Pages
 export * from './components/pages/PageNumber';
+export * from './components/pages/ThemedPage';
 
 // Shapes
 export * from './components/shapes/CircleShape';
@@ -30,6 +35,11 @@ export * from './components/shapes/ShapeProps';
 export * from './components/table/Table';
 export * from './components/table/TableRow';
 export * from './components/table/TableCell';
+
+// Themes
+export * from './components/theme/Theme';
+export * from './components/theme/ThemeFactory';
+export * from './components/theme/themes/Themes';
 
 // Typography
 export * from './components/typography/Heading';
@@ -46,5 +56,4 @@ export * from './components/widgets/Button';
 
 // Misc
 export * from './components/KitchenSink';
-export * from './components/builder/PDFSafeChildren';
 export * from './components/Style';
