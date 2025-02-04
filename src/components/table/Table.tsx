@@ -7,10 +7,10 @@ import { Themes } from '../theme/themes/Themes';
 export interface TableProps extends BoxProps {
   children?: any;
   striped?: boolean;
-  stripeStyle?: Style | Style[];
+  stripeStyle?: Style;
   inverseStriped?: boolean;
-  rowStyle?: Style | Style[];
-  cellStyle?: Style | Style[];
+  rowStyle?: Style;
+  cellStyle?: Style;
   bordered?: boolean;
   borderedOutside?: boolean;
   borderedInside?: boolean;
@@ -24,9 +24,8 @@ export interface TableProps extends BoxProps {
 }
 
 export const Table = ({ children, theme = Themes.default.create(), style, ...props }: TableProps) => {
-  const themeTableProps = theme?.tableProps ?? {};
-  const mergedProps: TableProps = {
-    ...themeTableProps,
+  const mergedProps = {
+    ...theme?.tableProps,
     ...props,
   };
 

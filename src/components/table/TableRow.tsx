@@ -10,10 +10,10 @@ export interface TableRowProps extends BoxProps {
   rowIndex?: number;
   rowCount?: number;
   striped?: boolean;
-  stripeStyle?: Style | Style[];
+  stripeStyle?: Style;
   inverseStriped?: boolean;
-  rowStyle?: Style | Style[];
-  cellStyle?: Style | Style[];
+  rowStyle?: Style;
+  cellStyle?: Style;
   bordered?: boolean;
   borderedOutside?: boolean;
   borderedInside?: boolean;
@@ -26,7 +26,13 @@ export interface TableRowProps extends BoxProps {
   theme?: Theme;
 }
 
-export const TableRow = ({ children, theme = Themes.default.create(), style, ...props }: TableRowProps) => {
+export const TableRow = ({
+  children,
+  theme = Themes.default.create(),
+  stripeStyle,
+  style,
+  ...props
+}: TableRowProps) => {
   const mergedProps = {
     ...theme.tableRowProps,
     ...props,
@@ -40,7 +46,7 @@ export const TableRow = ({ children, theme = Themes.default.create(), style, ...
     overflow: 'hidden',
   };
 
-  let styleOverride: Style = {};
+  const styleOverride: Style = {};
 
   let borderAdded = false;
   if (
@@ -60,8 +66,10 @@ export const TableRow = ({ children, theme = Themes.default.create(), style, ...
     styleOverride.borderColor = mergedProps.borderColor;
     styleOverride.borderStyle = mergedProps.borderStyle;
   }
+
+  let stripedStyleOverride: Style = {};
   if (isStripedRow) {
-    styleOverride = { ...styleOverride, ...mergedProps.stripeStyle };
+    stripedStyleOverride = { ...mergedProps.stripeStyle, ...stripeStyle };
   }
 
   // Inject cells with props from Table, as well as the col index and count
@@ -94,6 +102,7 @@ export const TableRow = ({ children, theme = Themes.default.create(), style, ...
         ...mergedProps.style,
         ...styleOverride,
         ...mergedProps.rowStyle,
+        ...stripedStyleOverride,
         ...style,
       }}
     >

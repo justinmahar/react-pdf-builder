@@ -1,60 +1,50 @@
 import { Link, View, ViewProps } from '@react-pdf/renderer';
 import React from 'react';
 import { PDFSafeChildren } from '../builder/PDFSafeChildren';
+import { Theme } from '../theme/Theme';
+import { Themes } from '../theme/themes/Themes';
+import { Style } from '../Style';
 
 export interface ButtonProps extends ViewProps {
   href?: string;
   variant?: string;
   children?: any;
   pill?: boolean;
+  theme?: Theme;
 }
 
-export const Button = ({ href, children, variant, pill, ...props }: ButtonProps) => {
-  const backgroundColor = variant ? defaultVariantBackgrounds[variant] : defaultVariantBackgrounds['primary'];
-  const color = variant ? defaultVariantForegrounds[variant] : defaultVariantForegrounds['primary'];
-  const hasHref = typeof href !== 'undefined';
+export const Button = ({ children, theme = Themes.default.create(), style, ...props }: ButtonProps) => {
+  const mergedProps = {
+    ...theme?.buttonProps,
+    ...props,
+  };
+
+  const styleOverride: Style = {};
+  if (mergedProps.variant) {
+    styleOverride.backgroundColor = defaultVariantBackgrounds[mergedProps.variant];
+    styleOverride.color = defaultVariantForegrounds[mergedProps.variant];
+  }
+  if (mergedProps.pill) {
+    styleOverride.borderRadius = '50%';
+  }
+
+  const hasHref = typeof mergedProps.href !== 'undefined';
   const child = (
     <PDFSafeChildren textStyle={hasHref ? { textDecoration: 'no-underline' as any } : undefined}>
       {children}
     </PDFSafeChildren>
   );
 
+  const buttonElement = (
+    <View {...mergedProps} style={{ ...mergedProps.style, ...styleOverride, ...style }}>
+      {child}
+    </View>
+  );
+
   if (hasHref) {
-    return (
-      <Link href={href}>
-        <View
-          {...props}
-          style={{
-            color,
-            backgroundColor,
-            padding: 10,
-            width: 150,
-            textAlign: 'center',
-            borderRadius: pill ? '50%' : 5,
-            ...props.style,
-          }}
-        >
-          {child}
-        </View>
-      </Link>
-    );
+    return <Link href={mergedProps.href}>{buttonElement}</Link>;
   } else {
-    return (
-      <View
-        {...props}
-        style={{
-          color,
-          backgroundColor,
-          padding: 10,
-          width: 150,
-          textAlign: 'center',
-          borderRadius: pill ? '50%' : 5,
-          ...props.style,
-        }}
-      >
-        {child}
-      </View>
-    );
+    return buttonElement;
   }
 };
 

@@ -4,10 +4,16 @@ import { Style } from '../Style';
 import { Themes } from '../theme/themes/Themes';
 import { HeadingProps } from './Heading';
 
-export const Heading1 = ({ children, theme = Themes.default.create(), ...props }: HeadingProps) => {
+export const Heading1 = ({ children, theme = Themes.default.create(), style, ...props }: HeadingProps) => {
   const mergedProps = {
+    ...theme?.headingProps,
     ...theme?.heading1Props,
     ...props,
+  };
+
+  const mergedThemeStyles = {
+    ...theme?.headingProps?.style,
+    ...theme?.heading1Props?.style,
   };
 
   const styleOverride: Style = {};
@@ -16,7 +22,7 @@ export const Heading1 = ({ children, theme = Themes.default.create(), ...props }
   }
 
   return (
-    <Text {...mergedProps} style={{ ...mergedProps?.style, ...styleOverride, ...props.style }}>
+    <Text {...mergedProps} style={{ ...mergedThemeStyles, ...styleOverride, ...style }}>
       {children}
     </Text>
   );

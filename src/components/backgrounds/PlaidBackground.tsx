@@ -7,11 +7,12 @@ export interface PlaidBackgroundProps extends BoxProps {
   gradient?: string[] | GradientStop[];
 }
 
-//TODO: You can make this fix the area it's in, but you need to give it the right proportions.
+//TODO: You can make this fit the area it's in, but you need to give it the right proportions.
 //TODO: Maybe add a page size prop to make this easy. Just give it A4 and it just works. Etc.
+//TODO: https://github.com/diegomura/react-pdf/blob/master/packages/layout/src/page/getSize.js
 export const PlaidBackground = ({ gradient = ['#192D76', '#325788'], ...props }: PlaidBackgroundProps) => {
-  const width = 595.28;
-  const height = 841.89;
+  const width = 612.0;
+  const height = 792.0;
   return (
     <Box
       {...props}

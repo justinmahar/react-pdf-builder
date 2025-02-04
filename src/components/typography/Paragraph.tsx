@@ -8,10 +8,14 @@ export interface ParagraphProps extends TextProps {
   theme?: Theme;
 }
 
-export const Paragraph = ({ theme = Themes.default.create(), children, ...props }: ParagraphProps) => {
-  const themeProps = theme?.paragraphProps;
+export const Paragraph = ({ children, theme = Themes.default.create(), style, ...props }: ParagraphProps) => {
+  const mergedProps = {
+    ...theme?.paragraphProps,
+    ...props,
+  };
+
   return (
-    <Text {...themeProps} {...props} style={{ ...themeProps?.style, ...props.style }}>
+    <Text {...mergedProps} style={{ ...mergedProps?.style, ...style }}>
       {children}
     </Text>
   );

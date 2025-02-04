@@ -5,7 +5,6 @@ import { Themes } from '../theme/themes/Themes';
 import { Paragraph } from '../typography/Paragraph';
 
 export interface PageNumberProps extends TextProps {
-  offset?: number;
   format?: string;
   showAfter?: number;
   theme?: Theme;
@@ -16,14 +15,18 @@ export const PageNumber = ({ theme = Themes.default.create(), style, ...props }:
   const defaultFormat = '%n / %t';
   return (
     <Paragraph
-      render={({ pageNumber, totalPages }) => {
-        const num = pageNumber + (mergedProps.offset ?? 0);
+      render={({ pageNumber, totalPages, subPageNumber, subPageTotalPages }) => {
+        const num = pageNumber;
         if (num > (mergedProps.showAfter ?? 0)) {
           return (mergedProps.format ?? defaultFormat)
             .split('%n')
             .join(`${num}`)
             .split('%t')
-            .join(`${totalPages + (mergedProps.offset ?? 0)}`);
+            .join(`${totalPages}`)
+            .split('%sn')
+            .join(`${subPageNumber}`)
+            .split('%st')
+            .join(`${subPageTotalPages}`);
         } else {
           return '';
         }

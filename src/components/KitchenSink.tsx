@@ -44,8 +44,9 @@ export interface KitchenSinkProps extends DivProps {
  */
 export const KitchenSink = ({ label, ...props }: KitchenSinkProps) => {
   const buttonHref = 'https://github.com/justinmahar/react-pdf-builder';
-  const footerHeight = 50;
+  const footerHeight = 96;
   const showCoverPage = true;
+  const pageSize = 'LETTER';
   return (
     <div
       {...props}
@@ -53,10 +54,10 @@ export const KitchenSink = ({ label, ...props }: KitchenSinkProps) => {
         ...props.style,
       }}
     >
-      <PDFViewer style={{ height: 600, width: 400 }}>
+      <PDFViewer style={{ height: 700, width: 500 }}>
         <Document>
           {showCoverPage && (
-            <Page size="A4" style={{ flexDirection: 'column', color: 'white' }}>
+            <Page size={pageSize} style={{ flexDirection: 'column', color: 'white' }}>
               <PlaidBackground />
 
               <Box direction="y" style={{ height: '100%' }}>
@@ -86,9 +87,8 @@ export const KitchenSink = ({ label, ...props }: KitchenSinkProps) => {
             </Page>
           )}
           <ThemedPage
-            size="A4"
+            size={pageSize}
             style={{
-              paddingBottom: footerHeight,
               backgroundColor: '#F8F9FA',
             }}
           >
@@ -131,7 +131,9 @@ export const KitchenSink = ({ label, ...props }: KitchenSinkProps) => {
                   aliquip ex ea commodo consequat.
                 </ListItem>
               </OrderedList>
-              <Heading5 rule>Layout</Heading5>
+              <Heading5 rule break>
+                Layout
+              </Heading5>
               <Heading6>Horizontal Box</Heading6>
               <Box direction="x">
                 <Box
@@ -257,26 +259,7 @@ export const KitchenSink = ({ label, ...props }: KitchenSinkProps) => {
               </Box>
               <Heading6>Striped, horizontal bordered, with page wrapping demo</Heading6>
               <Box style={{ position: 'relative', marginBottom: 10 }}>
-                <Table
-                  borderedOutside
-                  borderedHorizontal
-                  borderWidth={1}
-                  striped
-                  style={{ backgroundColor: 'white', marginBottom: 0 }}
-                >
-                  <TableRow>
-                    <TableCell>Lorem ipsum dolor</TableCell>
-                    <TableCell>Consectetur adipiscing elit</TableCell>
-                    <TableCell>Sed do eiusmod</TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell>Incididunt ut labore</TableCell>
-                    <TableCell>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                      labore et magna aliqua.
-                    </TableCell>
-                    <TableCell>Dolore magna aliqua</TableCell>
-                  </TableRow>
+                <Table borderedOutside borderedHorizontal borderWidth={1} striped style={{ marginBottom: 0 }}>
                   <TableRow>
                     <TableCell>Lorem ipsum dolor</TableCell>
                     <TableCell>Consectetur adipiscing elit</TableCell>
@@ -314,17 +297,6 @@ export const KitchenSink = ({ label, ...props }: KitchenSinkProps) => {
                     <TableCell>Sed do eiusmod</TableCell>
                   </TableRow>
                 </Table>
-                <RectangleShape
-                  gradientType={GradientType.topToBottom}
-                  gradient={[
-                    { offset: '0%', stopColor: 'black', stopOpacity: 0.3 },
-                    { offset: '50%', stopColor: 'black', stopOpacity: 0.1 },
-                    { offset: '80%', stopColor: 'black', stopOpacity: 0.01 },
-                    { offset: '100%', stopColor: 'black', stopOpacity: 0 },
-                  ]}
-                  width={535}
-                  height={15}
-                />
               </Box>
               <Heading6>Styled with column widths 30%, 50%, 20%</Heading6>
               <Table
@@ -450,17 +422,17 @@ export const KitchenSink = ({ label, ...props }: KitchenSinkProps) => {
               direction="x"
               style={{
                 position: 'absolute',
-                bottom: 0,
                 left: 0,
-                right: 0,
-                marginHorizontal: 'auto',
+                bottom: 0,
+                width: '100%',
+                height: footerHeight,
                 justifyContent: 'space-between',
                 gap: 10,
-                alignItems: 'center',
-                height: footerHeight,
-                backgroundColor: '#00000011',
-                paddingLeft: 30,
-                paddingRight: 30,
+                alignItems: 'flex-end',
+                // backgroundColor: '#00000005',
+                paddingLeft: 72 * 0.5,
+                paddingRight: 72 * 0.5,
+                paddingBottom: 72 * 0.5,
               }}
               fixed
             >

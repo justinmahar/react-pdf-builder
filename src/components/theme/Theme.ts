@@ -1,4 +1,4 @@
-import { PageProps } from '@react-pdf/renderer';
+import { PageProps, TextProps } from '@react-pdf/renderer';
 import { CardProps } from '../card/Card';
 import { CardBodyProps } from '../card/CardBody';
 import { CardHeaderProps } from '../card/CardHeader';
@@ -10,8 +10,30 @@ import { OrderedListProps } from '../lists/OrderedList';
 import { TableCellProps } from '../table/TableCell';
 import { TableRowProps } from '../table/TableRow';
 import { TableProps } from '../table/Table';
+import { ListItemProps } from '../lists/ListItem';
+import { ListItemContainerProps } from '../lists/ListItemContainer';
+import { ButtonProps } from '../widgets/Button';
 
 export interface Theme {
+  // Card
+  cardProps?: CardProps;
+  cardBodyProps?: CardBodyProps;
+  cardHeaderProps?: CardHeaderProps;
+  // Lists
+  listItemProps?: ListItemProps;
+  listItemContainerProps?: ListItemContainerProps;
+  listItemMarkerProps?: TextProps;
+  unorderedListProps?: UnorderedListProps;
+  orderedListProps?: OrderedListProps;
+  // Pages
+  pageProps?: PageProps;
+  pageNumberProps?: PageNumberProps;
+  // Table
+  tableProps?: TableProps;
+  tableCellProps?: TableCellProps;
+  tableRowProps?: TableRowProps;
+  // Typography
+  headingProps?: HeadingProps;
   heading1Props?: HeadingProps;
   heading2Props?: HeadingProps;
   heading3Props?: HeadingProps;
@@ -19,14 +41,6 @@ export interface Theme {
   heading5Props?: HeadingProps;
   heading6Props?: HeadingProps;
   paragraphProps?: ParagraphProps;
-  pageProps?: PageProps;
-  cardProps?: CardProps;
-  cardBodyProps?: CardBodyProps;
-  cardHeaderProps?: CardHeaderProps;
-  pageNumberProps?: PageNumberProps;
-  unorderedListProps?: UnorderedListProps;
-  orderedListProps?: OrderedListProps;
-  tableProps?: TableProps;
-  tableCellProps?: TableCellProps;
-  tableRowProps?: TableRowProps;
+  // Widgets
+  buttonProps?: ButtonProps;
 }

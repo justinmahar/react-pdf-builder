@@ -1,6 +1,6 @@
 import { View, ViewProps } from '@react-pdf/renderer';
 import React from 'react';
-import { ListItemWrapper, ListItemWrapperProps } from './ListItemWrapper';
+import { ListItemContainer, ListItemContainerProps } from './ListItemContainer';
 import { Style } from '../Style';
 import { PDFSafeChildren } from '../builder/PDFSafeChildren';
 import { Theme } from '../theme/Theme';
@@ -10,27 +10,34 @@ export interface UnorderedListProps extends ViewProps {
   children?: any;
   wrapItems?: boolean;
   markerStyle?: Style;
-  wrapperProps?: ListItemWrapperProps;
+  wrapperProps?: ListItemContainerProps;
   bullet?: string;
   theme?: Theme;
 }
 
-export const UnorderedList = ({
-  theme = Themes.default.create(),
-  children,
-  wrapItems = false,
-  markerStyle,
-  wrapperProps,
-  bullet,
-  ...props
-}: UnorderedListProps) => {
-  const themeProps = theme.unorderedListProps;
+export const UnorderedList = ({ theme = Themes.default.create(), children, style, ...props }: UnorderedListProps) => {
+  const mergedProps = {
+    ...theme.unorderedListProps,
+    ...props,
+  };
+
+  const mergedWrapperProps = {
+    ...theme.listItemContainerProps,
+    ...props.wrapperProps,
+  };
+
   const childArray = Array.isArray(children) ? children : [children];
 
   const liElements: JSX.Element[] = childArray.map((c, i) => (
-    <ListItemWrapper bullet={bullet} markerStyle={markerStyle} wrap={wrapItems} key={'ul-li-' + i} {...wrapperProps}>
+    <ListItemContainer
+      key={'ul-li-' + i}
+      wrap={!!mergedProps.wrapItems}
+      markerStyle={mergedProps.markerStyle}
+      bullet={mergedProps.bullet}
+      {...mergedWrapperProps}
+    >
       <PDFSafeChildren>{c}</PDFSafeChildren>
-    </ListItemWrapper>
+    </ListItemContainer>
   ));
 
   const styleInnate: Style = {
@@ -39,7 +46,7 @@ export const UnorderedList = ({
   };
 
   return (
-    <View {...themeProps} {...props} style={{ ...styleInnate, ...themeProps?.style, ...props.style }}>
+    <View {...mergedProps} style={{ ...styleInnate, ...mergedProps?.style, ...style }}>
       {liElements}
     </View>
   );

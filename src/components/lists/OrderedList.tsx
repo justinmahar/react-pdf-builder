@@ -1,6 +1,6 @@
 import { View, ViewProps } from '@react-pdf/renderer';
 import React from 'react';
-import { ListItemWrapper, ListItemWrapperProps } from './ListItemWrapper';
+import { ListItemContainer, ListItemContainerProps } from './ListItemContainer';
 import { Style } from '../Style';
 import { PDFSafeChildren } from '../builder/PDFSafeChildren';
 import { Theme } from '../theme/Theme';
@@ -10,34 +10,35 @@ export interface OrderedListProps extends ViewProps {
   children?: any;
   wrapItems?: boolean;
   markerStyle?: Style;
-  wrapperProps?: ListItemWrapperProps;
+  wrapperProps?: ListItemContainerProps;
   numberRenderer?: (num: number) => string;
   theme?: Theme;
 }
 
-export const OrderedList = ({
-  theme = Themes.default.create(),
-  children,
-  wrapItems = false,
-  markerStyle,
-  wrapperProps,
-  numberRenderer,
-  ...props
-}: OrderedListProps) => {
-  const themeProps = theme.unorderedListProps;
+export const OrderedList = ({ theme = Themes.default.create(), children, style, ...props }: OrderedListProps) => {
+  const mergedProps = {
+    ...theme.orderedListProps,
+    ...props,
+  };
+
+  const mergedWrapperProps = {
+    ...theme.listItemContainerProps,
+    ...props.wrapperProps,
+  };
+
   const childArray = Array.isArray(children) ? children : [children];
 
   const liElements: JSX.Element[] = childArray.map((c, i) => (
-    <ListItemWrapper
-      markerStyle={markerStyle}
-      wrap={wrapItems}
-      numberRenderer={numberRenderer}
-      num={i + 1}
+    <ListItemContainer
       key={'ol-li-' + i}
-      {...wrapperProps}
+      wrap={!!mergedProps.wrapItems}
+      markerStyle={mergedProps.markerStyle}
+      numberRenderer={mergedProps.numberRenderer}
+      {...mergedWrapperProps}
+      num={i + 1}
     >
       <PDFSafeChildren>{c}</PDFSafeChildren>
-    </ListItemWrapper>
+    </ListItemContainer>
   ));
 
   const styleInnate: Style = {
@@ -46,7 +47,7 @@ export const OrderedList = ({
   };
 
   return (
-    <View {...themeProps} {...props} style={{ ...styleInnate, ...themeProps?.style, ...props.style }}>
+    <View {...mergedProps} style={{ ...styleInnate, ...mergedProps?.style, ...style }}>
       {liElements}
     </View>
   );

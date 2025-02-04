@@ -10,7 +10,7 @@ export interface TableCellProps extends BoxProps {
   colIndex?: number;
   colCount?: number;
   colWidths?: (string | number)[];
-  cellStyle?: Style | Style[];
+  cellStyle?: Style;
   bordered?: boolean;
   borderedInside?: boolean;
   borderedVertical?: boolean;

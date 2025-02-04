@@ -2,74 +2,16 @@ import { Theme } from '../Theme';
 import { ThemeFactory } from '../ThemeFactory';
 
 export class OriginalLightThemeFactory extends ThemeFactory {
-  public static headingStartSize = 20;
+  public static baseFontSize = 18;
+  public static baseMarginRatio = 1.25;
+  public static headingStartSize = OriginalLightThemeFactory.baseFontSize * 1.11;
   public static headingStepSize = 4;
   public create(scale: number = 1): Theme {
     return {
-      heading1Props: {
-        style: {
-          fontSize:
-            (OriginalLightThemeFactory.headingStartSize + OriginalLightThemeFactory.headingStepSize * 5) * scale,
-          marginBottom: 10 * scale,
-          borderBottom: 4 * scale,
-        },
-      },
-      heading2Props: {
-        style: {
-          fontSize:
-            (OriginalLightThemeFactory.headingStartSize + OriginalLightThemeFactory.headingStepSize * 4) * scale,
-          marginBottom: 10 * scale,
-          borderBottom: 4 * scale,
-        },
-      },
-      heading3Props: {
-        style: {
-          fontSize:
-            (OriginalLightThemeFactory.headingStartSize + OriginalLightThemeFactory.headingStepSize * 3) * scale,
-          marginBottom: 10 * scale,
-          borderBottom: 3 * scale,
-        },
-      },
-      heading4Props: {
-        style: {
-          fontSize:
-            (OriginalLightThemeFactory.headingStartSize + OriginalLightThemeFactory.headingStepSize * 2) * scale,
-          marginBottom: 10 * scale,
-          borderBottom: 3 * scale,
-        },
-      },
-      heading5Props: {
-        style: {
-          fontSize:
-            (OriginalLightThemeFactory.headingStartSize + OriginalLightThemeFactory.headingStepSize * 1) * scale,
-          marginBottom: 10 * scale,
-          borderBottom: 2 * scale,
-        },
-      },
-      heading6Props: {
-        style: {
-          fontSize:
-            (OriginalLightThemeFactory.headingStartSize + OriginalLightThemeFactory.headingStepSize * 0) * scale,
-          marginBottom: 10 * scale,
-          borderBottom: 2 * scale,
-        },
-      },
-      paragraphProps: {
-        style: {
-          fontSize: 18 * scale,
-          marginBottom: 10 * scale,
-        },
-      },
-      pageProps: {
-        style: {
-          padding: 30 * scale,
-          fontSize: 18 * scale,
-        },
-      },
+      // === Card === === === === === === === === === === ===
       cardProps: {
         style: {
-          marginBottom: 10 * scale,
-          overflow: 'hidden',
+          marginBottom: OriginalLightThemeFactory.baseFontSize * OriginalLightThemeFactory.baseMarginRatio * scale,
         },
       },
       cardBodyProps: {
@@ -82,7 +24,6 @@ export class OriginalLightThemeFactory extends ThemeFactory {
           borderBottomRightRadius: 10 * scale,
           border: 1 * scale,
           borderColor: '#CCCCCC',
-          overflow: 'hidden',
         },
       },
       cardHeaderProps: {
@@ -96,7 +37,38 @@ export class OriginalLightThemeFactory extends ThemeFactory {
           borderBottomRightRadius: 10 * scale,
           border: 1 * scale,
           borderColor: '#CCCCCC',
-          overflow: 'hidden',
+        },
+      },
+
+      // === Lists === === === === === === === === === === ===
+      listItemContainerProps: {
+        style: {
+          columnGap: 20 * scale,
+        },
+      },
+      listItemMarkerProps: {
+        style: {},
+      },
+      listItemProps: {
+        style: {},
+      },
+      orderedListProps: {
+        style: {
+          marginBottom: OriginalLightThemeFactory.baseFontSize * OriginalLightThemeFactory.baseMarginRatio * scale,
+          fontSize: OriginalLightThemeFactory.baseFontSize * scale,
+        },
+      },
+      unorderedListProps: {
+        style: {
+          marginBottom: OriginalLightThemeFactory.baseFontSize * OriginalLightThemeFactory.baseMarginRatio * scale,
+          fontSize: OriginalLightThemeFactory.baseFontSize * scale,
+        },
+      },
+      // === Pages === === === === === === === === === === ===
+      pageProps: {
+        style: {
+          padding: 0.5 * 72 * scale, // Inches x DPI, scaled
+          fontSize: OriginalLightThemeFactory.baseFontSize * scale,
         },
       },
       pageNumberProps: {
@@ -104,31 +76,91 @@ export class OriginalLightThemeFactory extends ThemeFactory {
           marginBottom: 0 * scale,
         },
       },
-      unorderedListProps: {
-        style: {
-          marginBottom: 10 * scale,
-          fontSize: 18 * scale,
-        },
-      },
-      orderedListProps: {
-        style: {
-          marginBottom: 10 * scale,
-          fontSize: 18 * scale,
-        },
-      },
+
+      // === Table === === === === === === === === === === ===
       tableProps: {
-        stripeStyle: { backgroundColor: '#00000015' },
-        borderColor: '#000000',
+        borderWidth: 1 * scale,
         borderStyle: 'solid',
-        borderWidth: 1,
+        borderColor: '#000000',
+        stripeStyle: { backgroundColor: '#00000015' },
         style: {
-          marginBottom: 10 * scale,
+          marginBottom: OriginalLightThemeFactory.baseFontSize * OriginalLightThemeFactory.baseMarginRatio * scale,
         },
       },
-      tableRowProps: {},
+      tableRowProps: {
+        style: {},
+      },
       tableCellProps: {
         style: {
           padding: 8 * scale,
+        },
+      },
+
+      // === Typography === === === === === === === === === === ===
+      headingProps: {
+        style: {}, // Applies to all headings
+      },
+      heading1Props: {
+        style: {
+          fontSize:
+            (OriginalLightThemeFactory.headingStartSize + OriginalLightThemeFactory.headingStepSize * 5) * scale,
+          marginBottom: OriginalLightThemeFactory.baseFontSize * 1.5 * scale,
+          borderBottom: 4 * scale, // Enabled with rule prop
+        },
+      },
+      heading2Props: {
+        style: {
+          fontSize:
+            (OriginalLightThemeFactory.headingStartSize + OriginalLightThemeFactory.headingStepSize * 4) * scale,
+          marginBottom: OriginalLightThemeFactory.baseFontSize * 1.4 * scale,
+          borderBottom: 4 * scale, // Enabled with rule prop
+        },
+      },
+      heading3Props: {
+        style: {
+          fontSize:
+            (OriginalLightThemeFactory.headingStartSize + OriginalLightThemeFactory.headingStepSize * 3) * scale,
+          marginBottom: OriginalLightThemeFactory.baseFontSize * 1.3 * scale,
+          borderBottom: 3 * scale, // Enabled with rule prop
+        },
+      },
+      heading4Props: {
+        style: {
+          fontSize:
+            (OriginalLightThemeFactory.headingStartSize + OriginalLightThemeFactory.headingStepSize * 2) * scale,
+          marginBottom: OriginalLightThemeFactory.baseFontSize * 1.2 * scale,
+          borderBottom: 3 * scale, // Enabled with rule prop
+        },
+      },
+      heading5Props: {
+        style: {
+          fontSize:
+            (OriginalLightThemeFactory.headingStartSize + OriginalLightThemeFactory.headingStepSize * 1) * scale,
+          marginBottom: OriginalLightThemeFactory.baseFontSize * 1.1 * scale,
+          borderBottom: 2 * scale, // Enabled with rule prop
+        },
+      },
+      heading6Props: {
+        style: {
+          fontSize: OriginalLightThemeFactory.headingStartSize * scale,
+          marginBottom: OriginalLightThemeFactory.baseFontSize * scale,
+          borderBottom: 2 * scale, // Enabled with rule prop
+        },
+      },
+      paragraphProps: {
+        style: {
+          fontSize: OriginalLightThemeFactory.baseFontSize * scale,
+          marginBottom: OriginalLightThemeFactory.baseFontSize * OriginalLightThemeFactory.baseMarginRatio * scale,
+        },
+      },
+
+      // === Widgets === === === === === === === === === === ===
+      buttonProps: {
+        style: {
+          textAlign: 'center',
+          padding: 10 * scale,
+          width: 150 * scale,
+          borderRadius: 5 * scale,
         },
       },
     };

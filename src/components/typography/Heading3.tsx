@@ -4,14 +4,25 @@ import { Style } from '../Style';
 import { Themes } from '../theme/themes/Themes';
 import { HeadingProps } from './Heading';
 
-export const Heading3 = ({ theme = Themes.default.create(), children, rule, ...props }: HeadingProps) => {
-  const themeProps = theme?.heading3Props;
-  const style: Style = {};
-  if (!rule) {
-    style.borderBottom = 0;
+export const Heading3 = ({ children, theme = Themes.default.create(), style, ...props }: HeadingProps) => {
+  const mergedProps = {
+    ...theme?.headingProps,
+    ...theme?.heading3Props,
+    ...props,
+  };
+
+  const mergedThemeStyles = {
+    ...theme?.headingProps?.style,
+    ...theme?.heading3Props?.style,
+  };
+
+  const styleOverride: Style = {};
+  if (!mergedProps.rule) {
+    styleOverride.borderBottom = 0;
   }
+
   return (
-    <Text {...themeProps} {...props} style={{ ...themeProps?.style, ...style, ...props.style }}>
+    <Text {...mergedProps} style={{ ...mergedThemeStyles, ...styleOverride, ...style }}>
       {children}
     </Text>
   );
