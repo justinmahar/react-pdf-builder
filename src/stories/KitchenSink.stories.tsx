@@ -15,7 +15,5 @@ type Story = StoryObj<typeof meta>;
 
 // === Stories ===
 export const KitchenSink: Story = {
-  args: {
-    label: 'Kitchen Sink',
-  },
+  args: {},
 };
