@@ -31,6 +31,7 @@ export const UnorderedList = ({ theme = Themes.default.create(), children, style
   const liElements: JSX.Element[] = childArray.map((c, i) => (
     <ListItemContainer
       key={'ul-li-' + i}
+      theme={theme}
       wrap={!!mergedProps.wrapItems}
       markerStyle={mergedProps.markerStyle}
       bullet={mergedProps.bullet}

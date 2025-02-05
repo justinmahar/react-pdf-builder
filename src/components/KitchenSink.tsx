@@ -44,7 +44,7 @@ export interface KitchenSinkProps extends DivProps {
  */
 export const KitchenSink = ({ label, ...props }: KitchenSinkProps) => {
   const buttonHref = 'https://github.com/justinmahar/react-pdf-builder';
-  const footerHeight = 96;
+  const footerHeight = '12.12%';
   const showCoverPage = true;
   const pageSize = 'LETTER';
   return (
@@ -153,14 +153,14 @@ export const KitchenSink = ({ label, ...props }: KitchenSinkProps) => {
                   direction="y"
                   padding={10}
                   style={{
-                    width: 275,
+                    width: '50%',
                     justifyContent: 'center',
                     alignItems: 'center',
                     backgroundColor: 'lightyellow',
                     textAlign: 'justify',
                   }}
                 >
-                  <Paragraph>Width 275. Specify a width to allow text wrapping.</Paragraph>
+                  <Paragraph>Width 50%. Specify a width to allow text wrapping.</Paragraph>
                   <Paragraph style={{ marginBottom: 0 }}>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
                     et dolore magna aliqua.
@@ -185,29 +185,29 @@ export const KitchenSink = ({ label, ...props }: KitchenSinkProps) => {
                 <Box
                   padding={10}
                   style={{
-                    width: 200,
+                    width: '40%',
                     justifyContent: 'center',
                     alignItems: 'center',
                     backgroundColor: 'lightyellow',
                   }}
                 >
-                  <Paragraph style={{ marginBottom: 0 }}>200pt</Paragraph>
+                  <Paragraph style={{ marginBottom: 0 }}>40%</Paragraph>
                 </Box>
               </Box>
               <Heading6 break>Vertical Box</Heading6>
-              <Box direction="y" style={{ height: 500 }}>
+              <Box direction="y">
                 <Box
-                  grow
                   padding={10}
                   style={{ justifyContent: 'center', alignItems: 'center', backgroundColor: 'lightblue' }}
                 >
-                  <Paragraph style={{ marginBottom: 0 }}>Grow</Paragraph>
+                  <Paragraph style={{ marginBottom: 0 }}>A</Paragraph>
                 </Box>
                 <Box
+                  grow
                   padding={10}
-                  style={{ justifyContent: 'center', alignItems: 'center', backgroundColor: 'lightpink' }}
+                  style={{ justifyContent: 'center', alignItems: 'center', backgroundColor: 'lightgreen' }}
                 >
-                  <Paragraph style={{ marginBottom: 0 }}>Shrink</Paragraph>
+                  <Paragraph style={{ marginBottom: 0 }}>B</Paragraph>
                 </Box>
                 <Box
                   direction="y"
@@ -443,9 +443,9 @@ export const KitchenSink = ({ label, ...props }: KitchenSinkProps) => {
                 <Box direction="x" gap={10} style={{ alignItems: 'center' }}>
                   <Image
                     src="https://justinmahar.github.io/react-pdf-builder/images/github-250.png"
-                    style={{ height: 24, padding: 2 }}
+                    style={{ height: '60%', padding: 2 }}
                   ></Image>
-                  React PDF Builder
+                  <Paragraph style={{ marginBottom: 0 }}>React PDF Builder</Paragraph>
                 </Box>
               </Link>
               <PageNumber format="Page %n of %t" />

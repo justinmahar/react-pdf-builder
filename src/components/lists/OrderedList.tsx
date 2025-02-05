@@ -31,6 +31,7 @@ export const OrderedList = ({ theme = Themes.default.create(), children, style, 
   const liElements: JSX.Element[] = childArray.map((c, i) => (
     <ListItemContainer
       key={'ol-li-' + i}
+      theme={theme}
       wrap={!!mergedProps.wrapItems}
       markerStyle={mergedProps.markerStyle}
       numberRenderer={mergedProps.numberRenderer}

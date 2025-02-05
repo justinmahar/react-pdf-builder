@@ -1,12 +1,10 @@
-import { TextProps } from '@react-pdf/renderer';
 import React from 'react';
 import { Theme } from '../theme/Theme';
 import { Themes } from '../theme/themes/Themes';
-import { Paragraph } from '../typography/Paragraph';
+import { Paragraph, ParagraphProps } from '../typography/Paragraph';
 
-export interface PageNumberProps extends TextProps {
+export interface PageNumberProps extends ParagraphProps {
   format?: string;
-  showAfter?: number;
   theme?: Theme;
 }
 
@@ -15,21 +13,18 @@ export const PageNumber = ({ theme = Themes.default.create(), style, ...props }:
   const defaultFormat = '%n / %t';
   return (
     <Paragraph
+      theme={theme}
       render={({ pageNumber, totalPages, subPageNumber, subPageTotalPages }) => {
         const num = pageNumber;
-        if (num > (mergedProps.showAfter ?? 0)) {
-          return (mergedProps.format ?? defaultFormat)
-            .split('%n')
-            .join(`${num}`)
-            .split('%t')
-            .join(`${totalPages}`)
-            .split('%sn')
-            .join(`${subPageNumber}`)
-            .split('%st')
-            .join(`${subPageTotalPages}`);
-        } else {
-          return '';
-        }
+        return (mergedProps.format ?? defaultFormat)
+          .split('%n')
+          .join(`${num}`)
+          .split('%t')
+          .join(`${totalPages}`)
+          .split('%sn')
+          .join(`${subPageNumber}`)
+          .split('%st')
+          .join(`${subPageTotalPages}`);
       }}
       {...mergedProps}
       style={{ ...mergedProps.style, ...style }}
