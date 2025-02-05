@@ -2,6 +2,65 @@ import { Theme } from '../Theme';
 import { ThemeFactory } from '../ThemeFactory';
 
 export class OriginalLightThemeFactory extends ThemeFactory {
+  public static colors = {
+    blue: '#0d6efd',
+    indigo: '#6610f2',
+    purple: '#6f42c1',
+    pink: '#d63384',
+    red: '#dc3545',
+    orange: '#fd7e14',
+    yellow: '#ffc107',
+    green: '#198754',
+    teal: '#20c997',
+    cyan: '#0dcaf0',
+  };
+  public static greyscale = {
+    white: '#fff',
+    gray100: '#f8f9fa',
+    gray200: '#e9ecef',
+    gray300: '#dee2e6',
+    gray400: '#ced4da',
+    gray500: '#adb5bd',
+    gray600: '#6c757d',
+    gray700: '#495057',
+    gray800: '#343a40',
+    gray900: '#212529',
+    black: '#000',
+  };
+  public static contrastColors = {
+    blue: OriginalLightThemeFactory.greyscale.white,
+    indigo: OriginalLightThemeFactory.greyscale.white,
+    purple: OriginalLightThemeFactory.greyscale.white,
+    pink: OriginalLightThemeFactory.greyscale.white,
+    red: OriginalLightThemeFactory.greyscale.white,
+    orange: OriginalLightThemeFactory.greyscale.black,
+    yellow: OriginalLightThemeFactory.greyscale.black,
+    green: OriginalLightThemeFactory.greyscale.white,
+    teal: OriginalLightThemeFactory.greyscale.black,
+    cyan: OriginalLightThemeFactory.greyscale.black,
+    white: OriginalLightThemeFactory.greyscale.black,
+    gray100: OriginalLightThemeFactory.greyscale.black,
+    gray200: OriginalLightThemeFactory.greyscale.black,
+    gray300: OriginalLightThemeFactory.greyscale.black,
+    gray400: OriginalLightThemeFactory.greyscale.black,
+    gray500: OriginalLightThemeFactory.greyscale.black,
+    gray600: OriginalLightThemeFactory.greyscale.white,
+    gray700: OriginalLightThemeFactory.greyscale.white,
+    gray800: OriginalLightThemeFactory.greyscale.white,
+    gray900: OriginalLightThemeFactory.greyscale.white,
+    black: OriginalLightThemeFactory.greyscale.white,
+  };
+  public static themeColors = {
+    primary: OriginalLightThemeFactory.colors.blue,
+    secondary: OriginalLightThemeFactory.greyscale.gray600,
+    success: OriginalLightThemeFactory.colors.green,
+    info: OriginalLightThemeFactory.colors.cyan,
+    warning: OriginalLightThemeFactory.colors.yellow,
+    danger: OriginalLightThemeFactory.colors.red,
+    light: OriginalLightThemeFactory.greyscale.gray100,
+    dark: OriginalLightThemeFactory.greyscale.gray900,
+  };
+
   public static baseFontSize = 18;
   public static baseMarginRatio = 1.25;
   public static headingStartSize = OriginalLightThemeFactory.baseFontSize * 1.11;
@@ -16,19 +75,19 @@ export class OriginalLightThemeFactory extends ThemeFactory {
       },
       cardBodyProps: {
         style: {
-          backgroundColor: '#ffffff',
+          backgroundColor: OriginalLightThemeFactory.greyscale.white,
           padding: 15 * scale,
           borderTopLeftRadius: 10 * scale,
           borderTopRightRadius: 10 * scale,
           borderBottomLeftRadius: 10 * scale,
           borderBottomRightRadius: 10 * scale,
           border: 1 * scale,
-          borderColor: '#CCCCCC',
+          borderColor: OriginalLightThemeFactory.greyscale.gray400,
         },
       },
       cardHeaderProps: {
         style: {
-          backgroundColor: '#EEEEEE',
+          backgroundColor: OriginalLightThemeFactory.greyscale.gray200,
           paddingVertical: 10 * scale,
           paddingHorizontal: 15 * scale,
           borderTopLeftRadius: 10 * scale,
@@ -36,7 +95,7 @@ export class OriginalLightThemeFactory extends ThemeFactory {
           borderBottomLeftRadius: 10 * scale,
           borderBottomRightRadius: 10 * scale,
           border: 1 * scale,
-          borderColor: '#CCCCCC',
+          borderColor: OriginalLightThemeFactory.greyscale.gray400,
         },
       },
 
@@ -81,7 +140,7 @@ export class OriginalLightThemeFactory extends ThemeFactory {
       tableProps: {
         borderWidth: 1 * scale,
         borderStyle: 'solid',
-        borderColor: '#000000',
+        borderColor: OriginalLightThemeFactory.greyscale.black,
         stripeStyle: { backgroundColor: '#00000015' },
         style: {
           marginBottom: OriginalLightThemeFactory.baseFontSize * OriginalLightThemeFactory.baseMarginRatio * scale,

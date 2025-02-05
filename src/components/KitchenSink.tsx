@@ -1,6 +1,7 @@
-import { Document, Image, Link, Page, PDFViewer, Text } from '@react-pdf/renderer';
+import { Document, Image, Link, Page, PDFViewer } from '@react-pdf/renderer';
 import React from 'react';
 import { DivProps } from 'react-html-props';
+import { PlaidBackground } from './backgrounds/PlaidBackground';
 import { Card } from './card/Card';
 import { CardBody } from './card/CardBody';
 import { CardHeader } from './card/CardHeader';
@@ -9,8 +10,10 @@ import { ListItem } from './lists/ListItem';
 import { OrderedList } from './lists/OrderedList';
 import { UnorderedList } from './lists/UnorderedList';
 import { PageNumber } from './pages/PageNumber';
+import { ThemedPage } from './pages/ThemedPage';
 import { CircleShape } from './shapes/CircleShape';
 import { GradientType } from './shapes/Gradients';
+import { LineShape } from './shapes/LineShape';
 import { RectangleShape } from './shapes/RectangleShape';
 import { Table } from './table/Table';
 import { TableCell } from './table/TableCell';
@@ -23,26 +26,13 @@ import { Heading5 } from './typography/Heading5';
 import { Heading6 } from './typography/Heading6';
 import { Paragraph } from './typography/Paragraph';
 import { Button } from './widgets/Button';
-import { PlaidBackground } from './backgrounds/PlaidBackground';
-import { LineShape } from './shapes/LineShape';
-import { ThemedPage } from './pages/ThemedPage';
-import { Themes } from './theme/themes/Themes';
 
-export interface KitchenSinkProps extends DivProps {
-  /**
-   * What background color to use
-   */
-  backgroundColor?: string;
-  /**
-   * Label shown in the component
-   */
-  label: string;
-}
+export interface KitchenSinkProps extends DivProps {}
 
 /**
  * This is the description for the KitchenSink component
  */
-export const KitchenSink = ({ label, ...props }: KitchenSinkProps) => {
+export const KitchenSink = ({ ...props }: KitchenSinkProps) => {
   const buttonHref = 'https://github.com/justinmahar/react-pdf-builder';
   const footerHeight = '12.12%';
   const showCoverPage = true;
@@ -57,7 +47,7 @@ export const KitchenSink = ({ label, ...props }: KitchenSinkProps) => {
       <PDFViewer style={{ height: 700, width: 500 }}>
         <Document>
           {showCoverPage && (
-            <Page size={pageSize} style={{ flexDirection: 'column', color: 'white' }}>
+            <ThemedPage size={pageSize} style={{ flexDirection: 'column', color: 'white', padding: 0 }}>
               <PlaidBackground />
 
               <Box direction="y" style={{ height: '100%' }}>
@@ -84,7 +74,7 @@ export const KitchenSink = ({ label, ...props }: KitchenSinkProps) => {
                 </Box>
                 <Box style={{ height: '5%', backgroundColor: '#00000022' }} />
               </Box>
-            </Page>
+            </ThemedPage>
           )}
           <ThemedPage
             size={pageSize}
