@@ -8,6 +8,7 @@ import { Heading5 } from '../../components/typography/Heading5';
 import { Heading6 } from '../../components/typography/Heading6';
 import { Paragraph, ParagraphProps } from '../../components/typography/Paragraph';
 import { PDFStory } from '../parts/PDFStory';
+import { ThemedLink } from '../../components/link/ThemedLink';
 
 const StoryComponent = (props: ParagraphProps) => {
   return (
@@ -19,6 +20,16 @@ const StoryComponent = (props: ParagraphProps) => {
         consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
         pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
         laborum.
+      </Paragraph>
+      <Paragraph {...props}>
+        <ThemedLink href="#">This is a link</ThemedLink> being used in a sentence.
+      </Paragraph>
+      <Paragraph {...props}>
+        And this is a{' '}
+        <ThemedLink href="#" swatch="red">
+          link with the red swatch
+        </ThemedLink>{' '}
+        being used.
       </Paragraph>
       <Paragraph {...props}>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore

@@ -26,6 +26,7 @@ import { Heading5 } from './typography/Heading5';
 import { Heading6 } from './typography/Heading6';
 import { Paragraph } from './typography/Paragraph';
 import { Button } from './button/Button';
+import { Themes } from './theme/themes/Themes';
 
 export interface KitchenSinkProps extends DivProps {}
 
@@ -35,7 +36,7 @@ export interface KitchenSinkProps extends DivProps {}
 export const KitchenSink = ({ ...props }: KitchenSinkProps) => {
   const buttonHref = 'https://github.com/justinmahar/react-pdf-builder';
   const footerHeight = '12.12%';
-  const showCoverPage = true;
+  const showCoverPage = false;
   const pageSize = 'LETTER';
   return (
     <div
@@ -76,7 +77,7 @@ export const KitchenSink = ({ ...props }: KitchenSinkProps) => {
               </Box>
             </ThemedPage>
           )}
-          <ThemedPage size={pageSize} swatch="gray100">
+          <ThemedPage size={pageSize} theme={Themes.dark.build()}>
             <Box direction="y" style={{ gap: 10 }}>
               <Heading5 rule>Basic Typography</Heading5>
               <Heading1 rule>Heading1</Heading1>
@@ -287,25 +288,19 @@ export const KitchenSink = ({ ...props }: KitchenSinkProps) => {
               <Table
                 bordered
                 inverseStriped
-                borderColor="#005BDF"
-                style={{ backgroundColor: 'white', borderRadius: 10, marginBottom: 0 }}
-                stripeStyle={{ backgroundColor: '#007BFF22' }}
+                swatch="primary"
+                style={{ backgroundColor: 'white', borderRadius: 10 }}
                 colWidths={['30%', '50%', '20%']}
               >
-                <TableRow
-                  style={{
-                    backgroundColor: '#007BFF',
-                    color: 'white',
-                  }}
-                >
+                <TableRow swatch="primary" inverseStriped={false}>
                   <TableCell>
-                    <Heading6 style={{ marginBottom: 0 }}>Lorem ipsum dolor</Heading6>
+                    <Heading6 style={{ marginBottom: 0 }}>Col 30% </Heading6>
                   </TableCell>
                   <TableCell>
-                    <Heading6 style={{ marginBottom: 0 }}>Consectetur adipiscing elit</Heading6>
+                    <Heading6 style={{ marginBottom: 0 }}>Column 50%</Heading6>
                   </TableCell>
                   <TableCell>
-                    <Heading6 style={{ marginBottom: 0 }}>Sed do eiusmod</Heading6>
+                    <Heading6 style={{ marginBottom: 0 }}>20%</Heading6>
                   </TableCell>
                 </TableRow>
                 <TableRow>
@@ -314,17 +309,22 @@ export const KitchenSink = ({ ...props }: KitchenSinkProps) => {
                   <TableCell>Sed do eiusmod</TableCell>
                 </TableRow>
                 <TableRow>
-                  <TableCell>Incididunt ut labore</TableCell>
+                  <TableCell swatch="blue">Blue swatch</TableCell>
                   <TableCell>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
                     et magna aliqua.
                   </TableCell>
                   <TableCell>Dolore magna aliqua</TableCell>
                 </TableRow>
-                <TableRow>
-                  <TableCell>Lorem ipsum dolor</TableCell>
-                  <TableCell>Consectetur adipiscing elit</TableCell>
-                  <TableCell>Sed do eiusmod</TableCell>
+                <TableRow colWidths={['80%', '20%']}>
+                  <TableCell>
+                    This row has only two cells. The first is 80%, the second is 20%. This imitates a colspan.
+                  </TableCell>
+                  <TableCell swatch="teal">Teal swatch</TableCell>
+                </TableRow>
+                <TableRow colWidths={['50%', '50%']}>
+                  <TableCell>50% col width</TableCell>
+                  <TableCell>50% col width</TableCell>
                 </TableRow>
               </Table>
               <Heading5 rule break>

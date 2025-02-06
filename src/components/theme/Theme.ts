@@ -15,6 +15,7 @@ import { ListItemContainerProps } from '../lists/ListItemContainer';
 import { ButtonProps } from '../button/Button';
 import { ColorScheme } from './themes/ColorScheme';
 import { DeepPartial } from '../util';
+import { ThemedLinkProps } from '../link/ThemedLink';
 
 export interface Theme {
   // Color scheme
@@ -26,6 +27,8 @@ export interface Theme {
   cardProps?: CardProps;
   cardBodyProps?: CardBodyProps;
   cardHeaderProps?: CardHeaderProps;
+  // Link
+  linkProps?: ThemedLinkProps;
   // Lists
   listItemProps?: ListItemProps;
   listItemContainerProps?: ListItemContainerProps;

@@ -61,6 +61,7 @@
   },
   "dependencies": {
     "color": "^4.2.3",
+    "mix-css-color": "^0.2.0",
     "uuid": "^11.0.5"
   }
 }

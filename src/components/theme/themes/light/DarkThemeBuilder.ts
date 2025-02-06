@@ -1,11 +1,12 @@
 import { Theme } from '../../Theme';
 import { ThemeBuilder } from '../../ThemeBuilder';
 import { ColorScheme } from '../ColorScheme';
+import { bootstrapDarkColorScheme } from './BootstrapDarkColorScheme';
 import { bootstrapLightColorScheme } from './BootstrapLightColorScheme';
 
-export class LightThemeBuilder extends ThemeBuilder {
+export class DarkThemeBuilder extends ThemeBuilder {
   constructor() {
-    super(bootstrapLightColorScheme);
+    super(bootstrapDarkColorScheme);
   }
   public doBuild(scale: number, colorScheme: ColorScheme): Theme {
     const baseFontSize = 18;
@@ -91,6 +92,8 @@ export class LightThemeBuilder extends ThemeBuilder {
       // === Pages === === === === === === === === === === ===
       pageProps: {
         style: {
+          backgroundColor: colorScheme.greyscale.gray900,
+          color: colorScheme.greyscale.gray300,
           padding: 0.5 * 72 * scale, // Inches x DPI, scaled
           fontSize: baseFontSize * scale,
         },
@@ -121,13 +124,16 @@ export class LightThemeBuilder extends ThemeBuilder {
       // === Typography === === === === === === === === === === ===
       headingProps: {
         // Applies to all headings
-        style: {},
+        style: {
+          borderBottomColor: colorScheme.greyscale.white,
+        },
       },
       heading1Props: {
         style: {
           fontSize: (headingStartSize + headingStepSize * 5) * scale,
           marginBottom: baseFontSize * 1.5 * scale,
           borderBottom: 4 * scale, // Enabled with rule prop
+          borderColor: colorScheme.greyscale.white,
         },
       },
       heading2Props: {

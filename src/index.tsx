@@ -16,6 +16,9 @@ export * from './components/card/CardHeader';
 // Layout
 export * from './components/layout/Box';
 
+// Link
+export * from './components/link/ThemedLink';
+
 // Lists
 export * from './components/lists/ListItem';
 export * from './components/lists/OrderedList';
