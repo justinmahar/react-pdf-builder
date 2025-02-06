@@ -52,5 +52,13 @@ export const WithHref: Story = {
 };
 
 export const Custom: Story = {
-  args: { style: { borderRadius: 20, width: 250, fontSize: 30 } },
+  args: {
+    style: {
+      borderRadius: 20,
+      width: 250,
+      fontSize: 30,
+      border: 'black',
+      borderWidth: 1,
+    },
+  },
 };
