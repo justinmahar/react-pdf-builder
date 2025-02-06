@@ -45,7 +45,9 @@ const StoryComponent = (props: ParagraphProps) => {
           <TableCell>Dolore magna aliqua</TableCell>
         </TableRow>
         <TableRow colWidths={['80%', '20%']}>
-          <TableCell>This row has only two cells. The first is 80%, the second is 20%.</TableCell>
+          <TableCell>
+            This row has only two cells. The first is 80%, the second is 20%. This imitates a colspan.
+          </TableCell>
           <TableCell>Dolore magna aliqua</TableCell>
         </TableRow>
         <TableRow colWidths={['50%', '50%']}>
@@ -59,12 +61,13 @@ const StoryComponent = (props: ParagraphProps) => {
         </TableRow>
       </Table>
       <UnorderedList>
-        <ListItem>Table has the "inverseStriped" prop and "primary" swatch</ListItem>
+        <ListItem>Table has the "inverseStriped" prop (odd rows are striped) and "primary" swatch</ListItem>
         <ListItem>Table has white background and a border radius</ListItem>
         <ListItem>First table row has the "primary" swatch</ListItem>
-        <ListItem>One row has three cells with custom widths differing from the rest of the table</ListItem>
-        <ListItem>One row has only two cells with 50% width each</ListItem>
+        <ListItem>One row has only two cells. Its first cell has a custom width that imitates a colspan</ListItem>
+        <ListItem>Another row has only two cells with 50% width each</ListItem>
         <ListItem>Two cells have been swatched to "blue" and "teal"</ListItem>
+        <ListItem>Tables are highly customizable in React PDF Builder!</ListItem>
       </UnorderedList>
     </PDFStory>
   );
