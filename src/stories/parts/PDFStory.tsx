@@ -15,7 +15,7 @@ export const PDFStory = ({ children, pageSize = 'A4', scale = 1, pageProps, ...p
     <PDFViewer style={{ height: 600, width: 400 }}>
       <Document>
         <ThemedPage
-          theme={Themes.default.build(scale)}
+          theme={Themes.default.build({ scale })}
           size={pageSize as any}
           {...pageProps}
           style={{ ...pageProps?.style }}
