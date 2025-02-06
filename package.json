@@ -1,6 +1,6 @@
 {
   "name": "react-pdf-builder",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "author": "Justin Mahar <contact@justinmahar.com>",
   "description": "Build beautiful PDF documents in React.",
   "homepage": "https://justinmahar.github.io/react-pdf-builder/",
