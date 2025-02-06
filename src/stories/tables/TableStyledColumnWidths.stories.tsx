@@ -6,11 +6,13 @@ import { TableRow } from '../../components/table/TableRow';
 import { Heading6 } from '../../components/typography/Heading6';
 import { ParagraphProps } from '../../components/typography/Paragraph';
 import { PDFStory } from '../parts/PDFStory';
+import { UnorderedList } from '../../components/lists/UnorderedList';
+import { ListItem } from '../../components/lists/ListItem';
 
 const StoryComponent = (props: ParagraphProps) => {
   return (
     <PDFStory>
-      <Heading6>Swatched with custom column widths</Heading6>
+      <Heading6>Border radius, swatches, custom column widths</Heading6>
       <Table
         bordered
         inverseStriped
@@ -35,7 +37,7 @@ const StoryComponent = (props: ParagraphProps) => {
           <TableCell>Sed do eiusmod</TableCell>
         </TableRow>
         <TableRow>
-          <TableCell swatch="primary">Primary swatch</TableCell>
+          <TableCell swatch="blue">Blue swatch</TableCell>
           <TableCell>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et magna
             aliqua.
@@ -56,6 +58,10 @@ const StoryComponent = (props: ParagraphProps) => {
           <TableCell>Sed do eiusmod</TableCell>
         </TableRow>
       </Table>
+      <UnorderedList>
+        <ListItem>Table has the "primary" swatch</ListItem>
+        <ListItem>First table row has the "primary" swatch</ListItem>
+      </UnorderedList>
     </PDFStory>
   );
 };

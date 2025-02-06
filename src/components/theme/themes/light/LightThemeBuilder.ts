@@ -60,6 +60,7 @@ export class LightThemeBuilder extends ThemeBuilder {
       // === Lists === === === === === === === === === === ===
       listItemContainerProps: {
         style: {
+          marginBottom: baseFontSize * 0.35 * scale,
           columnGap: 20 * scale,
         },
       },
