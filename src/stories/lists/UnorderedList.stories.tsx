@@ -130,13 +130,10 @@ export const Size24: Story = {
   args: { style: { fontSize: 24 } },
 };
 
-export const Size36: Story = {
-  args: { style: { fontSize: 36 } },
+export const StyledMarker: Story = {
+  args: { markerStyle: { width: 50, textAlign: 'right' } },
 };
 
-export const Size48: Story = {
-  args: { style: { fontSize: 48 } },
-};
 export const CustomBullet: Story = {
   args: { bullet: '-' },
 };
