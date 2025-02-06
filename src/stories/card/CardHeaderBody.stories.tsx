@@ -9,7 +9,7 @@ import { CardBody } from '../../components/card/CardBody';
 import { Heading6 } from '../../components/typography/Heading6';
 import { Heading5 } from '../../components/typography/Heading5';
 import { Box } from '../../components/layout/Box';
-import { Button } from '../../components/widgets/Button';
+import { Button } from '../../components/button/Button';
 
 const StoryComponent = (props: ParagraphProps) => {
   return (

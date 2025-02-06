@@ -15,7 +15,7 @@ export interface UnorderedListProps extends ViewProps {
   theme?: Theme;
 }
 
-export const UnorderedList = ({ theme = Themes.default.create(), children, style, ...props }: UnorderedListProps) => {
+export const UnorderedList = ({ theme = Themes.default.build(), children, style, ...props }: UnorderedListProps) => {
   const mergedProps = {
     ...theme.unorderedListProps,
     ...props,

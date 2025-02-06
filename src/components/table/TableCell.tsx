@@ -4,6 +4,9 @@ import { PDFSafeChildren } from '../builder/PDFSafeChildren';
 import { Box, BoxProps } from '../layout/Box';
 import { Theme } from '../theme/Theme';
 import { Themes } from '../theme/themes/Themes';
+import { SwatchColor } from '../theme/themes/ColorScheme';
+import { ThemeBuilder } from '../theme/ThemeBuilder';
+import Color from 'color';
 
 export interface TableCellProps extends BoxProps {
   children?: any;
@@ -17,10 +20,12 @@ export interface TableCellProps extends BoxProps {
   borderColor?: string;
   borderWidth?: string | number;
   borderStyle?: 'dashed' | 'dotted' | 'solid';
+  swatch?: SwatchColor;
+  swatchOpacity?: number;
   theme?: Theme;
 }
 
-export const TableCell = ({ children, theme = Themes.default.create(), style, ...props }: TableCellProps) => {
+export const TableCell = ({ children, theme = Themes.default.build(), style, ...props }: TableCellProps) => {
   const mergedProps = {
     ...theme.tableCellProps,
     ...props,
@@ -45,6 +50,12 @@ export const TableCell = ({ children, theme = Themes.default.create(), style, ..
     styleOverride.borderRight = mergedProps.borderWidth;
     styleOverride.borderColor = mergedProps.borderColor;
     styleOverride.borderStyle = mergedProps.borderStyle;
+  }
+  if (mergedProps.swatch) {
+    const swatchColor = ThemeBuilder.getSwatchColor(mergedProps.swatch, theme.colorScheme);
+    const swatchOpacity = mergedProps.swatchOpacity ?? 0.134;
+    const swatchOpacityHex = ThemeBuilder.decimalToHex(swatchOpacity);
+    styleOverride.backgroundColor = `${new Color(swatchColor ?? '#888').hex()}${swatchOpacityHex}`; // Add opacity to the end
   }
 
   return (

@@ -20,7 +20,7 @@ const StoryComponent = (props: HeadingProps) => {
       <Heading5 {...props}>Heading 5</Heading5>
       <Heading6 {...props}>Heading 6</Heading6>
       <Heading1 {...props}>Heading 1</Heading1>
-      <Paragraph>
+      <Paragraph swatch={props.swatch}>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
         magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
         consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
@@ -28,7 +28,7 @@ const StoryComponent = (props: HeadingProps) => {
         laborum.
       </Paragraph>
       <Heading2 {...props}>Heading 2</Heading2>
-      <Paragraph>
+      <Paragraph swatch={props.swatch}>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
         magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
         consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
@@ -36,7 +36,7 @@ const StoryComponent = (props: HeadingProps) => {
         laborum.
       </Paragraph>
       <Heading3 {...props}>Heading 3</Heading3>
-      <Paragraph>
+      <Paragraph swatch={props.swatch}>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
         magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
         consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
@@ -44,7 +44,7 @@ const StoryComponent = (props: HeadingProps) => {
         laborum.
       </Paragraph>
       <Heading4 {...props}>Heading 4</Heading4>
-      <Paragraph>
+      <Paragraph swatch={props.swatch}>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
         magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
         consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
@@ -52,7 +52,7 @@ const StoryComponent = (props: HeadingProps) => {
         laborum.
       </Paragraph>
       <Heading5 {...props}>Heading 5</Heading5>
-      <Paragraph>
+      <Paragraph swatch={props.swatch}>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
         magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
         consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
@@ -60,7 +60,7 @@ const StoryComponent = (props: HeadingProps) => {
         laborum.
       </Paragraph>
       <Heading6 {...props}>Heading 6</Heading6>
-      <Paragraph>
+      <Paragraph swatch={props.swatch}>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
         magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
         consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
@@ -89,4 +89,12 @@ export const Main: Story = {
 
 export const WithRule: Story = {
   args: { rule: true },
+};
+
+export const WithSwatch: Story = {
+  args: { swatch: 'primary' },
+};
+
+export const WithRuleAndSwatch: Story = {
+  args: { rule: true, swatch: 'primary' },
 };

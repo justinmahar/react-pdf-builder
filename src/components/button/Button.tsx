@@ -9,9 +9,10 @@ import { SwatchColor } from '../theme/themes/ColorScheme';
 
 export interface ButtonProps extends ViewProps {
   href?: string;
-  swatch?: SwatchColor;
+  swatch?: SwatchColor | 'link';
   children?: any;
   pill?: boolean;
+  linkColor?: string;
   theme?: Theme;
 }
 
@@ -28,11 +29,14 @@ export const Button = ({ children, theme = Themes.default.build(), style, ...pro
     textAlign: 'center',
   };
 
-  const swatch = (mergedProps.swatch as SwatchColor | undefined) ?? 'primary';
+  const swatch = mergedProps.swatch ?? 'primary';
   const styleOverride: Style = {};
-  if (swatch) {
+  if (swatch && swatch !== 'link') {
     styleOverride.backgroundColor = ThemeBuilder.getSwatchColor(swatch, theme.colorScheme);
     styleOverride.color = ThemeBuilder.getContrastColor(swatch, theme.colorScheme);
+  } else if (swatch === 'link') {
+    styleOverride.backgroundColor = '#FFFFFF00';
+    styleOverride.color = mergedProps.linkColor ?? ThemeBuilder.getSwatchColor('blue', theme.colorScheme);
   }
   if (mergedProps.pill) {
     styleOverride.borderRadius = '50%';

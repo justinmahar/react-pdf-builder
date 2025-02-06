@@ -1,16 +1,30 @@
 import React from 'react';
+import { Style } from '../Style';
 import { Theme } from '../theme/Theme';
+import { ThemeBuilder } from '../theme/ThemeBuilder';
+import { SwatchColor } from '../theme/themes/ColorScheme';
 import { Themes } from '../theme/themes/Themes';
 import { Paragraph, ParagraphProps } from '../typography/Paragraph';
 
 export interface PageNumberProps extends ParagraphProps {
   format?: string;
+  swatch?: SwatchColor;
   theme?: Theme;
 }
 
-export const PageNumber = ({ theme = Themes.default.create(), style, ...props }: PageNumberProps) => {
+export const PageNumber = ({ theme = Themes.default.build(), style, ...props }: PageNumberProps) => {
   const mergedProps = { ...theme.pageNumberProps, ...props };
   const defaultFormat = '%n / %t';
+
+  const styleInnate: Style = {
+    marginBottom: 0,
+  };
+
+  const styleOverride: Style = {};
+  if (mergedProps.swatch) {
+    styleOverride.color = ThemeBuilder.getSwatchColor(mergedProps.swatch, theme.colorScheme);
+  }
+
   return (
     <Paragraph
       theme={theme}
@@ -27,7 +41,7 @@ export const PageNumber = ({ theme = Themes.default.create(), style, ...props }:
           .join(`${subPageTotalPages}`);
       }}
       {...mergedProps}
-      style={{ ...mergedProps.style, ...style }}
+      style={{ ...styleInnate, ...mergedProps.style, ...styleOverride, ...style }}
     />
   );
 };

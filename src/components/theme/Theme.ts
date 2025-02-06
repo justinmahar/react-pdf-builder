@@ -12,9 +12,16 @@ import { TableRowProps } from '../table/TableRow';
 import { TableProps } from '../table/Table';
 import { ListItemProps } from '../lists/ListItem';
 import { ListItemContainerProps } from '../lists/ListItemContainer';
-import { ButtonProps } from '../widgets/Button';
+import { ButtonProps } from '../button/Button';
+import { ColorScheme } from './themes/ColorScheme';
+import { DeepPartial } from '../util';
 
 export interface Theme {
+  // Color scheme
+  colorScheme?: ColorScheme;
+
+  // Button
+  buttonProps?: ButtonProps;
   // Card
   cardProps?: CardProps;
   cardBodyProps?: CardBodyProps;
@@ -41,6 +48,6 @@ export interface Theme {
   heading5Props?: HeadingProps;
   heading6Props?: HeadingProps;
   paragraphProps?: ParagraphProps;
-  // Widgets
-  buttonProps?: ButtonProps;
 }
+
+export type PartialTheme = DeepPartial<Theme>;

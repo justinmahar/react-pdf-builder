@@ -4,6 +4,9 @@ import { Style } from '../Style';
 import { Box, BoxProps } from '../layout/Box';
 import { Theme } from '../theme/Theme';
 import { Themes } from '../theme/themes/Themes';
+import { SwatchColor } from '../theme/themes/ColorScheme';
+import { ThemeBuilder } from '../theme/ThemeBuilder';
+import Color from 'color';
 
 export interface TableRowProps extends BoxProps {
   children?: any;
@@ -12,6 +15,7 @@ export interface TableRowProps extends BoxProps {
   striped?: boolean;
   stripeStyle?: Style;
   inverseStriped?: boolean;
+  stripeOpacity?: number;
   rowStyle?: Style;
   cellStyle?: Style;
   bordered?: boolean;
@@ -23,30 +27,51 @@ export interface TableRowProps extends BoxProps {
   borderStyle?: 'dashed' | 'dotted' | 'solid';
   borderWidth?: string | number;
   colWidths?: (string | number)[];
+  swatchOpacity?: number;
+  swatch?: SwatchColor;
   theme?: Theme;
 }
 
-export const TableRow = ({
-  children,
-  theme = Themes.default.create(),
-  stripeStyle,
-  style,
-  ...props
-}: TableRowProps) => {
+export const TableRow = ({ children, theme = Themes.default.build(), stripeStyle, style, ...props }: TableRowProps) => {
   const mergedProps = {
     ...theme.tableRowProps,
     ...props,
   };
 
+  let bgColorOverride: string | undefined = undefined;
+  let contrastColorOverride: string | undefined = undefined;
+  if (mergedProps.swatch) {
+    const swatchColor = ThemeBuilder.getSwatchColor(mergedProps.swatch, theme.colorScheme);
+    bgColorOverride = swatchColor;
+    contrastColorOverride = ThemeBuilder.getContrastColor(mergedProps.swatch, theme.colorScheme);
+    mergedProps.borderColor = swatchColor;
+
+    const swatchOpacity = mergedProps.swatchOpacity ?? 0.934;
+    const swatchOpacityHex = ThemeBuilder.decimalToHex(swatchOpacity);
+    bgColorOverride = `${new Color(swatchColor ?? '#888').hex()}${swatchOpacityHex}`;
+    const stripeOpacity = mergedProps.stripeOpacity ?? 0.134;
+    const stripeOpacityHex = ThemeBuilder.decimalToHex(stripeOpacity);
+    mergedProps.stripeStyle = {
+      backgroundColor: `${new Color(swatchColor ?? '#888').hex()}${stripeOpacityHex}`, // Add opacity to the end
+    };
+  }
+
   const firstRow = props.rowIndex === 0;
   const isRowEven = !((props.rowIndex ?? 0) % 2);
-  const isStripedRow = (mergedProps.striped && !isRowEven) || (mergedProps.inverseStriped && isRowEven);
+  const isStripedRow =
+    !mergedProps.swatch && ((mergedProps.striped && !isRowEven) || (mergedProps.inverseStriped && isRowEven));
 
   const styleInnate: Style = {
     overflow: 'hidden',
   };
 
   const styleOverride: Style = {};
+  if (typeof bgColorOverride !== 'undefined') {
+    styleOverride.backgroundColor = bgColorOverride;
+  }
+  if (typeof contrastColorOverride !== 'undefined') {
+    styleOverride.color = contrastColorOverride;
+  }
 
   let borderAdded = false;
   if (

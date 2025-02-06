@@ -5,6 +5,9 @@ export * from './components/backgrounds/PlaidBackground';
 export * from './components/builder/ReactPDFBuilder';
 export * from './components/builder/PDFSafeChildren';
 
+// Button
+export * from './components/button/Button';
+
 // Card
 export * from './components/card/Card';
 export * from './components/card/CardBody';
@@ -38,7 +41,7 @@ export * from './components/table/TableCell';
 
 // Themes
 export * from './components/theme/Theme';
-export * from './components/theme/ThemeFactory';
+export * from './components/theme/ThemeBuilder';
 export * from './components/theme/themes/Themes';
 
 // Typography
@@ -50,9 +53,6 @@ export * from './components/typography/Heading4';
 export * from './components/typography/Heading5';
 export * from './components/typography/Heading6';
 export * from './components/typography/Paragraph';
-
-// Widgets
-export * from './components/widgets/Button';
 
 // Misc
 export * from './components/KitchenSink';

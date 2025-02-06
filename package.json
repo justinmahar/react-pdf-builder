@@ -38,6 +38,7 @@
     "@storybook/blocks": "^7.6.12",
     "@storybook/react": "^7.6.12",
     "@storybook/react-webpack5": "^7.6.12",
+    "@types/color": "^4.2.0",
     "@types/react": "^18.2.53",
     "@typescript-eslint/eslint-plugin": "^6.20.0",
     "@typescript-eslint/parser": "^6.20.0",
@@ -59,6 +60,7 @@
     "webpack": "^5.97.1"
   },
   "dependencies": {
+    "color": "^4.2.3",
     "uuid": "^11.0.5"
   }
 }

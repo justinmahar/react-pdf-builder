@@ -3,8 +3,9 @@ import React from 'react';
 import { Style } from '../Style';
 import { Themes } from '../theme/themes/Themes';
 import { HeadingProps } from './Heading';
+import { ThemeBuilder } from '../theme/ThemeBuilder';
 
-export const Heading1 = ({ children, theme = Themes.default.create(), style, ...props }: HeadingProps) => {
+export const Heading1 = ({ children, theme = Themes.default.build(), style, ...props }: HeadingProps) => {
   const mergedProps = {
     ...theme?.headingProps,
     ...theme?.heading1Props,
@@ -19,6 +20,11 @@ export const Heading1 = ({ children, theme = Themes.default.create(), style, ...
   const styleOverride: Style = {};
   if (!mergedProps.rule) {
     styleOverride.borderBottom = 0;
+  }
+  if (mergedProps.swatch) {
+    const swatchColor = ThemeBuilder.getSwatchColor(mergedProps.swatch, theme.colorScheme);
+    styleOverride.color = swatchColor;
+    styleOverride.borderColor = swatchColor;
   }
 
   return (

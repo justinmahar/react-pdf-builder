@@ -10,7 +10,7 @@ export interface CardProps extends BoxProps {
   theme?: Theme;
 }
 
-export const Card = ({ children, theme = Themes.default.create(), style, ...props }: CardProps) => {
+export const Card = ({ children, theme = Themes.default.build(), style, ...props }: CardProps) => {
   const mergedProps = {
     ...theme.cardProps,
     ...props,

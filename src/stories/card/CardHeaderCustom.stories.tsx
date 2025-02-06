@@ -9,7 +9,7 @@ import { Paragraph, ParagraphProps } from '../../components/typography/Paragraph
 import { PDFStory } from '../parts/PDFStory';
 import { Heading5 } from '../../components/typography/Heading5';
 import { Box } from '../../components/layout/Box';
-import { Button } from '../../components/widgets/Button';
+import { Button } from '../../components/button/Button';
 import { Heading3 } from '../../components/typography/Heading3';
 import { Heading4 } from '../../components/typography/Heading4';
 import { OrderedList } from '../../components/lists/OrderedList';
@@ -25,7 +25,7 @@ const StoryComponent = (props: ParagraphProps) => {
               <Heading5>Custom card header (H5)</Heading5>
               <Paragraph style={{ marginBottom: 0 }}>Custom header with text (paragraph)</Paragraph>
             </Box>
-            <Button pill variant="info" style={{ width: 100 }}>
+            <Button pill swatch="info" style={{ width: 100 }}>
               <Heading3 style={{ marginBottom: 0 }}>42%</Heading3>
             </Button>
           </Box>

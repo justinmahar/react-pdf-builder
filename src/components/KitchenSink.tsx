@@ -25,7 +25,7 @@ import { Heading4 } from './typography/Heading4';
 import { Heading5 } from './typography/Heading5';
 import { Heading6 } from './typography/Heading6';
 import { Paragraph } from './typography/Paragraph';
-import { Button } from './widgets/Button';
+import { Button } from './button/Button';
 
 export interface KitchenSinkProps extends DivProps {}
 
@@ -76,12 +76,7 @@ export const KitchenSink = ({ ...props }: KitchenSinkProps) => {
               </Box>
             </ThemedPage>
           )}
-          <ThemedPage
-            size={pageSize}
-            style={{
-              backgroundColor: '#F8F9FA',
-            }}
-          >
+          <ThemedPage size={pageSize} swatch="gray100">
             <Box direction="y" style={{ gap: 10 }}>
               <Heading5 rule>Basic Typography</Heading5>
               <Heading1 rule>Heading1</Heading1>
@@ -341,31 +336,31 @@ export const KitchenSink = ({ ...props }: KitchenSinkProps) => {
                 </CardHeader>
                 <CardBody withHeader>
                   <Box direction="x" style={{ flexWrap: 'wrap', justifyContent: 'center', gap: '10' }}>
-                    <Button variant="primary" href={buttonHref}>
+                    <Button swatch="primary" href={buttonHref}>
                       Primary
                     </Button>
-                    <Button variant="secondary" href={buttonHref}>
+                    <Button swatch="secondary" href={buttonHref}>
                       Secondary
                     </Button>
-                    <Button variant="success" href={buttonHref}>
+                    <Button swatch="success" href={buttonHref}>
                       Success
                     </Button>
-                    <Button variant="danger" href={buttonHref}>
+                    <Button swatch="danger" href={buttonHref}>
                       Danger
                     </Button>
-                    <Button variant="warning" href={buttonHref}>
+                    <Button swatch="warning" href={buttonHref}>
                       Warning
                     </Button>
-                    <Button variant="info" href={buttonHref}>
+                    <Button swatch="info" href={buttonHref}>
                       Info
                     </Button>
-                    <Button variant="light" href={buttonHref}>
+                    <Button swatch="light" href={buttonHref}>
                       Light
                     </Button>
-                    <Button variant="dark" href={buttonHref}>
+                    <Button swatch="dark" href={buttonHref}>
                       Dark
                     </Button>
-                    <Button variant="link" href={buttonHref}>
+                    <Button swatch="link" href={buttonHref}>
                       Link
                     </Button>
                   </Box>

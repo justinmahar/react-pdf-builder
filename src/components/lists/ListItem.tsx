@@ -10,7 +10,7 @@ export interface ListItemProps extends ViewProps {
   theme?: Theme;
 }
 
-export const ListItem = ({ children, theme = Themes.default.create(), style, ...props }: ListItemProps) => {
+export const ListItem = ({ children, theme = Themes.default.build(), style, ...props }: ListItemProps) => {
   const mergedProps = {
     ...theme?.listItemProps,
     ...props,

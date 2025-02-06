@@ -1,8 +1,6 @@
-import { OriginalLightThemeFactory as OriginalLightThemeFactory } from './OriginalLightThemeFactory';
+import { LightThemeBuilder as LightThemeBuilder } from './light/LightThemeBuilder';
 
 export class Themes {
-  public static originalLight = new OriginalLightThemeFactory();
-  public static default = Themes.originalLight;
+  public static light = new LightThemeBuilder();
+  public static default = Themes.light;
 }
-
-// backgroundColor: '#F8F9FA',

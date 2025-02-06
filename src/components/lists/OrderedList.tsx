@@ -15,7 +15,7 @@ export interface OrderedListProps extends ViewProps {
   theme?: Theme;
 }
 
-export const OrderedList = ({ theme = Themes.default.create(), children, style, ...props }: OrderedListProps) => {
+export const OrderedList = ({ theme = Themes.default.build(), children, style, ...props }: OrderedListProps) => {
   const mergedProps = {
     ...theme.orderedListProps,
     ...props,

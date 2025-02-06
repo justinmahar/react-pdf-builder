@@ -17,7 +17,7 @@ export interface ListItemContainerProps extends ViewProps {
 
 export const ListItemContainer = ({
   children,
-  theme = Themes.default.create(),
+  theme = Themes.default.build(),
   markerStyle,
   style,
   ...props

@@ -3,12 +3,16 @@ import { Style } from '../Style';
 import { Box, BoxProps } from '../layout/Box';
 import { Theme } from '../theme/Theme';
 import { Themes } from '../theme/themes/Themes';
+import { SwatchColor } from '../theme/themes/ColorScheme';
+import { ThemeBuilder } from '../theme/ThemeBuilder';
+import Color from 'color';
 
 export interface TableProps extends BoxProps {
   children?: any;
   striped?: boolean;
   stripeStyle?: Style;
   inverseStriped?: boolean;
+  stripeOpacity?: number;
   rowStyle?: Style;
   cellStyle?: Style;
   bordered?: boolean;
@@ -20,14 +24,25 @@ export interface TableProps extends BoxProps {
   borderStyle?: 'dashed' | 'dotted' | 'solid';
   borderWidth?: string | number;
   colWidths?: (string | number)[];
+  swatch?: SwatchColor;
   theme?: Theme;
 }
 
-export const Table = ({ children, theme = Themes.default.create(), style, ...props }: TableProps) => {
+export const Table = ({ children, theme = Themes.default.build(), style, ...props }: TableProps) => {
   const mergedProps = {
     ...theme?.tableProps,
     ...props,
   };
+
+  if (mergedProps.swatch) {
+    const swatchColor = ThemeBuilder.getSwatchColor(mergedProps.swatch, theme.colorScheme);
+    mergedProps.borderColor = props.borderColor ?? swatchColor;
+    const stripeOpacity = mergedProps.stripeOpacity ?? 0.133;
+    const stripeOpacityHex = ThemeBuilder.decimalToHex(stripeOpacity);
+    mergedProps.stripeStyle = props.stripeStyle ?? {
+      backgroundColor: `${new Color(swatchColor ?? '#888').hex()}${stripeOpacityHex}`, // Add opacity to the end
+    };
+  }
 
   const styleInnate: Style = {
     overflow: 'hidden',
@@ -49,6 +64,7 @@ export const Table = ({ children, theme = Themes.default.create(), style, ...pro
       striped: mergedProps.striped,
       stripeStyle: mergedProps.stripeStyle,
       inverseStriped: mergedProps.inverseStriped,
+      stripeOpacity: mergedProps.stripeOpacity,
       rowStyle: mergedProps.rowStyle,
       cellStyle: mergedProps.cellStyle,
       bordered: mergedProps.bordered,

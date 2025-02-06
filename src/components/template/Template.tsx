@@ -9,7 +9,7 @@ export interface TemplateProps extends ViewProps {
   theme?: Theme;
 }
 
-export const Template = ({ children, theme = Themes.default.create(), style, ...props }: TemplateProps) => {
+export const Template = ({ children, theme = Themes.default.build(), style, ...props }: TemplateProps) => {
   const mergedProps = {
     ...theme?.cardProps,
     ...props,

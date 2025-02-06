@@ -1,15 +1,27 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
-import { Button, ButtonProps } from '../../components/widgets/Button';
+import { Button, ButtonProps } from '../../components/button/Button';
 import { PDFStory } from '../parts/PDFStory';
 import { Box } from '../../components/layout/Box';
+import { Themes } from '../../components/theme/themes/Themes';
 
 const StoryComponent = (props: ButtonProps) => {
-  const label = props.variant ? props.variant.substring(0, 1).toUpperCase() + props.variant.substring(1) : 'Button';
+  const theme = Themes.default.build();
+  const swatches = [
+    ...Object.keys(theme.colorScheme?.colors ?? {}),
+    ...Object.keys(theme.colorScheme?.theme ?? {}),
+    ...Object.keys(theme.colorScheme?.greyscale ?? {}),
+  ];
+  const elements = swatches.map((swatch) => (
+    <Button wrap={false} key={swatch} theme={theme} swatch={swatch as any} {...props}>
+      {swatch.substring(0, 1).toUpperCase() + swatch.substring(1)}
+    </Button>
+  ));
   return (
-    <PDFStory>
-      <Box>
-        <Button {...props}>{label}</Button>
+    <PDFStory pageProps={{ theme }}>
+      <Box direction="x" gap={15} style={{ justifyContent: 'center', flexWrap: 'wrap' }}>
+        {elements}
+        <Button>Default</Button>
       </Box>
     </PDFStory>
   );
@@ -27,82 +39,18 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 // === Stories ===
-export const Default: Story = {
+export const Regular: Story = {
   args: {},
 };
 
-export const Primary: Story = {
-  args: { variant: 'primary' },
+export const Pill: Story = {
+  args: { pill: true },
 };
 
-export const PrimaryWithHref: Story = {
-  args: { href: 'https://github.com/justinmahar/react-pdf-builder', variant: 'primary' },
-};
-
-export const Secondary: Story = {
-  args: { variant: 'secondary' },
-};
-
-export const SecondaryWithHref: Story = {
-  args: { href: 'https://github.com/justinmahar/react-pdf-builder', variant: 'secondary' },
-};
-
-export const Success: Story = {
-  args: { variant: 'success' },
-};
-
-export const SuccessWithHref: Story = {
-  args: { href: 'https://github.com/justinmahar/react-pdf-builder', variant: 'success' },
-};
-
-export const Danger: Story = {
-  args: { variant: 'danger' },
-};
-
-export const DangerWithHref: Story = {
-  args: { href: 'https://github.com/justinmahar/react-pdf-builder', variant: 'danger' },
-};
-
-export const Warning: Story = {
-  args: { variant: 'warning' },
-};
-
-export const WarningWithHref: Story = {
-  args: { href: 'https://github.com/justinmahar/react-pdf-builder', variant: 'warning' },
-};
-
-export const Info: Story = {
-  args: { variant: 'info' },
-};
-
-export const InfoWithHref: Story = {
-  args: { href: 'https://github.com/justinmahar/react-pdf-builder', variant: 'info' },
-};
-
-export const Light: Story = {
-  args: { variant: 'light' },
-};
-
-export const LightWithHref: Story = {
-  args: { href: 'https://github.com/justinmahar/react-pdf-builder', variant: 'light' },
-};
-
-export const Dark: Story = {
-  args: { variant: 'dark' },
-};
-
-export const DarkWithHref: Story = {
-  args: { href: 'https://github.com/justinmahar/react-pdf-builder', variant: 'dark' },
-};
-
-export const Link: Story = {
-  args: { variant: 'link' },
-};
-
-export const LinkWithHref: Story = {
-  args: { href: 'https://github.com/justinmahar/react-pdf-builder', variant: 'link' },
+export const WithHref: Story = {
+  args: { href: 'https://github.com/justinmahar/react-pdf-builder' },
 };
 
 export const Custom: Story = {
-  args: { style: { backgroundColor: 'purple', color: 'white', borderRadius: 100, width: 250, fontSize: 50 } },
+  args: { style: { borderRadius: 20, width: 250, fontSize: 30 } },
 };

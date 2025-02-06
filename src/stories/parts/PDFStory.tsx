@@ -1,13 +1,13 @@
 import { Document, PageProps, PDFViewer } from '@react-pdf/renderer';
 import React from 'react';
-import { ThemedPage } from '../../components/pages/ThemedPage';
+import { ThemedPage, ThemedPageProps } from '../../components/pages/ThemedPage';
 import { Themes } from '../../components/theme/themes/Themes';
 
 export interface PDFStoryProps {
   children?: any;
   pageSize?: string;
   scale?: number;
-  pageProps?: PageProps;
+  pageProps?: ThemedPageProps;
 }
 
 export const PDFStory = ({ children, pageSize = 'A4', scale = 1, pageProps, ...props }: PDFStoryProps) => {
@@ -15,7 +15,7 @@ export const PDFStory = ({ children, pageSize = 'A4', scale = 1, pageProps, ...p
     <PDFViewer style={{ height: 600, width: 400 }}>
       <Document>
         <ThemedPage
-          theme={Themes.default.create(scale)}
+          theme={Themes.default.build(scale)}
           size={pageSize as any}
           {...pageProps}
           style={{ ...pageProps?.style }}

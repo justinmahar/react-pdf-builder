@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
-import { Box } from '../../components/layout/Box';
 import { Table } from '../../components/table/Table';
 import { TableCell } from '../../components/table/TableCell';
 import { TableRow } from '../../components/table/TableRow';
@@ -11,21 +10,15 @@ import { PDFStory } from '../parts/PDFStory';
 const StoryComponent = (props: ParagraphProps) => {
   return (
     <PDFStory>
-      <Heading6>Styled with custom column widths</Heading6>
+      <Heading6>Swatched with custom column widths</Heading6>
       <Table
         bordered
         inverseStriped
-        borderColor="#007BFF"
+        swatch="primary"
         style={{ backgroundColor: 'white', borderRadius: 10 }}
-        stripeStyle={{ backgroundColor: '#007BFF22' }}
         colWidths={['30%', '50%', '20%']}
       >
-        <TableRow
-          style={{
-            backgroundColor: '#007BFF',
-            color: 'white',
-          }}
-        >
+        <TableRow swatch="primary" inverseStriped={false}>
           <TableCell>
             <Heading6 style={{ marginBottom: 0 }}>Col 30% </Heading6>
           </TableCell>
@@ -42,7 +35,7 @@ const StoryComponent = (props: ParagraphProps) => {
           <TableCell>Sed do eiusmod</TableCell>
         </TableRow>
         <TableRow>
-          <TableCell>Incididunt ut labore</TableCell>
+          <TableCell swatch="primary">Primary swatch</TableCell>
           <TableCell>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et magna
             aliqua.
@@ -59,7 +52,7 @@ const StoryComponent = (props: ParagraphProps) => {
         </TableRow>
         <TableRow>
           <TableCell>Lorem ipsum dolor</TableCell>
-          <TableCell>Consectetur adipiscing elit</TableCell>
+          <TableCell swatch="teal">Teal swatch</TableCell>
           <TableCell>Sed do eiusmod</TableCell>
         </TableRow>
       </Table>
@@ -79,6 +72,6 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 // === Stories ===
-export const StyledWithColumnWidths: Story = {
+export const SwatchedWithColumnWidths: Story = {
   args: {},
 };
