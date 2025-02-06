@@ -13,7 +13,7 @@ import { Button } from '../../components/button/Button';
 
 const StoryComponent = (props: ParagraphProps) => {
   return (
-    <PDFStory pageProps={{ style: { backgroundColor: '#333388' } }}>
+    <PDFStory>
       <Card>
         <CardHeader>Card Header</CardHeader>
         <CardBody withHeader>

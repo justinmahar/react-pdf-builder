@@ -11,7 +11,7 @@ import { Text } from '@react-pdf/renderer';
 
 const StoryComponent = (props: ParagraphProps) => {
   return (
-    <PDFStory pageProps={{ style: { backgroundColor: '#333388' } }}>
+    <PDFStory>
       <Card>
         <CardHeader as={Heading1}>Heading1</CardHeader>
         <CardBody withHeader>

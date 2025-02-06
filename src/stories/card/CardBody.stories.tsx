@@ -8,7 +8,7 @@ import { PDFStory } from '../parts/PDFStory';
 
 const StoryComponent = (props: ParagraphProps) => {
   return (
-    <PDFStory pageProps={{ style: { backgroundColor: '#333388' } }}>
+    <PDFStory>
       <Card>
         <CardBody>
           <Heading4>This is a card with no header</Heading4>

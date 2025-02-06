@@ -4,11 +4,16 @@ import { PDFSafeChildren } from '../builder/PDFSafeChildren';
 import { Style } from '../Style';
 import { Theme } from '../theme/Theme';
 import { Themes } from '../theme/themes/Themes';
+import { SwatchColor } from '../theme/themes/ColorScheme';
+import { ThemeBuilder } from '../theme/ThemeBuilder';
+import Color from 'color';
 
 export interface CardBodyProps extends BoxProps {
   children?: any;
   withHeader?: boolean;
   withFooter?: boolean;
+  swatch?: SwatchColor;
+  swatchOpacity?: number;
   theme?: Theme;
 }
 
@@ -31,6 +36,15 @@ export const CardBody = ({ children, theme = Themes.default.build(), style, ...p
     styleOverride.borderBottomLeftRadius = 0;
     styleOverride.borderBottomRightRadius = 0;
   }
+  if (mergedProps.swatch) {
+    const swatchColor = ThemeBuilder.getSwatchColor(mergedProps.swatch, theme.colorScheme);
+    // styleOverride.color = swatchColor;
+    styleOverride.borderColor = swatchColor;
+    const swatchOpacity = mergedProps.swatchOpacity ?? 0.134;
+    const swatchOpacityHex = ThemeBuilder.decimalToHex(swatchOpacity);
+    styleOverride.backgroundColor = `${new Color(swatchColor ?? '#888').hex()}${swatchOpacityHex}`; // Add opacity to the end
+  }
+
   return (
     <Box {...mergedProps} style={{ ...styleInnate, ...mergedProps?.style, ...styleOverride, ...style }}>
       <PDFSafeChildren>{children}</PDFSafeChildren>

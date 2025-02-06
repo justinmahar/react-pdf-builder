@@ -40,7 +40,7 @@ export class LightThemeBuilder extends ThemeBuilder {
           borderBottomLeftRadius: 10 * scale,
           borderBottomRightRadius: 10 * scale,
           border: 1 * scale,
-          borderColor: colorScheme.greyscale.gray400, // Color
+          borderColor: colorScheme.greyscale.gray500, // Color
         },
       },
       cardHeaderProps: {
@@ -53,7 +53,7 @@ export class LightThemeBuilder extends ThemeBuilder {
           borderBottomLeftRadius: 10 * scale,
           borderBottomRightRadius: 10 * scale,
           border: 1 * scale,
-          borderColor: colorScheme.greyscale.gray400, // Color
+          borderColor: colorScheme.greyscale.gray500, // Color
         },
       },
 

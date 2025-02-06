@@ -17,7 +17,7 @@ import { ListItem } from '../../components/lists/ListItem';
 
 const StoryComponent = (props: ParagraphProps) => {
   return (
-    <PDFStory pageProps={{ style: { backgroundColor: '#333388' } }}>
+    <PDFStory>
       <Card>
         <CardHeader>
           <Box direction="x" gap={10} style={{ alignItems: 'center', justifyContent: 'space-between' }}>
