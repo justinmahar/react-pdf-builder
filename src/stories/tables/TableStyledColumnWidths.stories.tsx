@@ -59,8 +59,12 @@ const StoryComponent = (props: ParagraphProps) => {
         </TableRow>
       </Table>
       <UnorderedList>
-        <ListItem>Table has the "primary" swatch</ListItem>
+        <ListItem>Table has the "inverseStriped" prop and "primary" swatch</ListItem>
+        <ListItem>Table has white background and a border radius</ListItem>
         <ListItem>First table row has the "primary" swatch</ListItem>
+        <ListItem>One row has three cells with custom widths differing from the rest of the table</ListItem>
+        <ListItem>One row has only two cells with 50% width each</ListItem>
+        <ListItem>Two cells have been swatched to "blue" and "teal"</ListItem>
       </UnorderedList>
     </PDFStory>
   );

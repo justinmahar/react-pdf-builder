@@ -12,7 +12,7 @@ import { PDFStory } from '../parts/PDFStory';
 const StoryComponent = (props: ParagraphProps) => {
   return (
     <PDFStory>
-      <Heading1 swatch={props.swatch}>Lorem ipsum dolor sit amet</Heading1>
+      <Heading1>Lorem ipsum dolor sit amet</Heading1>
       <Paragraph {...props}>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
         magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -27,7 +27,7 @@ const StoryComponent = (props: ParagraphProps) => {
         pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
         laborum.
       </Paragraph>
-      <Heading2 swatch={props.swatch}>Commodo consequat</Heading2>
+      <Heading2>Commodo consequat</Heading2>
       <Paragraph {...props}>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
         magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -42,7 +42,7 @@ const StoryComponent = (props: ParagraphProps) => {
         pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
         laborum.
       </Paragraph>
-      <Heading3 swatch={props.swatch}>Consectetur adipiscing</Heading3>
+      <Heading3>Consectetur adipiscing</Heading3>
       <Paragraph {...props}>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
         magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -50,7 +50,7 @@ const StoryComponent = (props: ParagraphProps) => {
         pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
         laborum.
       </Paragraph>
-      <Heading4 swatch={props.swatch}>Ut enim ad minim veniam</Heading4>
+      <Heading4>Ut enim ad minim veniam</Heading4>
       <Paragraph {...props}>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
         magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -58,7 +58,7 @@ const StoryComponent = (props: ParagraphProps) => {
         pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
         laborum.
       </Paragraph>
-      <Heading5 swatch={props.swatch}>Ullamco laboris nisi</Heading5>
+      <Heading5>Ullamco laboris nisi</Heading5>
       <Paragraph {...props}>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
         magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -73,7 +73,7 @@ const StoryComponent = (props: ParagraphProps) => {
         pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
         laborum.
       </Paragraph>
-      <Heading6 swatch={props.swatch}>Excepteur sint occaecat</Heading6>
+      <Heading6>Excepteur sint occaecat</Heading6>
       <Paragraph {...props}>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
         magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo

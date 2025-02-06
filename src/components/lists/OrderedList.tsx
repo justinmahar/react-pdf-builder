@@ -5,13 +5,17 @@ import { Style } from '../Style';
 import { PDFSafeChildren } from '../builder/PDFSafeChildren';
 import { Theme } from '../theme/Theme';
 import { Themes } from '../theme/themes/Themes';
+import { SwatchColor } from '../theme/themes/ColorScheme';
+import { ThemeBuilder } from '../theme/ThemeBuilder';
 
 export interface OrderedListProps extends ViewProps {
   children?: any;
   wrapItems?: boolean;
   markerStyle?: Style;
-  wrapperProps?: ListItemContainerProps;
+  markerSwatch?: SwatchColor;
+  containerProps?: ListItemContainerProps;
   numberRenderer?: (num: number) => string;
+  swatch?: SwatchColor;
   theme?: Theme;
 }
 
@@ -23,8 +27,13 @@ export const OrderedList = ({ theme = Themes.default.build(), children, style, .
 
   const mergedWrapperProps = {
     ...theme.listItemContainerProps,
-    ...props.wrapperProps,
+    ...props.containerProps,
   };
+
+  const styleOverride: Style = {};
+  if (mergedProps.swatch) {
+    styleOverride.color = ThemeBuilder.getSwatchColor(mergedProps.swatch, theme.colorScheme);
+  }
 
   const childArray = Array.isArray(children) ? children : [children];
 
@@ -34,6 +43,7 @@ export const OrderedList = ({ theme = Themes.default.build(), children, style, .
       theme={theme}
       wrap={!!mergedProps.wrapItems}
       markerStyle={mergedProps.markerStyle}
+      markerSwatch={mergedProps.markerSwatch}
       numberRenderer={mergedProps.numberRenderer}
       {...mergedWrapperProps}
       num={i + 1}
@@ -48,7 +58,7 @@ export const OrderedList = ({ theme = Themes.default.build(), children, style, .
   };
 
   return (
-    <View {...mergedProps} style={{ ...styleInnate, ...mergedProps?.style, ...style }}>
+    <View {...mergedProps} style={{ ...styleInnate, ...mergedProps?.style, ...styleOverride, ...style }}>
       {liElements}
     </View>
   );
