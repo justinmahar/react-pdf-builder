@@ -5,6 +5,20 @@ object-assign
 */
 
 /**
+	 * mix-css-color
+	 * @version v0.2.0
+	 * @link http://github.com/noeldelgado/mix-css-color/
+	 * @license MIT
+	 */
+
+/**
+	 * parse-css-color
+	 * @version v0.1.2
+	 * @link http://github.com/noeldelgado/parse-css-color/
+	 * @license MIT
+	 */
+
+/**
  * @license React
  * react-jsx-runtime.production.min.js
  *
