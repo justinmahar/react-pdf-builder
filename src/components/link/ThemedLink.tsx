@@ -14,8 +14,9 @@ export interface ThemedLinkProps extends LinkProps {
 }
 
 export const ThemedLink = ({ children, theme = Themes.default.build(), style, ...props }: ThemedLinkProps) => {
+  const themeProps = theme?.linkProps;
   const mergedProps = {
-    ...theme?.cardProps,
+    ...themeProps,
     ...props,
   };
 
@@ -30,7 +31,7 @@ export const ThemedLink = ({ children, theme = Themes.default.build(), style, ..
   }
 
   return (
-    <Link {...mergedProps} style={{ ...styleInnate, ...mergedProps?.style, ...styleOverride, ...style }}>
+    <Link {...mergedProps} style={{ ...styleInnate, ...themeProps?.style, ...styleOverride, ...style }}>
       <PDFSafeChildren>{children}</PDFSafeChildren>
     </Link>
   );

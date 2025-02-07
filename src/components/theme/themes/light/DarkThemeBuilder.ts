@@ -9,6 +9,10 @@ export class DarkThemeBuilder extends ThemeBuilder {
     super(bootstrapDarkColorScheme);
   }
   public doBuild(scale: number, colorScheme: ColorScheme): Theme {
+    const bodyBackgroundColor = colorScheme.greyscale.gray900;
+    const bodyColor = colorScheme.greyscale.gray300;
+    const borderColor = colorScheme.greyscale.gray700;
+    const linkColor = ThemeBuilder.lighten(bootstrapLightColorScheme.colors.blue, 40);
     const baseFontSize = 18;
     const baseMarginRatio = 1.25;
     const headingStartSize = baseFontSize * 1.11;
@@ -16,9 +20,12 @@ export class DarkThemeBuilder extends ThemeBuilder {
     return {
       // === Color Scheme === === === === === === === === === === ===
       colorScheme,
+      _bodyBackgroundColor: bodyBackgroundColor,
+      _bodyColor: bodyColor,
 
       // === Button === === === === === === === === === === ===
       buttonProps: {
+        linkColor,
         style: {
           padding: 10 * scale,
           width: 150 * scale,
@@ -34,19 +41,19 @@ export class DarkThemeBuilder extends ThemeBuilder {
       },
       cardBodyProps: {
         style: {
-          backgroundColor: colorScheme.greyscale.white, // Color
+          backgroundColor: bodyBackgroundColor, // Color
           padding: 15 * scale,
           borderTopLeftRadius: 10 * scale,
           borderTopRightRadius: 10 * scale,
           borderBottomLeftRadius: 10 * scale,
           borderBottomRightRadius: 10 * scale,
           border: 1 * scale,
-          borderColor: colorScheme.greyscale.gray500, // Color
+          borderColor, // Color
         },
       },
       cardHeaderProps: {
         style: {
-          backgroundColor: colorScheme.greyscale.gray200, // Color
+          backgroundColor: colorScheme.greyscale.gray800, // Color
           paddingVertical: 10 * scale,
           paddingHorizontal: 15 * scale,
           borderTopLeftRadius: 10 * scale,
@@ -54,13 +61,15 @@ export class DarkThemeBuilder extends ThemeBuilder {
           borderBottomLeftRadius: 10 * scale,
           borderBottomRightRadius: 10 * scale,
           border: 1 * scale,
-          borderColor: colorScheme.greyscale.gray500, // Color
+          borderColor, // Color
         },
       },
 
       // === Link === === === === === === === === === === ===
       linkProps: {
-        style: {},
+        style: {
+          color: linkColor,
+        },
       },
 
       // === Lists === === === === === === === === === === ===
@@ -92,8 +101,8 @@ export class DarkThemeBuilder extends ThemeBuilder {
       // === Pages === === === === === === === === === === ===
       pageProps: {
         style: {
-          backgroundColor: colorScheme.greyscale.gray900,
-          color: colorScheme.greyscale.gray300,
+          backgroundColor: bodyBackgroundColor,
+          color: bodyColor,
           padding: 0.5 * 72 * scale, // Inches x DPI, scaled
           fontSize: baseFontSize * scale,
         },
@@ -102,20 +111,39 @@ export class DarkThemeBuilder extends ThemeBuilder {
         style: {},
       },
 
+      // === Signature === === === === === === === === === === ===
+      signatureProps: {
+        style: {
+          borderBottom: 3 * scale,
+          borderBottomColor: bodyColor, // Color
+          minHeight: 45 * scale,
+        },
+        xProps: {
+          style: {
+            fontSize: baseFontSize * 1.75 * scale,
+            marginLeft: 12 * scale,
+            marginBottom: 2 * scale,
+          },
+        },
+      },
+
       // === Table === === === === === === === === === === ===
       tableProps: {
+        stripeOpacity: 0.3,
         borderWidth: 1 * scale,
         borderStyle: 'solid' as any,
-        borderColor: colorScheme.greyscale.black, // Color
-        stripeStyle: { backgroundColor: '#00000015' }, // Color
+        borderColor: colorScheme.greyscale.gray300, // Color
+        stripeStyle: { backgroundColor: '#ffffff15' }, // Color
         style: {
           marginBottom: baseFontSize * baseMarginRatio * scale,
         },
       },
       tableRowProps: {
+        stripeOpacity: 0.3,
         style: {},
       },
       tableCellProps: {
+        swatchOpacity: 0.3,
         style: {
           padding: 8 * scale,
         },
@@ -124,16 +152,14 @@ export class DarkThemeBuilder extends ThemeBuilder {
       // === Typography === === === === === === === === === === ===
       headingProps: {
         // Applies to all headings
-        style: {
-          borderBottomColor: colorScheme.greyscale.white,
-        },
+        style: {},
       },
       heading1Props: {
         style: {
           fontSize: (headingStartSize + headingStepSize * 5) * scale,
           marginBottom: baseFontSize * 1.5 * scale,
           borderBottom: 4 * scale, // Enabled with rule prop
-          borderColor: colorScheme.greyscale.white,
+          borderColor: colorScheme.greyscale.gray300, // Color
         },
       },
       heading2Props: {
@@ -141,6 +167,7 @@ export class DarkThemeBuilder extends ThemeBuilder {
           fontSize: (headingStartSize + headingStepSize * 4) * scale,
           marginBottom: baseFontSize * 1.4 * scale,
           borderBottom: 4 * scale, // Enabled with rule prop
+          borderColor: colorScheme.greyscale.gray300, // Color
         },
       },
       heading3Props: {
@@ -148,6 +175,7 @@ export class DarkThemeBuilder extends ThemeBuilder {
           fontSize: (headingStartSize + headingStepSize * 3) * scale,
           marginBottom: baseFontSize * 1.3 * scale,
           borderBottom: 3 * scale, // Enabled with rule prop
+          borderColor: colorScheme.greyscale.gray300, // Color
         },
       },
       heading4Props: {
@@ -155,6 +183,7 @@ export class DarkThemeBuilder extends ThemeBuilder {
           fontSize: (headingStartSize + headingStepSize * 2) * scale,
           marginBottom: baseFontSize * 1.2 * scale,
           borderBottom: 3 * scale, // Enabled with rule prop
+          borderColor: colorScheme.greyscale.gray300, // Color
         },
       },
       heading5Props: {
@@ -162,6 +191,7 @@ export class DarkThemeBuilder extends ThemeBuilder {
           fontSize: (headingStartSize + headingStepSize * 1) * scale,
           marginBottom: baseFontSize * 1.1 * scale,
           borderBottom: 2 * scale, // Enabled with rule prop
+          borderColor: colorScheme.greyscale.gray300, // Color
         },
       },
       heading6Props: {
@@ -169,6 +199,7 @@ export class DarkThemeBuilder extends ThemeBuilder {
           fontSize: headingStartSize * scale,
           marginBottom: baseFontSize * scale,
           borderBottom: 2 * scale, // Enabled with rule prop
+          borderColor: colorScheme.greyscale.gray300, // Color
         },
       },
       paragraphProps: {

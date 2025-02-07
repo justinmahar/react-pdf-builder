@@ -8,6 +8,7 @@ export class LightThemeBuilder extends ThemeBuilder {
     super(bootstrapLightColorScheme);
   }
   public doBuild(scale: number, colorScheme: ColorScheme): Theme {
+    const borderColor = colorScheme.greyscale.gray500;
     const baseFontSize = 18;
     const baseMarginRatio = 1.25;
     const headingStartSize = baseFontSize * 1.11;
@@ -15,6 +16,8 @@ export class LightThemeBuilder extends ThemeBuilder {
     return {
       // === Color Scheme === === === === === === === === === === ===
       colorScheme,
+      _bodyBackgroundColor: colorScheme.greyscale.white,
+      _bodyColor: colorScheme.greyscale.black,
 
       // === Button === === === === === === === === === === ===
       buttonProps: {
@@ -40,7 +43,7 @@ export class LightThemeBuilder extends ThemeBuilder {
           borderBottomLeftRadius: 10 * scale,
           borderBottomRightRadius: 10 * scale,
           border: 1 * scale,
-          borderColor: colorScheme.greyscale.gray500, // Color
+          borderColor, // Color
         },
       },
       cardHeaderProps: {
@@ -53,7 +56,7 @@ export class LightThemeBuilder extends ThemeBuilder {
           borderBottomLeftRadius: 10 * scale,
           borderBottomRightRadius: 10 * scale,
           border: 1 * scale,
-          borderColor: colorScheme.greyscale.gray500, // Color
+          borderColor, // Color
         },
       },
 
@@ -97,6 +100,22 @@ export class LightThemeBuilder extends ThemeBuilder {
       },
       pageNumberProps: {
         style: {},
+      },
+
+      // === Signature === === === === === === === === === === ===
+      signatureProps: {
+        style: {
+          borderBottom: 3 * scale,
+          borderBottomColor: colorScheme.greyscale.black, // Color
+          minHeight: 45 * scale,
+        },
+        xProps: {
+          style: {
+            fontSize: baseFontSize * 1.75 * scale,
+            marginLeft: 12 * scale,
+            marginBottom: 2 * scale,
+          },
+        },
       },
 
       // === Table === === === === === === === === === === ===

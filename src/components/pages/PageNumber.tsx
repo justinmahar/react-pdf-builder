@@ -13,7 +13,8 @@ export interface PageNumberProps extends ParagraphProps {
 }
 
 export const PageNumber = ({ theme = Themes.default.build(), style, ...props }: PageNumberProps) => {
-  const mergedProps = { ...theme.pageNumberProps, ...props };
+  const themeProps = theme.pageNumberProps;
+  const mergedProps = { ...themeProps, ...props };
   const defaultFormat = '%n / %t';
 
   const styleInnate: Style = {
@@ -41,7 +42,7 @@ export const PageNumber = ({ theme = Themes.default.build(), style, ...props }: 
           .join(`${subPageTotalPages}`);
       }}
       {...mergedProps}
-      style={{ ...styleInnate, ...mergedProps.style, ...styleOverride, ...style }}
+      style={{ ...styleInnate, ...themeProps?.style, ...styleOverride, ...style }}
     />
   );
 };

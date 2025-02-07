@@ -33,8 +33,9 @@ export interface TableRowProps extends BoxProps {
 }
 
 export const TableRow = ({ children, theme = Themes.default.build(), stripeStyle, style, ...props }: TableRowProps) => {
+  const themeProps = theme.tableRowProps;
   const mergedProps = {
-    ...theme.tableRowProps,
+    ...themeProps,
     ...props,
   };
 
@@ -124,7 +125,7 @@ export const TableRow = ({ children, theme = Themes.default.build(), stripeStyle
       {...mergedProps}
       style={{
         ...styleInnate,
-        ...mergedProps.style,
+        ...themeProps?.style,
         ...styleOverride,
         ...mergedProps.rowStyle,
         ...stripedStyleOverride,

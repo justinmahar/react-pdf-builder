@@ -14,8 +14,9 @@ export interface ListItemProps extends ViewProps {
 }
 
 export const ListItem = ({ children, theme = Themes.default.build(), style, ...props }: ListItemProps) => {
+  const themeProps = theme?.listItemProps;
   const mergedProps = {
-    ...theme?.listItemProps,
+    ...themeProps,
     ...props,
   };
 
@@ -29,7 +30,7 @@ export const ListItem = ({ children, theme = Themes.default.build(), style, ...p
   }
 
   return (
-    <View {...mergedProps} style={{ ...styleInnate, ...mergedProps?.style, ...styleOverride, ...style }}>
+    <View {...mergedProps} style={{ ...styleInnate, ...themeProps?.style, ...styleOverride, ...style }}>
       <PDFSafeChildren>{children}</PDFSafeChildren>
     </View>
   );

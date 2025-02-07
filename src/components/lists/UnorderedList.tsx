@@ -15,13 +15,15 @@ export interface UnorderedListProps extends ViewProps {
   markerSwatch?: SwatchColor;
   containerProps?: ListItemContainerProps;
   bullet?: string;
+  unstyled?: boolean;
   swatch?: SwatchColor;
   theme?: Theme;
 }
 
 export const UnorderedList = ({ theme = Themes.default.build(), children, style, ...props }: UnorderedListProps) => {
+  const themeProps = theme.unorderedListProps;
   const mergedProps = {
-    ...theme.unorderedListProps,
+    ...themeProps,
     ...props,
   };
 
@@ -45,6 +47,7 @@ export const UnorderedList = ({ theme = Themes.default.build(), children, style,
       markerStyle={mergedProps.markerStyle}
       markerSwatch={mergedProps.markerSwatch}
       bullet={mergedProps.bullet}
+      unstyled={mergedProps.unstyled}
       {...mergedWrapperProps}
     >
       <PDFSafeChildren>{c}</PDFSafeChildren>
@@ -57,7 +60,7 @@ export const UnorderedList = ({ theme = Themes.default.build(), children, style,
   };
 
   return (
-    <View {...mergedProps} style={{ ...styleInnate, ...mergedProps?.style, ...styleOverride, ...style }}>
+    <View {...mergedProps} style={{ ...styleInnate, ...themeProps?.style, ...styleOverride, ...style }}>
       {liElements}
     </View>
   );

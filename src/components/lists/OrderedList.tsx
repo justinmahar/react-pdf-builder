@@ -15,13 +15,15 @@ export interface OrderedListProps extends ViewProps {
   markerSwatch?: SwatchColor;
   containerProps?: ListItemContainerProps;
   numberRenderer?: (num: number) => string;
+  unstyled?: boolean;
   swatch?: SwatchColor;
   theme?: Theme;
 }
 
 export const OrderedList = ({ theme = Themes.default.build(), children, style, ...props }: OrderedListProps) => {
+  const themeProps = theme.orderedListProps;
   const mergedProps = {
-    ...theme.orderedListProps,
+    ...themeProps,
     ...props,
   };
 
@@ -45,6 +47,7 @@ export const OrderedList = ({ theme = Themes.default.build(), children, style, .
       markerStyle={mergedProps.markerStyle}
       markerSwatch={mergedProps.markerSwatch}
       numberRenderer={mergedProps.numberRenderer}
+      unstyled={mergedProps.unstyled}
       {...mergedWrapperProps}
       num={i + 1}
     >
@@ -58,7 +61,7 @@ export const OrderedList = ({ theme = Themes.default.build(), children, style, .
   };
 
   return (
-    <View {...mergedProps} style={{ ...styleInnate, ...mergedProps?.style, ...styleOverride, ...style }}>
+    <View {...mergedProps} style={{ ...styleInnate, ...themeProps?.style, ...styleOverride, ...style }}>
       {liElements}
     </View>
   );

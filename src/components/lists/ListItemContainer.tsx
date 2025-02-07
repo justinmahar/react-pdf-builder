@@ -9,12 +9,12 @@ import { ThemeBuilder } from '../theme/ThemeBuilder';
 
 export interface ListItemContainerProps extends ViewProps {
   children?: any;
-  undecorated?: boolean;
   num?: number;
   markerStyle?: Style;
   markerSwatch?: SwatchColor;
   bullet?: string;
   numberRenderer?: (num: number) => string;
+  unstyled?: boolean;
   swatch?: SwatchColor;
   theme?: Theme;
 }
@@ -58,7 +58,7 @@ export const ListItemContainer = ({
   const bullet = mergedProps.bullet ?? '•';
   return (
     <View {...mergedProps} style={{ ...styleInnate, ...mergedProps.style, ...styleOverride, ...style }}>
-      {!mergedProps.undecorated && (
+      {!mergedProps.unstyled && (
         <Text style={{ ...mergedMarkerStyle }}>{isNumbered ? numberRenderer(mergedProps.num ?? 0) : bullet}</Text>
       )}
       <PDFSafeChildren>{children}</PDFSafeChildren>

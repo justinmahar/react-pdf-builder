@@ -16,10 +16,15 @@ import { ButtonProps } from '../button/Button';
 import { ColorScheme } from './themes/ColorScheme';
 import { DeepPartial } from '../util';
 import { ThemedLinkProps } from '../link/ThemedLink';
+import { SignatureProps } from '../template/Signature';
 
 export interface Theme {
   // Color scheme
   colorScheme?: ColorScheme;
+  /** This color is exposed for convenience when working with the theme and cannot be overridden directly. To override the background color, override the `backgroundColor` style in `pageProps.style` when building the theme. */
+  _bodyBackgroundColor: string;
+  /** This color is exposed for convenience when working with the theme and cannot be overridden directly. To override the page color, override the `color` style in `pageProps.style` when building the theme. */
+  _bodyColor: string;
 
   // Button
   buttonProps?: ButtonProps;
@@ -38,6 +43,8 @@ export interface Theme {
   // Pages
   pageProps?: PageProps;
   pageNumberProps?: PageNumberProps;
+  // Signature
+  signatureProps?: SignatureProps;
   // Table
   tableProps?: TableProps;
   tableCellProps?: TableCellProps;

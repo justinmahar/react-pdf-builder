@@ -14,8 +14,9 @@ export interface ThemedPageProps extends PageProps {
 }
 
 export const ThemedPage = ({ children, theme = Themes.default.build(), style, ...props }: ThemedPageProps) => {
+  const themeProps = theme.pageProps;
   const mergedProps = {
-    ...theme.pageProps,
+    ...themeProps,
     ...props,
   };
 
@@ -26,7 +27,7 @@ export const ThemedPage = ({ children, theme = Themes.default.build(), style, ..
   }
 
   return (
-    <Page {...mergedProps} style={{ ...mergedProps.style, ...styleOverride, ...style }}>
+    <Page {...mergedProps} style={{ ...themeProps?.style, ...styleOverride, ...style }}>
       <PDFSafeChildren>{children}</PDFSafeChildren>
     </Page>
   );

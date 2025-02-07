@@ -18,8 +18,9 @@ export interface CardBodyProps extends BoxProps {
 }
 
 export const CardBody = ({ children, theme = Themes.default.build(), style, ...props }: CardBodyProps) => {
+  const themeProps = theme.cardBodyProps;
   const mergedProps = {
-    ...theme.cardBodyProps,
+    ...themeProps,
     ...props,
   };
 
@@ -46,7 +47,7 @@ export const CardBody = ({ children, theme = Themes.default.build(), style, ...p
   }
 
   return (
-    <Box {...mergedProps} style={{ ...styleInnate, ...mergedProps?.style, ...styleOverride, ...style }}>
+    <Box {...mergedProps} style={{ ...styleInnate, ...themeProps?.style, ...styleOverride, ...style }}>
       <PDFSafeChildren>{children}</PDFSafeChildren>
     </Box>
   );

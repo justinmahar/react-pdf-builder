@@ -1,3 +1,4 @@
+import mix from 'mix-css-color';
 import { deepMerge } from '../util';
 import { PartialTheme, Theme } from './Theme';
 import {
@@ -30,7 +31,7 @@ export abstract class ThemeBuilder {
     const theme = this.doBuild(scale, colorScheme);
     const mergedTheme = ThemeBuilder.overrideTheme(theme, themeOverride);
     mergedTheme.colorScheme = colorScheme;
-    return theme;
+    return mergedTheme;
   }
 
   // === Static === === === === === === === ===
@@ -54,6 +55,31 @@ export abstract class ThemeBuilder {
     return colorScheme?.contrast[swatch as keyof SwatchColors];
   }
 
+  /**
+   * Mixes white with the color provided by the specified percentage amount (value from 0 to 100).
+   * @param color The color to lighten.
+   * @param percentage Whole percentage from 0 to 100.
+   * @returns The lightened color.
+   */
+  public static lighten(color: string, percentage: number) {
+    return mix('#FFFFFF', color, percentage).hex;
+  }
+
+  /**
+   * Mixes black with the color provided by the specified percentage amount (value from 0 to 100).
+   * @param color The color to darken.
+   * @param percentage Whole percentage from 0 to 100.
+   * @returns The darkened color.
+   */
+  public static darken(color: string, percentage: number) {
+    return mix('#000000', color, percentage).hex;
+  }
+
+  /**
+   * Converts a decimal from 0-255 to a two character long hexadecimal string.
+   * @param decimal The value from 0 to 255.
+   * @returns A two character long hex string.
+   */
   public static decimalToHex(decimal: number): string {
     return Math.round(Math.min(1, Math.max(0, decimal)) * 255)
       .toString(16)
@@ -64,5 +90,5 @@ export abstract class ThemeBuilder {
 
 export interface ThemeBuilderConfig {
   scale?: number;
-  override?: Theme;
+  override?: PartialTheme;
 }

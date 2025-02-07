@@ -14,8 +14,9 @@ export interface CardProps extends BoxProps {
 }
 
 export const Card = ({ children, theme = Themes.default.build(), style, ...props }: CardProps) => {
+  const themeProps = theme.cardProps;
   const mergedProps = {
-    ...theme.cardProps,
+    ...themeProps,
     ...props,
   };
 
@@ -36,7 +37,7 @@ export const Card = ({ children, theme = Themes.default.build(), style, ...props
   });
 
   return (
-    <Box {...mergedProps} style={{ ...styleInnate, ...mergedProps?.style, ...style }}>
+    <Box {...mergedProps} style={{ ...styleInnate, ...themeProps?.style, ...style }}>
       <PDFSafeChildren>{injectedChildArray}</PDFSafeChildren>
     </Box>
   );

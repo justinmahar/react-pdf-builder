@@ -17,8 +17,9 @@ export interface ButtonProps extends ViewProps {
 }
 
 export const Button = ({ children, theme = Themes.default.build(), style, ...props }: ButtonProps) => {
+  const themeProps = theme?.buttonProps;
   const mergedProps = {
-    ...theme?.buttonProps,
+    ...themeProps,
     ...props,
   };
 
@@ -50,7 +51,7 @@ export const Button = ({ children, theme = Themes.default.build(), style, ...pro
   );
 
   const buttonElement = (
-    <View {...mergedProps} style={{ ...styleInnate, ...mergedProps.style, ...styleOverride, ...style }}>
+    <View {...mergedProps} style={{ ...styleInnate, ...themeProps?.style, ...styleOverride, ...style }}>
       {child}
     </View>
   );

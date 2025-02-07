@@ -26,8 +26,9 @@ export interface TableCellProps extends BoxProps {
 }
 
 export const TableCell = ({ children, theme = Themes.default.build(), style, ...props }: TableCellProps) => {
+  const themeProps = theme.tableCellProps;
   const mergedProps = {
-    ...theme.tableCellProps,
+    ...themeProps,
     ...props,
   };
 
@@ -64,7 +65,7 @@ export const TableCell = ({ children, theme = Themes.default.build(), style, ...
       {...mergedProps}
       style={{
         ...styleInnate,
-        ...mergedProps.style,
+        ...themeProps?.style,
         ...styleOverride,
         ...mergedProps.cellStyle,
         ...style,
