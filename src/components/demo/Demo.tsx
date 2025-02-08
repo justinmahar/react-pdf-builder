@@ -26,7 +26,7 @@ export const Demo = ({ ...props }: DemoProps) => {
   if (bodyFont) {
     Font.register(bodyFont);
   }
-  const titleFont = Fonts.load(Fonts.serif.playfairDisplay);
+  const titleFont = Fonts.load(Fonts.serif.ebGaramond);
   if (titleFont) {
     Font.register(titleFont);
   }
@@ -69,7 +69,7 @@ export const Demo = ({ ...props }: DemoProps) => {
                     backgroundColor: '#00000022',
                   }}
                 >
-                  <RPB.Heading1 style={{ fontFamily: titleFont?.family, textAlign: 'center', fontSize: 60 * scale }}>
+                  <RPB.Heading1 style={{ fontFamily: titleFont?.family, textAlign: 'center', fontSize: 63 * scale }}>
                     React PDF Builder
                   </RPB.Heading1>
                   <RPB.Heading5 style={{ textAlign: 'center', fontSize: 28 * scale, fontWeight: 400 }}>
