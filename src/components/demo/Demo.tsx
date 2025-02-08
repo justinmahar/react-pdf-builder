@@ -30,6 +30,10 @@ export const Demo = ({ ...props }: DemoProps) => {
   if (titleFont) {
     Font.register(titleFont);
   }
+  Font.registerEmojiSource({
+    format: 'png',
+    url: 'https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/',
+  });
 
   const scale = 1;
   const themeConfig: ThemeBuilderConfig = {
@@ -128,7 +132,7 @@ export const Demo = ({ ...props }: DemoProps) => {
                 Paragraph text. <RPB.Link href="#">This is a link.</RPB.Link>{' '}
                 <Text style={{ fontWeight: 'bold' }}>This is bold.</Text>{' '}
                 <Text style={{ fontStyle: 'italic' }}>This is italic.</Text> Lorem ipsum dolor sit amet, consectetur
-                adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 👍
               </RPB.Paragraph>
               <RPB.Box gap={8 * scale} style={{ marginLeft: 'auto', width: 400 * scale }}>
                 <RPB.Signature x />
@@ -458,7 +462,12 @@ export const Demo = ({ ...props }: DemoProps) => {
                   <RPB.Paragraph style={{ marginBottom: 0 }}>40%</RPB.Paragraph>
                 </RPB.Box>
               </RPB.Box>
-              <RPB.Blockquote swatch="info">Note: Borders have been added to visualize boundaries.</RPB.Blockquote>
+              <RPB.Blockquote swatch="info">
+                <RPB.Box direction="x" gap={15 * scale}>
+                  <Text>ℹ️</Text>
+                  <Text>Borders have been added to visualize boundaries.</Text>
+                </RPB.Box>
+              </RPB.Blockquote>
               <RPB.Heading6 break>Vertical Box</RPB.Heading6>
               <RPB.Box direction="y" style={{ marginBottom: 20 * scale }}>
                 <RPB.Box
@@ -512,7 +521,12 @@ export const Demo = ({ ...props }: DemoProps) => {
                   </RPB.Paragraph>
                 </RPB.Box>
               </RPB.Box>
-              <RPB.Blockquote swatch="info">Note: Borders have been added to visualize boundaries.</RPB.Blockquote>
+              <RPB.Blockquote swatch="info">
+                <RPB.Box direction="x" gap={15 * scale}>
+                  <Text>ℹ️</Text>
+                  <Text>Borders have been added to visualize boundaries.</Text>
+                </RPB.Box>
+              </RPB.Blockquote>
               <RPB.Heading5 rule break>
                 Shapes
               </RPB.Heading5>
