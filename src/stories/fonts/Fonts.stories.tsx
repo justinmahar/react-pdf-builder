@@ -1,7 +1,7 @@
 import { Font, Link, Text } from '@react-pdf/renderer';
 import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
-import { fontDefinitions, FontFilesDefinition, Fonts } from '../../components/fonts/Fonts';
+import { fontDefinitions, Fonts } from '../../components/fonts/Fonts';
 import { Box } from '../../components/layout/Box';
 import { Heading1 } from '../../components/typography/Heading1';
 import { Heading2 } from '../../components/typography/Heading2';
