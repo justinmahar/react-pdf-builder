@@ -72,20 +72,29 @@ export const KitchenSink = ({ ...props }: KitchenSinkProps) => {
           <RPB.Page size={pageSize} orientation={orientation}>
             <RPB.GradientBackdrop size={pageSize} orientation={orientation} swatch="white">
               <RectangleShape
-                linearGradientCoords={{ x1: 0.83, y1: 0.5, x2: 0.89, y2: 0 }}
+                linearGradientCoords={{ x1: 0.81, y1: 0.5, x2: 0.9, y2: 0 }}
                 gradient={[
                   { offset: '0%', stopColor: '#000000', stopOpacity: 0 },
                   { offset: '96%', stopColor: '#000000', stopOpacity: 0 },
-                  { offset: '96%', stopColor: theme.colorScheme.greyscale.black, stopOpacity: 0.07 },
-                  { offset: '100%', stopColor: theme.colorScheme.greyscale.black, stopOpacity: 0.07 },
+                  { offset: '96%', stopColor: theme.colorScheme.greyscale.black, stopOpacity: 0.05 },
+                  { offset: '100%', stopColor: theme.colorScheme.greyscale.black, stopOpacity: 0.05 },
                 ]}
               />
               <RectangleShape
-                linearGradientCoords={{ x1: 0.7, y1: 0.2, x2: 1, y2: 0.15 }}
+                linearGradientCoords={{ x1: 0.83, y1: 0.5, x2: 0.88, y2: 0 }}
                 gradient={[
                   { offset: '0%', stopColor: '#000000', stopOpacity: 0 },
-                  { offset: '97%', stopColor: '#000000', stopOpacity: 0 },
-                  { offset: '97%', stopColor: theme.colorScheme.greyscale.black, stopOpacity: 0.05 },
+                  { offset: '96%', stopColor: '#000000', stopOpacity: 0 },
+                  { offset: '96%', stopColor: theme.colorScheme.greyscale.black, stopOpacity: 0.05 },
+                  { offset: '100%', stopColor: theme.colorScheme.greyscale.black, stopOpacity: 0.05 },
+                ]}
+              />
+              <RectangleShape
+                linearGradientCoords={{ x1: 0.85, y1: 0.5, x2: 0.87, y2: 0 }}
+                gradient={[
+                  { offset: '0%', stopColor: '#000000', stopOpacity: 0 },
+                  { offset: '96%', stopColor: '#000000', stopOpacity: 0 },
+                  { offset: '96%', stopColor: theme.colorScheme.greyscale.black, stopOpacity: 0.05 },
                   { offset: '100%', stopColor: theme.colorScheme.greyscale.black, stopOpacity: 0.05 },
                 ]}
               />
