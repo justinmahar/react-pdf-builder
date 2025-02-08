@@ -9,6 +9,7 @@ import { SwatchColor } from '../theme/themes/ColorScheme';
 import { Themes } from '../theme/themes/Themes';
 import { Fonts } from '../fonts/Fonts';
 import { ThemeBuilderConfig } from '../theme/ThemeBuilder';
+import { LightThemeBuilder } from '../theme/themes/light/LightThemeBuilder';
 
 export interface DemoProps extends DivProps {}
 
@@ -22,19 +23,19 @@ export const Demo = ({ ...props }: DemoProps) => {
   const pageSize = 'LETTER';
   const orientation = 'portrait';
 
-  // Register font
-  const roboto = Fonts.load('Roboto');
-  if (roboto) {
-    Font.register(roboto);
+  // Register fonts
+  const loadedFont = Fonts.load('dm');
+  if (loadedFont) {
+    console.log('loadedFont', loadedFont);
+    Font.register(loadedFont);
   }
 
   const scale = 1;
   const themeConfig: ThemeBuilderConfig = {
     scale,
-    override: { pageProps: { style: { backgroundColor: 'red', fontFamily: 'Roboto' } } },
+    override: { pageProps: { style: { fontFamily: 'dm' } } },
   };
   const theme = Themes.light.build(themeConfig);
-  console.log('theme.pageProps.style', theme.pageProps.style);
   const RPB = new ReactPDFBuilder(theme);
   const bodyColor = theme._bodyColor;
 
@@ -83,7 +84,7 @@ export const Demo = ({ ...props }: DemoProps) => {
             </RPB.Page>
           )}
           <RPB.Page size={pageSize} orientation={orientation}>
-            <RPB.GradientBackdrop size={pageSize} orientation={orientation} swatch="white">
+            {/* <RPB.GradientBackdrop size={pageSize} orientation={orientation} swatch="white">
               <RectangleShape
                 linearGradientCoords={{ x1: 0.81, y1: 0.5, x2: 0.9, y2: 0 }}
                 gradient={[
@@ -111,7 +112,7 @@ export const Demo = ({ ...props }: DemoProps) => {
                   { offset: '100%', stopColor: theme.colorScheme.greyscale.black, stopOpacity: 0.05 },
                 ]}
               />
-            </RPB.GradientBackdrop>
+            </RPB.GradientBackdrop> */}
             <RPB.Box direction="y" style={{ gap: 10 * scale }}>
               <RPB.Heading5 rule>Basic Typography</RPB.Heading5>
               <RPB.Heading1 rule>Heading 1</RPB.Heading1>

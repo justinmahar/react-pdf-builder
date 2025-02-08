@@ -23,18 +23,16 @@ export type DeepPartial<T> = {
  */
 export function deepMerge<T extends Record<string, any>>(record1: T, record2: T): T {
   const merged: Record<string, any> = { ...record1 };
-
-  for (const key in record2 ?? {}) {
-    if (record1.hasOwnProperty(key)) {
-      const value1 = merged[key];
-      const value2 = record2[key];
-
-      // Check if both values are objects and not null
-      if (typeof value1 === 'object' && value1 !== null && typeof value2 === 'object' && value2 !== null) {
-        merged[key] = deepMerge(value1, value2);
-      } else {
-        merged[key] = value2; // Take the value from record2
-      }
+  const record2Keys = Object.keys(record2 ?? {});
+  for (let i = 0; i < record2Keys.length; i++) {
+    const key = record2Keys[i];
+    const value1 = record1[key];
+    const value2 = record2[key];
+    // Check if both values are objects and not null
+    if (typeof value1 === 'object' && value1 !== null && typeof value2 === 'object' && value2 !== null) {
+      merged[key] = deepMerge(value1, value2);
+    } else {
+      merged[key] = value2; // Take the value from record2
     }
   }
 

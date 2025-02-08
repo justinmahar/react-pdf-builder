@@ -25,9 +25,7 @@ export abstract class ThemeBuilder {
    * @returns The scaled theme.
    */
   public build(config?: ThemeBuilderConfig): Theme {
-    console.log('config', config);
     const themeOverride = { ...config?.override };
-    console.log('themeOverride', themeOverride);
     const scale = config?.scale ?? 1;
     const colorScheme = ThemeBuilder.overrideColorScheme(this.colorScheme, themeOverride?.colorScheme);
     const theme = this.doBuild(scale, colorScheme);

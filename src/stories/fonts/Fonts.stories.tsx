@@ -1,0 +1,361 @@
+import type { Meta, StoryObj } from '@storybook/react';
+import React from 'react';
+import { HeadingProps } from '../../components/typography/Heading';
+import { Heading1 } from '../../components/typography/Heading1';
+import { Heading2 } from '../../components/typography/Heading2';
+import { Heading3 } from '../../components/typography/Heading3';
+import { Heading4 } from '../../components/typography/Heading4';
+import { Heading5 } from '../../components/typography/Heading5';
+import { Heading6 } from '../../components/typography/Heading6';
+import { Paragraph } from '../../components/typography/Paragraph';
+import { PDFStory } from '../parts/PDFStory';
+import { Box } from '../../components/layout/Box';
+import { Font, Link, Text } from '@react-pdf/renderer';
+import { fontFamilies, Fonts } from '../../components/fonts/Fonts';
+
+const StoryComponent = ({ fontFamily, ...props }: { fontFamily: string }) => {
+  fontFamilies.forEach((f) => {
+    // Register fonts
+    const loadedFont = Fonts.load(f.family);
+    if (loadedFont) {
+      console.log('loadedFont', loadedFont);
+      Font.register(loadedFont);
+    }
+  });
+
+  return (
+    <PDFStory pageProps={{ style: { fontFamily } }}>
+      <Box direction="y" style={{ gap: 10 }}>
+        <Heading5 rule>Basic Typography</Heading5>
+        <Heading1 rule>Heading 1</Heading1>
+        <Heading2 rule>Heading 2</Heading2>
+        <Heading3 rule>Heading 3</Heading3>
+        <Heading4 rule>Heading 4</Heading4>
+        <Heading5 rule>Heading 5</Heading5>
+        <Heading6 rule>Heading 6</Heading6>
+        <Paragraph>
+          Paragraph text. <Link href="#">This is a link.</Link>{' '}
+          <Text style={{ fontWeight: 'bold' }}>This is bold.</Text>{' '}
+          <Text style={{ fontStyle: 'italic' }}>This is italic.</Text> Lorem ipsum dolor sit amet, consectetur
+          adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </Paragraph>
+      </Box>
+    </PDFStory>
+  );
+};
+
+// === Setup ===
+const meta: Meta<typeof StoryComponent> = {
+  title: 'Stories/Fonts', // <-- Set to your story title
+  component: StoryComponent,
+  parameters: {
+    options: { showPanel: false }, // Don't show addons panel
+  },
+};
+export default meta;
+type Story = StoryObj<typeof meta>;
+
+// === Stories ===
+export const NoFontProvided: Story = {
+  args: {},
+};
+
+export const DisplayAbrilFatface: Story = {
+  args: {
+    fontFamily: 'Abril Fatface',
+  },
+};
+
+export const DisplayAlfaSlabOne: Story = {
+  args: {
+    fontFamily: 'Alfa Slab One',
+  },
+};
+
+export const DisplayComfortaa: Story = {
+  args: {
+    fontFamily: 'Comfortaa',
+  },
+};
+
+export const DisplayConcertOne: Story = {
+  args: {
+    fontFamily: 'Concert One',
+  },
+};
+
+export const DisplayLilitaOne: Story = {
+  args: {
+    fontFamily: 'Lilita One',
+  },
+};
+
+export const DisplayLobster: Story = {
+  args: {
+    fontFamily: 'Lobster',
+  },
+};
+
+export const DisplayOleoScript: Story = {
+  args: {
+    fontFamily: 'Oleo Script',
+  },
+};
+
+export const DisplayPassionOne: Story = {
+  args: {
+    fontFamily: 'Passion One',
+  },
+};
+
+export const DisplayRighteous: Story = {
+  args: {
+    fontFamily: 'Righteous',
+  },
+};
+
+export const DisplayRowdies: Story = {
+  args: {
+    fontFamily: 'Rowdies',
+  },
+};
+
+export const HandwritingAmaticSC: Story = {
+  args: {
+    fontFamily: 'Amatic SC',
+  },
+};
+
+export const HandwritingCaveat: Story = {
+  args: {
+    fontFamily: 'Caveat',
+  },
+};
+
+export const HandwritingDancingScript: Story = {
+  args: {
+    fontFamily: 'Dancing Script',
+  },
+};
+
+export const HandwritingGreatVibes: Story = {
+  args: {
+    fontFamily: 'Great Vibes',
+  },
+};
+
+export const HandwritingIndieFlower: Story = {
+  args: {
+    fontFamily: 'Indie Flower',
+  },
+};
+
+export const HandwritingKalam: Story = {
+  args: {
+    fontFamily: 'Kalam',
+  },
+};
+
+export const HandwritingPacifico: Story = {
+  args: {
+    fontFamily: 'Pacifico',
+  },
+};
+
+export const HandwritingPermanentMarker: Story = {
+  args: {
+    fontFamily: 'Permanent Marker',
+  },
+};
+
+export const HandwritingSatisfy: Story = {
+  args: {
+    fontFamily: 'Satisfy',
+  },
+};
+
+export const HandwritingShadowsIntoLight: Story = {
+  args: {
+    fontFamily: 'Shadows Into Light',
+  },
+};
+
+export const MonoCourierPrime: Story = {
+  args: {
+    fontFamily: 'Courier Prime',
+  },
+};
+
+export const MonoDMMono: Story = {
+  args: {
+    fontFamily: 'DM Mono',
+  },
+};
+
+export const MonoIBMPlexMono: Story = {
+  args: {
+    fontFamily: 'IBM Plex Mono',
+  },
+};
+
+export const MonoInconsolata: Story = {
+  args: {
+    fontFamily: 'Inconsolata',
+  },
+};
+
+export const MonoJetBrainsMono: Story = {
+  args: {
+    fontFamily: 'JetBrains Mono',
+  },
+};
+
+export const MonoRobotoMono: Story = {
+  args: {
+    fontFamily: 'Roboto Mono',
+  },
+};
+
+export const MonoShareTechMono: Story = {
+  args: {
+    fontFamily: 'Share Tech Mono',
+  },
+};
+
+export const MonoSourceCodePro: Story = {
+  args: {
+    fontFamily: 'Source Code Pro',
+  },
+};
+
+export const MonoSpaceMono: Story = {
+  args: {
+    fontFamily: 'Space Mono',
+  },
+};
+
+export const MonoUbuntuMono: Story = {
+  args: {
+    fontFamily: 'Ubuntu Mono',
+  },
+};
+
+export const SansSerifInter: Story = {
+  args: {
+    fontFamily: 'Inter',
+  },
+};
+
+export const SansSerifLato: Story = {
+  args: {
+    fontFamily: 'Lato',
+  },
+};
+
+export const SansSerifMontserrat: Story = {
+  args: {
+    fontFamily: 'Montserrat',
+  },
+};
+
+export const SansSerifNotoSans: Story = {
+  args: {
+    fontFamily: 'Noto Sans',
+  },
+};
+
+export const SansSerifOpenSans: Story = {
+  args: {
+    fontFamily: 'Open Sans',
+  },
+};
+
+export const SansSerifOswald: Story = {
+  args: {
+    fontFamily: 'Oswald',
+  },
+};
+
+export const SansSerifPoppins: Story = {
+  args: {
+    fontFamily: 'Poppins',
+  },
+};
+
+export const SansSerifRaleway: Story = {
+  args: {
+    fontFamily: 'Raleway',
+  },
+};
+
+export const SansSerifRobotoCondensed: Story = {
+  args: {
+    fontFamily: 'Roboto Condensed',
+  },
+};
+
+export const SansSerifRoboto: Story = {
+  args: {
+    fontFamily: 'Roboto',
+  },
+};
+
+export const SerifBitter: Story = {
+  args: {
+    fontFamily: 'Bitter',
+  },
+};
+
+export const SerifCrimsonText: Story = {
+  args: {
+    fontFamily: 'Crimson Text',
+  },
+};
+
+export const SerifEBGaramond: Story = {
+  args: {
+    fontFamily: 'EB Garamond',
+  },
+};
+
+export const SerifLibreBaskerville: Story = {
+  args: {
+    fontFamily: 'Libre Baskerville',
+  },
+};
+
+export const SerifLora: Story = {
+  args: {
+    fontFamily: 'Lora',
+  },
+};
+
+export const SerifMerriweather: Story = {
+  args: {
+    fontFamily: 'Merriweather',
+  },
+};
+
+export const SerifNotoSerif: Story = {
+  args: {
+    fontFamily: 'Noto Serif',
+  },
+};
+
+export const SerifPlayfairDisplay: Story = {
+  args: {
+    fontFamily: 'Playfair Display',
+  },
+};
+
+export const SerifPTSerif: Story = {
+  args: {
+    fontFamily: 'PT Serif',
+  },
+};
+
+export const SerifRobotoSlab: Story = {
+  args: {
+    fontFamily: 'Roboto Slab',
+  },
+};
