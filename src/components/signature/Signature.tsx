@@ -6,6 +6,7 @@ import { Box, BoxProps } from '../layout/Box';
 import { Theme } from '../theme/Theme';
 import { SwatchColor } from '../theme/themes/ColorScheme';
 import { Themes } from '../theme/themes/Themes';
+import { ThemeBuilder } from '../theme/ThemeBuilder';
 
 export interface SignatureProps extends BoxProps {
   children?: any;
@@ -31,6 +32,11 @@ export const Signature = ({ children, theme = Themes.default.build(), style, ...
   const styleOverride: Style = {};
   if (typeof mergedProps.lineSize !== 'undefined') {
     styleOverride.borderBottom = mergedProps.lineSize;
+  }
+  if (mergedProps.swatch) {
+    const swatchColor = ThemeBuilder.getSwatchColor(mergedProps.swatch, theme.colorScheme);
+    styleOverride.borderColor = swatchColor;
+    styleOverride.color = swatchColor;
   }
 
   return (

@@ -4,22 +4,75 @@ import { PageSizeString } from '../pages/PageSizes';
 import { GradientStop, GradientType } from '../shapes/Gradients';
 import { RectangleShape } from '../shapes/RectangleShape';
 import { Backdrops } from './Backdrops';
+import { Theme } from '../theme/Theme';
+import { SwatchColor } from '../theme/themes/ColorScheme';
+import { ThemeBuilder } from '../theme/ThemeBuilder';
+import { Themes } from '../theme/themes/Themes';
+import Color from 'color';
 
 export interface GradientBackdropProps extends BoxProps {
+  children?: any;
   size: PageSizeString | { width: number; height: number };
   orientation?: 'portrait' | 'landscape';
-  gradient: string[] | GradientStop[];
+  gradient?: string[] | GradientStop[];
   gradientType?: GradientType;
+  swatch?: SwatchColor;
+  darken?: boolean;
+  /** How much to darken each gradient color from 0 to 1, as an array. */
+  darkenAmounts?: number[];
+  lighten?: boolean;
+  /** How much to lighten each gradient color from 0 to 1, as an array. */
+  lightenAmounts?: number[];
+  theme?: Theme;
 }
 
-export const GradientBackdrop = ({ size, orientation, gradient, gradientType, ...props }: GradientBackdropProps) => {
+export const GradientBackdrop = ({
+  children,
+  size,
+  orientation,
+  gradient,
+  gradientType = GradientType.topLeftToBottomRight,
+  swatch = 'primary',
+  darken = false,
+  darkenAmounts = [0.4, 0.7],
+  lighten = false,
+  lightenAmounts = [0.4, 0.7],
+  theme = Themes.default.build(),
+  style,
+  ...props
+}: GradientBackdropProps) => {
   const d = Backdrops.getDimensions(size, orientation);
   const width = d.width;
   const height = d.height;
+  if (!gradient) {
+    const swatchColor = ThemeBuilder.getSwatchColor(swatch, theme.colorScheme);
+    gradient = [`${swatchColor}`, `${swatchColor}`];
+  }
+  if (lighten || darken) {
+    if (darken) {
+      gradient = gradient.map((c, i) => new Color(c).darken(darkenAmounts[i] ?? 0).hex());
+    }
+    if (lighten) {
+      gradient = gradient.map((c, i) => new Color(c).lighten(lightenAmounts[i] ?? 0).hex());
+    }
+  }
+
+  // Inject rows with props from Table, as well as the row index and count
+  const originalChildArray = Array.isArray(children) ? children : typeof children !== 'undefined' ? [children] : [];
+  const injectedChildArray = originalChildArray.map((c, i, arr) => {
+    return React.cloneElement(c, {
+      key: `gradient-child-` + i,
+      width,
+      height,
+      ...c.props,
+      style: { position: 'absolute', ...c.props?.style },
+    });
+  });
 
   return (
-    <Box {...props} style={{ position: 'absolute', ...props.style }}>
+    <Box fixed {...props} style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, ...style }}>
       <RectangleShape width={width} height={height} gradient={gradient} gradientType={gradientType} />
+      {injectedChildArray}
     </Box>
   );
 };

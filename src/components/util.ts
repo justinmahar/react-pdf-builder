@@ -24,8 +24,8 @@ export type DeepPartial<T> = {
 export function deepMerge<T extends Record<string, any>>(record1: T, record2: T): T {
   const merged: Record<string, any> = { ...record1 };
 
-  for (const key in record1) {
-    if (record2.hasOwnProperty(key)) {
+  for (const key in record2 ?? {}) {
+    if (record1.hasOwnProperty(key)) {
       const value1 = merged[key];
       const value2 = record2[key];
 

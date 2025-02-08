@@ -16,48 +16,50 @@ import { ButtonProps } from '../button/Button';
 import { ColorScheme } from './themes/ColorScheme';
 import { DeepPartial } from '../util';
 import { ThemedLinkProps } from '../link/ThemedLink';
-import { SignatureProps } from '../template/Signature';
+import { SignatureProps } from '../signature/Signature';
+import { BlockquoteProps } from '../typography/Blockquote';
 
 export interface Theme {
   // Color scheme
-  colorScheme?: ColorScheme;
+  colorScheme: ColorScheme;
   /** This color is exposed for convenience when working with the theme and cannot be overridden directly. To override the background color, override the `backgroundColor` style in `pageProps.style` when building the theme. */
   _bodyBackgroundColor: string;
   /** This color is exposed for convenience when working with the theme and cannot be overridden directly. To override the page color, override the `color` style in `pageProps.style` when building the theme. */
   _bodyColor: string;
 
   // Button
-  buttonProps?: ButtonProps;
+  buttonProps: ButtonProps;
   // Card
-  cardProps?: CardProps;
-  cardBodyProps?: CardBodyProps;
-  cardHeaderProps?: CardHeaderProps;
+  cardProps: CardProps;
+  cardBodyProps: CardBodyProps;
+  cardHeaderProps: CardHeaderProps;
   // Link
-  linkProps?: ThemedLinkProps;
+  linkProps: ThemedLinkProps;
   // Lists
-  listItemProps?: ListItemProps;
-  listItemContainerProps?: ListItemContainerProps;
-  listItemMarkerProps?: TextProps;
-  unorderedListProps?: UnorderedListProps;
-  orderedListProps?: OrderedListProps;
+  listItemProps: ListItemProps;
+  listItemContainerProps: ListItemContainerProps;
+  listItemMarkerProps: TextProps;
+  unorderedListProps: UnorderedListProps;
+  orderedListProps: OrderedListProps;
   // Pages
-  pageProps?: PageProps;
-  pageNumberProps?: PageNumberProps;
+  pageProps: PageProps;
+  pageNumberProps: PageNumberProps;
   // Signature
-  signatureProps?: SignatureProps;
+  signatureProps: SignatureProps;
   // Table
-  tableProps?: TableProps;
-  tableCellProps?: TableCellProps;
-  tableRowProps?: TableRowProps;
+  tableProps: TableProps;
+  tableCellProps: TableCellProps;
+  tableRowProps: TableRowProps;
   // Typography
-  headingProps?: HeadingProps;
-  heading1Props?: HeadingProps;
-  heading2Props?: HeadingProps;
-  heading3Props?: HeadingProps;
-  heading4Props?: HeadingProps;
-  heading5Props?: HeadingProps;
-  heading6Props?: HeadingProps;
-  paragraphProps?: ParagraphProps;
+  blockquoteProps: BlockquoteProps;
+  headingProps: HeadingProps;
+  heading1Props: HeadingProps;
+  heading2Props: HeadingProps;
+  heading3Props: HeadingProps;
+  heading4Props: HeadingProps;
+  heading5Props: HeadingProps;
+  heading6Props: HeadingProps;
+  paragraphProps: ParagraphProps;
 }
 
 export type PartialTheme = DeepPartial<Theme>;

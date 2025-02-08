@@ -42,7 +42,7 @@ export class LightThemeBuilder extends ThemeBuilder {
           borderTopRightRadius: 10 * scale,
           borderBottomLeftRadius: 10 * scale,
           borderBottomRightRadius: 10 * scale,
-          border: 1 * scale,
+          borderWidth: 1 * scale,
           borderColor, // Color
         },
       },
@@ -55,7 +55,7 @@ export class LightThemeBuilder extends ThemeBuilder {
           borderTopRightRadius: 10 * scale,
           borderBottomLeftRadius: 10 * scale,
           borderBottomRightRadius: 10 * scale,
-          border: 1 * scale,
+          borderWidth: 1 * scale,
           borderColor, // Color
         },
       },
@@ -105,7 +105,7 @@ export class LightThemeBuilder extends ThemeBuilder {
       // === Signature === === === === === === === === === === ===
       signatureProps: {
         style: {
-          borderBottom: 3 * scale,
+          borderBottomWidth: 3 * scale,
           borderBottomColor: colorScheme.greyscale.black, // Color
           minHeight: 45 * scale,
         },
@@ -138,6 +138,14 @@ export class LightThemeBuilder extends ThemeBuilder {
       },
 
       // === Typography === === === === === === === === === === ===
+      blockquoteProps: {
+        style: {
+          borderLeftWidth: 5 * scale,
+          padding: 15 * scale,
+          borderColor: colorScheme.greyscale.gray800,
+          backgroundColor: colorScheme.greyscale.gray200,
+        },
+      },
       headingProps: {
         // Applies to all headings
         style: {},
@@ -146,42 +154,42 @@ export class LightThemeBuilder extends ThemeBuilder {
         style: {
           fontSize: (headingStartSize + headingStepSize * 5) * scale,
           marginBottom: baseFontSize * 1.5 * scale,
-          borderBottom: 4 * scale, // Enabled with rule prop
+          borderBottomWidth: 4 * scale, // Enabled with rule prop
         },
       },
       heading2Props: {
         style: {
           fontSize: (headingStartSize + headingStepSize * 4) * scale,
           marginBottom: baseFontSize * 1.4 * scale,
-          borderBottom: 4 * scale, // Enabled with rule prop
+          borderBottomWidth: 4 * scale, // Enabled with rule prop
         },
       },
       heading3Props: {
         style: {
           fontSize: (headingStartSize + headingStepSize * 3) * scale,
           marginBottom: baseFontSize * 1.3 * scale,
-          borderBottom: 3 * scale, // Enabled with rule prop
+          borderBottomWidth: 3 * scale, // Enabled with rule prop
         },
       },
       heading4Props: {
         style: {
           fontSize: (headingStartSize + headingStepSize * 2) * scale,
           marginBottom: baseFontSize * 1.2 * scale,
-          borderBottom: 3 * scale, // Enabled with rule prop
+          borderBottomWidth: 3 * scale, // Enabled with rule prop
         },
       },
       heading5Props: {
         style: {
           fontSize: (headingStartSize + headingStepSize * 1) * scale,
           marginBottom: baseFontSize * 1.1 * scale,
-          borderBottom: 2 * scale, // Enabled with rule prop
+          borderBottomWidth: 2 * scale, // Enabled with rule prop
         },
       },
       heading6Props: {
         style: {
           fontSize: headingStartSize * scale,
           marginBottom: baseFontSize * scale,
-          borderBottom: 2 * scale, // Enabled with rule prop
+          borderBottomWidth: 2 * scale, // Enabled with rule prop
         },
       },
       paragraphProps: {

@@ -3,7 +3,7 @@ import { Card, CardProps } from '../card/Card';
 import { CardBody, CardBodyProps } from '../card/CardBody';
 import { CardHeader, CardHeaderProps } from '../card/CardHeader';
 import { Theme } from '../theme/Theme';
-import { PlaidBackground, PlaidBackgroundProps } from '../backgrounds/PlaidBackground';
+import { GradientBackdrop, GradientBackdropProps } from '../backgrounds/GradientBackdrop';
 import { Button, ButtonProps } from '../button/Button';
 import { Box, BoxProps } from '../layout/Box';
 import { ThemedLink, ThemedLinkProps } from '../link/ThemedLink';
@@ -29,12 +29,11 @@ import { Heading5 } from '../typography/Heading5';
 import { Heading6 } from '../typography/Heading6';
 import { Paragraph, ParagraphProps } from '../typography/Paragraph';
 import { Themes } from '../theme/themes/Themes';
-import { Signature, SignatureProps } from '../template/Signature';
-import { TestBackdrop, TestBackdropProps } from '../backgrounds/TestBackdrop';
+import { Signature, SignatureProps } from '../signature/Signature';
+import { Blockquote, BlockquoteProps } from '../typography/Blockquote';
 
 export class ReactPDFBuilder {
-  public PlaidBackground;
-  public TestBackdrop;
+  public GradientBackdrop;
   public Button;
   public Card;
   public CardBody;
@@ -54,6 +53,7 @@ export class ReactPDFBuilder {
   public Table;
   public TableRow;
   public TableCell;
+  public Blockquote;
   public Heading1;
   public Heading2;
   public Heading3;
@@ -64,11 +64,8 @@ export class ReactPDFBuilder {
   public Signature;
 
   constructor(public theme: Theme = Themes.light.build()) {
-    this.PlaidBackground = ({ children, ...props }: PlaidBackgroundProps) => (
-      <PlaidBackground {...props}>{children}</PlaidBackground>
-    );
-    this.TestBackdrop = ({ children, ...props }: TestBackdropProps) => (
-      <TestBackdrop {...props}>{children}</TestBackdrop>
+    this.GradientBackdrop = ({ children, ...props }: GradientBackdropProps) => (
+      <GradientBackdrop {...props}>{children}</GradientBackdrop>
     );
     this.Button = ({ children, ...props }: ButtonProps) => (
       <Button theme={theme} {...props}>
@@ -140,6 +137,11 @@ export class ReactPDFBuilder {
       <TableCell theme={theme} {...props}>
         {children}
       </TableCell>
+    );
+    this.Blockquote = ({ children, ...props }: BlockquoteProps) => (
+      <Blockquote theme={theme} {...props}>
+        {children}
+      </Blockquote>
     );
     this.Heading1 = ({ children, ...props }: HeadingProps) => (
       <Heading1 theme={theme} {...props}>

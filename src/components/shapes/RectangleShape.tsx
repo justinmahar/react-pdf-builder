@@ -17,19 +17,27 @@ export const RectangleShape = ({
   radialGradientProps,
   gradient,
   gradientType = GradientType.topToBottom,
+  linearGradientCoords: linearGradientCoordsProps,
+  radialGradientCoords: radialGradientCoordsProps,
   ...svgProps
 }: RectangleShapeProps) => {
   const uuidRef = React.useRef(randomUuid());
   const linearId = `linear-${uuidRef.current}`;
   const radialId = `radial-${uuidRef.current}`;
   const gradientStops = Gradients.normalizeGradientStops(gradient);
-  const gradientCoords = Gradients.toGradientCoords(gradientType);
+  const linearGradientCoords = linearGradientCoordsProps
+    ? Gradients.safeLinearCoords(linearGradientCoordsProps)
+    : Gradients.toGradientCoords(gradientType);
+  const radialGradientCoords = radialGradientCoordsProps
+    ? Gradients.safeRadialCoords(radialGradientCoordsProps)
+    : undefined;
   const widthNum = parseFloat(`${width}`);
   const heightNum = parseFloat(`${height}`);
   const rectFill =
     rectProps?.fill ??
     fill ??
     (!gradient ? 'black' : gradientType === GradientType.radial ? `url('#${radialId}')` : `url('#${linearId}')`);
+
   return (
     <Svg
       viewBox={`0 0 ${widthNum} ${heightNum}`}
@@ -37,12 +45,12 @@ export const RectangleShape = ({
       style={{ width: widthNum, height: heightNum, ...svgProps.style }}
     >
       <Defs>
-        <LinearGradient id={linearId} {...gradientCoords} {...linearGradientProps}>
+        <LinearGradient id={linearId} {...linearGradientCoords} {...linearGradientProps}>
           {gradientStops.map((s, i) => (
             <Stop key={`linear-stop-` + i} {...s} />
           ))}
         </LinearGradient>
-        <RadialGradient id={radialId} {...radialGradientProps}>
+        <RadialGradient id={radialId} {...radialGradientCoords} {...radialGradientProps}>
           {gradientStops.map((s, i) => (
             <Stop key={`radial-stop-` + i} {...s} />
           ))}

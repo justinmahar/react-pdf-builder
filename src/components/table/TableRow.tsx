@@ -99,7 +99,7 @@ export const TableRow = ({ children, theme = Themes.default.build(), stripeStyle
   }
 
   // Inject cells with props from Table, as well as the col index and count
-  const originalChildArray = Array.isArray(children) ? children : [children];
+  const originalChildArray = Array.isArray(children) ? children : typeof children !== 'undefined' ? [children] : [];
   const injectedChildArray = originalChildArray.map((c, i, arr) => {
     return React.cloneElement(c, {
       key: `col-` + i,

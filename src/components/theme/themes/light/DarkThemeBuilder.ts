@@ -12,7 +12,7 @@ export class DarkThemeBuilder extends ThemeBuilder {
     const bodyBackgroundColor = colorScheme.greyscale.gray900;
     const bodyColor = colorScheme.greyscale.gray300;
     const borderColor = colorScheme.greyscale.gray700;
-    const linkColor = ThemeBuilder.lighten(bootstrapLightColorScheme.colors.blue, 40);
+    const linkColor = ThemeBuilder.whiten(bootstrapLightColorScheme.colors.blue, 40);
     const baseFontSize = 18;
     const baseMarginRatio = 1.25;
     const headingStartSize = baseFontSize * 1.11;
@@ -47,7 +47,7 @@ export class DarkThemeBuilder extends ThemeBuilder {
           borderTopRightRadius: 10 * scale,
           borderBottomLeftRadius: 10 * scale,
           borderBottomRightRadius: 10 * scale,
-          border: 1 * scale,
+          borderWidth: 1 * scale,
           borderColor, // Color
         },
       },
@@ -60,7 +60,7 @@ export class DarkThemeBuilder extends ThemeBuilder {
           borderTopRightRadius: 10 * scale,
           borderBottomLeftRadius: 10 * scale,
           borderBottomRightRadius: 10 * scale,
-          border: 1 * scale,
+          borderWidth: 1 * scale,
           borderColor, // Color
         },
       },
@@ -150,6 +150,14 @@ export class DarkThemeBuilder extends ThemeBuilder {
       },
 
       // === Typography === === === === === === === === === === ===
+      blockquoteProps: {
+        style: {
+          borderLeftWidth: 5 * scale,
+          padding: 15 * scale,
+          borderColor: colorScheme.greyscale.gray200,
+          backgroundColor: colorScheme.greyscale.gray800,
+        },
+      },
       headingProps: {
         // Applies to all headings
         style: {},

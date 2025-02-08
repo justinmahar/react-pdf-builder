@@ -58,7 +58,7 @@ export const Table = ({ children, theme = Themes.default.build(), style, ...prop
   }
 
   // Inject rows with props from Table, as well as the row index and count
-  const originalChildArray = Array.isArray(children) ? children : [children];
+  const originalChildArray = Array.isArray(children) ? children : typeof children !== 'undefined' ? [children] : [];
   const injectedChildArray = originalChildArray.map((c, i, arr) => {
     return React.cloneElement(c, {
       key: `row-` + i,

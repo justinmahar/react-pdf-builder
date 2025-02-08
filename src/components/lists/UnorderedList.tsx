@@ -37,7 +37,7 @@ export const UnorderedList = ({ theme = Themes.default.build(), children, style,
     styleOverride.color = ThemeBuilder.getSwatchColor(mergedProps.swatch, theme.colorScheme);
   }
 
-  const childArray = Array.isArray(children) ? children : [children];
+  const childArray = Array.isArray(children) ? children : typeof children !== 'undefined' ? [children] : [];
 
   const liElements: JSX.Element[] = childArray.map((c, i) => (
     <ListItemContainer

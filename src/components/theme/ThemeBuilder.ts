@@ -10,6 +10,7 @@ import {
   ThemeColors,
   SwatchColor,
 } from './themes/ColorScheme';
+import { Style } from '../Style';
 
 export abstract class ThemeBuilder {
   constructor(public colorScheme: ColorScheme) {}
@@ -57,21 +58,21 @@ export abstract class ThemeBuilder {
 
   /**
    * Mixes white with the color provided by the specified percentage amount (value from 0 to 100).
-   * @param color The color to lighten.
+   * @param color The color to whiten.
    * @param percentage Whole percentage from 0 to 100.
-   * @returns The lightened color.
+   * @returns The whitened color.
    */
-  public static lighten(color: string, percentage: number) {
+  public static whiten(color: string, percentage: number) {
     return mix('#FFFFFF', color, percentage).hex;
   }
 
   /**
    * Mixes black with the color provided by the specified percentage amount (value from 0 to 100).
-   * @param color The color to darken.
+   * @param color The color to blacken.
    * @param percentage Whole percentage from 0 to 100.
-   * @returns The darkened color.
+   * @returns The blackened color.
    */
-  public static darken(color: string, percentage: number) {
+  public static blacken(color: string, percentage: number) {
     return mix('#000000', color, percentage).hex;
   }
 

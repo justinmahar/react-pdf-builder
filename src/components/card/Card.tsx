@@ -25,7 +25,7 @@ export const Card = ({ children, theme = Themes.default.build(), style, ...props
   };
 
   // Inject children with props from Card
-  const originalChildArray = Array.isArray(children) ? children : [children];
+  const originalChildArray = Array.isArray(children) ? children : typeof children !== 'undefined' ? [children] : [];
   const injectedChildArray = originalChildArray.map((c, i, arr) => {
     return React.cloneElement(c, {
       key: `card-child-` + i,

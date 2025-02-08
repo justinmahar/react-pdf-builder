@@ -1,5 +1,6 @@
-// Background
-export * from './components/backgrounds/PlaidBackground';
+// Backdrops
+export * from './components/backgrounds/Backdrops';
+export * from './components/backgrounds/GradientBackdrop';
 
 // Builder
 export * from './components/builder/ReactPDFBuilder';

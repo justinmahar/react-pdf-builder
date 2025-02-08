@@ -57,7 +57,7 @@ export const Custom: Story = {
       borderRadius: 20,
       width: 250,
       fontSize: 30,
-      border: 'black',
+      borderColor: 'black',
       borderWidth: 1,
     },
   },

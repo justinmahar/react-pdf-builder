@@ -1,8 +1,11 @@
 import { Document, Image, PDFViewer } from '@react-pdf/renderer';
 import React from 'react';
 import { DivProps } from 'react-html-props';
+import { BackdropDecorators } from './backgrounds/BackdropDecorators';
 import { ReactPDFBuilder } from './builder/ReactPDFBuilder';
 import { GradientType } from './shapes/Gradients';
+import { RectangleShape } from './shapes/RectangleShape';
+import { SwatchColor } from './theme/themes/ColorScheme';
 import { Themes } from './theme/themes/Themes';
 
 export interface KitchenSinkProps extends DivProps {}
@@ -18,7 +21,7 @@ export const KitchenSink = ({ ...props }: KitchenSinkProps) => {
   const orientation = 'portrait';
 
   const scale = 1;
-  const theme = Themes.dark.build({ scale });
+  const theme = Themes.light.build({ scale });
   const RPB = new ReactPDFBuilder(theme);
   const bodyColor = theme._bodyColor;
 
@@ -37,8 +40,9 @@ export const KitchenSink = ({ ...props }: KitchenSinkProps) => {
               orientation={orientation}
               style={{ flexDirection: 'column', color: 'white', padding: 0 }}
             >
-              <RPB.TestBackdrop size={pageSize} orientation={orientation} />
-
+              <RPB.GradientBackdrop size={pageSize} orientation={orientation} swatch="blue" darken>
+                {BackdropDecorators.circles3}
+              </RPB.GradientBackdrop>
               <RPB.Box direction="y" style={{ height: '100%' }}>
                 <RPB.Box style={{ height: '5%', backgroundColor: '#00000022' }} />
                 <RPB.Box style={{ height: '15%' }} />
@@ -66,6 +70,26 @@ export const KitchenSink = ({ ...props }: KitchenSinkProps) => {
             </RPB.Page>
           )}
           <RPB.Page size={pageSize} orientation={orientation}>
+            <RPB.GradientBackdrop size={pageSize} orientation={orientation} swatch="white">
+              <RectangleShape
+                linearGradientCoords={{ x1: 0.83, y1: 0.5, x2: 0.89, y2: 0 }}
+                gradient={[
+                  { offset: '0%', stopColor: '#000000', stopOpacity: 0 },
+                  { offset: '96%', stopColor: '#000000', stopOpacity: 0 },
+                  { offset: '96%', stopColor: theme.colorScheme.greyscale.black, stopOpacity: 0.07 },
+                  { offset: '100%', stopColor: theme.colorScheme.greyscale.black, stopOpacity: 0.07 },
+                ]}
+              />
+              <RectangleShape
+                linearGradientCoords={{ x1: 0.7, y1: 0.2, x2: 1, y2: 0.15 }}
+                gradient={[
+                  { offset: '0%', stopColor: '#000000', stopOpacity: 0 },
+                  { offset: '97%', stopColor: '#000000', stopOpacity: 0 },
+                  { offset: '97%', stopColor: theme.colorScheme.greyscale.black, stopOpacity: 0.05 },
+                  { offset: '100%', stopColor: theme.colorScheme.greyscale.black, stopOpacity: 0.05 },
+                ]}
+              />
+            </RPB.GradientBackdrop>
             <RPB.Box direction="y" style={{ gap: 10 * scale }}>
               <RPB.Heading5 rule>Basic Typography</RPB.Heading5>
               <RPB.Heading1 rule>Heading 1</RPB.Heading1>
@@ -78,10 +102,11 @@ export const KitchenSink = ({ ...props }: KitchenSinkProps) => {
                 Paragraph text. <RPB.Link href="#">This is a link.</RPB.Link> Lorem ipsum dolor sit amet, consectetur
                 adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
               </RPB.Paragraph>
-              <RPB.Box gap={8 * scale} style={{ marginLeft: '40%' }}>
+              <RPB.Box gap={8 * scale} style={{ marginLeft: 'auto', width: 400 * scale }}>
                 <RPB.Signature x />
                 <RPB.Paragraph style={{ fontSize: 16 * scale }}>Sign here</RPB.Paragraph>
               </RPB.Box>
+
               <RPB.Heading5 rule break>
                 Unordered Lists
               </RPB.Heading5>
@@ -111,147 +136,24 @@ export const KitchenSink = ({ ...props }: KitchenSinkProps) => {
                 <RPB.ListItem>Third list item</RPB.ListItem>
               </RPB.OrderedList>
               <RPB.Heading5 rule break>
-                Layout
+                Blockquotes
               </RPB.Heading5>
-              <RPB.Heading6>Horizontal Box</RPB.Heading6>
-              <RPB.Box direction="x">
-                <RPB.Box
-                  grow
-                  padding={10 * scale}
-                  style={{
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    border: 1 * scale,
-                    borderRight: 0,
-                    borderColor: theme.colorScheme?.greyscale.gray500,
-                  }}
-                >
-                  <RPB.Paragraph style={{ marginBottom: 0 }}>Grow</RPB.Paragraph>
-                </RPB.Box>
-                <RPB.Box
-                  padding={10 * scale}
-                  style={{
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    border: 1 * scale,
-                    borderRight: 0,
-                    borderColor: theme.colorScheme?.greyscale.gray500,
-                  }}
-                >
-                  <RPB.Paragraph style={{ marginBottom: 0 }}>Shrink</RPB.Paragraph>
-                </RPB.Box>
-                <RPB.Box
-                  direction="y"
-                  padding={10 * scale}
-                  style={{
-                    width: '50%',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    border: 1 * scale,
-                    borderColor: theme.colorScheme?.greyscale.gray500,
-                    textAlign: 'justify',
-                  }}
-                >
-                  <RPB.Paragraph>Width 50%. Specify a width to allow text wrapping.</RPB.Paragraph>
-                  <RPB.Paragraph style={{ marginBottom: 0 }}>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua.
-                  </RPB.Paragraph>
-                </RPB.Box>
+              <RPB.Box direction="x" gap={20 * scale} style={{ flexWrap: 'wrap', justifyContent: 'center' }}>
+                <RPB.Blockquote wrap={false} style={{ width: 220 * scale }}>
+                  Default blockquote
+                </RPB.Blockquote>
+                {Object.keys(theme.colorScheme?.contrast ?? {}).map((swatch) => (
+                  <RPB.Blockquote
+                    wrap={false}
+                    key={`bq-${swatch}`}
+                    swatch={swatch as SwatchColor}
+                    style={{ width: 220 * scale }}
+                  >
+                    {`"${swatch}" swatch`}
+                  </RPB.Blockquote>
+                ))}
               </RPB.Box>
-              <RPB.Box direction="x" gap={10} style={{ marginBottom: 20 * scale }}>
-                <RPB.Box
-                  grow
-                  padding={10 * scale}
-                  style={{
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    border: 1 * scale,
-                    borderColor: theme.colorScheme?.greyscale.gray500,
-                  }}
-                >
-                  <RPB.Paragraph style={{ marginBottom: 0 }}>Grow</RPB.Paragraph>
-                </RPB.Box>
-                <RPB.Box
-                  shrink
-                  padding={10 * scale}
-                  style={{
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    border: 1 * scale,
-                    borderColor: theme.colorScheme?.greyscale.gray500,
-                  }}
-                >
-                  <RPB.Paragraph style={{ marginBottom: 0 }}>Shrink</RPB.Paragraph>
-                </RPB.Box>
-                <RPB.Box
-                  padding={10 * scale}
-                  style={{
-                    width: '40%',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    border: 1 * scale,
-                    borderColor: theme.colorScheme?.greyscale.gray500,
-                  }}
-                >
-                  <RPB.Paragraph style={{ marginBottom: 0 }}>40%</RPB.Paragraph>
-                </RPB.Box>
-              </RPB.Box>
-              <RPB.Paragraph>Note: Borders have been added for demonstration purposes.</RPB.Paragraph>
-              <RPB.Heading6 break>Vertical Box</RPB.Heading6>
-              <RPB.Box direction="y" style={{ marginBottom: 20 * scale }}>
-                <RPB.Box
-                  padding={10 * scale}
-                  style={{
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    border: 1 * scale,
-                    borderBottom: 0,
-                    borderColor: theme.colorScheme?.greyscale.gray500,
-                  }}
-                >
-                  <RPB.Paragraph style={{ marginBottom: 0 }}>A</RPB.Paragraph>
-                </RPB.Box>
-                <RPB.Box
-                  grow
-                  padding={10 * scale}
-                  style={{
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    border: 1 * scale,
-                    borderBottom: 0,
-                    borderColor: theme.colorScheme?.greyscale.gray500,
-                  }}
-                >
-                  <RPB.Paragraph style={{ marginBottom: 0 }}>B</RPB.Paragraph>
-                </RPB.Box>
-                <RPB.Box
-                  direction="y"
-                  padding={10 * scale}
-                  style={{
-                    justifyContent: 'center',
-                    border: 1 * scale,
-                    borderColor: theme.colorScheme?.greyscale.gray500,
-                    textAlign: 'justify',
-                  }}
-                >
-                  <RPB.Paragraph>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                    aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                    culpa qui officia deserunt mollit anim id est laborum.
-                  </RPB.Paragraph>
-                  <RPB.Paragraph style={{ marginBottom: 0 }}>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                    aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                    culpa qui officia deserunt mollit anim id est laborum.
-                  </RPB.Paragraph>
-                </RPB.Box>
-              </RPB.Box>
-              <RPB.Paragraph>Note: Borders have been added for demonstration purposes.</RPB.Paragraph>
+
               <RPB.Heading5 rule break>
                 Tables
               </RPB.Heading5>
@@ -441,6 +343,148 @@ export const KitchenSink = ({ ...props }: KitchenSinkProps) => {
                   </RPB.Box>
                 </RPB.CardBody>
               </RPB.Card>
+              <RPB.Heading5 rule break>
+                Layout
+              </RPB.Heading5>
+              <RPB.Heading6>Horizontal Box</RPB.Heading6>
+              <RPB.Box direction="x">
+                <RPB.Box
+                  grow
+                  padding={10 * scale}
+                  style={{
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    borderWidth: 1 * scale,
+                    borderRight: 0,
+                    borderColor: theme.colorScheme?.greyscale.gray500,
+                  }}
+                >
+                  <RPB.Paragraph style={{ marginBottom: 0 }}>Grow</RPB.Paragraph>
+                </RPB.Box>
+                <RPB.Box
+                  padding={10 * scale}
+                  style={{
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    borderWidth: 1 * scale,
+                    borderRight: 0,
+                    borderColor: theme.colorScheme?.greyscale.gray500,
+                  }}
+                >
+                  <RPB.Paragraph style={{ marginBottom: 0 }}>Shrink</RPB.Paragraph>
+                </RPB.Box>
+                <RPB.Box
+                  direction="y"
+                  padding={10 * scale}
+                  style={{
+                    width: '50%',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    borderWidth: 1 * scale,
+                    borderColor: theme.colorScheme?.greyscale.gray500,
+                    textAlign: 'justify',
+                  }}
+                >
+                  <RPB.Paragraph>Width 50%. Specify a width to allow text wrapping.</RPB.Paragraph>
+                  <RPB.Paragraph style={{ marginBottom: 0 }}>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua.
+                  </RPB.Paragraph>
+                </RPB.Box>
+              </RPB.Box>
+              <RPB.Box direction="x" gap={10} style={{ marginBottom: 20 * scale }}>
+                <RPB.Box
+                  grow
+                  padding={10 * scale}
+                  style={{
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    borderWidth: 1 * scale,
+                    borderColor: theme.colorScheme?.greyscale.gray500,
+                  }}
+                >
+                  <RPB.Paragraph style={{ marginBottom: 0 }}>Grow</RPB.Paragraph>
+                </RPB.Box>
+                <RPB.Box
+                  shrink
+                  padding={10 * scale}
+                  style={{
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    borderWidth: 1 * scale,
+                    borderColor: theme.colorScheme?.greyscale.gray500,
+                  }}
+                >
+                  <RPB.Paragraph style={{ marginBottom: 0 }}>Shrink</RPB.Paragraph>
+                </RPB.Box>
+                <RPB.Box
+                  padding={10 * scale}
+                  style={{
+                    width: '40%',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    borderWidth: 1 * scale,
+                    borderColor: theme.colorScheme?.greyscale.gray500,
+                  }}
+                >
+                  <RPB.Paragraph style={{ marginBottom: 0 }}>40%</RPB.Paragraph>
+                </RPB.Box>
+              </RPB.Box>
+              <RPB.Paragraph>Note: Borders have been added for demonstration purposes.</RPB.Paragraph>
+              <RPB.Heading6 break>Vertical Box</RPB.Heading6>
+              <RPB.Box direction="y" style={{ marginBottom: 20 * scale }}>
+                <RPB.Box
+                  padding={10 * scale}
+                  style={{
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    borderWidth: 1 * scale,
+                    borderBottom: 0,
+                    borderColor: theme.colorScheme?.greyscale.gray500,
+                  }}
+                >
+                  <RPB.Paragraph style={{ marginBottom: 0 }}>A</RPB.Paragraph>
+                </RPB.Box>
+                <RPB.Box
+                  grow
+                  padding={10 * scale}
+                  style={{
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    borderWidth: 1 * scale,
+                    borderBottom: 0,
+                    borderColor: theme.colorScheme?.greyscale.gray500,
+                  }}
+                >
+                  <RPB.Paragraph style={{ marginBottom: 0 }}>B</RPB.Paragraph>
+                </RPB.Box>
+                <RPB.Box
+                  direction="y"
+                  padding={10 * scale}
+                  style={{
+                    justifyContent: 'center',
+                    borderWidth: 1 * scale,
+                    borderColor: theme.colorScheme?.greyscale.gray500,
+                    textAlign: 'justify',
+                  }}
+                >
+                  <RPB.Paragraph>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                    aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                    culpa qui officia deserunt mollit anim id est laborum.
+                  </RPB.Paragraph>
+                  <RPB.Paragraph style={{ marginBottom: 0 }}>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                    aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                    culpa qui officia deserunt mollit anim id est laborum.
+                  </RPB.Paragraph>
+                </RPB.Box>
+              </RPB.Box>
+              <RPB.Paragraph>Note: Borders have been added for demonstration purposes.</RPB.Paragraph>
               <RPB.Heading5 rule break>
                 Shapes
               </RPB.Heading5>
