@@ -1,27 +1,40 @@
-import { Document, Image, PDFViewer, Text } from '@react-pdf/renderer';
+import { Document, Font, Image, PDFViewer, Text } from '@react-pdf/renderer';
 import React from 'react';
 import { DivProps } from 'react-html-props';
-import { BackdropDecorators } from './backgrounds/BackdropDecorators';
-import { ReactPDFBuilder } from './builder/ReactPDFBuilder';
-import { GradientType } from './shapes/Gradients';
-import { RectangleShape } from './shapes/RectangleShape';
-import { SwatchColor } from './theme/themes/ColorScheme';
-import { Themes } from './theme/themes/Themes';
+import { BackdropDecorators } from '../backgrounds/BackdropDecorators';
+import { ReactPDFBuilder } from '../builder/ReactPDFBuilder';
+import { GradientType } from '../shapes/Gradients';
+import { RectangleShape } from '../shapes/RectangleShape';
+import { SwatchColor } from '../theme/themes/ColorScheme';
+import { Themes } from '../theme/themes/Themes';
+import { Fonts } from '../fonts/Fonts';
+import { ThemeBuilderConfig } from '../theme/ThemeBuilder';
 
-export interface KitchenSinkProps extends DivProps {}
+export interface DemoProps extends DivProps {}
 
 /**
- * This is the description for the KitchenSink component
+ * This is the description for the Demo component
  */
-export const KitchenSink = ({ ...props }: KitchenSinkProps) => {
+export const Demo = ({ ...props }: DemoProps) => {
   const buttonHref = 'https://github.com/justinmahar/react-pdf-builder';
   const footerHeight = '12.12%';
   const showCoverPage = false;
   const pageSize = 'LETTER';
   const orientation = 'portrait';
 
+  // Register font
+  const roboto = Fonts.load('Roboto');
+  if (roboto) {
+    Font.register(roboto);
+  }
+
   const scale = 1;
-  const theme = Themes.light.build({ scale });
+  const themeConfig: ThemeBuilderConfig = {
+    scale,
+    override: { pageProps: { style: { backgroundColor: 'red', fontFamily: 'Roboto' } } },
+  };
+  const theme = Themes.light.build(themeConfig);
+  console.log('theme.pageProps.style', theme.pageProps.style);
   const RPB = new ReactPDFBuilder(theme);
   const bodyColor = theme._bodyColor;
 

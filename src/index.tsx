@@ -59,5 +59,5 @@ export * from './components/typography/Heading6';
 export * from './components/typography/Paragraph';
 
 // Misc
-export * from './components/KitchenSink';
+export * from './components/demo/Demo';
 export * from './components/Style';
