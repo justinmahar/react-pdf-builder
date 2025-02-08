@@ -24,16 +24,15 @@ export const Demo = ({ ...props }: DemoProps) => {
   const orientation = 'portrait';
 
   // Register fonts
-  const loadedFont = Fonts.load('dm');
+  const loadedFont = Fonts.load('Roboto');
   if (loadedFont) {
-    console.log('loadedFont', loadedFont);
     Font.register(loadedFont);
   }
 
   const scale = 1;
   const themeConfig: ThemeBuilderConfig = {
     scale,
-    override: { pageProps: { style: { fontFamily: 'dm' } } },
+    override: { pageProps: { style: { fontFamily: 'Roboto' } } },
   };
   const theme = Themes.light.build(themeConfig);
   const RPB = new ReactPDFBuilder(theme);

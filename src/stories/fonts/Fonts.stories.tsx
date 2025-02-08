@@ -1,6 +1,8 @@
+import { Font, Link, Text } from '@react-pdf/renderer';
 import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
-import { HeadingProps } from '../../components/typography/Heading';
+import { fontFamilies, Fonts } from '../../components/fonts/Fonts';
+import { Box } from '../../components/layout/Box';
 import { Heading1 } from '../../components/typography/Heading1';
 import { Heading2 } from '../../components/typography/Heading2';
 import { Heading3 } from '../../components/typography/Heading3';
@@ -9,16 +11,14 @@ import { Heading5 } from '../../components/typography/Heading5';
 import { Heading6 } from '../../components/typography/Heading6';
 import { Paragraph } from '../../components/typography/Paragraph';
 import { PDFStory } from '../parts/PDFStory';
-import { Box } from '../../components/layout/Box';
-import { Font, Link, Text } from '@react-pdf/renderer';
-import { fontFamilies, Fonts } from '../../components/fonts/Fonts';
 
 const StoryComponent = ({ fontFamily, ...props }: { fontFamily: string }) => {
+  console.log('Loading', fontFamilies.length, 'fonts...');
   fontFamilies.forEach((f) => {
     // Register fonts
     const loadedFont = Fonts.load(f.family);
     if (loadedFont) {
-      console.log('loadedFont', loadedFont);
+      console.log(`Loaded font: "${loadedFont.family}"`);
       Font.register(loadedFont);
     }
   });
@@ -26,7 +26,7 @@ const StoryComponent = ({ fontFamily, ...props }: { fontFamily: string }) => {
   return (
     <PDFStory pageProps={{ style: { fontFamily } }}>
       <Box direction="y" style={{ gap: 10 }}>
-        <Heading5 rule>Basic Typography</Heading5>
+        <Heading5 rule>Font Family {fontFamily ? `"${fontFamily}"` : 'Not Specified'}</Heading5>
         <Heading1 rule>Heading 1</Heading1>
         <Heading2 rule>Heading 2</Heading2>
         <Heading3 rule>Heading 3</Heading3>
@@ -56,128 +56,8 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 // === Stories ===
-export const NoFontProvided: Story = {
+export const NoFontFamilySpecified: Story = {
   args: {},
-};
-
-export const DisplayAbrilFatface: Story = {
-  args: {
-    fontFamily: 'Abril Fatface',
-  },
-};
-
-export const DisplayAlfaSlabOne: Story = {
-  args: {
-    fontFamily: 'Alfa Slab One',
-  },
-};
-
-export const DisplayComfortaa: Story = {
-  args: {
-    fontFamily: 'Comfortaa',
-  },
-};
-
-export const DisplayConcertOne: Story = {
-  args: {
-    fontFamily: 'Concert One',
-  },
-};
-
-export const DisplayLilitaOne: Story = {
-  args: {
-    fontFamily: 'Lilita One',
-  },
-};
-
-export const DisplayLobster: Story = {
-  args: {
-    fontFamily: 'Lobster',
-  },
-};
-
-export const DisplayOleoScript: Story = {
-  args: {
-    fontFamily: 'Oleo Script',
-  },
-};
-
-export const DisplayPassionOne: Story = {
-  args: {
-    fontFamily: 'Passion One',
-  },
-};
-
-export const DisplayRighteous: Story = {
-  args: {
-    fontFamily: 'Righteous',
-  },
-};
-
-export const DisplayRowdies: Story = {
-  args: {
-    fontFamily: 'Rowdies',
-  },
-};
-
-export const HandwritingAmaticSC: Story = {
-  args: {
-    fontFamily: 'Amatic SC',
-  },
-};
-
-export const HandwritingCaveat: Story = {
-  args: {
-    fontFamily: 'Caveat',
-  },
-};
-
-export const HandwritingDancingScript: Story = {
-  args: {
-    fontFamily: 'Dancing Script',
-  },
-};
-
-export const HandwritingGreatVibes: Story = {
-  args: {
-    fontFamily: 'Great Vibes',
-  },
-};
-
-export const HandwritingIndieFlower: Story = {
-  args: {
-    fontFamily: 'Indie Flower',
-  },
-};
-
-export const HandwritingKalam: Story = {
-  args: {
-    fontFamily: 'Kalam',
-  },
-};
-
-export const HandwritingPacifico: Story = {
-  args: {
-    fontFamily: 'Pacifico',
-  },
-};
-
-export const HandwritingPermanentMarker: Story = {
-  args: {
-    fontFamily: 'Permanent Marker',
-  },
-};
-
-export const HandwritingSatisfy: Story = {
-  args: {
-    fontFamily: 'Satisfy',
-  },
-};
-
-export const HandwritingShadowsIntoLight: Story = {
-  args: {
-    fontFamily: 'Shadows Into Light',
-  },
 };
 
 export const MonoCourierPrime: Story = {
@@ -192,18 +72,6 @@ export const MonoDMMono: Story = {
   },
 };
 
-export const MonoIBMPlexMono: Story = {
-  args: {
-    fontFamily: 'IBM Plex Mono',
-  },
-};
-
-export const MonoInconsolata: Story = {
-  args: {
-    fontFamily: 'Inconsolata',
-  },
-};
-
 export const MonoJetBrainsMono: Story = {
   args: {
     fontFamily: 'JetBrains Mono',
@@ -213,12 +81,6 @@ export const MonoJetBrainsMono: Story = {
 export const MonoRobotoMono: Story = {
   args: {
     fontFamily: 'Roboto Mono',
-  },
-};
-
-export const MonoShareTechMono: Story = {
-  args: {
-    fontFamily: 'Share Tech Mono',
   },
 };
 
@@ -267,12 +129,6 @@ export const SansSerifNotoSans: Story = {
 export const SansSerifOpenSans: Story = {
   args: {
     fontFamily: 'Open Sans',
-  },
-};
-
-export const SansSerifOswald: Story = {
-  args: {
-    fontFamily: 'Oswald',
   },
 };
 
@@ -351,11 +207,5 @@ export const SerifPlayfairDisplay: Story = {
 export const SerifPTSerif: Story = {
   args: {
     fontFamily: 'PT Serif',
-  },
-};
-
-export const SerifRobotoSlab: Story = {
-  args: {
-    fontFamily: 'Roboto Slab',
   },
 };
