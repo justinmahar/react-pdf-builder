@@ -3,13 +3,11 @@ import React from 'react';
 import { DivProps } from 'react-html-props';
 import { BackdropDecorators } from '../backgrounds/BackdropDecorators';
 import { ReactPDFBuilder } from '../builder/ReactPDFBuilder';
+import { Fonts } from '../fonts/Fonts';
 import { GradientType } from '../shapes/Gradients';
-import { RectangleShape } from '../shapes/RectangleShape';
+import { ThemeBuilderConfig } from '../theme/ThemeBuilder';
 import { SwatchColor } from '../theme/themes/ColorScheme';
 import { Themes } from '../theme/themes/Themes';
-import { Fonts } from '../fonts/Fonts';
-import { ThemeBuilderConfig } from '../theme/ThemeBuilder';
-import { LightThemeBuilder } from '../theme/themes/light/LightThemeBuilder';
 
 export interface DemoProps extends DivProps {}
 
@@ -19,20 +17,24 @@ export interface DemoProps extends DivProps {}
 export const Demo = ({ ...props }: DemoProps) => {
   const buttonHref = 'https://github.com/justinmahar/react-pdf-builder';
   const footerHeight = '12.12%';
-  const showCoverPage = false;
+  const showCoverPage = true;
   const pageSize = 'LETTER';
   const orientation = 'portrait';
 
   // Register fonts
-  const loadedFont = Fonts.load('Roboto');
-  if (loadedFont) {
-    Font.register(loadedFont);
+  const bodyFont = Fonts.load(Fonts.sansSerif.roboto);
+  if (bodyFont) {
+    Font.register(bodyFont);
+  }
+  const titleFont = Fonts.load(Fonts.serif.playfairDisplay);
+  if (titleFont) {
+    Font.register(titleFont);
   }
 
   const scale = 1;
   const themeConfig: ThemeBuilderConfig = {
     scale,
-    override: { pageProps: { style: { fontFamily: 'Roboto' } } },
+    override: { pageProps: { style: { fontFamily: bodyFont?.family } } },
   };
   const theme = Themes.light.build(themeConfig);
   const RPB = new ReactPDFBuilder(theme);
@@ -67,15 +69,17 @@ export const Demo = ({ ...props }: DemoProps) => {
                     backgroundColor: '#00000022',
                   }}
                 >
-                  <RPB.Heading1 style={{ textAlign: 'center', fontSize: 60 * scale }}>React PDF Builder</RPB.Heading1>
-                  <RPB.Heading5 style={{ textAlign: 'center', fontSize: 28 * scale }}>
+                  <RPB.Heading1 style={{ fontFamily: titleFont?.family, textAlign: 'center', fontSize: 60 * scale }}>
+                    React PDF Builder
+                  </RPB.Heading1>
+                  <RPB.Heading5 style={{ textAlign: 'center', fontSize: 28 * scale, fontWeight: 400 }}>
                     Build beautiful PDF documents in React.
                   </RPB.Heading5>
                 </RPB.Box>
                 <RPB.Box grow style={{ justifyContent: 'center', alignItems: 'center' }}>
                   <Image
                     src="https://justinmahar.github.io/react-pdf-builder/images/logo-red.png"
-                    style={{ width: 250 * scale }}
+                    style={{ width: 200 * scale }}
                   />
                 </RPB.Box>
                 <RPB.Box style={{ height: '5%', backgroundColor: '#00000022' }} />

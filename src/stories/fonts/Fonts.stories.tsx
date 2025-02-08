@@ -1,7 +1,7 @@
 import { Font, Link, Text } from '@react-pdf/renderer';
 import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
-import { fontFamilies, Fonts } from '../../components/fonts/Fonts';
+import { fontDefinitions, FontFilesDefinition, Fonts } from '../../components/fonts/Fonts';
 import { Box } from '../../components/layout/Box';
 import { Heading1 } from '../../components/typography/Heading1';
 import { Heading2 } from '../../components/typography/Heading2';
@@ -13,8 +13,8 @@ import { Paragraph } from '../../components/typography/Paragraph';
 import { PDFStory } from '../parts/PDFStory';
 
 const StoryComponent = ({ fontFamily, ...props }: { fontFamily: string }) => {
-  console.log('Loading', fontFamilies.length, 'fonts...');
-  fontFamilies.forEach((f) => {
+  console.log('Loading', fontDefinitions.length, 'fonts...');
+  fontDefinitions.forEach((f) => {
     // Register fonts
     const loadedFont = Fonts.load(f.family);
     if (loadedFont) {
@@ -22,11 +22,15 @@ const StoryComponent = ({ fontFamily, ...props }: { fontFamily: string }) => {
       Font.register(loadedFont);
     }
   });
+  const fontDefinition = fontDefinitions.find((f) => f.family === fontFamily);
 
   return (
     <PDFStory pageProps={{ style: { fontFamily } }}>
       <Box direction="y" style={{ gap: 10 }}>
-        <Heading5 rule>Font Family {fontFamily ? `"${fontFamily}"` : 'Not Specified'}</Heading5>
+        <Heading5 rule style={{ marginBottom: 0 }}>
+          Font Family {fontFamily ? `"${fontFamily}"` : 'Not Specified'}
+        </Heading5>
+        <Heading6>{fontDefinition ? `${fontDefinition?.type} font` : ''}</Heading6>
         <Heading1 rule>Heading 1</Heading1>
         <Heading2 rule>Heading 2</Heading2>
         <Heading3 rule>Heading 3</Heading3>

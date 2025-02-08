@@ -12,7 +12,7 @@ export interface BulkLoad {
   }[];
 }
 
-export interface FontFamily {
+export interface FontFilesDefinition {
   type: string;
   dir: string;
   family: string;
@@ -23,7 +23,10 @@ export interface FontFamily {
   }[];
 }
 
-export const fontFamilies: FontFamily[] = [
+/**
+ * Defines font files for commonly used modern fonts.
+ */
+export const fontDefinitions: FontFilesDefinition[] = [
   {
     type: 'mono',
     dir: 'courier-prime-v9-latin',
@@ -500,21 +503,86 @@ export const fontFamilies: FontFamily[] = [
   },
 ];
 
-const createFontSrc = (fontsDirUrl: string | undefined, family: FontFamily, filename: string) => {
+/**
+ * Creates a path to the font file using fontsDirUrl if specified, falling back to the GitHub Pages site otherwise.
+ */
+const createFontSrc = (fontsDirUrl: string | undefined, family: FontFilesDefinition, filename: string) => {
   const src = fontsDirUrl
     ? `${fontsDirUrl}${fontsDirUrl.endsWith('/') ? '' : '/'}${filename}`
     : `${defaultFontsDirUrl}${defaultFontsDirUrl.endsWith('/') ? '' : '/'}${family.type}/${family.dir}/${filename}`;
   return src;
 };
 
+/**
+ * Allows drop-in support for common font families. See documentation for `Fonts.load()` for more info.
+ *
+ * You can download TTF and WOFF fonts here: https://gwfh.mranftl.com/fonts
+ *
+ * For additional font support, see https://react-pdf.org/fonts
+ */
 export class Fonts {
+  public static mono = {
+    courierPrime: 'Courier Prime',
+    dmMono: 'DM Mono',
+    jetbrainsMono: 'JetBrains Mono',
+    robotoMono: 'Roboto Mono',
+    sourceCodePro: 'Source Code Pro',
+    spaceMono: 'Space Mono',
+    ubuntuMono: 'Ubuntu Mono',
+  };
+  public static sansSerif = {
+    inter: 'Inter',
+    lato: 'Lato',
+    montserrat: 'Montserrat',
+    notoSans: 'Noto Sans',
+    openSans: 'Open Sans',
+    poppins: 'Poppins',
+    raleway: 'Raleway',
+    robotoCondensed: 'Roboto Condensed',
+    roboto: 'Roboto',
+  };
+  public static serif = {
+    bitter: 'Bitter',
+    crimsonText: 'Crimson Text',
+    ebGaramond: 'EB Garamond',
+    libreBaskerville: 'Libre Baskerville',
+    lora: 'Lora',
+    merriweather: 'Merriweather',
+    notoSerif: 'Noto Serif',
+    playfairDisplay: 'Playfair Display',
+    ptSerif: 'PT Serif',
+  };
+
+  /**
+   * Constructs a BulkLoad object compatible with React PDF for the provided font family, specifying all font files
+   * required for Latin support with bold and italics (if available for the font).
+   * Pass the returned BulkLoad object to `Font.register()`.
+   *
+   * All supported font family names are defined in Fonts, such as `Fonts.sansSerif.roboto`.
+   *
+   * By default, the fonts are loaded from the
+   * [React PDF Builder GitHub Pages site](https://justinmahar.github.io/react-pdf-builder/), allowing you to drop in
+   * font support very quickly. However, you will likely want to self-host the font files at some point. As such, you can
+   * provide the `fontsDirUrl` prop pointing to the root path where your font files are located, and the fonts will
+   * be loaded from there instead. The expected font files for each family can be found in the
+   * [project repo](https://github.com/justinmahar/react-pdf-builder/tree/master/public/fonts).
+   *
+   * You can download TTF and WOFF fonts here: https://gwfh.mranftl.com/fonts
+   *
+   * For additional font support, see https://react-pdf.org/fonts
+   *
+   * @param fontFamily The name of the font family to load, defined by `Fonts`.
+   * @param fontsDirUrl Optional. URL path where font files are located. Otherwise, fonts will be loaded from the
+   * [React PDF Builder GitHub Pages site](https://justinmahar.github.io/react-pdf-builder/).
+   * @returns A BulkLoad compatible with React PDF, that can be passed into `Font.register()`
+   */
   public static load = (fontFamily: string, fontsDirUrl?: string): BulkLoad | undefined => {
-    const famWithMeta = fontFamilies.find((d) => d.family.toLowerCase() === fontFamily.toLowerCase());
-    if (famWithMeta) {
-      const bulkLoad = {
-        family: famWithMeta.family,
-        fonts: famWithMeta.fonts.map((f) => {
-          const src = createFontSrc(fontsDirUrl, famWithMeta, f.filename);
+    const fontDefinition = fontDefinitions.find((d) => d.family.toLowerCase() === fontFamily.toLowerCase());
+    if (fontDefinition) {
+      const bulkLoad: BulkLoad = {
+        family: fontDefinition.family,
+        fonts: fontDefinition.fonts.map((f) => {
+          const src = createFontSrc(fontsDirUrl, fontDefinition, f.filename);
           return {
             src,
             fontStyle: f.fontStyle,
