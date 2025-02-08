@@ -1,4 +1,4 @@
-import { Document, Image, PDFViewer } from '@react-pdf/renderer';
+import { Document, Image, PDFViewer, Text } from '@react-pdf/renderer';
 import React from 'react';
 import { DivProps } from 'react-html-props';
 import { BackdropDecorators } from './backgrounds/BackdropDecorators';
@@ -16,7 +16,7 @@ export interface KitchenSinkProps extends DivProps {}
 export const KitchenSink = ({ ...props }: KitchenSinkProps) => {
   const buttonHref = 'https://github.com/justinmahar/react-pdf-builder';
   const footerHeight = '12.12%';
-  const showCoverPage = true;
+  const showCoverPage = false;
   const pageSize = 'LETTER';
   const orientation = 'portrait';
 
@@ -108,7 +108,9 @@ export const KitchenSink = ({ ...props }: KitchenSinkProps) => {
               <RPB.Heading5 rule>Heading 5</RPB.Heading5>
               <RPB.Heading6 rule>Heading 6</RPB.Heading6>
               <RPB.Paragraph>
-                Paragraph text. <RPB.Link href="#">This is a link.</RPB.Link> Lorem ipsum dolor sit amet, consectetur
+                Paragraph text. <RPB.Link href="#">This is a link.</RPB.Link>{' '}
+                <Text style={{ fontWeight: 'bold' }}>This is bold.</Text>{' '}
+                <Text style={{ fontStyle: 'italic' }}>This is italic.</Text> Lorem ipsum dolor sit amet, consectetur
                 adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
               </RPB.Paragraph>
               <RPB.Box gap={8 * scale} style={{ marginLeft: 'auto', width: 400 * scale }}>
@@ -439,7 +441,7 @@ export const KitchenSink = ({ ...props }: KitchenSinkProps) => {
                   <RPB.Paragraph style={{ marginBottom: 0 }}>40%</RPB.Paragraph>
                 </RPB.Box>
               </RPB.Box>
-              <RPB.Paragraph>Note: Borders have been added for demonstration purposes.</RPB.Paragraph>
+              <RPB.Blockquote swatch="info">Note: Borders have been added to visualize boundaries.</RPB.Blockquote>
               <RPB.Heading6 break>Vertical Box</RPB.Heading6>
               <RPB.Box direction="y" style={{ marginBottom: 20 * scale }}>
                 <RPB.Box
@@ -493,7 +495,7 @@ export const KitchenSink = ({ ...props }: KitchenSinkProps) => {
                   </RPB.Paragraph>
                 </RPB.Box>
               </RPB.Box>
-              <RPB.Paragraph>Note: Borders have been added for demonstration purposes.</RPB.Paragraph>
+              <RPB.Blockquote swatch="info">Note: Borders have been added to visualize boundaries.</RPB.Blockquote>
               <RPB.Heading5 rule break>
                 Shapes
               </RPB.Heading5>

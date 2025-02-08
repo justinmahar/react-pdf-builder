@@ -1,13 +1,18 @@
+import { Font } from '@react-pdf/renderer';
 import { Theme } from '../../Theme';
 import { ThemeBuilder } from '../../ThemeBuilder';
 import { ColorScheme } from '../ColorScheme';
 import { bootstrapLightColorScheme } from './BootstrapLightColorScheme';
+import { Fonts } from '../../../fonts/Fonts';
 
 export class LightThemeBuilder extends ThemeBuilder {
   constructor() {
     super(bootstrapLightColorScheme);
   }
   public doBuild(scale: number, colorScheme: ColorScheme): Theme {
+    // Register font
+    Font.register(Fonts.sansSerif('Roboto'));
+
     const borderColor = colorScheme.greyscale.gray500;
     const baseFontSize = 18;
     const baseMarginRatio = 1.25;
@@ -96,6 +101,7 @@ export class LightThemeBuilder extends ThemeBuilder {
         style: {
           padding: 0.5 * 72 * scale, // Inches x DPI, scaled
           fontSize: baseFontSize * scale,
+          fontFamily: 'Roboto',
         },
       },
       pageNumberProps: {
@@ -148,7 +154,9 @@ export class LightThemeBuilder extends ThemeBuilder {
       },
       headingProps: {
         // Applies to all headings
-        style: {},
+        style: {
+          fontWeight: 'bold',
+        },
       },
       heading1Props: {
         style: {
