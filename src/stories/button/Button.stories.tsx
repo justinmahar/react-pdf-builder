@@ -8,20 +8,20 @@ import { Themes } from '../../components/theme/themes/Themes';
 const StoryComponent = (props: ButtonProps) => {
   const theme = Themes.default.build();
   const swatches = [
+    undefined,
     ...Object.keys(theme.colorScheme?.colors ?? {}),
     ...Object.keys(theme.colorScheme?.theme ?? {}),
     ...Object.keys(theme.colorScheme?.greyscale ?? {}),
   ];
   const elements = swatches.map((swatch) => (
     <Button wrap={false} key={swatch} theme={theme} swatch={swatch as any} {...props}>
-      {swatch.substring(0, 1).toUpperCase() + swatch.substring(1)}
+      {swatch ? swatch.substring(0, 1).toUpperCase() + swatch.substring(1) : 'Default'}
     </Button>
   ));
   return (
     <PDFStory pageProps={{ theme }}>
       <Box direction="x" gap={15} style={{ justifyContent: 'center', flexWrap: 'wrap' }}>
         {elements}
-        <Button>Default</Button>
       </Box>
     </PDFStory>
   );
