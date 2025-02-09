@@ -1,3 +1,4 @@
+import Color from 'color';
 import { Theme } from '../../Theme';
 import { ThemeBuilder } from '../../ThemeBuilder';
 import { ColorScheme } from '../ColorScheme';
@@ -12,7 +13,7 @@ export class DarkThemeBuilder extends ThemeBuilder {
     const bodyBackgroundColor = colorScheme.greyscale.gray900;
     const bodyColor = colorScheme.greyscale.gray300;
     const borderColor = colorScheme.greyscale.gray700;
-    const linkColor = ThemeBuilder.whiten(bootstrapLightColorScheme.colors.blue, 40);
+    const linkColor = ThemeBuilder.lighten(bootstrapLightColorScheme.colors.blue, 0.4);
     const baseFontSize = 18;
     const baseMarginRatio = 1.25;
     const headingStartSize = baseFontSize * 1.11;

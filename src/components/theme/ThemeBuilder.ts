@@ -1,4 +1,4 @@
-import mix from 'mix-css-color';
+import Color from 'color';
 import { deepMerge } from '../util';
 import { PartialTheme, Theme } from './Theme';
 import {
@@ -56,23 +56,23 @@ export abstract class ThemeBuilder {
   }
 
   /**
-   * Mixes white with the color provided by the specified percentage amount (value from 0 to 100).
-   * @param color The color to whiten.
-   * @param percentage Whole percentage from 0 to 100.
-   * @returns The whitened color.
+   * Mixes white with the color provided by the specified ratio amount (value from 0 to 1).
+   * @param color The color to lighten.
+   * @param ratio Ratio from 0 to 1.
+   * @returns The lightened color as a hex string.
    */
-  public static whiten(color: string, percentage: number) {
-    return mix('#FFFFFF', color, percentage).hex;
+  public static lighten(color: string, ratio: number) {
+    return new Color(color).lighten(ratio).hex();
   }
 
   /**
-   * Mixes black with the color provided by the specified percentage amount (value from 0 to 100).
-   * @param color The color to blacken.
-   * @param percentage Whole percentage from 0 to 100.
-   * @returns The blackened color.
+   * Mixes black with the color provided by the specified ratio amount (value from 0 to 1).
+   * @param color The color to darken.
+   * @param ratio Ratio from 0 to 1.
+   * @returns The darkened color as a hex string.
    */
-  public static blacken(color: string, percentage: number) {
-    return mix('#000000', color, percentage).hex;
+  public static darken(color: string, ratio: number) {
+    return new Color(color).darken(ratio).hex();
   }
 
   /**

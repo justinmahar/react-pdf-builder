@@ -102,7 +102,7 @@ const StoryComponent = (props: HeadingProps) => {
   return (
     <div>
       <Card>
-        <Card.Header>Backdrop Generator</Card.Header>
+        <Card.Header>Backdrop Generator (Experimental)</Card.Header>
         <Card.Body className="d-flex flex-column gap-3">
           <Card.Text>
             You can generate React PDF Builder backdrops from CSS gradients (such as those found at{' '}
