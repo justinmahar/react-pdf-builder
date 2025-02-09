@@ -21,7 +21,7 @@ Read the **[official documentation](https://justinmahar.github.io/react-pdf-buil
 
 ## Overview
 
-React PDF Builder is a fully themeable component framework built on [react-PDF](https://react-pdf.org/) and [pdfkit](https://pdfkit.org/).
+React PDF Builder is a fully themeable component framework built on [react-pdf](https://react-pdf.org/) and [pdfkit](https://pdfkit.org/).
 
 The framework includes ready-to-use components for headings, paragraphs, lists, buttons, cards, and more.
 
@@ -29,8 +29,8 @@ If you want to build beautiful PDFs in React without starting from scratch, this
 
 ### Features include:
 
-- **🌟 Pre-made styled components to make building PDFs a breeze**
-  - Done for you, so you can start building right away.
+- **🌟 Pre-made components to make building PDFs a breeze**
+  - Styled and done for you, so you can start building right away.
 - **🎨 Fully themeable with built-in light and dark modes**
   - All colors and component props can be overridden easily.
 - **📏 Scalable to any page size**
@@ -44,7 +44,7 @@ If you want to build beautiful PDFs in React without starting from scratch, this
 - **📦 Box layout system using Flexbox**
   - If you're familiar with CSS Flexbox, you'll feel right at home using the Box component to lay out your design.
 - **🔧 Built on well-maintained libraries**
-  - This component framework is built on [react-PDF](https://react-pdf.org/) and [pdfkit](https://pdfkit.org/), which are maintained by only the best and brightest.
+  - This component framework is built on [react-pdf](https://react-pdf.org/) and [pdfkit](https://pdfkit.org/), which are maintained by only the best and brightest.
 - **🚀 Much more!** 
   - Dive into the documentation to learn more!
 
@@ -172,6 +172,18 @@ For major changes, open an issue first to discuss what you'd like to change.
 ## ⭐ Found It Helpful? [Star It!](https://github.com/justinmahar/react-pdf-builder/stargazers)
 
 If you found this project helpful, let the community know by giving it a [star](https://github.com/justinmahar/react-pdf-builder/stargazers): [👉⭐](https://github.com/justinmahar/react-pdf-builder/stargazers)
+
+<!-- [lock:support] 🚫--------------------------------------- -->
+Want to support the project? Feel free to grab me a coffee, which is my main source of fuel for development:
+
+<a href="https://paypal.me/thejustinmahar/5">
+  <img src="https://justinmahar.github.io/react-kindling/support/coffee-1.png" alt="Buy me a coffee" height="35" />
+</a>&nbsp; <a href="https://paypal.me/thejustinmahar/15">
+  <img src="https://justinmahar.github.io/react-kindling/support/coffee-3.png" alt="Buy me 3 coffees" height="35" />
+</a>&nbsp; <a href="https://paypal.me/thejustinmahar/25">
+  <img src="https://justinmahar.github.io/react-kindling/support/coffee-5.png" alt="Buy me 5 coffees" height="35" />
+</a>
+<!-- [/lock:support] ---------------------------------------🚫 -->
 
 ## License
 
