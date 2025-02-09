@@ -42,7 +42,7 @@ const StoryComponent = (props: CardProps) => {
 
 // === Setup ===
 const meta: Meta<typeof StoryComponent> = {
-  title: 'Stories/Card/Swatched', // <-- Set to your story title
+  title: 'Stories/Card/Swatches', // <-- Set to your story title
   component: StoryComponent,
   parameters: {
     options: { showPanel: false }, // Don't show addons panel

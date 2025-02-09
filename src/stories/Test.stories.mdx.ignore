@@ -1,0 +1,44 @@
+import { Meta } from '@storybook/addon-docs';
+import { Demo } from '../components/demo/Demo';
+
+<Meta title="Components/Demo" />
+
+<h1>Demo</h1>
+
+## Description
+
+Description of the Example component.
+
+## Usage
+
+```jsx
+import { Example } from 'react-kindling';
+```
+
+Describe how to use the component here.
+
+```jsx
+<Example label="Bomb Diggity!" />
+```
+
+### Props
+
+| Prop            | Type                        | Description                                |
+| --------------- | --------------------------- | ------------------------------------------ |
+| label           | `string`                    | **Required.** Label shown in the component |
+| backgroundColor | `string` &#124; `undefined` | Optional. What background color to use     |
+
+## Example
+
+Provide an example. Since this is MDX, you can import and use the component right within these docs.
+
+<Demo />
+
+```jsx
+import * as React from 'react';
+import { Example } from 'react-kindling';
+
+export function StoryExample() {
+  return <Example label="Bomb Diggity!" />;
+}
+```
