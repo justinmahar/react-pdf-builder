@@ -15,6 +15,8 @@
 </p>
 <!-- [/lock:donate-badges] ---------------------------------------🚫 -->
 
+<h3><a href="https://justinmahar.github.io/react-pdf-builder/?path=/story/demo-demo--demo">👁️ View live demo</a></h3>
+
 ## Documentation
 
 Read the **[official documentation](https://justinmahar.github.io/react-pdf-builder/)**.
@@ -140,6 +142,8 @@ This will create the following PDF:
 <a href="https://justinmahar.github.io/react-pdf-builder/?path=/story/demo-demo--quick-start"><img src="https://justinmahar.github.io/react-pdf-builder/images/quick-start.png" width="400" border="1" /></a>
 
 Click [here](https://justinmahar.github.io/react-pdf-builder/?path=/story/demo-demo--quick-start) to see a live demo of this quick start.
+
+You can also see the <a href="https://justinmahar.github.io/react-pdf-builder/?path=/story/demo-demo--demo">main project demo</a> for a deeper look at what's possible with this library.
 
 <!-- [lock:typescript] 🚫--------------------------------------- -->
 
