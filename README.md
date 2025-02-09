@@ -11,7 +11,7 @@
 </p>
 <!-- [lock:donate-badges] 🚫--------------------------------------- -->
 <p align="center">
-  <a href="https://ko-fi.com/justinmahar"><img src="https://img.shields.io/static/v1?label=Buy%20me%20a%20coffee&message=%E2%9D%A4&logo=KoFi&color=%23fe8e86" alt="Buy me a coffee" /></a>&nbsp;<a href="https://github.com/sponsors/justinmahar" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86" alt="Sponsor"/></a>
+  <a href="https://paypal.me/thejustinmahar/5"><img src="https://img.shields.io/static/v1?label=Buy%20me%20a%20coffee&message=%E2%9D%A4&logo=KoFi&color=%23fe8e86" alt="Buy me a coffee" /></a>&nbsp;<a href="https://github.com/sponsors/justinmahar" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86" alt="Sponsor"/></a>
 </p>
 <!-- [/lock:donate-badges] ---------------------------------------🚫 -->
 
@@ -21,25 +21,48 @@ Read the **[official documentation](https://justinmahar.github.io/react-pdf-buil
 
 ## Overview
 
-This section will contain an overview so people can have a high-level understanding of the project.
+React PDF Builder is a fully themeable component framework built on [react-PDF](https://react-pdf.org/) and [pdfkit](https://pdfkit.org/).
+
+The framework includes ready-to-use components for headings, paragraphs, lists, buttons, cards, and more.
+
+If you want to build beautiful PDFs in React without starting from scratch, this is the library for you!
 
 ### Features include:
 
-- **🚀 List your features, use fun [emojis](https://emojipedia.org/search/?q=rocket)**
-  - Give a little more info on each feature or mention benefits.
+- **🌟 Pre-made styled components to make building PDFs a breeze**
+  - Done for you, so you can start building right away.
+- **🎨 Fully themeable with built-in light and dark modes**
+  - All colors and component props can be overridden easily.
+- **📏 Scalable to any page size**
+  - Easily scale all components to match your preferred size.
+- **🖋️ Drop-in support for 24 commonly used fonts (including bold/italics!)**
+  - Easily use popular fonts like Roboto, Lato, Raleway, or Montserrat—including formatting styles!
+- **📊 Table support with page wrapping, theming, and colspans**
+  - Need tables? Look no further. Beautiful tables are at your fingertips.
+- **🟦 Easy to use gradient backdrops for your pages**
+  - Quickly and easily spruce up your PDF with gradient backdrops, with optional pre-made decorators.
+- **📦 Box layout system using Flexbox**
+  - If you're familiar with CSS Flexbox, you'll feel right at home using the Box component to lay out your design.
+- **🔧 Built on well-maintained libraries**
+  - This component framework is built on [react-PDF](https://react-pdf.org/) and [pdfkit](https://pdfkit.org/), which are maintained by only the best and brightest.
+- **🚀 Much more!** 
+  - Dive into the documentation to learn more!
 
 <!-- [lock:donate] 🚫--------------------------------------- -->
 
 ## Donate 
 
-If this project helped you, please consider buying me a coffee or sponsoring me. Your support is much appreciated!
+If this project helped save you time, please consider buying me a coffee (my body can't function without it). Your support is much appreciated!
 
-<div>
-  <a href="https://ko-fi.com/justinmahar"><img src="https://img.shields.io/static/v1?label=Buy%20me%20a%20coffee&message=%E2%9D%A4&logo=KoFi&color=%23FF5E5B" alt="Buy me a coffee" /></a>
-</div>
-<div>
-  <a href="https://github.com/sponsors/justinmahar" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86" alt="Sponsor"/></a>
-</div>
+<a href="https://github.com/sponsors/justinmahar">
+  <img src="https://justinmahar.github.io/react-kindling/support/sponsor.png" alt="Sponsor via GitHub" height="35" />
+</a>&nbsp; <a href="https://paypal.me/thejustinmahar/5">
+  <img src="https://justinmahar.github.io/react-kindling/support/coffee-1.png" alt="Buy me a coffee" height="35" />
+</a>&nbsp; <a href="https://paypal.me/thejustinmahar/15">
+  <img src="https://justinmahar.github.io/react-kindling/support/coffee-3.png" alt="Buy me 3 coffees" height="35" />
+</a>&nbsp; <a href="https://paypal.me/thejustinmahar/25">
+  <img src="https://justinmahar.github.io/react-kindling/support/coffee-5.png" alt="Buy me 5 coffees" height="35" />
+</a>
 
 <!-- [/lock:donate] ---------------------------------------🚫 -->
 
