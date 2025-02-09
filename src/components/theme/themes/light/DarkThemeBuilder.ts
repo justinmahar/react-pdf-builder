@@ -160,7 +160,9 @@ export class DarkThemeBuilder extends ThemeBuilder {
       },
       headingProps: {
         // Applies to all headings
-        style: {},
+        style: {
+          fontWeight: 'bold',
+        },
       },
       heading1Props: {
         style: {

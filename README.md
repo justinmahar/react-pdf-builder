@@ -86,7 +86,7 @@ If this project helped save you time, please consider buying me a coffee (my bod
 ## Installation
 
 ```
-npm i react-pdf-builder @react-pdf/renderer
+npm i @react-pdf/renderer react-pdf-builder 
 ```
 
 > Note: This project has a dependency on [@react-pdf/renderer](https://www.npmjs.com/package/@react-pdf/renderer). Make sure it's installed along with `react-pdf-builder`.
@@ -94,6 +94,8 @@ npm i react-pdf-builder @react-pdf/renderer
 ## Quick Start
 
 Below is a component that renders a standard A4 size PDF with a heading, paragraph, card, and table. You can use this as a starting point.
+
+Most components can be themed using the `swatch` prop, and custom styled using `style` and CSS. Use `LETTER` page size for 8.5x11" paper used in the US.
 
 ```jsx
 import { ReactPDFBuilder, Themes } from 'react-pdf-builder';
