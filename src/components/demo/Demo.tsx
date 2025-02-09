@@ -5,16 +5,18 @@ import { BackdropDecorators } from '../backgrounds/BackdropDecorators';
 import { ReactPDFBuilder } from '../builder/ReactPDFBuilder';
 import { Fonts } from '../fonts/Fonts';
 import { GradientType } from '../shapes/Gradients';
-import { ThemeBuilderConfig } from '../theme/ThemeBuilder';
+import { ThemeBuilder, ThemeBuilderConfig } from '../theme/ThemeBuilder';
 import { SwatchColor } from '../theme/themes/ColorScheme';
 import { Themes } from '../theme/themes/Themes';
 
-export interface DemoProps extends DivProps {}
+export interface DemoProps extends DivProps {
+  themeBuilder?: ThemeBuilder;
+}
 
 /**
  * This is the description for the Demo component
  */
-export const Demo = ({ ...props }: DemoProps) => {
+export const Demo = ({ themeBuilder = Themes.light, ...props }: DemoProps) => {
   const buttonHref = 'https://github.com/justinmahar/react-pdf-builder';
   const footerHeight = '12.12%';
   const showCoverPage = true;
@@ -40,7 +42,7 @@ export const Demo = ({ ...props }: DemoProps) => {
     scale,
     override: { pageProps: { style: { fontFamily: bodyFont?.family } } },
   };
-  const theme = Themes.light.build(themeConfig);
+  const theme = themeBuilder.build(themeConfig);
   const RPB = new ReactPDFBuilder(theme);
   const bodyColor = theme._bodyColor;
 
