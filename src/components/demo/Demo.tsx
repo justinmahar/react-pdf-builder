@@ -61,7 +61,13 @@ export const Demo = ({ themeBuilder = Themes.light, ...props }: DemoProps) => {
               orientation={orientation}
               style={{ flexDirection: 'column', color: 'white', padding: 0 }}
             >
-              <RPB.GradientBackdrop size={pageSize} orientation={orientation} swatch="blue" darken>
+              <RPB.GradientBackdrop
+                size={pageSize}
+                orientation={orientation}
+                swatch="blue"
+                darken
+                darkenAmounts={[0.4, 0.7]}
+              >
                 {BackdropDecorators.circles3}
               </RPB.GradientBackdrop>
               <RPB.Box direction="y" style={{ height: '100%' }}>
