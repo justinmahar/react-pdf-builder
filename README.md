@@ -137,9 +137,9 @@ export const QuickStart = () => {
 
 This will create the following PDF:
 
-<a href="https://justinmahar.github.io/react-pdf-builder/?path=/story/demo-demo--quick-start"><img src="./images/quick-start.png" width="400" border="1" /></a>
+<a href="https://justinmahar.github.io/react-pdf-builder/?path=/story/demo-demo--quick-start"><img src="https://justinmahar.github.io/react-pdf-builder/images/quick-start.png" width="400" border="1" /></a>
 
-Click [here](https://justinmahar.github.io/react-pdf-builder/?path=/story/demo-demo--quick-start) to see a demo of the quick start live.
+Click [here](https://justinmahar.github.io/react-pdf-builder/?path=/story/demo-demo--quick-start) to see a live demo of this quick start.
 
 <!-- [lock:typescript] 🚫--------------------------------------- -->
 
