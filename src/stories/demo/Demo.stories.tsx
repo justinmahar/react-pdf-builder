@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Demo as KS } from '../components/demo/Demo';
+import { Demo as D } from '../../components/demo/Demo';
 
 // === Setup ===
-const StoryComponent = KS; // <-- Set to your component
+const StoryComponent = D; // <-- Set to your component
 const meta: Meta<typeof StoryComponent> = {
   title: 'Demo/Demo', // <-- Set to your story title
   component: StoryComponent,

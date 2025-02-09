@@ -84,20 +84,62 @@ If this project helped save you time, please consider buying me a coffee (my bod
 ## Installation
 
 ```
-npm i react-pdf-builder
+npm i react-pdf-builder @react-pdf/renderer
 ```
+
+> Note: This project has a dependency on [@react-pdf/renderer](https://www.npmjs.com/package/@react-pdf/renderer). Make sure it's installed along with `react-pdf-builder`.
 
 ## Quick Start
 
-This section will contain a copy/paste example so people can get started quickly.
+Below is a component that renders a standard A4 size PDF with a heading, paragraph, card, and table. You can use this as a starting point.
 
 ```jsx
-import { Example } from 'react-pdf-builder';
+import { ReactPDFBuilder, Themes } from 'react-pdf-builder';
+import { Document, PDFViewer } from '@react-pdf/renderer';
+
+export const QuickStart = () => {
+  const RPB = new ReactPDFBuilder(Themes.light.build());
+  return (
+    <PDFViewer style={{ height: 700, width: 500 }}>
+      <Document>
+        <RPB.Page size="A4">
+          <RPB.Heading3 rule>Hello, world!</RPB.Heading3>
+          <RPB.Paragraph>Let's get started building the PDF.</RPB.Paragraph>
+          <RPB.Box direction="y" gap={15}>
+            <RPB.Button>Button</RPB.Button>
+            <RPB.Box direction="x" gap={15}>
+              <RPB.Card swatch="gray300" style={{ marginBottom: 0, width: '50%' }}>
+                <RPB.CardHeader>Example</RPB.CardHeader>
+                <RPB.CardBody withHeader>This is a card with some text inside as an example</RPB.CardBody>
+              </RPB.Card>
+              <RPB.Table bordered inverseStriped swatch="cyan" style={{ borderRadius: 10, width: '50%' }}>
+                <RPB.TableRow swatch="cyan">
+                  <RPB.TableCell>Header 1</RPB.TableCell>
+                  <RPB.TableCell>Header 2</RPB.TableCell>
+                </RPB.TableRow>
+                <RPB.TableRow>
+                  <RPB.TableCell>Cell A</RPB.TableCell>
+                  <RPB.TableCell>Cell Y</RPB.TableCell>
+                </RPB.TableRow>
+                <RPB.TableRow>
+                  <RPB.TableCell>Cell B</RPB.TableCell>
+                  <RPB.TableCell>Cell Z</RPB.TableCell>
+                </RPB.TableRow>
+              </RPB.Table>
+            </RPB.Box>
+          </RPB.Box>
+        </RPB.Page>
+      </Document>
+    </PDFViewer>
+  );
+};
 ```
 
-```jsx
-<Example label="Example Component" />
-```
+This will create the following PDF:
+
+<a href="https://justinmahar.github.io/react-pdf-builder/?path=/story/demo-demo--quick-start"><img src="./images/quick-start.png" width="400" border="1" /></a>
+
+Click [here](https://justinmahar.github.io/react-pdf-builder/?path=/story/demo-demo--quick-start) to see a demo of the quick start live.
 
 <!-- [lock:typescript] 🚫--------------------------------------- -->
 
