@@ -6,12 +6,14 @@ import { Heading2 } from '../../components/typography/Heading2';
 import { Heading4 } from '../../components/typography/Heading4';
 import { Paragraph } from '../../components/typography/Paragraph';
 import { PDFStory } from '../parts/PDFStory';
+import { SwatchColor } from '../../components/theme/themes/ColorScheme';
 
 interface StoryProps {
   format?: string;
+  swatch?: SwatchColor;
 }
 
-const StoryComponent = ({ format }: StoryProps) => {
+const StoryComponent = ({ swatch, format }: StoryProps) => {
   return (
     <PDFStory pageProps={{ style: { paddingTop: 50, paddingLeft: 50, paddingRight: 50, paddingBottom: 110 } }}>
       <Heading2 rule>Lorem ipsum dolor</Heading2>
@@ -153,7 +155,7 @@ const StoryComponent = ({ format }: StoryProps) => {
         }}
         fixed
       >
-        <PageNumber format={format} />
+        <PageNumber format={format} swatch={swatch} />
       </Box>
     </PDFStory>
   );
@@ -174,6 +176,11 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {},
 };
+
 export const CustomFormat: Story = {
   args: { format: 'Page %n of %t' },
+};
+
+export const SwatchedPrimary: Story = {
+  args: { swatch: 'primary' },
 };
