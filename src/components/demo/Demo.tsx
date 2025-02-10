@@ -10,18 +10,20 @@ import { SwatchColor } from '../theme/themes/ColorScheme';
 import { Themes } from '../theme/themes/Themes';
 
 export interface DemoProps extends DivProps {
-  themeBuilder?: ThemeBuilder;
+  themeName?: string;
 }
 
 /**
  * This is the description for the Demo component
  */
-export const Demo = ({ themeBuilder = Themes.light, ...props }: DemoProps) => {
+export const Demo = ({ themeName = 'light', ...props }: DemoProps) => {
   const buttonHref = 'https://github.com/justinmahar/react-pdf-builder';
   const footerHeight = '12.12%';
   const showCoverPage = true;
   const pageSize = 'LETTER';
   const orientation = 'portrait';
+
+  const themeBuilder = themeName === 'dark' ? Themes.dark : Themes.light;
 
   // Register fonts
   const bodyFont = Fonts.load(Fonts.sansSerif.roboto);
