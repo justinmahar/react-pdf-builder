@@ -1,5 +1,8 @@
 import { PageSizeString, PageSizes } from '../pages/PageSizes';
 
+/**
+ * Contains utility functions for working with backdrops.
+ */
 export class Backdrops {
   public static getDimensions(
     size: PageSizeString | { width: number; height: number },

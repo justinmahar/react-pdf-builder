@@ -1,4 +1,3 @@
-import Color from 'color';
 import { Theme } from '../../Theme';
 import { ThemeBuilder } from '../../ThemeBuilder';
 import { ColorScheme } from '../ColorScheme';

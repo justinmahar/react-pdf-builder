@@ -7,7 +7,7 @@ import { GradientType } from '../../components/shapes/Gradients';
 
 const StoryComponent = (props: GradientBackdropProps) => {
   return (
-    <PDFStory>
+    <PDFStory pageProps={{ orientation: props.orientation ?? 'portrait' }}>
       <GradientBackdrop {...props} />
     </PDFStory>
   );
@@ -203,5 +203,13 @@ export const Radial: Story = {
     swatch: 'primary',
     darken: true,
     gradientType: GradientType.radial,
+  },
+};
+
+export const Landscape: Story = {
+  args: {
+    size: 'A4',
+    darken: true,
+    orientation: 'landscape',
   },
 };

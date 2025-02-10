@@ -5,28 +5,39 @@ import { BackdropDecorators } from '../backgrounds/BackdropDecorators';
 import { ReactPDFBuilder } from '../builder/ReactPDFBuilder';
 import { Fonts } from '../fonts/Fonts';
 import { GradientType } from '../shapes/Gradients';
+import { PartialTheme } from '../theme/Theme';
 import { ThemeBuilder, ThemeBuilderConfig } from '../theme/ThemeBuilder';
 import { SwatchColor } from '../theme/themes/ColorScheme';
 import { Themes } from '../theme/themes/Themes';
+import { PageSizeString } from '../pages/PageSizes';
+import { RectangleShape } from '../shapes/RectangleShape';
 
 export interface DemoProps extends DivProps {
   themeName?: string;
+  pageSize?: PageSizeString | { width: number; height: number };
+  orientation?: 'portrait' | 'landscape';
+  showCoverPage?: boolean;
+  override?: PartialTheme;
+  scale?: number;
 }
 
 /**
  * This is the description for the Demo component
  */
-export const Demo = ({ themeName = 'light', ...props }: DemoProps) => {
+export const Demo = ({
+  themeName = 'light',
+  pageSize = 'LETTER',
+  orientation = 'portrait',
+  showCoverPage = true,
+  override,
+  scale = 1,
+  ...props
+}: DemoProps) => {
   const buttonHref = 'https://github.com/justinmahar/react-pdf-builder';
-  const footerHeight = '12.12%';
-  const showCoverPage = true;
-  const pageSize = 'LETTER';
-  const orientation = 'portrait';
-
   const themeBuilder = themeName === 'dark' ? Themes.dark : Themes.light;
 
   // Register fonts
-  const bodyFont = Fonts.load(Fonts.sansSerif.roboto);
+  const bodyFont = Fonts.load(Fonts.sansSerif.lato);
   if (bodyFont) {
     Font.register(bodyFont);
   }
@@ -34,19 +45,18 @@ export const Demo = ({ themeName = 'light', ...props }: DemoProps) => {
   if (titleFont) {
     Font.register(titleFont);
   }
-  Font.registerEmojiSource({
-    format: 'png',
-    url: 'https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/',
-  });
+  Font.registerEmojiSource(Fonts.emojis.joyPixels());
 
-  const scale = 1;
+  const fontOverride: PartialTheme = { pageProps: { style: { fontFamily: bodyFont?.family } } };
   const themeConfig: ThemeBuilderConfig = {
     scale,
-    override: { pageProps: { style: { fontFamily: bodyFont?.family } } },
+    override: ThemeBuilder.overrideTheme(override ?? {}, fontOverride),
   };
   const theme = themeBuilder.build(themeConfig);
   const RPB = new ReactPDFBuilder(theme);
+
   const bodyColor = theme._bodyColor;
+  const footerHeight = '12.12%';
 
   return (
     <div
@@ -101,7 +111,14 @@ export const Demo = ({ themeName = 'light', ...props }: DemoProps) => {
             </RPB.Page>
           )}
           <RPB.Page size={pageSize} orientation={orientation}>
-            {/* <RPB.GradientBackdrop size={pageSize} orientation={orientation} swatch="white">
+            <RPB.GradientBackdrop
+              size={pageSize}
+              orientation={orientation}
+              gradient={[
+                { offset: '0%', stopColor: 'red', stopOpacity: 0 },
+                { offset: '100%', stopColor: 'red', stopOpacity: 0 },
+              ]}
+            >
               <RectangleShape
                 linearGradientCoords={{ x1: 0.81, y1: 0.5, x2: 0.9, y2: 0 }}
                 gradient={[
@@ -129,7 +146,7 @@ export const Demo = ({ themeName = 'light', ...props }: DemoProps) => {
                   { offset: '100%', stopColor: theme.colorScheme.greyscale.black, stopOpacity: 0.05 },
                 ]}
               />
-            </RPB.GradientBackdrop> */}
+            </RPB.GradientBackdrop>
             <RPB.Box direction="y" style={{ gap: 10 * scale }}>
               <RPB.Heading5 rule>Basic Typography</RPB.Heading5>
               <RPB.Heading1 rule>Heading 1</RPB.Heading1>
@@ -577,6 +594,7 @@ export const Demo = ({ themeName = 'light', ...props }: DemoProps) => {
               </RPB.Box>
             </RPB.Box>
             <RPB.Box
+              fixed
               direction="x"
               style={{
                 position: 'absolute',
@@ -592,7 +610,6 @@ export const Demo = ({ themeName = 'light', ...props }: DemoProps) => {
                 paddingRight: 72 * 0.5 * scale,
                 paddingBottom: 72 * 0.5 * scale,
               }}
-              fixed
             >
               <RPB.Paragraph style={{ marginBottom: 0 }}>
                 <RPB.Link

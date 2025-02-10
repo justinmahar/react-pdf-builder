@@ -2,6 +2,10 @@ import React from 'react';
 import { RectangleShape } from '../shapes/RectangleShape';
 import { GradientType } from '../shapes/Gradients';
 
+/**
+ * These are decorators that can be added as children to a GradientBackdrop.
+ * They add overlapping shapes to create a unique look.
+ */
 export class BackdropDecorators {
   // === Circles 1 === === ===
   public static circles1 = [

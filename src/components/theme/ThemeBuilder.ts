@@ -35,11 +35,11 @@ export abstract class ThemeBuilder {
   }
 
   // === Static === === === === === === === ===
-  public static overrideTheme(theme: Theme, override: PartialTheme = {}): Theme {
+  public static overrideTheme(theme: PartialTheme, override: PartialTheme = {}): Theme {
     return deepMerge(theme, override) as Theme;
   }
 
-  public static overrideColorScheme(colorScheme: ColorScheme, overrides: PartialColorScheme = {}): ColorScheme {
+  public static overrideColorScheme(colorScheme: PartialColorScheme, overrides: PartialColorScheme = {}): ColorScheme {
     return deepMerge(colorScheme, overrides) as ColorScheme;
   }
 

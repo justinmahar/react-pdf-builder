@@ -50,7 +50,7 @@ const StoryComponent = ({ fontFamily, ...props }: { fontFamily: string }) => {
 
 // === Setup ===
 const meta: Meta<typeof StoryComponent> = {
-  title: 'Stories/Fonts', // <-- Set to your story title
+  title: 'Stories/Fonts/Families', // <-- Set to your story title
   component: StoryComponent,
   parameters: {
     options: { showPanel: false }, // Don't show addons panel

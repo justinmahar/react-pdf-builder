@@ -12,7 +12,9 @@ export const QuickStart = () => {
           <RPB.Heading3 rule>Hello, world!</RPB.Heading3>
           <RPB.Paragraph>Let's get started building the PDF.</RPB.Paragraph>
           <RPB.Box direction="y" gap={15}>
-            <RPB.Button>Button</RPB.Button>
+            <RPB.Box direction="x">
+              <RPB.Button href="#">Button</RPB.Button>
+            </RPB.Box>
             <RPB.Box direction="x" gap={15}>
               <RPB.Card swatch="gray300" style={{ marginBottom: 0, width: '50%' }}>
                 <RPB.CardHeader>Example</RPB.CardHeader>

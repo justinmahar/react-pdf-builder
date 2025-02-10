@@ -25,7 +25,7 @@ Read the **[official documentation](https://justinmahar.github.io/react-pdf-buil
 
 React PDF Builder is a fully themeable component framework built on [react-pdf](https://react-pdf.org/) and [pdfkit](https://pdfkit.org/).
 
-The framework includes ready-to-use components for headings, paragraphs, lists, buttons, cards, and more.
+The framework includes ready-to-use components for headings, paragraphs, lists, tables, buttons, cards, and more.
 
 If you want to build beautiful PDFs in React without starting from scratch, this is the library for you!
 
@@ -37,7 +37,7 @@ If you want to build beautiful PDFs in React without starting from scratch, this
   - All colors and component props can be overridden easily.
 - **📏 Scalable to any page size**
   - Easily scale all components to match your preferred size.
-- **🖋️ Drop-in support for 24 commonly used fonts (including bold/italics!)**
+- **🖋️ Drop-in support for 25 commonly used fonts (including bold/italics!)**
   - Easily use popular fonts like Roboto, Lato, Raleway, or Montserrat—including formatting styles!
 - **📊 Table support with page wrapping, theming, and colspans**
   - Need tables? Look no further. Beautiful tables are at your fingertips.
@@ -102,7 +102,9 @@ export const QuickStart = () => {
           <RPB.Heading3 rule>Hello, world!</RPB.Heading3>
           <RPB.Paragraph>Let's get started building the PDF.</RPB.Paragraph>
           <RPB.Box direction="y" gap={15}>
-            <RPB.Button>Button</RPB.Button>
+            <RPB.Box direction="x">
+              <RPB.Button href="#">Button</RPB.Button>
+            </RPB.Box>
             <RPB.Box direction="x" gap={15}>
               <RPB.Card swatch="gray300" style={{ marginBottom: 0, width: '50%' }}>
                 <RPB.CardHeader>Example</RPB.CardHeader>

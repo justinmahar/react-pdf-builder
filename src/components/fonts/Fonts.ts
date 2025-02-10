@@ -1,6 +1,6 @@
 import { FontWeight } from '@react-pdf/types';
 
-const defaultFontsDirUrl = 'https://justinmahar.github.io/react-pdf-builder/fonts';
+const defaultFontsCdnUrl = 'https://cdn.jsdelivr.net/gh/justinmahar/react-pdf-builder/public/fonts';
 
 /** Matches font loading interface expected by React-PDF */
 export interface BulkLoad {
@@ -509,7 +509,7 @@ export const fontDefinitions: FontFilesDefinition[] = [
 const createFontSrc = (fontsDirUrl: string | undefined, family: FontFilesDefinition, filename: string) => {
   const src = fontsDirUrl
     ? `${fontsDirUrl}${fontsDirUrl.endsWith('/') ? '' : '/'}${filename}`
-    : `${defaultFontsDirUrl}${defaultFontsDirUrl.endsWith('/') ? '' : '/'}${family.type}/${family.dir}/${filename}`;
+    : `${defaultFontsCdnUrl}${defaultFontsCdnUrl.endsWith('/') ? '' : '/'}${family.type}/${family.dir}/${filename}`;
   return src;
 };
 
@@ -552,6 +552,60 @@ export class Fonts {
     playfairDisplay: 'Playfair Display',
     ptSerif: 'PT Serif',
   };
+  public static emojis = {
+    /**
+     * Pass returned emoji source into `Font.registerEmojiSource()`.
+     *
+     * Emoji source GitHub project: https://github.com/twitter/twemoji
+     *
+     * @param size Default 72.
+     * @param version Default `14.0.2`
+     */
+    twemoji: (size: number = 72, version: string = '14.0.2') => ({
+      format: 'png',
+      url: `https://cdnjs.cloudflare.com/ajax/libs/twemoji/${version}/${size}x${size}/`,
+    }),
+    /**
+     * Pass returned emoji source into `Font.registerEmojiSource()`.
+     *
+     * Emoji source GitHub project: https://github.com/joypixels/emoji-toolkit
+     *
+     * @param size 32 or 64. Default 64.
+     * @param version `8.0` or `9.0`. Default `9.0`
+     */
+    joyPixels: (size: number = 64, version: string = '9.0') => ({
+      format: 'png',
+      url: `https://cdn.jsdelivr.net/joypixels/assets/${version}/png/unicode/${size}/`,
+    }),
+    /**
+     * Pass returned emoji source into `Font.registerEmojiSource()`.
+     *
+     * Emoji source GitHub project: https://github.com/hfg-gmuend/openmoji
+     *
+     * @param size 72 or 618. Default 72.
+     * @param version Default `latest`
+     */
+    openMoji: (size: number = 72, version: string = 'latest') => ({
+      format: 'png',
+      builder: (code: string) => {
+        return `https://cdn.jsdelivr.net/gh/hfg-gmuend/openmoji@${version}/color/${size}x${size}/${code.toUpperCase()}.png`;
+      },
+    }),
+    /**
+     * Pass returned emoji source into `Font.registerEmojiSource()`.
+     *
+     * Emoji source GitHub project: https://github.com/googlefonts/noto-emoji
+     *
+     * @param size 32, 72, 128, or 512. Default 72.
+     * @param version Default `latest`
+     */
+    notoEmoji: (size: number = 72, version: string = 'latest') => ({
+      format: 'png',
+      builder: (code: string) => {
+        return `https://cdn.jsdelivr.net/gh/googlefonts/noto-emoji@${version}/png/${size}/emoji_u${code.split('-').join('_')}.png`;
+      },
+    }),
+  };
 
   /**
    * Constructs a BulkLoad object compatible with React PDF for the provided font family, specifying all font files
@@ -560,9 +614,8 @@ export class Fonts {
    *
    * All supported font family names are defined in Fonts, such as `Fonts.sansSerif.roboto`.
    *
-   * By default, the fonts are loaded from the
-   * [React PDF Builder GitHub Pages site](https://justinmahar.github.io/react-pdf-builder/), allowing you to drop in
-   * font support very quickly. However, you will likely want to self-host the font files at some point. As such, you can
+   * By default, the fonts are loaded from cdn.jsdelivr.net, allowing you to drop in
+   * font support very quickly. However, you may want to self-host the font files at some point. As such, you can
    * provide the `fontsDirUrl` prop pointing to the root path where your font files are located, and the fonts will
    * be loaded from there instead. The expected font files for each family can be found in the
    * [project repo](https://github.com/justinmahar/react-pdf-builder/tree/master/public/fonts).
@@ -572,8 +625,7 @@ export class Fonts {
    * For additional font support, see https://react-pdf.org/fonts
    *
    * @param fontFamily The name of the font family to load, defined by `Fonts`.
-   * @param fontsDirUrl Optional. URL path where font files are located. Otherwise, fonts will be loaded from the
-   * [React PDF Builder GitHub Pages site](https://justinmahar.github.io/react-pdf-builder/).
+   * @param fontsDirUrl Optional. URL path where font files are located. Otherwise, fonts will be loaded from cdn.jsdelivr.net.
    * @returns A BulkLoad compatible with React PDF, that can be passed into `Font.register()`
    */
   public static load = (fontFamily: string, fontsDirUrl?: string): BulkLoad | undefined => {
