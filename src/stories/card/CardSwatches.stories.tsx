@@ -18,22 +18,18 @@ const StoryComponent = (props: CardProps) => {
         <CardBody withFooter>
           <Heading6>{`This card uses the "${swatch}" swatch`}</Heading6>
           <Paragraph style={{ marginBottom: 0 }}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-            ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-            nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
-            anim id est laborum.
+            This CardBody has the withFooter prop. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
+            in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
           </Paragraph>
         </CardBody>
         <CardBody withFooter>
-          <Paragraph style={{ marginBottom: 0 }}>
-            This is a middle section. It uses both the withHeader and withFooter props.
-          </Paragraph>
+          <Paragraph style={{ marginBottom: 0 }}>This is a middle section. It uses the withFooter prop.</Paragraph>
         </CardBody>
         <CardBody>
-          <Paragraph style={{ marginBottom: 0 }}>
-            This is a footer. It's just another CardBody that uses the withHeader prop.
-          </Paragraph>
+          <Paragraph style={{ marginBottom: 0 }}>This is a footer. It's just another CardBody.</Paragraph>
         </CardBody>
       </Card>
     </PDFStory>
