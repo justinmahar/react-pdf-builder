@@ -115,7 +115,7 @@ export const Demo = ({
               ]}
             >
               <RectangleShape
-                linearGradientCoords={{ x1: 0.81, y1: 0.5, x2: 0.9, y2: 0 }}
+                linearGradientCoords={{ x1: 0.85, y1: 0.5, x2: 0.87, y2: 0 }}
                 gradient={[
                   { offset: '0%', stopColor: '#000000', stopOpacity: 0 },
                   { offset: '96%', stopColor: '#000000', stopOpacity: 0 },
@@ -133,7 +133,7 @@ export const Demo = ({
                 ]}
               />
               <RectangleShape
-                linearGradientCoords={{ x1: 0.85, y1: 0.5, x2: 0.87, y2: 0 }}
+                linearGradientCoords={{ x1: 0.81, y1: 0.5, x2: 0.9, y2: 0 }}
                 gradient={[
                   { offset: '0%', stopColor: '#000000', stopOpacity: 0 },
                   { offset: '96%', stopColor: '#000000', stopOpacity: 0 },
