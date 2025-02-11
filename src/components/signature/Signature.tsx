@@ -30,6 +30,7 @@ export const Signature = ({ children, theme = Themes.default.build(), style, ...
   };
 
   const styleOverride: Style = {};
+  const xStyleOverride: Style = {};
   if (typeof mergedProps.lineSize !== 'undefined') {
     styleOverride.borderBottom = mergedProps.lineSize;
   }
@@ -37,11 +38,16 @@ export const Signature = ({ children, theme = Themes.default.build(), style, ...
     const swatchColor = ThemeBuilder.getSwatchColor(mergedProps.swatch, theme.colorScheme);
     styleOverride.borderColor = swatchColor;
     styleOverride.color = swatchColor;
+    xStyleOverride.color = swatchColor;
   }
 
   return (
     <Box direction="x" {...mergedProps} style={{ ...styleInnate, ...themeProps?.style, ...styleOverride, ...style }}>
-      {mergedProps.x && <Text {...mergedProps.xProps}>{mergedProps.xValue ?? 'X'}</Text>}
+      {mergedProps.x && (
+        <Text {...mergedProps.xProps} style={{ ...mergedProps.xProps?.style, ...xStyleOverride }}>
+          {mergedProps.xValue ?? 'X'}
+        </Text>
+      )}
       <PDFSafeChildren>{children}</PDFSafeChildren>
     </Box>
   );

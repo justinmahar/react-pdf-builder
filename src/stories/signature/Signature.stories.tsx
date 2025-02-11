@@ -44,7 +44,7 @@ export const CustomX: Story = {
 };
 
 export const WithSwatch: Story = {
-  args: { swatch: 'primary' },
+  args: { x: true, swatch: 'primary' },
 };
 
 export const FullExample: Story = {

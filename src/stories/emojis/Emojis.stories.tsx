@@ -1,15 +1,15 @@
-import { Font, View } from '@react-pdf/renderer';
+import { Font } from '@react-pdf/renderer';
 import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
-import { Fonts } from '../../fonts/Fonts';
+import { Card } from '../../components/card/Card';
+import { CardBody } from '../../components/card/CardBody';
+import { Box } from '../../components/layout/Box';
 import { ListItem } from '../../components/lists/ListItem';
 import { UnorderedList } from '../../components/lists/UnorderedList';
 import { Heading3 } from '../../components/typography/Heading3';
 import { Paragraph } from '../../components/typography/Paragraph';
+import { Fonts } from '../../fonts/Fonts';
 import { PDFStory } from '../parts/PDFStory';
-import { Box } from '../../components/layout/Box';
-import { Card } from '../../components/card/Card';
-import { CardBody } from '../../components/card/CardBody';
 
 const StoryComponent = (props: { emojiSource: any; showFullList: boolean; sourceName: string }) => {
   Font.registerEmojiSource(props.emojiSource);

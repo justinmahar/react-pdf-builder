@@ -46,6 +46,7 @@ export const PastelCustomTheme: Story = {
     override: {
       pageProps: {
         style: {
+          color: '#343a40',
           backgroundColor: '#F5F9FD',
         },
       },
@@ -96,15 +97,35 @@ export const PastelCustomTheme: Story = {
       linkProps: {
         style: {
           color: '#5C9DFE',
+          fontWeight: 'bold',
+        },
+      },
+      cardHeaderProps: {
+        style: {
+          borderTopLeftRadius: 0,
+          borderTopRightRadius: 0,
+          borderBottomLeftRadius: 0,
+          borderBottomRightRadius: 0,
+          borderRadius: 0,
         },
       },
       cardBodyProps: {
         style: {
+          borderTopLeftRadius: 0,
+          borderTopRightRadius: 0,
+          borderBottomLeftRadius: 0,
+          borderBottomRightRadius: 0,
+          borderRadius: 0,
           backgroundColor: '#F5F9FD',
         },
       },
       buttonProps: {
         linkColor: '#5C9DFE',
+        style: {
+          borderColor: '#343a40',
+          borderWidth: 1,
+          borderRadius: 0,
+        },
       },
       tableProps: {
         stripeOpacity: 0.1,
@@ -114,6 +135,17 @@ export const PastelCustomTheme: Story = {
       },
       tableCellProps: {
         swatchOpacity: 0.5,
+      },
+      headingProps: {
+        style: {
+          color: '#343a40',
+          borderBottomColor: '#343a40',
+        },
+      },
+      signatureProps: {
+        style: {
+          borderBottomColor: '#343a40',
+        },
       },
       blockquoteProps: {
         swatchOpacity: 0.3,

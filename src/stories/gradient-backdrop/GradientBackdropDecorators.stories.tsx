@@ -1,10 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
-import { Heading1 } from '../../components/typography/Heading1';
-import { PDFStory } from '../parts/PDFStory';
-import { GradientBackdrop, GradientBackdropProps } from '../../components/backdrops/GradientBackdrop';
-import { Gradients, GradientType } from '../../components/shapes/Gradients';
 import { BackdropDecorators } from '../../components/backdrops/BackdropDecorators';
+import { GradientBackdrop } from '../../components/backdrops/GradientBackdrop';
+import { PDFStory } from '../parts/PDFStory';
 
 const StoryComponent = ({ decorators, ...props }: { decorators: React.JSX.Element[] }) => {
   return (
