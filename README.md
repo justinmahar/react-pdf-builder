@@ -19,7 +19,7 @@
 
 ## Documentation
 
-Read the **[official documentation](https://justinmahar.github.io/react-pdf-builder/)**.
+Read the **[official documentation](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-usage-guide--docs)**.
 
 ## Overview
 
@@ -37,7 +37,7 @@ If you want to build beautiful PDFs in React without starting from scratch, this
   - All colors and component props can be overridden easily.
 - **📏 Scalable to any page size**
   - Easily scale all components to match your preferred size.
-- **🖋️ Drop-in support for 25 commonly used fonts (including bold/italics!)**
+- **🖋️ Drop-in support for 25 commonly used fonts, with bold & italics**
   - Easily use popular fonts like Roboto, Lato, Raleway, or Montserrat—including formatting styles!
 - **🥳 Support for 4 different emoji sets**
   - Enable emojis by JoyPixels, Noto Emoji, OpenMoji, or Twemoji, with one line of code.
@@ -50,7 +50,7 @@ If you want to build beautiful PDFs in React without starting from scratch, this
 - **🔧 Built on well-maintained libraries**
   - This component framework is built on [react-pdf](https://react-pdf.org/) and [pdfkit](https://pdfkit.org/), which are maintained by only the best and brightest.
 - **🚀 Much more!** 
-  - Dive into the documentation to learn more!
+  - Dive into the [documentation](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-usage-guide--docs) to learn more!
 
 <!-- [lock:donate] 🚫--------------------------------------- -->
 
@@ -89,7 +89,9 @@ npm i @react-pdf/renderer react-pdf-builder
 
 Below is a component that renders a standard A4 size PDF with a heading, paragraph, card, and table. You can use this as a starting point.
 
-Most components can be themed using the `swatch` prop, and custom styled using `style` and CSS. Use `LETTER` page size for 8.5x11" paper used in the US.
+Most components can be themed using the `swatch` prop, and custom styled using `style` and CSS. 
+
+Use `LETTER` page size for 8.5x11" paper used in the USA.
 
 ```jsx
 import { ReactPDFBuilder, Themes } from 'react-pdf-builder';
@@ -142,6 +144,8 @@ This will create the following PDF:
 Click [here](https://justinmahar.github.io/react-pdf-builder/?path=/story/demo-demo--quick-start) to see a live demo of this quick start.
 
 You can also see the <a href="https://justinmahar.github.io/react-pdf-builder/?path=/story/demo-demo--demo">main project demo</a> for a deeper look at what's possible with this library.
+
+Read the full [usage guide here](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-usage-guide--docs).
 
 <!-- [lock:typescript] 🚫--------------------------------------- -->
 
