@@ -13,7 +13,7 @@ const StoryComponent = ({ ...props }: ThemedLinkProps) => {
   return (
     <PDFStory>
       <Card swatch="gray600">
-        <CardBody noHeader>
+        <CardBody>
           <Box direction="x" gap={3}>
             <UnorderedList style={{ marginBottom: 0 }}>
               <ListItem style={{ marginBottom: 20 }}>

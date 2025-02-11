@@ -2,7 +2,6 @@ import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 import { Card } from '../../components/card/Card';
 import { CardHeader } from '../../components/card/CardHeader';
-import { Heading5 } from '../../components/typography/Heading5';
 import { ParagraphProps } from '../../components/typography/Paragraph';
 import { PDFStory } from '../parts/PDFStory';
 
@@ -10,7 +9,7 @@ const StoryComponent = (props: ParagraphProps) => {
   return (
     <PDFStory>
       <Card>
-        <CardHeader noBody>Card header with no body</CardHeader>
+        <CardHeader>Card header with no body</CardHeader>
       </Card>
     </PDFStory>
   );

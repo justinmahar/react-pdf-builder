@@ -12,6 +12,7 @@ export interface CardHeaderProps extends BoxProps {
   children?: any;
   as?: any;
   noBody?: boolean;
+  withHeader?: boolean;
   swatch?: SwatchColor;
   swatchOpacity?: number;
   theme?: Theme;
@@ -42,6 +43,10 @@ export const CardHeader = ({ children, theme = Themes.default.build(), style, ..
   if (!mergedProps.noBody) {
     styleOverride.borderBottomLeftRadius = 0;
     styleOverride.borderBottomRightRadius = 0;
+  }
+  if (mergedProps.withHeader) {
+    styleOverride.borderTopLeftRadius = 0;
+    styleOverride.borderTopRightRadius = 0;
   }
   if (mergedProps.swatch) {
     const swatchColor = ThemeBuilder.getSwatchColor(mergedProps.swatch, theme.colorScheme);

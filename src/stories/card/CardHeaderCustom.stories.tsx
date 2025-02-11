@@ -37,7 +37,7 @@ const StoryComponent = (props: ParagraphProps) => {
             space-between.
           </Paragraph>
           <Paragraph>Inside the horizontal box is:</Paragraph>
-          <OrderedList>
+          <OrderedList style={{ marginBottom: 0 }}>
             <ListItem>A vertical box with a Heading5 and a Paragraph</ListItem>
             <ListItem>A Button containing a Heading3 with no bottom margin and the text 42%</ListItem>
           </OrderedList>

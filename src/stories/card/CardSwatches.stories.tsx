@@ -10,23 +10,22 @@ import { ThemeBuilder } from '../../themes/ThemeBuilder';
 
 const StoryComponent = (props: CardProps) => {
   const swatch = props.swatch ?? 'primary';
-  const contrastColor = ThemeBuilder.getContrastColor(swatch, props.theme?.colorScheme);
   return (
     <PDFStory>
       <Card {...props}>
         <CardHeader>{`${swatch.substring(0, 1).toUpperCase() + swatch.substring(1)} Card`}</CardHeader>
-        <CardBody withFooter>
+        <CardBody>
           <Heading6>{`This card uses the "${swatch}" swatch`}</Heading6>
           <Paragraph style={{ marginBottom: 0 }}>
-            This CardBody has the withFooter prop. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
-            in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+            ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+            nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
+            anim id est laborum.
           </Paragraph>
         </CardBody>
-        <CardBody withFooter>
-          <Paragraph style={{ marginBottom: 0 }}>This is a middle section. It uses the withFooter prop.</Paragraph>
+        <CardBody>
+          <Paragraph style={{ marginBottom: 0 }}>This is a middle section.</Paragraph>
         </CardBody>
         <CardBody>
           <Paragraph style={{ marginBottom: 0 }}>This is a footer. It's just another CardBody.</Paragraph>

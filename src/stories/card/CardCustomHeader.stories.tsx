@@ -16,7 +16,6 @@ const StoryComponent = (props: ParagraphProps) => {
         <CardHeader as={Heading1}>Heading1</CardHeader>
         <CardBody>
           <Heading6>What's happening here?</Heading6>
-
           <Paragraph>
             If a CardHeader's child is a string, it will automatically be wrapped in a Heading5 with no bottom margin
             for you.

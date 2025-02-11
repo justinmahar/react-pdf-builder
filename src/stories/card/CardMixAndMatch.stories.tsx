@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 import { Card } from '../../components/card/Card';
 import { CardBody } from '../../components/card/CardBody';
-import { Heading4 } from '../../components/typography/Heading4';
+import { CardHeader } from '../../components/card/CardHeader';
 import { Paragraph, ParagraphProps } from '../../components/typography/Paragraph';
 import { PDFStory } from '../parts/PDFStory';
 
@@ -10,16 +10,14 @@ const StoryComponent = (props: ParagraphProps) => {
   return (
     <PDFStory>
       <Card>
-        <CardBody>
-          <Heading4>This is a card with no header</Heading4>
-          <Paragraph style={{ marginBottom: 0 }}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-            ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-            nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
-            anim id est laborum.
-          </Paragraph>
-        </CardBody>
+        <CardHeader swatch="primary">Card header with "primary" swatch</CardHeader>
+        <CardBody>Card body. Lorem ipsum dolor sit amet.</CardBody>
+        <CardBody>Another card body.</CardBody>
+        <CardHeader swatch="gray700">Header with "gray700" swatch</CardHeader>
+        <CardBody>Card body. Lorem ipsum dolor sit amet.</CardBody>
+        <CardBody swatch="yellow">Swatch "yellow" card body. </CardBody>
+        <CardBody>Card body. Lorem ipsum dolor sit amet.</CardBody>
+        <CardHeader>Headers can be used as footers</CardHeader>
       </Card>
     </PDFStory>
   );
@@ -37,6 +35,6 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 // === Stories ===
-export const BodyOnly: Story = {
+export const MixAndMatch: Story = {
   args: {},
 };

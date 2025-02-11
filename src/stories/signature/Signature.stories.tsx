@@ -31,12 +31,12 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 // === Stories ===
-export const NoX: Story = {
-  args: {},
-};
-
 export const WithX: Story = {
   args: { x: true },
+};
+
+export const NoX: Story = {
+  args: {},
 };
 
 export const CustomX: Story = {
