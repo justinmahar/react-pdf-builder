@@ -20,7 +20,7 @@ const StoryComponent = (props: { emojiSource: any; showFullList: boolean; source
         <CardBody>
           <Box direction="x" gap={15} style={{ alignItems: 'center' }}>
             <Paragraph style={{ width: 40, fontSize: 36, marginBottom: 0 }}>ℹ️</Paragraph>
-            <Paragraph style={{ marginBottom: 0 }}>
+            <Paragraph style={{ width: '100%', marginBottom: 0 }}>
               Note: Due to browser caching, you must reload the page to view different emoji sources.
             </Paragraph>
           </Box>
