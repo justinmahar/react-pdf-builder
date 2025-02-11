@@ -2,7 +2,7 @@ import React from 'react';
 import { Style } from '../Style';
 import { Theme } from '../theme/Theme';
 import { ThemeBuilder } from '../theme/ThemeBuilder';
-import { SwatchColor } from '../theme/themes/ColorScheme';
+import { SwatchColor } from '../theme/ColorScheme';
 import { Themes } from '../theme/themes/Themes';
 import { Paragraph, ParagraphProps } from '../typography/Paragraph';
 

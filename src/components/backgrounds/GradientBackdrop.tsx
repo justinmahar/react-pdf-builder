@@ -5,7 +5,7 @@ import { GradientStop, GradientType } from '../shapes/Gradients';
 import { RectangleShape } from '../shapes/RectangleShape';
 import { Backdrops } from './Backdrops';
 import { Theme } from '../theme/Theme';
-import { SwatchColor } from '../theme/themes/ColorScheme';
+import { SwatchColor } from '../theme/ColorScheme';
 import { ThemeBuilder } from '../theme/ThemeBuilder';
 import { Themes } from '../theme/themes/Themes';
 import Color from 'color';

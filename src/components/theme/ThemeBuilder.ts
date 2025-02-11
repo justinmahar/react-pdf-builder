@@ -9,7 +9,7 @@ import {
   SwatchColor,
   SwatchColors,
   ThemeColors,
-} from './themes/ColorScheme';
+} from './ColorScheme';
 
 export abstract class ThemeBuilder {
   constructor(public colorScheme: ColorScheme) {}

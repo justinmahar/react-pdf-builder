@@ -5,7 +5,7 @@ import { Style } from '../Style';
 import { Theme } from '../theme/Theme';
 import { ThemeBuilder } from '../theme/ThemeBuilder';
 import { Themes } from '../theme/themes/Themes';
-import { SwatchColor } from '../theme/themes/ColorScheme';
+import { SwatchColor } from '../theme/ColorScheme';
 
 export interface ButtonProps extends ViewProps {
   href?: string;

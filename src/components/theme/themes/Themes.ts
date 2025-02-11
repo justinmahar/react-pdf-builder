@@ -1,4 +1,4 @@
-import { DarkThemeBuilder } from './light/DarkThemeBuilder';
+import { DarkThemeBuilder } from './dark/DarkThemeBuilder';
 import { LightThemeBuilder as LightThemeBuilder } from './light/LightThemeBuilder';
 
 export class Themes {

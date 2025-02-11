@@ -1,11 +1,11 @@
 import { Theme } from '../../Theme';
 import { ThemeBuilder } from '../../ThemeBuilder';
-import { ColorScheme } from '../ColorScheme';
-import { bootstrapLightColorScheme } from './BootstrapLightColorScheme';
+import { ColorScheme } from '../../ColorScheme';
+import { lightColorScheme } from './LightColorScheme';
 
 export class LightThemeBuilder extends ThemeBuilder {
   constructor() {
-    super(bootstrapLightColorScheme);
+    super(lightColorScheme);
   }
   public doBuild(scale: number, colorScheme: ColorScheme): Theme {
     const borderColor = colorScheme.greyscale.gray500;

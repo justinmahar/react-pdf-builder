@@ -63,7 +63,7 @@ export class ReactPDFBuilder {
   public Paragraph;
   public Signature;
 
-  constructor(public theme: Theme = Themes.light.build()) {
+  constructor(public theme: Theme = Themes.default.build()) {
     this.GradientBackdrop = ({ children, ...props }: GradientBackdropProps) => (
       <GradientBackdrop {...props}>{children}</GradientBackdrop>
     );

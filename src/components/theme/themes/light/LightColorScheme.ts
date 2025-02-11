@@ -1,4 +1,4 @@
-import { ColorScheme, SwatchColors, GreyscaleColors, PaletteColors, ThemeColors } from '../ColorScheme';
+import { ColorScheme, SwatchColors, GreyscaleColors, PaletteColors, ThemeColors } from '../../ColorScheme';
 
 const colors: PaletteColors = {
   blue: '#0d6efd',
@@ -71,7 +71,7 @@ const contrastColors: SwatchColors = {
 };
 
 /** Color scheme based on Bootstrap 5 colors. */
-export const bootstrapLightColorScheme: ColorScheme = {
+export const lightColorScheme: ColorScheme = {
   colors: colors,
   greyscale: greyscale,
   theme: themeColors,

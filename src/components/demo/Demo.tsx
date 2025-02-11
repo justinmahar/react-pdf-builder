@@ -7,7 +7,7 @@ import { Fonts } from '../fonts/Fonts';
 import { GradientType } from '../shapes/Gradients';
 import { PartialTheme } from '../theme/Theme';
 import { ThemeBuilder, ThemeBuilderConfig } from '../theme/ThemeBuilder';
-import { SwatchColor } from '../theme/themes/ColorScheme';
+import { SwatchColor } from '../theme/ColorScheme';
 import { Themes } from '../theme/themes/Themes';
 import { PageSizeString } from '../pages/PageSizes';
 import { RectangleShape } from '../shapes/RectangleShape';
@@ -59,12 +59,7 @@ export const Demo = ({
   const footerHeight = '12.12%';
 
   return (
-    <div
-      {...props}
-      style={{
-        ...props.style,
-      }}
-    >
+    <div {...props}>
       <PDFViewer style={{ height: 700, width: 500 }}>
         <Document>
           {showCoverPage && (

@@ -13,7 +13,7 @@ import { TableProps } from '../table/Table';
 import { ListItemProps } from '../lists/ListItem';
 import { ListItemContainerProps } from '../lists/ListItemContainer';
 import { ButtonProps } from '../button/Button';
-import { ColorScheme } from './themes/ColorScheme';
+import { ColorScheme } from './ColorScheme';
 import { DeepPartial } from '../util';
 import { ThemedLinkProps } from '../link/ThemedLink';
 import { SignatureProps } from '../signature/Signature';

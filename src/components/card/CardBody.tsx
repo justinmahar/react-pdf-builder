@@ -4,7 +4,7 @@ import { PDFSafeChildren } from '../builder/PDFSafeChildren';
 import { Style } from '../Style';
 import { Theme } from '../theme/Theme';
 import { Themes } from '../theme/themes/Themes';
-import { SwatchColor } from '../theme/themes/ColorScheme';
+import { SwatchColor } from '../theme/ColorScheme';
 import { ThemeBuilder } from '../theme/ThemeBuilder';
 import Color from 'color';
 

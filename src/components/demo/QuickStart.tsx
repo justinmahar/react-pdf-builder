@@ -1,10 +1,9 @@
 import { Document, PDFViewer } from '@react-pdf/renderer';
 import React from 'react';
 import { ReactPDFBuilder } from '../builder/ReactPDFBuilder';
-import { Themes } from '../theme/themes/Themes';
 
 export const QuickStart = () => {
-  const RPB = new ReactPDFBuilder(Themes.light.build());
+  const RPB = new ReactPDFBuilder();
   return (
     <PDFViewer style={{ height: 700, width: 500 }}>
       <Document>

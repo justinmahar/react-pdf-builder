@@ -1,4 +1,4 @@
-import { DeepPartial } from '../../util';
+import { DeepPartial } from '../util';
 
 export interface PaletteColors {
   blue: string;

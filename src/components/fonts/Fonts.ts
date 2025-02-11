@@ -530,6 +530,7 @@ export class Fonts {
     spaceMono: 'Space Mono',
     ubuntuMono: 'Ubuntu Mono',
   };
+
   public static sansSerif = {
     inter: 'Inter',
     lato: 'Lato',
@@ -541,6 +542,7 @@ export class Fonts {
     robotoCondensed: 'Roboto Condensed',
     roboto: 'Roboto',
   };
+
   public static serif = {
     bitter: 'Bitter',
     crimsonText: 'Crimson Text',
@@ -552,6 +554,7 @@ export class Fonts {
     playfairDisplay: 'Playfair Display',
     ptSerif: 'PT Serif',
   };
+
   public static emojis = {
     /**
      * Twemoji emoji source that can be passed into `Font.registerEmojiSource()`.
@@ -559,7 +562,7 @@ export class Fonts {
      * Emoji source GitHub project: https://github.com/twitter/twemoji
      *
      * @param size Default `72`.
-     * @param version Version string. Default `14.0.2`
+     * @param version Version string. Default `14.0.2`. See all releases here: https://github.com/twitter/twemoji/releases
      */
     twemoji: (size: number = 72, version: string = '14.0.2') => ({
       format: 'png',
@@ -571,7 +574,7 @@ export class Fonts {
      * Emoji source GitHub project: https://github.com/joypixels/emoji-toolkit
      *
      * @param size `32` or `64`. Default `64`.
-     * @param version Version string, such as `8.0` or `9.0`. Default `9.0`
+     * @param version Version string. Default `9.0`. See all releases here: https://github.com/joypixels/emoji-toolkit/releases
      */
     joyPixels: (size: number = 64, version: string = '9.0') => ({
       format: 'png',
@@ -583,9 +586,9 @@ export class Fonts {
      * Emoji source GitHub project: https://github.com/hfg-gmuend/openmoji
      *
      * @param size `72` or `618`. Default `72`.
-     * @param version Default `latest`
+     * @param version Version string. Default `15.1.0`. See all version tags here: https://github.com/hfg-gmuend/openmoji/releases
      */
-    openMoji: (size: number = 72, version: string = 'latest') => ({
+    openMojiColor: (size: number = 72, version: string = '15.1.0') => ({
       format: 'png',
       builder: (code: string) => {
         return `https://cdn.jsdelivr.net/gh/hfg-gmuend/openmoji@${version}/color/${size}x${size}/${code.toUpperCase()}.png`;
@@ -597,9 +600,9 @@ export class Fonts {
      * Emoji source GitHub project: https://github.com/hfg-gmuend/openmoji
      *
      * @param size `72` or `618`. Default `72`.
-     * @param version Default `latest`
+     * @param version Version string. Default `15.1.0`. See all version tags here: https://github.com/hfg-gmuend/openmoji/releases
      */
-    openMojiBlack: (size: number = 72, version: string = 'latest') => ({
+    openMojiBlack: (size: number = 72, version: string = '15.1.0') => ({
       format: 'png',
       builder: (code: string) => {
         return `https://cdn.jsdelivr.net/gh/hfg-gmuend/openmoji@${version}/black/${size}x${size}/${code.toUpperCase()}.png`;
@@ -611,9 +614,9 @@ export class Fonts {
      * Emoji source GitHub project: https://github.com/googlefonts/noto-emoji
      *
      * @param size `32`, `72`, `128`, or `512`. Default `72`.
-     * @param version Default `latest`
+     * @param version Version string. Default `v2.047`. See all versions tags here: https://github.com/googlefonts/noto-emoji/releases
      */
-    notoEmoji: (size: number = 72, version: string = 'latest') => ({
+    notoEmoji: (size: number = 72, version: string = 'v2.047') => ({
       format: 'png',
       builder: (code: string) => {
         return `https://cdn.jsdelivr.net/gh/googlefonts/noto-emoji@${version}/png/${size}/emoji_u${code.split('-').join('_')}.png`;

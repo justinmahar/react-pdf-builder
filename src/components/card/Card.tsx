@@ -4,7 +4,7 @@ import { Box, BoxProps } from '../layout/Box';
 import { Theme } from '../theme/Theme';
 import { Themes } from '../theme/themes/Themes';
 import { Style } from '../Style';
-import { SwatchColor } from '../theme/themes/ColorScheme';
+import { SwatchColor } from '../theme/ColorScheme';
 
 export interface CardProps extends BoxProps {
   children?: any;

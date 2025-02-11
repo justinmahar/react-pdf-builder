@@ -98,6 +98,11 @@ export const PastelCustomTheme: Story = {
           color: '#5C9DFE',
         },
       },
+      cardBodyProps: {
+        style: {
+          backgroundColor: '#F5F9FD',
+        },
+      },
       buttonProps: {
         linkColor: '#5C9DFE',
       },
@@ -112,6 +117,9 @@ export const PastelCustomTheme: Story = {
       },
       blockquoteProps: {
         swatchOpacity: 0.3,
+        style: {
+          borderLeftWidth: 20,
+        },
       },
     },
   },

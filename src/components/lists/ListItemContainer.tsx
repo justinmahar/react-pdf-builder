@@ -4,7 +4,7 @@ import { Style } from '../Style';
 import { PDFSafeChildren } from '../builder/PDFSafeChildren';
 import { Themes } from '../theme/themes/Themes';
 import { Theme } from '../theme/Theme';
-import { SwatchColor } from '../theme/themes/ColorScheme';
+import { SwatchColor } from '../theme/ColorScheme';
 import { ThemeBuilder } from '../theme/ThemeBuilder';
 
 export interface ListItemContainerProps extends ViewProps {

@@ -3,7 +3,7 @@ import React from 'react';
 import { PDFSafeChildren } from '../builder/PDFSafeChildren';
 import { Theme } from '../theme/Theme';
 import { Themes } from '../theme/themes/Themes';
-import { SwatchColor } from '../theme/themes/ColorScheme';
+import { SwatchColor } from '../theme/ColorScheme';
 import { Style } from '../Style';
 import { ThemeBuilder } from '../theme/ThemeBuilder';
 

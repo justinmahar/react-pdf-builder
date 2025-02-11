@@ -21,7 +21,7 @@ const StoryComponent = (props: { emojiSource: any; showFullList: boolean; source
           <Box direction="x" gap={15} style={{ alignItems: 'center' }}>
             <Paragraph style={{ width: 40, fontSize: 36, marginBottom: 0 }}>ℹ️</Paragraph>
             <Paragraph style={{ width: '100%', marginBottom: 0 }}>
-              Note: Due to browser caching, you must reload the page to view different emoji sources.
+              Note: You must reload the page to view different emoji sources.
             </Paragraph>
           </Box>
         </CardBody>
@@ -1736,7 +1736,7 @@ const StoryComponent = (props: { emojiSource: any; showFullList: boolean; source
           <ListItem>🙌 - Raising Hands</ListItem>
           <ListItem>🎉 - Party Popper</ListItem>
           <ListItem>🌟 - Glowing Star</ListItem>
-          <ListItem>🌍 - Earth Globe Europe-Africa</ListItem>
+          <ListItem>🌎 - Earth Globe</ListItem>
           <ListItem>🌺 - Hibiscus</ListItem>
           <ListItem>🔥 - Fire</ListItem>
           <ListItem>🚀 - Rocket</ListItem>
@@ -1861,10 +1861,10 @@ export const NotoEmojiSampleOf100: Story = {
   },
 };
 
-export const OpenMojiSampleOf100: Story = {
+export const OpenMojiColorSampleOf100: Story = {
   args: {
-    sourceName: 'OpenMoji - Sample of 100',
-    emojiSource: Fonts.emojis.openMoji(),
+    sourceName: 'OpenMoji Color - Sample of 100',
+    emojiSource: Fonts.emojis.openMojiColor(),
   },
 };
 
@@ -1901,7 +1901,7 @@ export const NotoEmojiFullList: Story = {
 export const OpenMojiFullList: Story = {
   args: {
     sourceName: 'OpenMoji - Full List',
-    emojiSource: Fonts.emojis.openMoji(),
+    emojiSource: Fonts.emojis.openMojiColor(),
     showFullList: true,
   },
 };
