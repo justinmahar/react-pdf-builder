@@ -1,7 +1,7 @@
 import { Font, View } from '@react-pdf/renderer';
 import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
-import { Fonts } from '../../components/fonts/Fonts';
+import { Fonts } from '../../fonts/Fonts';
 import { ListItem } from '../../components/lists/ListItem';
 import { UnorderedList } from '../../components/lists/UnorderedList';
 import { Heading3 } from '../../components/typography/Heading3';

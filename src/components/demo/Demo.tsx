@@ -3,7 +3,7 @@ import React from 'react';
 import { DivProps } from 'react-html-props';
 import { BackdropDecorators } from '../backgrounds/BackdropDecorators';
 import { ReactPDFBuilder } from '../builder/ReactPDFBuilder';
-import { Fonts } from '../fonts/Fonts';
+import { Fonts } from '../../fonts/Fonts';
 import { GradientType } from '../shapes/Gradients';
 import { PartialTheme } from '../theme/Theme';
 import { ThemeBuilder, ThemeBuilderConfig } from '../theme/ThemeBuilder';
