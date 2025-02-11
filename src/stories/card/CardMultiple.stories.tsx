@@ -15,7 +15,7 @@ const StoryComponent = (props: ParagraphProps) => {
     <PDFStory>
       <Card>
         <CardHeader>This is the first card</CardHeader>
-        <CardBody withHeader>
+        <CardBody>
           <Heading6>Consectetur adipiscing elit</Heading6>
           <Paragraph style={{ marginBottom: 0 }}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
@@ -25,7 +25,7 @@ const StoryComponent = (props: ParagraphProps) => {
       </Card>
       <Card>
         <CardHeader>Hey, it's the second one</CardHeader>
-        <CardBody withHeader>
+        <CardBody>
           <Heading6>Incididunt ut labore</Heading6>
           <Paragraph style={{ marginBottom: 0 }}>
             Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
@@ -35,7 +35,7 @@ const StoryComponent = (props: ParagraphProps) => {
       </Card>
       <Card>
         <CardHeader>Third card, reporting for duty</CardHeader>
-        <CardBody withHeader>
+        <CardBody>
           <Heading6>Dolor in reprehenderit</Heading6>
           <Paragraph style={{ marginBottom: 0 }}>
             Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est

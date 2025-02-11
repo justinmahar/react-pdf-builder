@@ -10,7 +10,7 @@ const StoryComponent = (props: ParagraphProps) => {
   return (
     <PDFStory>
       <Card>
-        <CardBody>
+        <CardBody noHeader>
           <Heading4>This is a card with no header</Heading4>
           <Paragraph style={{ marginBottom: 0 }}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et

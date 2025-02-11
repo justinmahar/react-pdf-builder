@@ -112,7 +112,7 @@ export const QuickStart = () => {
             <RPB.Box direction="x" gap={15}>
               <RPB.Card swatch="gray300" style={{ marginBottom: 0, width: '50%' }}>
                 <RPB.CardHeader>Example</RPB.CardHeader>
-                <RPB.CardBody withHeader>This is a card with some text inside as an example</RPB.CardBody>
+                <RPB.CardBody>This is a card with some text inside as an example</RPB.CardBody>
               </RPB.Card>
               <RPB.Table bordered inverseStriped swatch="cyan" style={{ borderRadius: 10, width: '50%' }}>
                 <RPB.TableRow swatch="cyan">

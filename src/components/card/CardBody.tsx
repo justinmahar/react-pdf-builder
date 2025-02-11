@@ -10,7 +10,7 @@ import Color from 'color';
 
 export interface CardBodyProps extends BoxProps {
   children?: any;
-  withHeader?: boolean;
+  noHeader?: boolean;
   withFooter?: boolean;
   swatch?: SwatchColor;
   swatchOpacity?: number;
@@ -29,7 +29,7 @@ export const CardBody = ({ children, theme = Themes.default.build(), style, ...p
   };
 
   const styleOverride: Style = {};
-  if (mergedProps.withHeader) {
+  if (!mergedProps.noHeader) {
     styleOverride.borderTopLeftRadius = 0;
     styleOverride.borderTopRightRadius = 0;
   }

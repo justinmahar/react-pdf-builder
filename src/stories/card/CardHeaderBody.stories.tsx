@@ -1,22 +1,20 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
-import { CardHeader } from '../../components/card/CardHeader';
-import { Paragraph, ParagraphProps } from '../../components/typography/Paragraph';
-import { PDFStory } from '../parts/PDFStory';
-import { Heading4 } from '../../components/typography/Heading4';
+import { Button } from '../../components/button/Button';
 import { Card } from '../../components/card/Card';
 import { CardBody } from '../../components/card/CardBody';
-import { Heading6 } from '../../components/typography/Heading6';
-import { Heading5 } from '../../components/typography/Heading5';
+import { CardHeader } from '../../components/card/CardHeader';
 import { Box } from '../../components/layout/Box';
-import { Button } from '../../components/button/Button';
+import { Heading6 } from '../../components/typography/Heading6';
+import { Paragraph, ParagraphProps } from '../../components/typography/Paragraph';
+import { PDFStory } from '../parts/PDFStory';
 
 const StoryComponent = (props: ParagraphProps) => {
   return (
     <PDFStory>
       <Card>
         <CardHeader>Card Header</CardHeader>
-        <CardBody withHeader>
+        <CardBody>
           <Heading6>This is the card body</Heading6>
           <Paragraph style={{ marginBottom: 30 }}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et

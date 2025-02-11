@@ -30,7 +30,7 @@ const StoryComponent = (props: ParagraphProps) => {
             </Button>
           </Box>
         </CardHeader>
-        <CardBody withHeader>
+        <CardBody>
           <Heading6>Card body</Heading6>
           <Paragraph>
             This has a custom header with a horizontal box that aligns items center and justifies content as

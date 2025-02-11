@@ -322,7 +322,7 @@ export const Demo = ({
                 <RPB.CardHeader>
                   <RPB.Heading5 style={{ marginBottom: 0 }}>Card Title</RPB.Heading5>
                 </RPB.CardHeader>
-                <RPB.CardBody withHeader>
+                <RPB.CardBody>
                   <RPB.Box direction="x" style={{ flexWrap: 'wrap', justifyContent: 'center', gap: '10' }}>
                     <RPB.Button swatch="primary" href={buttonHref}>
                       Primary
@@ -358,7 +358,7 @@ export const Demo = ({
                 <RPB.CardHeader>
                   <RPB.Heading5 style={{ marginBottom: 0 }}>Primary Card</RPB.Heading5>
                 </RPB.CardHeader>
-                <RPB.CardBody withHeader>
+                <RPB.CardBody>
                   <RPB.Paragraph>
                     Cards can be swatched using theme colors, greyscale colors, or palette colors. Border, background,
                     and the header text contrast color will be configured based on the theme's color scheme.

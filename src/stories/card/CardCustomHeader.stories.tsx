@@ -14,7 +14,7 @@ const StoryComponent = (props: ParagraphProps) => {
     <PDFStory>
       <Card>
         <CardHeader as={Heading1}>Heading1</CardHeader>
-        <CardBody withHeader>
+        <CardBody>
           <Heading6>What's happening here?</Heading6>
 
           <Paragraph>

@@ -17,7 +17,7 @@ const StoryComponent = (props: { emojiSource: any; showFullList: boolean; source
     <PDFStory key={props.emojiSource}>
       <Heading3 rule>{props.sourceName}</Heading3>
       <Card swatch="primary">
-        <CardBody>
+        <CardBody noHeader>
           <Box direction="x" gap={15} style={{ alignItems: 'center' }}>
             <Paragraph style={{ width: 40, fontSize: 36, marginBottom: 0 }}>ℹ️</Paragraph>
             <Paragraph style={{ width: '100%', marginBottom: 0 }}>
