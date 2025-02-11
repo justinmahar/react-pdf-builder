@@ -581,7 +581,7 @@ export class Fonts {
       url: `https://cdn.jsdelivr.net/joypixels/assets/${version}/png/unicode/${size}/`,
     }),
     /**
-     * OpenMoji emoji source that can be passed into `Font.registerEmojiSource()`.
+     * OpenMoji Color emoji source that can be passed into `Font.registerEmojiSource()`.
      *
      * Emoji source GitHub project: https://github.com/hfg-gmuend/openmoji
      *
@@ -595,7 +595,7 @@ export class Fonts {
       },
     }),
     /**
-     * OpenMoji emoji source that can be passed into `Font.registerEmojiSource()`.
+     * OpenMoji Black emoji source that can be passed into `Font.registerEmojiSource()`.
      *
      * Emoji source GitHub project: https://github.com/hfg-gmuend/openmoji
      *
