@@ -2,10 +2,10 @@ import { Text, View, ViewProps } from '@react-pdf/renderer';
 import React from 'react';
 import { Style } from '../Style';
 import { PDFSafeChildren } from '../builder/PDFSafeChildren';
-import { Themes } from '../theme/themes/Themes';
-import { Theme } from '../theme/Theme';
-import { SwatchColor } from '../theme/ColorScheme';
-import { ThemeBuilder } from '../theme/ThemeBuilder';
+import { Themes } from '../../themes/Themes';
+import { Theme } from '../../themes/Theme';
+import { SwatchColor } from '../../themes/ColorScheme';
+import { ThemeBuilder } from '../../themes/ThemeBuilder';
 
 export interface ListItemContainerProps extends ViewProps {
   children?: any;

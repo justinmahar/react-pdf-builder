@@ -6,7 +6,7 @@ import { Heading2 } from '../../components/typography/Heading2';
 import { Heading4 } from '../../components/typography/Heading4';
 import { Paragraph } from '../../components/typography/Paragraph';
 import { PDFStory } from '../parts/PDFStory';
-import { SwatchColor } from '../../components/theme/ColorScheme';
+import { SwatchColor } from '../../themes/ColorScheme';
 
 interface StoryProps {
   format?: string;

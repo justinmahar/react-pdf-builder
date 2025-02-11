@@ -1,9 +1,9 @@
 import { View, ViewProps } from '@react-pdf/renderer';
 import React from 'react';
-import { Theme } from '../theme/Theme';
-import { Themes } from '../theme/themes/Themes';
+import { Theme } from '../../themes/Theme';
+import { Themes } from '../../themes/Themes';
 import { PDFSafeChildren } from '../builder/PDFSafeChildren';
-import { SwatchColor } from '../theme/ColorScheme';
+import { SwatchColor } from '../../themes/ColorScheme';
 import { Style } from '../Style';
 
 export interface TemplateProps extends ViewProps {
@@ -13,15 +13,18 @@ export interface TemplateProps extends ViewProps {
 }
 
 export const Template = ({ children, theme = Themes.default.build(), style, ...props }: TemplateProps) => {
+  const themeProps = theme?.cardProps; // TODO: Assign to correct theme props and remove this TODO comment
   const mergedProps = {
-    ...theme?.cardProps,
+    ...themeProps,
     ...props,
   };
+
+  const styleInnate: Style = {};
 
   const styleOverride: Style = {};
 
   return (
-    <View {...mergedProps} style={{ ...mergedProps?.style, ...styleOverride, ...style }}>
+    <View {...mergedProps} style={{ ...styleInnate, ...mergedProps?.style, ...styleOverride, ...style }}>
       <PDFSafeChildren>{children}</PDFSafeChildren>
     </View>
   );

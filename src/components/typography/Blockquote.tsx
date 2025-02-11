@@ -1,11 +1,11 @@
 import { View, ViewProps } from '@react-pdf/renderer';
 import React from 'react';
-import { Theme } from '../theme/Theme';
-import { Themes } from '../theme/themes/Themes';
+import { Theme } from '../../themes/Theme';
+import { Themes } from '../../themes/Themes';
 import { PDFSafeChildren } from '../builder/PDFSafeChildren';
-import { SwatchColor } from '../theme/ColorScheme';
+import { SwatchColor } from '../../themes/ColorScheme';
 import { Style } from '../Style';
-import { ThemeBuilder } from '../theme/ThemeBuilder';
+import { ThemeBuilder } from '../../themes/ThemeBuilder';
 import Color from 'color';
 
 export interface BlockquoteProps extends ViewProps {

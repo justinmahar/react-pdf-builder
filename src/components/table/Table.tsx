@@ -1,10 +1,10 @@
 import React from 'react';
 import { Style } from '../Style';
 import { Box, BoxProps } from '../layout/Box';
-import { Theme } from '../theme/Theme';
-import { Themes } from '../theme/themes/Themes';
-import { SwatchColor } from '../theme/ColorScheme';
-import { ThemeBuilder } from '../theme/ThemeBuilder';
+import { Theme } from '../../themes/Theme';
+import { Themes } from '../../themes/Themes';
+import { SwatchColor } from '../../themes/ColorScheme';
+import { ThemeBuilder } from '../../themes/ThemeBuilder';
 import Color from 'color';
 
 export interface TableProps extends BoxProps {

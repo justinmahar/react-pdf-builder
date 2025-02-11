@@ -1,14 +1,14 @@
 import { Document, Font, Image, PDFViewer, Text } from '@react-pdf/renderer';
 import React from 'react';
 import { DivProps } from 'react-html-props';
-import { BackdropDecorators } from '../backgrounds/BackdropDecorators';
+import { BackdropDecorators } from '../backdrops/BackdropDecorators';
 import { ReactPDFBuilder } from '../builder/ReactPDFBuilder';
 import { Fonts } from '../../fonts/Fonts';
 import { GradientType } from '../shapes/Gradients';
-import { PartialTheme } from '../theme/Theme';
-import { ThemeBuilder, ThemeBuilderConfig } from '../theme/ThemeBuilder';
-import { SwatchColor } from '../theme/ColorScheme';
-import { Themes } from '../theme/themes/Themes';
+import { PartialTheme } from '../../themes/Theme';
+import { ThemeBuilder, ThemeBuilderConfig } from '../../themes/ThemeBuilder';
+import { SwatchColor } from '../../themes/ColorScheme';
+import { Themes } from '../../themes/Themes';
 import { PageSizeString } from '../pages/PageSizes';
 import { RectangleShape } from '../shapes/RectangleShape';
 

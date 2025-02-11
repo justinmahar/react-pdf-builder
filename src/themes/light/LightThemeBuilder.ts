@@ -1,6 +1,6 @@
-import { Theme } from '../../Theme';
-import { ThemeBuilder } from '../../ThemeBuilder';
-import { ColorScheme } from '../../ColorScheme';
+import { Theme } from '../Theme';
+import { ThemeBuilder } from '../ThemeBuilder';
+import { ColorScheme } from '../ColorScheme';
 import { lightColorScheme } from './LightColorScheme';
 
 export class LightThemeBuilder extends ThemeBuilder {

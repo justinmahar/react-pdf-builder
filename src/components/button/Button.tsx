@@ -2,10 +2,10 @@ import { Link, View, ViewProps } from '@react-pdf/renderer';
 import React from 'react';
 import { PDFSafeChildren } from '../builder/PDFSafeChildren';
 import { Style } from '../Style';
-import { Theme } from '../theme/Theme';
-import { ThemeBuilder } from '../theme/ThemeBuilder';
-import { Themes } from '../theme/themes/Themes';
-import { SwatchColor } from '../theme/ColorScheme';
+import { Theme } from '../../themes/Theme';
+import { ThemeBuilder } from '../../themes/ThemeBuilder';
+import { Themes } from '../../themes/Themes';
+import { SwatchColor } from '../../themes/ColorScheme';
 
 export interface ButtonProps extends ViewProps {
   href?: string;

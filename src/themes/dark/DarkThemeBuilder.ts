@@ -1,6 +1,6 @@
-import { PartialTheme, Theme } from '../../Theme';
-import { ThemeBuilder } from '../../ThemeBuilder';
-import { ColorScheme } from '../../ColorScheme';
+import { PartialTheme, Theme } from '../Theme';
+import { ThemeBuilder } from '../ThemeBuilder';
+import { ColorScheme } from '../ColorScheme';
 import { darkColorScheme } from './DarkColorScheme';
 import { lightColorScheme } from '../light/LightColorScheme';
 import { LightThemeBuilder } from '../light/LightThemeBuilder';

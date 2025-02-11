@@ -1,4 +1,4 @@
-import { ColorScheme, SwatchColors, GreyscaleColors, PaletteColors, ThemeColors } from '../../ColorScheme';
+import { ColorScheme, SwatchColors, GreyscaleColors, PaletteColors, ThemeColors } from '../ColorScheme';
 
 const colors: PaletteColors = {
   blue: '#0d6efd',

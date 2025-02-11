@@ -6,7 +6,7 @@ import { CardHeader } from '../../components/card/CardHeader';
 import { Heading6 } from '../../components/typography/Heading6';
 import { Paragraph } from '../../components/typography/Paragraph';
 import { PDFStory } from '../parts/PDFStory';
-import { ThemeBuilder } from '../../components/theme/ThemeBuilder';
+import { ThemeBuilder } from '../../themes/ThemeBuilder';
 
 const StoryComponent = (props: CardProps) => {
   const swatch = props.swatch ?? 'primary';

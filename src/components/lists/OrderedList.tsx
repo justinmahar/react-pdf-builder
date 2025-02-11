@@ -3,10 +3,10 @@ import React from 'react';
 import { ListItemContainer, ListItemContainerProps } from './ListItemContainer';
 import { Style } from '../Style';
 import { PDFSafeChildren } from '../builder/PDFSafeChildren';
-import { Theme } from '../theme/Theme';
-import { Themes } from '../theme/themes/Themes';
-import { SwatchColor } from '../theme/ColorScheme';
-import { ThemeBuilder } from '../theme/ThemeBuilder';
+import { Theme } from '../../themes/Theme';
+import { Themes } from '../../themes/Themes';
+import { SwatchColor } from '../../themes/ColorScheme';
+import { ThemeBuilder } from '../../themes/ThemeBuilder';
 
 export interface OrderedListProps extends ViewProps {
   children?: any;

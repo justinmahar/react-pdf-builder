@@ -1,5 +1,5 @@
-import { ThemeBuilder } from '../../ThemeBuilder';
-import { ColorScheme, GreyscaleColors, PaletteColors, SwatchColors, ThemeColors } from '../../ColorScheme';
+import { ThemeBuilder } from '../ThemeBuilder';
+import { ColorScheme, GreyscaleColors, PaletteColors, SwatchColors, ThemeColors } from '../ColorScheme';
 import { lightColorScheme } from '../light/LightColorScheme';
 
 const colors: PaletteColors = {

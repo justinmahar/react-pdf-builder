@@ -1,11 +1,11 @@
 import { Page, PageProps } from '@react-pdf/renderer';
 import React from 'react';
 import { PDFSafeChildren } from '../builder/PDFSafeChildren';
-import { Theme } from '../theme/Theme';
-import { Themes } from '../theme/themes/Themes';
-import { SwatchColor } from '../theme/ColorScheme';
+import { Theme } from '../../themes/Theme';
+import { Themes } from '../../themes/Themes';
+import { SwatchColor } from '../../themes/ColorScheme';
 import { Style } from '../Style';
-import { ThemeBuilder } from '../theme/ThemeBuilder';
+import { ThemeBuilder } from '../../themes/ThemeBuilder';
 
 export interface ThemedPageProps extends PageProps {
   children?: any;

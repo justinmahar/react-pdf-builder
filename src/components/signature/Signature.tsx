@@ -3,10 +3,10 @@ import React from 'react';
 import { Style } from '../Style';
 import { PDFSafeChildren } from '../builder/PDFSafeChildren';
 import { Box, BoxProps } from '../layout/Box';
-import { Theme } from '../theme/Theme';
-import { SwatchColor } from '../theme/ColorScheme';
-import { Themes } from '../theme/themes/Themes';
-import { ThemeBuilder } from '../theme/ThemeBuilder';
+import { Theme } from '../../themes/Theme';
+import { SwatchColor } from '../../themes/ColorScheme';
+import { Themes } from '../../themes/Themes';
+import { ThemeBuilder } from '../../themes/ThemeBuilder';
 
 export interface SignatureProps extends BoxProps {
   children?: any;

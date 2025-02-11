@@ -1,23 +1,23 @@
 import { PageProps, TextProps } from '@react-pdf/renderer';
-import { CardProps } from '../card/Card';
-import { CardBodyProps } from '../card/CardBody';
-import { CardHeaderProps } from '../card/CardHeader';
-import { HeadingProps } from '../typography/Heading';
-import { ParagraphProps } from '../typography/Paragraph';
-import { PageNumberProps } from '../pages/PageNumber';
-import { UnorderedListProps } from '../lists/UnorderedList';
-import { OrderedListProps } from '../lists/OrderedList';
-import { TableCellProps } from '../table/TableCell';
-import { TableRowProps } from '../table/TableRow';
-import { TableProps } from '../table/Table';
-import { ListItemProps } from '../lists/ListItem';
-import { ListItemContainerProps } from '../lists/ListItemContainer';
-import { ButtonProps } from '../button/Button';
+import { CardProps } from '../components/card/Card';
+import { CardBodyProps } from '../components/card/CardBody';
+import { CardHeaderProps } from '../components/card/CardHeader';
+import { HeadingProps } from '../components/typography/Heading';
+import { ParagraphProps } from '../components/typography/Paragraph';
+import { PageNumberProps } from '../components/pages/PageNumber';
+import { UnorderedListProps } from '../components/lists/UnorderedList';
+import { OrderedListProps } from '../components/lists/OrderedList';
+import { TableCellProps } from '../components/table/TableCell';
+import { TableRowProps } from '../components/table/TableRow';
+import { TableProps } from '../components/table/Table';
+import { ListItemProps } from '../components/lists/ListItem';
+import { ListItemContainerProps } from '../components/lists/ListItemContainer';
+import { ButtonProps } from '../components/button/Button';
 import { ColorScheme } from './ColorScheme';
-import { DeepPartial } from '../util';
-import { ThemedLinkProps } from '../link/ThemedLink';
-import { SignatureProps } from '../signature/Signature';
-import { BlockquoteProps } from '../typography/Blockquote';
+import { DeepPartial } from '../util/util';
+import { ThemedLinkProps } from '../components/link/ThemedLink';
+import { SignatureProps } from '../components/signature/Signature';
+import { BlockquoteProps } from '../components/typography/Blockquote';
 
 export interface Theme {
   // Color scheme

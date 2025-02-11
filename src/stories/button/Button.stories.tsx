@@ -3,7 +3,7 @@ import React from 'react';
 import { Button, ButtonProps } from '../../components/button/Button';
 import { PDFStory } from '../parts/PDFStory';
 import { Box } from '../../components/layout/Box';
-import { Themes } from '../../components/theme/themes/Themes';
+import { Themes } from '../../themes/Themes';
 
 const StoryComponent = (props: ButtonProps) => {
   const theme = Themes.default.build();

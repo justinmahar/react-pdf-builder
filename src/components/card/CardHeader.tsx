@@ -1,11 +1,11 @@
 import React from 'react';
 import { Box, BoxProps } from '../layout/Box';
 import { Style } from '../Style';
-import { Theme } from '../theme/Theme';
-import { Themes } from '../theme/themes/Themes';
+import { Theme } from '../../themes/Theme';
+import { Themes } from '../../themes/Themes';
 import { Heading5 } from '../typography/Heading5';
-import { SwatchColor } from '../theme/ColorScheme';
-import { ThemeBuilder } from '../theme/ThemeBuilder';
+import { SwatchColor } from '../../themes/ColorScheme';
+import { ThemeBuilder } from '../../themes/ThemeBuilder';
 import Color from 'color';
 
 export interface CardHeaderProps extends BoxProps {

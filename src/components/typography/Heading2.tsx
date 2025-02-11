@@ -1,9 +1,9 @@
 import { Text } from '@react-pdf/renderer';
 import React from 'react';
-import { Themes } from '../theme/themes/Themes';
+import { Themes } from '../../themes/Themes';
 import { HeadingProps } from './Heading';
 import { Style } from '../Style';
-import { ThemeBuilder } from '../theme/ThemeBuilder';
+import { ThemeBuilder } from '../../themes/ThemeBuilder';
 
 export const Heading2 = ({ children, theme = Themes.default.build(), style, ...props }: HeadingProps) => {
   const mergedProps = {

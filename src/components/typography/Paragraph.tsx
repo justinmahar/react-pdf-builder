@@ -1,10 +1,10 @@
 import { Text, TextProps, View } from '@react-pdf/renderer';
 import React from 'react';
 import { Style } from '../Style';
-import { Theme } from '../theme/Theme';
-import { ThemeBuilder } from '../theme/ThemeBuilder';
-import { SwatchColor } from '../theme/ColorScheme';
-import { Themes } from '../theme/themes/Themes';
+import { Theme } from '../../themes/Theme';
+import { ThemeBuilder } from '../../themes/ThemeBuilder';
+import { SwatchColor } from '../../themes/ColorScheme';
+import { Themes } from '../../themes/Themes';
 
 export interface ParagraphProps extends TextProps {
   children?: any;

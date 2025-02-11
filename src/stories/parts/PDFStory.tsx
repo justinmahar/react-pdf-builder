@@ -1,7 +1,7 @@
 import { Document, PageProps, PDFViewer } from '@react-pdf/renderer';
 import React from 'react';
 import { ThemedPage, ThemedPageProps } from '../../components/pages/ThemedPage';
-import { Themes } from '../../components/theme/themes/Themes';
+import { Themes } from '../../themes/Themes';
 
 export interface PDFStoryProps {
   children?: any;

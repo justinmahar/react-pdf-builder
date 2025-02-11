@@ -1,5 +1,5 @@
 import Color from 'color';
-import { deepMerge } from '../util';
+import { deepMerge } from '../util/util';
 import { PartialTheme, Theme } from './Theme';
 import {
   ColorScheme,

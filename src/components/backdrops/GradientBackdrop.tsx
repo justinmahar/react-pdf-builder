@@ -4,10 +4,10 @@ import { PageSizeString } from '../pages/PageSizes';
 import { GradientStop, GradientType } from '../shapes/Gradients';
 import { RectangleShape } from '../shapes/RectangleShape';
 import { Backdrops } from './Backdrops';
-import { Theme } from '../theme/Theme';
-import { SwatchColor } from '../theme/ColorScheme';
-import { ThemeBuilder } from '../theme/ThemeBuilder';
-import { Themes } from '../theme/themes/Themes';
+import { Theme } from '../../themes/Theme';
+import { SwatchColor } from '../../themes/ColorScheme';
+import { ThemeBuilder } from '../../themes/ThemeBuilder';
+import { Themes } from '../../themes/Themes';
 import Color from 'color';
 
 export interface GradientBackdropProps extends BoxProps {

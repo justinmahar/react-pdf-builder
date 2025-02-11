@@ -1,10 +1,10 @@
 import React from 'react';
 import { PDFSafeChildren } from '../builder/PDFSafeChildren';
 import { Box, BoxProps } from '../layout/Box';
-import { Theme } from '../theme/Theme';
-import { Themes } from '../theme/themes/Themes';
+import { Theme } from '../../themes/Theme';
+import { Themes } from '../../themes/Themes';
 import { Style } from '../Style';
-import { SwatchColor } from '../theme/ColorScheme';
+import { SwatchColor } from '../../themes/ColorScheme';
 
 export interface CardProps extends BoxProps {
   children?: any;

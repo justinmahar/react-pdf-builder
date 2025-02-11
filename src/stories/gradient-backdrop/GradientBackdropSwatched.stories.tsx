@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
-import { GradientBackdrop, GradientBackdropProps } from '../../components/backgrounds/GradientBackdrop';
+import { GradientBackdrop, GradientBackdropProps } from '../../components/backdrops/GradientBackdrop';
 import { PDFStory } from '../parts/PDFStory';
 
 const StoryComponent = (props: GradientBackdropProps) => {
