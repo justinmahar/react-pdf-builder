@@ -2,14 +2,11 @@ import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 import { ListItem } from '../../components/lists/ListItem';
 import { UnorderedList, UnorderedListProps } from '../../components/lists/UnorderedList';
-import { PDFStory } from '../parts/PDFStory';
 import { Heading4 } from '../../components/typography/Heading4';
 import { Heading5 } from '../../components/typography/Heading5';
-import { Fonts } from '../../fonts/Fonts';
-import { Font } from '@react-pdf/renderer';
+import { PDFStory } from '../parts/PDFStory';
 
 const StoryComponent = ({ ...props }: UnorderedListProps) => {
-  Font.registerEmojiSource(Fonts.emojis.joyPixels());
   return (
     <PDFStory>
       <Heading4>Unordered List</Heading4>
@@ -138,5 +135,5 @@ export const StyledMarker: Story = {
 };
 
 export const CustomBullet: Story = {
-  args: { bullet: '👉' },
+  args: { bullet: '-' },
 };
