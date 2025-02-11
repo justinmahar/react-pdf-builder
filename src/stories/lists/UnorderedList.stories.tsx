@@ -5,8 +5,11 @@ import { UnorderedList, UnorderedListProps } from '../../components/lists/Unorde
 import { Heading4 } from '../../components/typography/Heading4';
 import { Heading5 } from '../../components/typography/Heading5';
 import { PDFStory } from '../parts/PDFStory';
+import { Font } from '@react-pdf/renderer';
+import { Fonts } from '../../fonts/Fonts';
 
 const StoryComponent = ({ ...props }: UnorderedListProps) => {
+  Font.registerEmojiSource(Fonts.emojis.joyPixels());
   return (
     <PDFStory>
       <Heading4>Unordered List</Heading4>
@@ -135,5 +138,5 @@ export const StyledMarker: Story = {
 };
 
 export const CustomBullet: Story = {
-  args: { bullet: '-' },
+  args: { bullet: '👉' },
 };
