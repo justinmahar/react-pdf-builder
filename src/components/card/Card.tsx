@@ -5,15 +5,17 @@ import { Theme } from '../../themes/Theme';
 import { Themes } from '../../themes/Themes';
 import { Style } from '../Style';
 import { SwatchColor } from '../../themes/ColorScheme';
+import { ThemeBuilder } from '../../themes/ThemeBuilder';
 
 export interface CardProps extends BoxProps {
   children?: any;
+  className?: string;
   swatch?: SwatchColor;
   swatchOpacity?: number;
   theme?: Theme;
 }
 
-export const Card = ({ children, theme = Themes.default.build(), style, ...props }: CardProps) => {
+export const Card = ({ children, theme = Themes.default.build(), className, style, ...props }: CardProps) => {
   const themeProps = theme.cardProps;
   const mergedProps = {
     ...themeProps,
@@ -59,8 +61,15 @@ export const Card = ({ children, theme = Themes.default.build(), style, ...props
     });
   });
 
+  const themeClassName = themeProps.className;
+  const themeClassNameStyles = ThemeBuilder.getStylesForClassName(themeClassName, theme.classNames);
+  const classNameStyles = ThemeBuilder.getStylesForClassName(className, theme.classNames);
+
   return (
-    <Box {...mergedProps} style={{ ...styleInnate, ...themeProps?.style, ...style }}>
+    <Box
+      {...mergedProps}
+      style={{ ...styleInnate, ...themeClassNameStyles, ...themeProps?.style, ...classNameStyles, ...style }}
+    >
       <PDFSafeChildren>{injectedChildArray}</PDFSafeChildren>
     </Box>
   );

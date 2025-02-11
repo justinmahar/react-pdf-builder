@@ -10,6 +10,7 @@ import Color from 'color';
 
 export interface CardHeaderProps extends BoxProps {
   children?: any;
+  className?: string;
   as?: any;
   noBody?: boolean;
   withHeader?: boolean;
@@ -18,7 +19,13 @@ export interface CardHeaderProps extends BoxProps {
   theme?: Theme;
 }
 
-export const CardHeader = ({ children, theme = Themes.default.build(), style, ...props }: CardHeaderProps) => {
+export const CardHeader = ({
+  children,
+  theme = Themes.default.build(),
+  className,
+  style,
+  ...props
+}: CardHeaderProps) => {
   const themeProps = theme?.cardHeaderProps;
   const mergedProps = {
     ...themeProps,
@@ -58,8 +65,23 @@ export const CardHeader = ({ children, theme = Themes.default.build(), style, ..
     styleOverride.backgroundColor = `${new Color(swatchColor ?? '#888').hex()}${swatchOpacityHex}`; // Add opacity to the end
   }
 
+  const themeClassName = themeProps.className;
+  const themeClassNameStyles = ThemeBuilder.getStylesForClassName(themeClassName, theme.classNames);
+  const classNameStyles = ThemeBuilder.getStylesForClassName(className, theme.classNames);
+
   return (
-    <Box wrap={false} {...mergedProps} style={{ ...styleInnate, ...themeProps?.style, ...styleOverride, ...style }}>
+    <Box
+      wrap={false}
+      {...mergedProps}
+      style={{
+        ...styleInnate,
+        ...themeClassNameStyles,
+        ...themeProps?.style,
+        ...styleOverride,
+        ...classNameStyles,
+        ...style,
+      }}
+    >
       {child}
     </Box>
   );

@@ -10,6 +10,8 @@ import {
   SwatchColors,
   ThemeColors,
 } from './ColorScheme';
+import { ClassNames } from './classnames/ClassNames';
+import { Style } from '../components/Style';
 
 export abstract class ThemeBuilder {
   constructor(public colorScheme: ColorScheme) {}
@@ -85,6 +87,22 @@ export abstract class ThemeBuilder {
       .toString(16)
       .padStart(2, '0')
       .toUpperCase();
+  }
+
+  /**
+   * Returns a Style object containing all styles for the class name string. Class name string can contain
+   * one or more class names, separated by spaces.
+   *
+   * @param className The class name to get the Style object for.
+   * @param classNames The style definitions for all available class names.
+   * @returns A merged Style object containing styles for all classes in the class name string.
+   */
+  public static getStylesForClassName(className: string | undefined, classNames: ClassNames): Style {
+    return (className ?? '')
+      .split(' ')
+      .map((c) => c.trim())
+      .filter((c) => c)
+      .reduce((p, c) => ({ ...p, ...classNames[c] }), {});
   }
 }
 

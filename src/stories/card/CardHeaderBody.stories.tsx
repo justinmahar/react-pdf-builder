@@ -16,7 +16,7 @@ const StoryComponent = (props: ParagraphProps) => {
         <CardHeader>Card Header</CardHeader>
         <CardBody>
           <Heading6>This is the card body</Heading6>
-          <Paragraph style={{ marginBottom: 30 }}>
+          <Paragraph>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
             dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
             ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat

@@ -1,14 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
-import { CardHeader } from '../../components/card/CardHeader';
-import { Paragraph, ParagraphProps } from '../../components/typography/Paragraph';
-import { PDFStory } from '../parts/PDFStory';
-import { Heading4 } from '../../components/typography/Heading4';
 import { Card } from '../../components/card/Card';
 import { CardBody } from '../../components/card/CardBody';
+import { CardHeader } from '../../components/card/CardHeader';
 import { Heading6 } from '../../components/typography/Heading6';
-import { Heading5 } from '../../components/typography/Heading5';
-import { Image } from '@react-pdf/renderer';
+import { Paragraph, ParagraphProps } from '../../components/typography/Paragraph';
+import { PDFStory } from '../parts/PDFStory';
 
 const StoryComponent = (props: ParagraphProps) => {
   return (
@@ -17,7 +14,7 @@ const StoryComponent = (props: ParagraphProps) => {
         <CardHeader>This is the first card</CardHeader>
         <CardBody>
           <Heading6>Consectetur adipiscing elit</Heading6>
-          <Paragraph style={{ marginBottom: 0 }}>
+          <Paragraph className="mb-0">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
             dolore magna aliqua.
           </Paragraph>
@@ -27,7 +24,7 @@ const StoryComponent = (props: ParagraphProps) => {
         <CardHeader>Hey, it's the second one</CardHeader>
         <CardBody>
           <Heading6>Incididunt ut labore</Heading6>
-          <Paragraph style={{ marginBottom: 0 }}>
+          <Paragraph className="mb-0">
             Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
             Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
           </Paragraph>
@@ -37,7 +34,7 @@ const StoryComponent = (props: ParagraphProps) => {
         <CardHeader>Third card, reporting for duty</CardHeader>
         <CardBody>
           <Heading6>Dolor in reprehenderit</Heading6>
-          <Paragraph style={{ marginBottom: 0 }}>
+          <Paragraph className="mb-0">
             Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
             laborum.
           </Paragraph>

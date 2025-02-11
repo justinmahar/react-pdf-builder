@@ -5,7 +5,7 @@ import { HeadingProps } from './Heading';
 import { Style } from '../Style';
 import { ThemeBuilder } from '../../themes/ThemeBuilder';
 
-export const Heading2 = ({ children, theme = Themes.default.build(), style, ...props }: HeadingProps) => {
+export const Heading2 = ({ children, theme = Themes.default.build(), className, style, ...props }: HeadingProps) => {
   const mergedProps = {
     ...theme?.headingProps,
     ...theme?.heading2Props,
@@ -27,8 +27,15 @@ export const Heading2 = ({ children, theme = Themes.default.build(), style, ...p
     styleOverride.borderColor = swatchColor;
   }
 
+  const themeClassName = `${theme?.headingProps.className ?? ''} ${theme?.heading2Props.className ?? ''}`.trim();
+  const themeClassNameStyles = ThemeBuilder.getStylesForClassName(themeClassName, theme.classNames);
+  const classNameStyles = ThemeBuilder.getStylesForClassName(className, theme.classNames);
+
   return (
-    <Text {...mergedProps} style={{ ...mergedThemeStyles, ...styleOverride, ...style }}>
+    <Text
+      {...mergedProps}
+      style={{ ...themeClassNameStyles, ...mergedThemeStyles, ...styleOverride, ...classNameStyles, ...style }}
+    >
       {children}
     </Text>
   );

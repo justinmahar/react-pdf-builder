@@ -18,14 +18,19 @@ import { DeepPartial } from '../util/util';
 import { ThemedLinkProps } from '../components/link/ThemedLink';
 import { SignatureProps } from '../components/signature/Signature';
 import { BlockquoteProps } from '../components/typography/Blockquote';
+import { ClassNames } from './classnames/ClassNames';
 
 export interface Theme {
   // Color scheme
   colorScheme: ColorScheme;
+  // Class names
+  classNames: ClassNames;
   /** This color is exposed for convenience when working with the theme and cannot be overridden directly. To override the background color, override the `backgroundColor` style in `pageProps.style` when building the theme. */
   _bodyBackgroundColor: string;
   /** This color is exposed for convenience when working with the theme and cannot be overridden directly. To override the page color, override the `color` style in `pageProps.style` when building the theme. */
   _bodyColor: string;
+  /** The font size is exposed for convenience when working with the theme and cannot be overridden directly. To customize font sizes, override style props (such as `pageProps.style.fontSize`) when building the theme. */
+  _baseFontSize: number;
 
   // Button
   buttonProps: ButtonProps;

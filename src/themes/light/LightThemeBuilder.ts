@@ -1,6 +1,7 @@
+import { createDefaultClassNames } from '../classnames/createDefaultClassNames';
+import { ColorScheme } from '../ColorScheme';
 import { Theme } from '../Theme';
 import { ThemeBuilder } from '../ThemeBuilder';
-import { ColorScheme } from '../ColorScheme';
 import { lightColorScheme } from './LightColorScheme';
 
 export class LightThemeBuilder extends ThemeBuilder {
@@ -9,15 +10,17 @@ export class LightThemeBuilder extends ThemeBuilder {
   }
   public doBuild(scale: number, colorScheme: ColorScheme): Theme {
     const borderColor = colorScheme.greyscale.gray500;
-    const baseFontSize = 18;
+    const baseFontSize = 16;
     const baseMarginRatio = 1.25;
-    const headingStartSize = baseFontSize * 1.11;
-    const headingStepSize = 4;
+    const classNames = createDefaultClassNames(scale, baseFontSize);
+    console.log(classNames);
     return {
       // === Color Scheme === === === === === === === === === === ===
       colorScheme,
+      classNames,
       _bodyBackgroundColor: colorScheme.greyscale.white,
       _bodyColor: colorScheme.greyscale.black,
+      _baseFontSize: baseFontSize,
 
       // === Button === === === === === === === === === === ===
       buttonProps: {
@@ -148,56 +151,48 @@ export class LightThemeBuilder extends ThemeBuilder {
       },
       headingProps: {
         // Applies to all headings
-        style: {
-          fontWeight: 'bold',
-        },
+        style: {},
       },
       heading1Props: {
+        className: 'h1',
         style: {
-          fontSize: (headingStartSize + headingStepSize * 5) * scale,
-          marginBottom: baseFontSize * 1.5 * scale,
           borderBottomWidth: 4 * scale, // Enabled with rule prop
         },
       },
       heading2Props: {
+        className: 'h2',
         style: {
-          fontSize: (headingStartSize + headingStepSize * 4) * scale,
-          marginBottom: baseFontSize * 1.4 * scale,
-          borderBottomWidth: 4 * scale, // Enabled with rule prop
+          borderBottomWidth: 3 * scale, // Enabled with rule prop
         },
       },
       heading3Props: {
+        className: 'h3',
         style: {
-          fontSize: (headingStartSize + headingStepSize * 3) * scale,
-          marginBottom: baseFontSize * 1.3 * scale,
           borderBottomWidth: 3 * scale, // Enabled with rule prop
         },
       },
       heading4Props: {
+        className: 'h4',
         style: {
-          fontSize: (headingStartSize + headingStepSize * 2) * scale,
-          marginBottom: baseFontSize * 1.2 * scale,
-          borderBottomWidth: 3 * scale, // Enabled with rule prop
+          borderBottomWidth: 2 * scale, // Enabled with rule prop
         },
       },
       heading5Props: {
+        className: 'h5',
         style: {
-          fontSize: (headingStartSize + headingStepSize * 1) * scale,
-          marginBottom: baseFontSize * 1.1 * scale,
           borderBottomWidth: 2 * scale, // Enabled with rule prop
         },
       },
       heading6Props: {
+        className: 'h6',
         style: {
-          fontSize: headingStartSize * scale,
-          marginBottom: baseFontSize * scale,
-          borderBottomWidth: 2 * scale, // Enabled with rule prop
+          borderBottomWidth: 1 * scale, // Enabled with rule prop
         },
       },
       paragraphProps: {
         style: {
           fontSize: baseFontSize * scale,
-          marginBottom: baseFontSize * baseMarginRatio * scale,
+          marginBottom: baseFontSize * scale,
         },
       },
     };

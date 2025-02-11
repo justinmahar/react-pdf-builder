@@ -8,11 +8,12 @@ import { Themes } from '../../themes/Themes';
 
 export interface ParagraphProps extends TextProps {
   children?: any;
+  className?: string;
   swatch?: SwatchColor;
   theme?: Theme;
 }
 
-export const Paragraph = ({ children, theme = Themes.default.build(), style, ...props }: ParagraphProps) => {
+export const Paragraph = ({ children, theme = Themes.default.build(), className, style, ...props }: ParagraphProps) => {
   const themeProps = theme?.paragraphProps;
   const mergedProps = {
     ...themeProps,
@@ -24,8 +25,15 @@ export const Paragraph = ({ children, theme = Themes.default.build(), style, ...
     styleOverride.color = ThemeBuilder.getSwatchColor(mergedProps.swatch, theme.colorScheme);
   }
 
+  const themeClassName = themeProps.className;
+  const themeClassNameStyles = ThemeBuilder.getStylesForClassName(themeClassName, theme.classNames);
+  const classNameStyles = ThemeBuilder.getStylesForClassName(className, theme.classNames);
+
   return (
-    <Text {...mergedProps} style={{ ...themeProps?.style, ...styleOverride, ...style }}>
+    <Text
+      {...mergedProps}
+      style={{ ...themeClassNameStyles, ...themeProps?.style, ...styleOverride, ...classNameStyles, ...style }}
+    >
       {children}
     </Text>
   );

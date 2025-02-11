@@ -10,6 +10,7 @@ import Color from 'color';
 
 export interface CardBodyProps extends BoxProps {
   children?: any;
+  className?: string;
   noHeader?: boolean;
   withFooter?: boolean;
   swatch?: SwatchColor;
@@ -17,7 +18,7 @@ export interface CardBodyProps extends BoxProps {
   theme?: Theme;
 }
 
-export const CardBody = ({ children, theme = Themes.default.build(), style, ...props }: CardBodyProps) => {
+export const CardBody = ({ children, theme = Themes.default.build(), className, style, ...props }: CardBodyProps) => {
   const themeProps = theme.cardBodyProps;
   const mergedProps = {
     ...themeProps,
@@ -46,8 +47,22 @@ export const CardBody = ({ children, theme = Themes.default.build(), style, ...p
     styleOverride.backgroundColor = `${new Color(swatchColor ?? '#888').hex()}${swatchOpacityHex}`; // Add opacity to the end
   }
 
+  const themeClassName = themeProps.className;
+  const themeClassNameStyles = ThemeBuilder.getStylesForClassName(themeClassName, theme.classNames);
+  const classNameStyles = ThemeBuilder.getStylesForClassName(className, theme.classNames);
+
   return (
-    <Box {...mergedProps} style={{ ...styleInnate, ...themeProps?.style, ...styleOverride, ...style }}>
+    <Box
+      {...mergedProps}
+      style={{
+        ...styleInnate,
+        ...themeClassNameStyles,
+        ...themeProps?.style,
+        ...styleOverride,
+        ...classNameStyles,
+        ...style,
+      }}
+    >
       <PDFSafeChildren>{children}</PDFSafeChildren>
     </Box>
   );

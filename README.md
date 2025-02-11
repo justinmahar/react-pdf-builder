@@ -25,13 +25,13 @@ Read the **[official documentation](https://justinmahar.github.io/react-pdf-buil
 
 React PDF Builder is a fully themeable component framework built on [react-pdf](https://react-pdf.org/) and [pdfkit](https://pdfkit.org/).
 
-The framework includes ready-to-use components for headings, paragraphs, lists, tables, buttons, cards, and more.
+The framework includes 30 ready-to-use components for headings, paragraphs, lists, tables, buttons, cards, and more.
 
 If you want to build beautiful PDFs in React without starting from scratch, this is the library for you!
 
 ### Features include:
 
-- **🌟 Pre-made components to make building PDFs a breeze**
+- **🌟 30 pre-made components to make building PDFs a breeze**
   - Styled and done for you, so you can start building right away.
 - **🎨 Fully themeable with built-in light and dark modes**
   - All colors and component props can be overridden easily.
@@ -56,7 +56,7 @@ If you want to build beautiful PDFs in React without starting from scratch, this
 
 ## Donate 
 
-If this project helped save you time, please consider buying me a coffee (my body can't function without it). Your support is much appreciated!
+If this project helped save you time, please consider buying me a coffee, which powers my development (and life). Your support is much appreciated!
 
 <a href="https://github.com/sponsors/justinmahar"><img src="https://justinmahar.github.io/react-kindling/support/sponsor.png" alt="Sponsor via GitHub" height="35" /></a>&nbsp; <a href="https://paypal.me/thejustinmahar/5"><img src="https://justinmahar.github.io/react-kindling/support/coffee-1.png" alt="Buy me a coffee" height="35" /></a>&nbsp; <a href="https://paypal.me/thejustinmahar/15"><img src="https://justinmahar.github.io/react-kindling/support/coffee-3.png" alt="Buy me 3 coffees" height="35" /></a>&nbsp; <a href="https://paypal.me/thejustinmahar/25"><img src="https://justinmahar.github.io/react-kindling/support/coffee-5.png" alt="Buy me 5 coffees" height="35" /></a>
 

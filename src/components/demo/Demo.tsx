@@ -47,6 +47,9 @@ export const Demo = ({
   }
   Font.registerEmojiSource(Fonts.emojis.joyPixels());
 
+  // Disable hyphenation
+  Font.registerHyphenationCallback(Fonts.noHyphenation);
+
   const fontOverride: PartialTheme = { pageProps: { style: { fontFamily: bodyFont?.family } } };
   const themeConfig: ThemeBuilderConfig = {
     scale,
@@ -196,9 +199,10 @@ export const Demo = ({
                 <RPB.Blockquote wrap={false} style={{ width: 220 * scale }}>
                   Default blockquote
                 </RPB.Blockquote>
-                {Object.keys(theme.colorScheme?.contrast ?? {}).map((swatch) => (
+                {Object.keys(theme.colorScheme?.contrast ?? {}).map((swatch, i) => (
                   <RPB.Blockquote
                     wrap={false}
+                    break={i > 0 && (i + 1) % 16 === 0}
                     key={`bq-${swatch}`}
                     swatch={swatch as SwatchColor}
                     style={{ width: 220 * scale }}

@@ -32,10 +32,10 @@ export const Dark: Story = {
   },
 };
 
-export const Scaled4xUsingPageSizeA0: Story = {
+export const ScaledWithLargerPageSize: Story = {
   args: {
     pageSize: 'A0',
-    scale: 4,
+    scale: 2.5,
     showCoverPage: false,
   },
 };

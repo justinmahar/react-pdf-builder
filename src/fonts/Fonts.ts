@@ -663,4 +663,17 @@ export class Fonts {
     }
     return undefined;
   };
+
+  /**
+   * To disable word hyphenation, pass this function into `Font.registerHyphenationCallback()`.
+   *
+   * Pass the actual function (do not call it), like so:
+   *
+   * ```
+   * Font.registerHyphenationCallback(Fonts.noHyphenation);
+   * ```
+   *
+   * Read more here: https://react-pdf.org/fonts#registerhyphenationcallback
+   */
+  public static noHyphenation = (word: string) => [word];
 }
