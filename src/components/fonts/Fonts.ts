@@ -554,35 +554,35 @@ export class Fonts {
   };
   public static emojis = {
     /**
-     * Pass returned emoji source into `Font.registerEmojiSource()`.
+     * Twemoji emoji source that can be passed into `Font.registerEmojiSource()`.
      *
      * Emoji source GitHub project: https://github.com/twitter/twemoji
      *
-     * @param size Default 72.
-     * @param version Default `14.0.2`
+     * @param size Default `72`.
+     * @param version Version string. Default `14.0.2`
      */
     twemoji: (size: number = 72, version: string = '14.0.2') => ({
       format: 'png',
       url: `https://cdnjs.cloudflare.com/ajax/libs/twemoji/${version}/${size}x${size}/`,
     }),
     /**
-     * Pass returned emoji source into `Font.registerEmojiSource()`.
+     * JoyPixels emoji source that can be passed into `Font.registerEmojiSource()`.
      *
      * Emoji source GitHub project: https://github.com/joypixels/emoji-toolkit
      *
-     * @param size 32 or 64. Default 64.
-     * @param version `8.0` or `9.0`. Default `9.0`
+     * @param size `32` or `64`. Default `64`.
+     * @param version Version string, such as `8.0` or `9.0`. Default `9.0`
      */
     joyPixels: (size: number = 64, version: string = '9.0') => ({
       format: 'png',
       url: `https://cdn.jsdelivr.net/joypixels/assets/${version}/png/unicode/${size}/`,
     }),
     /**
-     * Pass returned emoji source into `Font.registerEmojiSource()`.
+     * OpenMoji emoji source that can be passed into `Font.registerEmojiSource()`.
      *
      * Emoji source GitHub project: https://github.com/hfg-gmuend/openmoji
      *
-     * @param size 72 or 618. Default 72.
+     * @param size `72` or `618`. Default `72`.
      * @param version Default `latest`
      */
     openMoji: (size: number = 72, version: string = 'latest') => ({
@@ -592,11 +592,25 @@ export class Fonts {
       },
     }),
     /**
-     * Pass returned emoji source into `Font.registerEmojiSource()`.
+     * OpenMoji emoji source that can be passed into `Font.registerEmojiSource()`.
+     *
+     * Emoji source GitHub project: https://github.com/hfg-gmuend/openmoji
+     *
+     * @param size `72` or `618`. Default `72`.
+     * @param version Default `latest`
+     */
+    openMojiBlack: (size: number = 72, version: string = 'latest') => ({
+      format: 'png',
+      builder: (code: string) => {
+        return `https://cdn.jsdelivr.net/gh/hfg-gmuend/openmoji@${version}/black/${size}x${size}/${code.toUpperCase()}.png`;
+      },
+    }),
+    /**
+     * NotoEmoji emoji source that can be passed into `Font.registerEmojiSource()`.
      *
      * Emoji source GitHub project: https://github.com/googlefonts/noto-emoji
      *
-     * @param size 32, 72, 128, or 512. Default 72.
+     * @param size `32`, `72`, `128`, or `512`. Default `72`.
      * @param version Default `latest`
      */
     notoEmoji: (size: number = 72, version: string = 'latest') => ({

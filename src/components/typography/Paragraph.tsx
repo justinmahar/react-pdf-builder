@@ -1,4 +1,4 @@
-import { Text, TextProps } from '@react-pdf/renderer';
+import { Text, TextProps, View } from '@react-pdf/renderer';
 import React from 'react';
 import { Style } from '../Style';
 import { Theme } from '../theme/Theme';
@@ -19,13 +19,17 @@ export const Paragraph = ({ children, theme = Themes.default.build(), style, ...
     ...props,
   };
 
+  const styleInnate: Style = {
+    width: '100%',
+  };
+
   const styleOverride: Style = {};
   if (mergedProps.swatch) {
     styleOverride.color = ThemeBuilder.getSwatchColor(mergedProps.swatch, theme.colorScheme);
   }
 
   return (
-    <Text {...mergedProps} style={{ ...themeProps?.style, ...styleOverride, ...style }}>
+    <Text {...mergedProps} style={{ ...styleInnate, ...themeProps?.style, ...styleOverride, ...style }}>
       {children}
     </Text>
   );

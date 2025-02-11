@@ -1,4 +1,4 @@
-import { Font } from '@react-pdf/renderer';
+import { Font, View } from '@react-pdf/renderer';
 import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 import { Fonts } from '../../components/fonts/Fonts';
@@ -7,13 +7,26 @@ import { UnorderedList } from '../../components/lists/UnorderedList';
 import { Heading3 } from '../../components/typography/Heading3';
 import { Paragraph } from '../../components/typography/Paragraph';
 import { PDFStory } from '../parts/PDFStory';
+import { Box } from '../../components/layout/Box';
+import { Card } from '../../components/card/Card';
+import { CardBody } from '../../components/card/CardBody';
 
 const StoryComponent = (props: { emojiSource: any; showFullList: boolean; sourceName: string }) => {
   Font.registerEmojiSource(props.emojiSource);
   return (
     <PDFStory key={props.emojiSource}>
       <Heading3 rule>{props.sourceName}</Heading3>
-      <Paragraph>ℹ️ Note: Reload the page to view different emoji sources.</Paragraph>
+      <Card swatch="primary">
+        <CardBody>
+          <Box direction="x" gap={15} style={{ alignItems: 'center' }}>
+            <Paragraph style={{ width: 40, fontSize: 36, marginBottom: 0 }}>ℹ️</Paragraph>
+            <Paragraph style={{ marginBottom: 0 }}>
+              Note: Due to browser caching, you must reload the page to view different emoji sources.
+            </Paragraph>
+          </Box>
+        </CardBody>
+      </Card>
+
       {props.showFullList && (
         <UnorderedList style={{ fontSize: 22 }}>
           <ListItem>😀 E1.0 grinning face</ListItem>
@@ -1836,35 +1849,42 @@ type Story = StoryObj<typeof meta>;
 // === Stories ===
 export const JoyPixelsSampleOf100: Story = {
   args: {
-    sourceName: 'JoyPixels',
+    sourceName: 'JoyPixels - Sample of 100',
     emojiSource: Fonts.emojis.joyPixels(),
   },
 };
 
 export const NotoEmojiSampleOf100: Story = {
   args: {
-    sourceName: 'NotoEmoji',
+    sourceName: 'NotoEmoji - Sample of 100',
     emojiSource: Fonts.emojis.notoEmoji(),
   },
 };
 
 export const OpenMojiSampleOf100: Story = {
   args: {
-    sourceName: 'OpenMoji',
+    sourceName: 'OpenMoji - Sample of 100',
     emojiSource: Fonts.emojis.openMoji(),
+  },
+};
+
+export const OpenMojiBlackSampleOf100: Story = {
+  args: {
+    sourceName: 'OpenMoji Black - Sample of 100',
+    emojiSource: Fonts.emojis.openMojiBlack(),
   },
 };
 
 export const TwemojiSampleOf100: Story = {
   args: {
-    sourceName: 'Twemoji',
+    sourceName: 'Twemoji - Sample of 100',
     emojiSource: Fonts.emojis.twemoji(),
   },
 };
 
 export const JoyPixelsFullList: Story = {
   args: {
-    sourceName: 'JoyPixels',
+    sourceName: 'JoyPixels - Full List',
     emojiSource: Fonts.emojis.joyPixels(),
     showFullList: true,
   },
@@ -1872,7 +1892,7 @@ export const JoyPixelsFullList: Story = {
 
 export const NotoEmojiFullList: Story = {
   args: {
-    sourceName: 'NotoEmoji',
+    sourceName: 'NotoEmoji - Full List',
     emojiSource: Fonts.emojis.notoEmoji(),
     showFullList: true,
   },
@@ -1880,15 +1900,23 @@ export const NotoEmojiFullList: Story = {
 
 export const OpenMojiFullList: Story = {
   args: {
-    sourceName: 'OpenMoji',
+    sourceName: 'OpenMoji - Full List',
     emojiSource: Fonts.emojis.openMoji(),
+    showFullList: true,
+  },
+};
+
+export const OpenMojiBlackFullList: Story = {
+  args: {
+    sourceName: 'OpenMoji Black - Full List',
+    emojiSource: Fonts.emojis.openMojiBlack(),
     showFullList: true,
   },
 };
 
 export const TwemojiFullList: Story = {
   args: {
-    sourceName: 'Twemoji',
+    sourceName: 'Twemoji - Full List',
     emojiSource: Fonts.emojis.twemoji(),
     showFullList: true,
   },

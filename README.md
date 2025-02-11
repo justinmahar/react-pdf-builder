@@ -39,6 +39,8 @@ If you want to build beautiful PDFs in React without starting from scratch, this
   - Easily scale all components to match your preferred size.
 - **🖋️ Drop-in support for 25 commonly used fonts (including bold/italics!)**
   - Easily use popular fonts like Roboto, Lato, Raleway, or Montserrat—including formatting styles!
+- **🥳 Support for 4 different emoji sets**
+  - Enable emojis by JoyPixels, Noto Emoji, OpenMoji, or Twemoji, with one line of code.
 - **📊 Table support with page wrapping, theming, and colspans**
   - Need tables? Look no further. Beautiful tables are at your fingertips.
 - **🟦 Easy to use gradient backdrops for your pages**
