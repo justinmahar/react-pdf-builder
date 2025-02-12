@@ -30,7 +30,7 @@ export interface Theme {
   /** This color is exposed for convenience when working with the theme and cannot be overridden directly. To override the page color, override the `color` style in `pageProps.style` when building the theme. */
   _bodyColor: string;
   /** The font size is exposed for convenience when working with the theme and cannot be overridden directly. To customize font sizes, override style props (such as `pageProps.style.fontSize`) when building the theme. */
-  _baseFontSize: number;
+  _bodyFontSize: number;
 
   // Button
   buttonProps: ButtonProps;

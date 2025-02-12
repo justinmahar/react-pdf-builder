@@ -1,3 +1,4 @@
+import Color from 'color';
 import { Style } from '../../components/Style';
 import { ColorScheme, GreyscaleColors, PaletteColors, ThemeColors } from '../ColorScheme';
 import { lightColorScheme } from '../light/LightColorScheme';
@@ -19,12 +20,24 @@ function createClasses<T extends number | string>(
 }
 
 export const createDefaultClassNames = (scale: number, emSize: number, colorScheme: ColorScheme): ClassNames => {
-  const spacer = emSize * scale;
-  const fontSizeBase = emSize * scale;
+  const scaledSpacer = emSize * scale;
+  const scaledBaseFontSize = emSize * scale;
+  const scaledBaseBorderWidth = 1 * scale;
   const sizingPercentageValues = [25, 50, 75, 100];
   const spacingMultiplierValues = [0, 0.25, 0.5, 1, 1.5, 3];
   const headingSizeMultiplierValues = [2.5, 2, 1.75, 1.5, 1.25, 1];
-  const positionValues = [0, 50, 100];
+  const positionPercentageValues = [0, 50, 100];
+  const borderWidthMultiplierValues = [0, 1, 2, 3, 4, 5];
+  const borderRadiusValues = [
+    0 * scaledSpacer,
+    0.25 * scaledSpacer,
+    0.375 * scaledSpacer,
+    0.5 * scaledSpacer,
+    1 * scaledSpacer,
+    2 * scaledSpacer,
+  ];
+  const defaultBorderRadius = borderRadiusValues[2];
+  const colorFadeRatio = 0.866;
 
   return {
     // === Bg Colors ===
@@ -43,7 +56,124 @@ export const createDefaultClassNames = (scale: number, emSize: number, colorSche
       (v) => ({ backgroundColor: colorScheme.greyscale[v] }),
       Object.keys(colorScheme.greyscale) as (keyof GreyscaleColors)[],
     ),
+    ...createClasses(
+      (v) => `bg-faded-${v}`,
+      (v) => ({ backgroundColor: new Color(colorScheme.colors[v]).fade(colorFadeRatio).hexa() }),
+      Object.keys(colorScheme.colors) as (keyof PaletteColors)[],
+    ),
+    ...createClasses(
+      (v) => `bg-faded-${v}`,
+      (v) => ({ backgroundColor: new Color(colorScheme.theme[v]).fade(colorFadeRatio).hexa() }),
+      Object.keys(colorScheme.theme) as (keyof ThemeColors)[],
+    ),
+    ...createClasses(
+      (v) => `bg-faded-${v}`,
+      (v) => ({ backgroundColor: new Color(colorScheme.greyscale[v]).fade(colorFadeRatio).hexa() }),
+      Object.keys(colorScheme.greyscale) as (keyof GreyscaleColors)[],
+    ),
     'bg-transparent': { backgroundColor: '#00000000' },
+
+    // === Borders ===
+    ...createClasses(
+      (v) => `border-${v}`,
+      (v) => ({ borderWidth: v * scaledBaseBorderWidth }),
+      borderWidthMultiplierValues,
+    ),
+    ...createClasses(
+      (v) => `border-top-${v}`,
+      (v) => ({ borderTopWidth: v * scaledBaseBorderWidth }),
+      borderWidthMultiplierValues,
+    ),
+    ...createClasses(
+      (v) => `border-end-${v}`,
+      (v) => ({ borderRightWidth: v * scaledBaseBorderWidth }),
+      borderWidthMultiplierValues,
+    ),
+    ...createClasses(
+      (v) => `border-bottom-${v}`,
+      (v) => ({ borderBottomWidth: v * scaledBaseBorderWidth }),
+      borderWidthMultiplierValues,
+    ),
+    ...createClasses(
+      (v) => `border-start-${v}`,
+      (v) => ({ borderLeftWidth: v * scaledBaseBorderWidth }),
+      borderWidthMultiplierValues,
+    ),
+    border: { borderWidth: scaledBaseBorderWidth, borderStyle: 'solid', borderColor: colorScheme.greyscale.gray300 },
+    'border-top': {
+      borderTopWidth: scaledBaseBorderWidth,
+      borderTopStyle: 'solid',
+      borderTopColor: colorScheme.greyscale.gray300,
+    },
+    'border-end': {
+      borderRightWidth: scaledBaseBorderWidth,
+      borderRightStyle: 'solid',
+      borderRightColor: colorScheme.greyscale.gray300,
+    },
+    'border-bottom': {
+      borderBottomWidth: scaledBaseBorderWidth,
+      borderBottomStyle: 'solid',
+      borderBottomColor: colorScheme.greyscale.gray300,
+    },
+    'border-start': {
+      borderLeftWidth: scaledBaseBorderWidth,
+      borderLeftStyle: 'solid',
+      borderLeftColor: colorScheme.greyscale.gray300,
+    },
+    ...createClasses(
+      (v) => `border-${v}`,
+      (v) => ({ borderStyle: v }),
+      ['dashed', 'dotted', 'solid'],
+    ),
+
+    // === Border Colors ===
+    ...createClasses(
+      (v) => `border-${v}`,
+      (v) => ({ borderColor: colorScheme.colors[v] }),
+      Object.keys(colorScheme.colors) as (keyof PaletteColors)[],
+    ),
+    ...createClasses(
+      (v) => `border-${v}`,
+      (v) => ({ borderColor: colorScheme.theme[v] }),
+      Object.keys(colorScheme.theme) as (keyof ThemeColors)[],
+    ),
+    ...createClasses(
+      (v) => `border-${v}`,
+      (v) => ({ borderColor: colorScheme.greyscale[v] }),
+      Object.keys(colorScheme.greyscale) as (keyof GreyscaleColors)[],
+    ),
+
+    // === Border Radius ===
+    ...createClasses(
+      (v, i) => `rounded-${i}`,
+      (v) => ({ borderRadius: v }),
+      borderRadiusValues,
+    ),
+    ...createClasses(
+      (v, i) => `rounded-top-${i}`,
+      (v) => ({ borderTopLeftRadius: v, borderTopRightRadius: v }),
+      borderRadiusValues,
+    ),
+    ...createClasses(
+      (v, i) => `rounded-end-${i}`,
+      (v) => ({ borderTopRightRadius: v, borderBottomRightRadius: v }),
+      borderRadiusValues,
+    ),
+    ...createClasses(
+      (v, i) => `rounded-bottom-${i}`,
+      (v) => ({ borderBottomRightRadius: v, borderBottomLeftRadius: v }),
+      borderRadiusValues,
+    ),
+    ...createClasses(
+      (v, i) => `rounded-start-${i}`,
+      (v) => ({ borderBottomLeftRadius: v, borderTopLeftRadius: v }),
+      borderRadiusValues,
+    ),
+    rounded: { borderRadius: defaultBorderRadius },
+    'rounded-top': { borderTopLeftRadius: defaultBorderRadius, borderTopRightRadius: defaultBorderRadius },
+    'rounded-end': { borderTopRightRadius: defaultBorderRadius, borderBottomRightRadius: defaultBorderRadius },
+    'rounded-bottom': { borderBottomRightRadius: defaultBorderRadius, borderBottomLeftRadius: defaultBorderRadius },
+    'rounded-start': { borderBottomLeftRadius: defaultBorderRadius, borderTopLeftRadius: defaultBorderRadius },
 
     // === Display ===
     ...createClasses(
@@ -120,22 +250,22 @@ export const createDefaultClassNames = (scale: number, emSize: number, colorSche
     ...createClasses(
       (v) => `top-${v}`,
       (v) => ({ top: `${v}%` }),
-      positionValues,
+      positionPercentageValues,
     ),
     ...createClasses(
       (v) => `end-${v}`,
       (v) => ({ right: `${v}%` }),
-      positionValues,
+      positionPercentageValues,
     ),
     ...createClasses(
       (v) => `bottom-${v}`,
       (v) => ({ bottom: `${v}%` }),
-      positionValues,
+      positionPercentageValues,
     ),
     ...createClasses(
       (v) => `start-${v}`,
       (v) => ({ left: `${v}%` }),
-      positionValues,
+      positionPercentageValues,
     ),
 
     // === Sizing ===
@@ -161,94 +291,94 @@ export const createDefaultClassNames = (scale: number, emSize: number, colorSche
     // === Spacing ===
     ...createClasses(
       (v, i) => `m-${i}`,
-      (v) => ({ margin: spacer * v }),
+      (v) => ({ margin: scaledSpacer * v }),
       spacingMultiplierValues,
     ),
     'm-auto': { margin: 'auto' },
     ...createClasses(
       (v, i) => `mt-${i}`,
-      (v) => ({ marginTop: spacer * v }),
+      (v) => ({ marginTop: scaledSpacer * v }),
       spacingMultiplierValues,
     ),
     'mt-auto': { marginTop: 'auto' },
     ...createClasses(
       (v, i) => `me-${i}`,
-      (v) => ({ marginRight: spacer * v }),
+      (v) => ({ marginRight: scaledSpacer * v }),
       spacingMultiplierValues,
     ),
     'me-auto': { marginRight: 'auto' },
     ...createClasses(
       (v, i) => `mb-${i}`,
-      (v) => ({ marginBottom: spacer * v }),
+      (v) => ({ marginBottom: scaledSpacer * v }),
       spacingMultiplierValues,
     ),
     'mb-auto': { marginBottom: 'auto' },
     ...createClasses(
       (v, i) => `ms-${i}`,
-      (v) => ({ marginLeft: spacer * v }),
+      (v) => ({ marginLeft: scaledSpacer * v }),
       spacingMultiplierValues,
     ),
     'ms-auto': { marginLeft: 'auto' },
     ...createClasses(
       (v, i) => `mx-${i}`,
-      (v) => ({ marginLeft: spacer * v, marginRight: spacer * v }),
+      (v) => ({ marginLeft: scaledSpacer * v, marginRight: scaledSpacer * v }),
       spacingMultiplierValues,
     ),
     'mx-auto': { marginLeft: 'auto', marginRight: 'auto' },
     ...createClasses(
       (v, i) => `my-${i}`,
-      (v) => ({ marginTop: spacer * v, marginBottom: spacer * v }),
+      (v) => ({ marginTop: scaledSpacer * v, marginBottom: scaledSpacer * v }),
       spacingMultiplierValues,
     ),
     'my-auto': { marginTop: 'auto', marginBottom: 'auto' },
     ...createClasses(
       (v, i) => `p-${i}`,
-      (v) => ({ padding: spacer * v }),
+      (v) => ({ padding: scaledSpacer * v }),
       spacingMultiplierValues,
     ),
     ...createClasses(
       (v, i) => `pt-${i}`,
-      (v) => ({ paddingTop: spacer * v }),
+      (v) => ({ paddingTop: scaledSpacer * v }),
       spacingMultiplierValues,
     ),
     ...createClasses(
       (v, i) => `pe-${i}`,
-      (v) => ({ paddingRight: spacer * v }),
+      (v) => ({ paddingRight: scaledSpacer * v }),
       spacingMultiplierValues,
     ),
     ...createClasses(
       (v, i) => `pb-${i}`,
-      (v) => ({ paddingBottom: spacer * v }),
+      (v) => ({ paddingBottom: scaledSpacer * v }),
       spacingMultiplierValues,
     ),
     ...createClasses(
       (v, i) => `ps-${i}`,
-      (v) => ({ paddingLeft: spacer * v }),
+      (v) => ({ paddingLeft: scaledSpacer * v }),
       spacingMultiplierValues,
     ),
     ...createClasses(
       (v, i) => `px-${i}`,
-      (v) => ({ paddingLeft: spacer * v, paddingRight: spacer * v }),
+      (v) => ({ paddingLeft: scaledSpacer * v, paddingRight: scaledSpacer * v }),
       spacingMultiplierValues,
     ),
     ...createClasses(
       (v, i) => `py-${i}`,
-      (v) => ({ paddingTop: spacer * v, paddingBottom: spacer * v }),
+      (v) => ({ paddingTop: scaledSpacer * v, paddingBottom: scaledSpacer * v }),
       spacingMultiplierValues,
     ),
     ...createClasses(
       (v, i) => `gap-${i}`,
-      (v) => ({ gap: spacer * v }),
+      (v) => ({ gap: scaledSpacer * v }),
       spacingMultiplierValues,
     ),
     ...createClasses(
       (v, i) => `row-gap-${i}`,
-      (v) => ({ rowGap: spacer * v }),
+      (v) => ({ rowGap: scaledSpacer * v }),
       spacingMultiplierValues,
     ),
     ...createClasses(
       (v, i) => `column-gap-${i}`,
-      (v) => ({ columnGap: spacer * v }),
+      (v) => ({ columnGap: scaledSpacer * v }),
       spacingMultiplierValues,
     ),
 
@@ -256,10 +386,10 @@ export const createDefaultClassNames = (scale: number, emSize: number, colorSche
     ...createClasses(
       (v, i) => `h${i + 1}`,
       (v) => ({
-        fontSize: fontSizeBase * v,
+        fontSize: scaledBaseFontSize * v,
         lineHeight: 1.2,
         fontWeight: 500,
-        marginBottom: fontSizeBase * 0.5,
+        marginBottom: scaledBaseFontSize * 0.5,
       }),
       headingSizeMultiplierValues,
     ),
@@ -270,7 +400,7 @@ export const createDefaultClassNames = (scale: number, emSize: number, colorSche
     ),
     ...createClasses(
       (v, i) => `fs-${i + 1}`,
-      (v) => ({ fontSize: fontSizeBase * v }),
+      (v) => ({ fontSize: scaledBaseFontSize * v }),
       headingSizeMultiplierValues,
     ),
     ...createClasses(
@@ -280,7 +410,7 @@ export const createDefaultClassNames = (scale: number, emSize: number, colorSche
     ),
     ...createClasses(
       (v, i) => `display-${i + 1}`,
-      (v) => ({ fontSize: fontSizeBase * v, fontWeight: 300, lineHeight: 1.2 }),
+      (v) => ({ fontSize: scaledBaseFontSize * v, fontWeight: 300, lineHeight: 1.2 }),
       [5, 4.5, 4, 3.5, 3, 2.5],
     ),
     ...createClasses(
@@ -298,7 +428,7 @@ export const createDefaultClassNames = (scale: number, emSize: number, colorSche
       (v) => ({ textTransform: v }),
       ['capitalize', 'lowercase', 'uppercase'],
     ),
-    small: { fontSize: fontSizeBase * 0.875 },
+    small: { fontSize: scaledBaseFontSize * 0.875 },
     ...createClasses(
       (v) => `fw-${v}`,
       (v, i) => ({ fontWeight: (i + 1) * 100 }),

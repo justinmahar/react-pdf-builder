@@ -13,6 +13,7 @@ export class LightThemeBuilder extends ThemeBuilder {
     const baseFontSize = 16;
     const baseMarginRatio = 1.25;
     const classNames = createDefaultClassNames(scale, baseFontSize, colorScheme);
+    const scaledFontSize = baseFontSize * scale;
     // console.log(classNames);
     return {
       // === Color Scheme === === === === === === === === === === ===
@@ -20,7 +21,7 @@ export class LightThemeBuilder extends ThemeBuilder {
       classNames,
       _bodyBackgroundColor: colorScheme.greyscale.white,
       _bodyColor: colorScheme.greyscale.black,
-      _baseFontSize: baseFontSize,
+      _bodyFontSize: scaledFontSize,
 
       // === Button === === === === === === === === === === ===
       buttonProps: {
@@ -34,7 +35,7 @@ export class LightThemeBuilder extends ThemeBuilder {
       // === Card === === === === === === === === === === ===
       cardProps: {
         style: {
-          marginBottom: baseFontSize * baseMarginRatio * scale,
+          marginBottom: scaledFontSize * baseMarginRatio,
         },
       },
       cardBodyProps: {
@@ -69,7 +70,7 @@ export class LightThemeBuilder extends ThemeBuilder {
       // === Lists === === === === === === === === === === ===
       listItemContainerProps: {
         style: {
-          marginBottom: baseFontSize * 0.35 * scale,
+          marginBottom: scaledFontSize * 0.35,
           columnGap: 20 * scale,
         },
       },
@@ -77,14 +78,14 @@ export class LightThemeBuilder extends ThemeBuilder {
       listItemProps: {},
       orderedListProps: {
         style: {
-          marginBottom: baseFontSize * baseMarginRatio * scale,
-          fontSize: baseFontSize * scale,
+          marginBottom: scaledFontSize * baseMarginRatio,
+          fontSize: scaledFontSize,
         },
       },
       unorderedListProps: {
         style: {
-          marginBottom: baseFontSize * baseMarginRatio * scale,
-          fontSize: baseFontSize * scale,
+          marginBottom: scaledFontSize * baseMarginRatio,
+          fontSize: scaledFontSize,
         },
       },
 
@@ -92,7 +93,7 @@ export class LightThemeBuilder extends ThemeBuilder {
       pageProps: {
         style: {
           padding: 0.5 * 72 * scale, // Inches x DPI, scaled
-          fontSize: baseFontSize * scale,
+          fontSize: scaledFontSize,
         },
       },
       pageNumberProps: {},
@@ -106,7 +107,7 @@ export class LightThemeBuilder extends ThemeBuilder {
         },
         xProps: {
           style: {
-            fontSize: baseFontSize * 1.75 * scale,
+            fontSize: scaledFontSize * 1.75,
             marginLeft: 12 * scale,
             marginBottom: 2 * scale,
           },
@@ -120,7 +121,7 @@ export class LightThemeBuilder extends ThemeBuilder {
         borderColor: colorScheme.greyscale.black, // Color
         stripeStyle: { backgroundColor: '#00000015' }, // Color
         style: {
-          marginBottom: baseFontSize * baseMarginRatio * scale,
+          marginBottom: scaledFontSize * baseMarginRatio,
         },
       },
       tableRowProps: {},
@@ -160,8 +161,8 @@ export class LightThemeBuilder extends ThemeBuilder {
       },
       paragraphProps: {
         style: {
-          fontSize: baseFontSize * scale,
-          marginBottom: baseFontSize * scale,
+          fontSize: scaledFontSize,
+          marginBottom: scaledFontSize,
         },
       },
     };
