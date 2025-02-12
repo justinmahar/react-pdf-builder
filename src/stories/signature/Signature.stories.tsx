@@ -48,5 +48,5 @@ export const WithSwatch: Story = {
 };
 
 export const FullExample: Story = {
-  args: { x: true, paragraphText: 'Sign here' },
+  args: { x: true, className: 'mb-0', paragraphText: 'Sign here' },
 };

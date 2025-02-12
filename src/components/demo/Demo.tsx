@@ -160,7 +160,7 @@ export const Demo = ({
                 adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 👍
               </RPB.Paragraph>
               <RPB.Box gap={8 * scale} style={{ marginLeft: 'auto', width: 400 * scale }}>
-                <RPB.Signature x />
+                <RPB.Signature x className="mb-0" />
                 <RPB.Paragraph style={{ fontSize: 16 * scale }}>Sign here</RPB.Paragraph>
               </RPB.Box>
 
@@ -196,11 +196,12 @@ export const Demo = ({
                 Blockquotes
               </RPB.Heading5>
               <RPB.Box direction="x" gap={20 * scale} style={{ flexWrap: 'wrap', justifyContent: 'center' }}>
-                <RPB.Blockquote wrap={false} style={{ width: 220 * scale }}>
+                <RPB.Blockquote className="mb-0" wrap={false} style={{ width: 220 * scale }}>
                   Default blockquote
                 </RPB.Blockquote>
                 {Object.keys(theme.colorScheme?.contrast ?? {}).map((swatch, i) => (
                   <RPB.Blockquote
+                    className="mb-0"
                     wrap={false}
                     break={i > 0 && (i + 1) % 16 === 0}
                     key={`bq-${swatch}`}
