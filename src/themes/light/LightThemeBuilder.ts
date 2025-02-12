@@ -12,8 +12,8 @@ export class LightThemeBuilder extends ThemeBuilder {
     const borderColor = colorScheme.greyscale.gray500;
     const baseFontSize = 16;
     const baseMarginRatio = 1.25;
-    const classNames = createDefaultClassNames(scale, baseFontSize);
-    console.log(classNames);
+    const classNames = createDefaultClassNames(scale, baseFontSize, colorScheme);
+    // console.log(classNames);
     return {
       // === Color Scheme === === === === === === === === === === ===
       colorScheme,
@@ -64,9 +64,7 @@ export class LightThemeBuilder extends ThemeBuilder {
       },
 
       // === Link === === === === === === === === === === ===
-      linkProps: {
-        style: {},
-      },
+      linkProps: {},
 
       // === Lists === === === === === === === === === === ===
       listItemContainerProps: {
@@ -75,12 +73,8 @@ export class LightThemeBuilder extends ThemeBuilder {
           columnGap: 20 * scale,
         },
       },
-      listItemMarkerProps: {
-        style: {},
-      },
-      listItemProps: {
-        style: {},
-      },
+      listItemMarkerProps: {},
+      listItemProps: {},
       orderedListProps: {
         style: {
           marginBottom: baseFontSize * baseMarginRatio * scale,
@@ -101,9 +95,7 @@ export class LightThemeBuilder extends ThemeBuilder {
           fontSize: baseFontSize * scale,
         },
       },
-      pageNumberProps: {
-        style: {},
-      },
+      pageNumberProps: {},
 
       // === Signature === === === === === === === === === === ===
       signatureProps: {
@@ -131,9 +123,7 @@ export class LightThemeBuilder extends ThemeBuilder {
           marginBottom: baseFontSize * baseMarginRatio * scale,
         },
       },
-      tableRowProps: {
-        style: {},
-      },
+      tableRowProps: {},
       tableCellProps: {
         style: {
           padding: 8 * scale,
@@ -149,45 +139,24 @@ export class LightThemeBuilder extends ThemeBuilder {
           backgroundColor: colorScheme.greyscale.gray200,
         },
       },
-      headingProps: {
-        // Applies to all headings
-        style: {},
-      },
+      headingProps: {},
       heading1Props: {
-        className: 'h1',
-        style: {
-          borderBottomWidth: 4 * scale, // Enabled with rule prop
-        },
+        className: 'h1 h1-rule',
       },
       heading2Props: {
-        className: 'h2',
-        style: {
-          borderBottomWidth: 3 * scale, // Enabled with rule prop
-        },
+        className: 'h2 h2-rule',
       },
       heading3Props: {
-        className: 'h3',
-        style: {
-          borderBottomWidth: 3 * scale, // Enabled with rule prop
-        },
+        className: 'h3 h3-rule',
       },
       heading4Props: {
-        className: 'h4',
-        style: {
-          borderBottomWidth: 2 * scale, // Enabled with rule prop
-        },
+        className: 'h4 h4-rule',
       },
       heading5Props: {
-        className: 'h5',
-        style: {
-          borderBottomWidth: 2 * scale, // Enabled with rule prop
-        },
+        className: 'h5 h5-rule',
       },
       heading6Props: {
-        className: 'h6',
-        style: {
-          borderBottomWidth: 1 * scale, // Enabled with rule prop
-        },
+        className: 'h6 h6-rule',
       },
       paragraphProps: {
         style: {

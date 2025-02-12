@@ -25,13 +25,13 @@ Read the **[official documentation](https://justinmahar.github.io/react-pdf-buil
 
 React PDF Builder is a fully themeable component framework built on [react-pdf](https://react-pdf.org/) and [pdfkit](https://pdfkit.org/).
 
-The framework includes 30 ready-to-use components for headings, paragraphs, lists, tables, buttons, cards, and more.
+The framework includes 30+ ready-to-use components for headings, paragraphs, lists, tables, buttons, cards, and more.
 
 If you want to build beautiful PDFs in React without starting from scratch, this is the library for you!
 
 ### Features include:
 
-- **🌟 30 pre-made components to make building PDFs a breeze**
+- **🌟 30+ pre-made components to make building PDFs a breeze**
   - Styled and done for you, so you can start building right away.
 - **🎨 Fully themeable with built-in light and dark modes**
   - All colors and component props can be overridden easily.

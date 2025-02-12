@@ -1,4 +1,6 @@
 import { Style } from '../../components/Style';
+import { ColorScheme, GreyscaleColors, PaletteColors, ThemeColors } from '../ColorScheme';
+import { lightColorScheme } from '../light/LightColorScheme';
 import { ClassNames } from './ClassNames';
 
 function createClasses<T extends number | string>(
@@ -16,13 +18,33 @@ function createClasses<T extends number | string>(
   return cn;
 }
 
-export const createDefaultClassNames = (scale: number, emSize = 16): ClassNames => {
+export const createDefaultClassNames = (scale: number, emSize: number, colorScheme: ColorScheme): ClassNames => {
   const spacer = emSize * scale;
   const fontSizeBase = emSize * scale;
   const sizingPercentageValues = [25, 50, 75, 100];
   const spacingMultiplierValues = [0, 0.25, 0.5, 1, 1.5, 3];
   const headingSizeMultiplierValues = [2.5, 2, 1.75, 1.5, 1.25, 1];
+  const positionValues = [0, 50, 100];
+
   return {
+    // === Bg Colors ===
+    ...createClasses(
+      (v) => `bg-${v}`,
+      (v) => ({ backgroundColor: colorScheme.colors[v] }),
+      Object.keys(colorScheme.colors) as (keyof PaletteColors)[],
+    ),
+    ...createClasses(
+      (v) => `bg-${v}`,
+      (v) => ({ backgroundColor: colorScheme.theme[v] }),
+      Object.keys(colorScheme.theme) as (keyof ThemeColors)[],
+    ),
+    ...createClasses(
+      (v) => `bg-${v}`,
+      (v) => ({ backgroundColor: colorScheme.greyscale[v] }),
+      Object.keys(colorScheme.greyscale) as (keyof GreyscaleColors)[],
+    ),
+    'bg-transparent': { backgroundColor: '#00000000' },
+
     // === Display ===
     ...createClasses(
       (v) => `d-${v}`,
@@ -72,6 +94,20 @@ export const createDefaultClassNames = (scale: number, emSize = 16): ClassNames 
       ['center', 'flex-end', 'flex-start', 'space-around', 'space-between', 'space-evenly', 'stretch'],
     ),
 
+    // === Object fit ===
+    ...createClasses(
+      (v) => `object-fit-${v.replace('-down', '')}`,
+      (v) => ({ objectFit: v }),
+      ['contain', 'cover', 'fill', 'scale-down', 'none'],
+    ),
+
+    // === Opacity ===
+    ...createClasses(
+      (v) => `opacity-${v}`,
+      (v) => ({ opacity: v / 100 }),
+      [0, 25, 50, 75, 100],
+    ),
+
     // === Overflow ===
     'overflow-hidden': { overflow: 'hidden' },
 
@@ -80,6 +116,26 @@ export const createDefaultClassNames = (scale: number, emSize = 16): ClassNames 
       (v) => `position-${v}`,
       (v) => ({ position: v }),
       ['absolute', 'relative', 'static'],
+    ),
+    ...createClasses(
+      (v) => `top-${v}`,
+      (v) => ({ top: `${v}%` }),
+      positionValues,
+    ),
+    ...createClasses(
+      (v) => `end-${v}`,
+      (v) => ({ right: `${v}%` }),
+      positionValues,
+    ),
+    ...createClasses(
+      (v) => `bottom-${v}`,
+      (v) => ({ bottom: `${v}%` }),
+      positionValues,
+    ),
+    ...createClasses(
+      (v) => `start-${v}`,
+      (v) => ({ left: `${v}%` }),
+      positionValues,
     ),
 
     // === Sizing ===
@@ -208,14 +264,19 @@ export const createDefaultClassNames = (scale: number, emSize = 16): ClassNames 
       headingSizeMultiplierValues,
     ),
     ...createClasses(
+      (v, i) => `h${i + 1}-rule`,
+      (v) => ({ borderBottomWidth: v * scale }),
+      [4, 3.5, 3, 2.5, 2, 1.75],
+    ),
+    ...createClasses(
       (v, i) => `fs-${i + 1}`,
       (v) => ({ fontSize: fontSizeBase * v }),
       headingSizeMultiplierValues,
     ),
     ...createClasses(
       (v) => `lh-${v}`,
-      (v, i) => ({ lineHeight: [1.25, 1.5, 2][i] }),
-      ['sm', 'base', 'lg'],
+      (v, i) => ({ lineHeight: [1, 1.25, 1.5, 2][i] }),
+      [1, 'sm', 'base', 'lg'],
     ),
     ...createClasses(
       (v, i) => `display-${i + 1}`,
@@ -226,6 +287,11 @@ export const createDefaultClassNames = (scale: number, emSize = 16): ClassNames 
       (v) => `text-${v}`,
       (v) => ({ textAlign: v }),
       ['center', 'justify', 'left', 'right'],
+    ),
+    ...createClasses(
+      (v) => `align-${v}`,
+      (v) => ({ verticalAlign: v }),
+      ['sub', 'super'],
     ),
     ...createClasses(
       (v) => `text-${v}`,
@@ -249,5 +315,30 @@ export const createDefaultClassNames = (scale: number, emSize = 16): ClassNames 
       ['line-through', 'none', 'underline', 'underline line-through'],
     ),
     'text-overflow-ellipsis': { textOverflow: 'ellipsis' },
+
+    // === Text Colors ===
+    ...createClasses(
+      (v) => `text-${v}`,
+      (v) => ({ color: colorScheme.colors[v] }),
+      Object.keys(colorScheme.colors) as (keyof PaletteColors)[],
+    ),
+    ...createClasses(
+      (v) => `text-${v}`,
+      (v) => ({ color: colorScheme.theme[v] }),
+      Object.keys(colorScheme.theme) as (keyof ThemeColors)[],
+    ),
+    ...createClasses(
+      (v) => `text-${v}`,
+      (v) => ({ color: colorScheme.greyscale[v] }),
+      Object.keys(colorScheme.greyscale) as (keyof GreyscaleColors)[],
+    ),
+    'text-reset': { color: 'inherit' },
+
+    // === Z-Index ===
+    ...createClasses(
+      (v) => `z-${`${v}`.replace('-', 'n')}`,
+      (v) => ({ zIndex: v }),
+      [-1, 0, 1, 2, 3],
+    ),
   };
 };
