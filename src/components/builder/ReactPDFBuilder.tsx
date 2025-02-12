@@ -1,10 +1,17 @@
+import { CanvasProps, ImageProps } from '@react-pdf/renderer';
 import React from 'react';
+import { Theme } from '../../themes/Theme';
+import { Themes } from '../../themes/Themes';
+import { GradientBackdrop, GradientBackdropProps } from '../backdrops/GradientBackdrop';
+import { ThemedCanvas, ThemedCanvasProps } from '../basics/ThemedCanvas';
+import { ThemedImage, ThemedImageProps } from '../basics/ThemedImage';
+import { ThemedSvg, ThemedSvgProps } from '../basics/ThemedSvg';
+import { ThemedText, ThemedTextProps } from '../basics/ThemedText';
+import { ThemedView, ThemedViewProps } from '../basics/ThemedView';
+import { Button, ButtonProps } from '../button/Button';
 import { Card, CardProps } from '../card/Card';
 import { CardBody, CardBodyProps } from '../card/CardBody';
 import { CardHeader, CardHeaderProps } from '../card/CardHeader';
-import { Theme } from '../../themes/Theme';
-import { GradientBackdrop, GradientBackdropProps } from '../backdrops/GradientBackdrop';
-import { Button, ButtonProps } from '../button/Button';
 import { Box, BoxProps } from '../layout/Box';
 import { ThemedLink, ThemedLinkProps } from '../link/ThemedLink';
 import { ListItem, ListItemProps } from '../lists/ListItem';
@@ -17,9 +24,11 @@ import { EllipseShape, EllipseShapeProps } from '../shapes/EllipseShape';
 import { LineShape, LineShapeProps } from '../shapes/LineShape';
 import { RectangleShape, RectangleShapeProps } from '../shapes/RectangleShape';
 import { SquareShape, SquareShapeProps } from '../shapes/SquareShape';
+import { Signature, SignatureProps } from '../signature/Signature';
 import { Table, TableProps } from '../table/Table';
-import { TableRow, TableRowProps } from '../table/TableRow';
 import { TableCell, TableCellProps } from '../table/TableCell';
+import { TableRow, TableRowProps } from '../table/TableRow';
+import { Blockquote, BlockquoteProps } from '../typography/Blockquote';
 import { HeadingProps } from '../typography/Heading';
 import { Heading1 } from '../typography/Heading1';
 import { Heading2 } from '../typography/Heading2';
@@ -28,15 +37,6 @@ import { Heading4 } from '../typography/Heading4';
 import { Heading5 } from '../typography/Heading5';
 import { Heading6 } from '../typography/Heading6';
 import { Paragraph, ParagraphProps } from '../typography/Paragraph';
-import { Themes } from '../../themes/Themes';
-import { Signature, SignatureProps } from '../signature/Signature';
-import { Blockquote, BlockquoteProps } from '../typography/Blockquote';
-import { CanvasProps, ImageProps, SVGProps, TextProps, ViewProps } from '@react-pdf/renderer';
-import { ThemedCanvas } from '../basics/ThemedCanvas';
-import { ThemedImage } from '../basics/ThemedImage';
-import { ThemedSvg } from '../basics/ThemedSvg';
-import { ThemedText } from '../basics/ThemedText';
-import { ThemedView } from '../basics/ThemedView';
 
 export class ReactPDFBuilder {
   public GradientBackdrop;
@@ -194,19 +194,19 @@ export class ReactPDFBuilder {
         {children}
       </Signature>
     );
-    this.Canvas = ({ ...props }: CanvasProps) => <ThemedCanvas theme={theme} {...props} />;
-    this.Image = ({ ...props }: ImageProps) => <ThemedImage theme={theme} {...props} />;
-    this.Svg = ({ children, ...props }: React.PropsWithChildren<SVGProps>) => (
+    this.Canvas = ({ ...props }: ThemedCanvasProps) => <ThemedCanvas theme={theme} {...props} />;
+    this.Image = ({ ...props }: ImageProps & ThemedImageProps) => <ThemedImage theme={theme} {...props} />;
+    this.Svg = ({ children, ...props }: ThemedSvgProps) => (
       <ThemedSvg theme={theme} {...props}>
         {children}
       </ThemedSvg>
     );
-    this.Text = ({ children, ...props }: React.PropsWithChildren<TextProps>) => (
+    this.Text = ({ children, ...props }: ThemedTextProps) => (
       <ThemedText theme={theme} {...props}>
         {children}
       </ThemedText>
     );
-    this.View = ({ children, ...props }: React.PropsWithChildren<ViewProps>) => (
+    this.View = ({ children, ...props }: ThemedViewProps) => (
       <ThemedView theme={theme} {...props}>
         {children}
       </ThemedView>

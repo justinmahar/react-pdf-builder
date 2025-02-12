@@ -173,6 +173,16 @@ export const createDefaultClassNames = (scale: number, emSize: number, colorSche
     'rounded-end': { borderTopRightRadius: defaultBorderRadius, borderBottomRightRadius: defaultBorderRadius },
     'rounded-bottom': { borderBottomRightRadius: defaultBorderRadius, borderBottomLeftRadius: defaultBorderRadius },
     'rounded-start': { borderBottomLeftRadius: defaultBorderRadius, borderTopLeftRadius: defaultBorderRadius },
+    'rounded-circle': { borderRadius: '50%' },
+    'rounded-top-circle': { borderTopLeftRadius: '50%', borderTopRightRadius: '50%' },
+    'rounded-end-circle': { borderTopRightRadius: '50%', borderBottomRightRadius: '50%' },
+    'rounded-bottom-circle': { borderBottomRightRadius: '50%', borderBottomLeftRadius: '50%' },
+    'rounded-start-circle': { borderBottomLeftRadius: '50%', borderTopLeftRadius: '50%' },
+    'rounded-pill': { borderRadius: 50 * scaledSpacer },
+    'rounded-top-pill': { borderTopLeftRadius: 50 * scaledSpacer, borderTopRightRadius: 50 * scaledSpacer },
+    'rounded-end-pill': { borderTopRightRadius: 50 * scaledSpacer, borderBottomRightRadius: 50 * scaledSpacer },
+    'rounded-bottom-pill': { borderBottomRightRadius: 50 * scaledSpacer, borderBottomLeftRadius: 50 * scaledSpacer },
+    'rounded-start-pill': { borderBottomLeftRadius: 50 * scaledSpacer, borderTopLeftRadius: 50 * scaledSpacer },
 
     // === Display ===
     ...createClasses(
