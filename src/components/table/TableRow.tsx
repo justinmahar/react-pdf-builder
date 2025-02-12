@@ -10,6 +10,7 @@ import Color from 'color';
 
 export interface TableRowProps extends BoxProps {
   children?: any;
+  className?: string;
   rowIndex?: number;
   rowCount?: number;
   striped?: boolean;
@@ -32,7 +33,14 @@ export interface TableRowProps extends BoxProps {
   theme?: Theme;
 }
 
-export const TableRow = ({ children, theme = Themes.default.build(), stripeStyle, style, ...props }: TableRowProps) => {
+export const TableRow = ({
+  children,
+  theme = Themes.default.build(),
+  stripeStyle,
+  className,
+  style,
+  ...props
+}: TableRowProps) => {
   const themeProps = theme.tableRowProps;
   const mergedProps = {
     ...themeProps,
@@ -118,6 +126,10 @@ export const TableRow = ({ children, theme = Themes.default.build(), stripeStyle
     });
   });
 
+  const themeClassName = themeProps.className;
+  const themeClassNameStyles = ThemeBuilder.getStylesForClassName(themeClassName, theme.classNames);
+  const classNameStyles = ThemeBuilder.getStylesForClassName(className, theme.classNames);
+
   return (
     <Box
       wrap={false}
@@ -125,10 +137,12 @@ export const TableRow = ({ children, theme = Themes.default.build(), stripeStyle
       {...mergedProps}
       style={{
         ...styleInnate,
+        ...themeClassNameStyles,
         ...themeProps?.style,
         ...styleOverride,
         ...mergedProps.rowStyle,
         ...stripedStyleOverride,
+        ...classNameStyles,
         ...style,
       }}
     >

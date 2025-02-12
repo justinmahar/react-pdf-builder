@@ -10,6 +10,7 @@ import { ThemeBuilder } from '../../themes/ThemeBuilder';
 
 export interface UnorderedListProps extends ViewProps {
   children?: any;
+  className?: string;
   wrapItems?: boolean;
   markerStyle?: Style;
   markerSwatch?: SwatchColor;
@@ -20,7 +21,13 @@ export interface UnorderedListProps extends ViewProps {
   theme?: Theme;
 }
 
-export const UnorderedList = ({ theme = Themes.default.build(), children, style, ...props }: UnorderedListProps) => {
+export const UnorderedList = ({
+  theme = Themes.default.build(),
+  children,
+  className,
+  style,
+  ...props
+}: UnorderedListProps) => {
   const themeProps = theme.unorderedListProps;
   const mergedProps = {
     ...themeProps,
@@ -59,8 +66,22 @@ export const UnorderedList = ({ theme = Themes.default.build(), children, style,
     flexDirection: 'column',
   };
 
+  const themeClassName = themeProps.className;
+  const themeClassNameStyles = ThemeBuilder.getStylesForClassName(themeClassName, theme.classNames);
+  const classNameStyles = ThemeBuilder.getStylesForClassName(className, theme.classNames);
+
   return (
-    <View {...mergedProps} style={{ ...styleInnate, ...themeProps?.style, ...styleOverride, ...style }}>
+    <View
+      {...mergedProps}
+      style={{
+        ...styleInnate,
+        ...themeClassNameStyles,
+        ...themeProps?.style,
+        ...styleOverride,
+        ...classNameStyles,
+        ...style,
+      }}
+    >
       {liElements}
     </View>
   );

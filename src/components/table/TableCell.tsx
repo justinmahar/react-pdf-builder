@@ -10,6 +10,7 @@ import Color from 'color';
 
 export interface TableCellProps extends BoxProps {
   children?: any;
+  className?: string;
   colIndex?: number;
   colCount?: number;
   colWidths?: (string | number)[];
@@ -25,7 +26,7 @@ export interface TableCellProps extends BoxProps {
   theme?: Theme;
 }
 
-export const TableCell = ({ children, theme = Themes.default.build(), style, ...props }: TableCellProps) => {
+export const TableCell = ({ children, theme = Themes.default.build(), className, style, ...props }: TableCellProps) => {
   const themeProps = theme.tableCellProps;
   const mergedProps = {
     ...themeProps,
@@ -59,15 +60,21 @@ export const TableCell = ({ children, theme = Themes.default.build(), style, ...
     styleOverride.backgroundColor = `${new Color(swatchColor ?? '#888').hex()}${swatchOpacityHex}`; // Add opacity to the end
   }
 
+  const themeClassName = themeProps.className;
+  const themeClassNameStyles = ThemeBuilder.getStylesForClassName(themeClassName, theme.classNames);
+  const classNameStyles = ThemeBuilder.getStylesForClassName(className, theme.classNames);
+
   return (
     <Box
       direction="y"
       {...mergedProps}
       style={{
         ...styleInnate,
+        ...themeClassNameStyles,
         ...themeProps?.style,
         ...styleOverride,
         ...mergedProps.cellStyle,
+        ...classNameStyles,
         ...style,
       }}
     >

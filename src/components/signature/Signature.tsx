@@ -10,6 +10,7 @@ import { ThemeBuilder } from '../../themes/ThemeBuilder';
 
 export interface SignatureProps extends BoxProps {
   children?: any;
+  className?: string;
   lineSize?: number;
   x?: boolean;
   xProps?: TextProps;
@@ -18,7 +19,7 @@ export interface SignatureProps extends BoxProps {
   theme?: Theme;
 }
 
-export const Signature = ({ children, theme = Themes.default.build(), style, ...props }: SignatureProps) => {
+export const Signature = ({ children, theme = Themes.default.build(), className, style, ...props }: SignatureProps) => {
   const themeProps = theme?.signatureProps;
   const mergedProps = {
     ...themeProps,
@@ -41,8 +42,23 @@ export const Signature = ({ children, theme = Themes.default.build(), style, ...
     xStyleOverride.color = swatchColor;
   }
 
+  const themeClassName = themeProps.className;
+  const themeClassNameStyles = ThemeBuilder.getStylesForClassName(themeClassName, theme.classNames);
+  const classNameStyles = ThemeBuilder.getStylesForClassName(className, theme.classNames);
+
   return (
-    <Box direction="x" {...mergedProps} style={{ ...styleInnate, ...themeProps?.style, ...styleOverride, ...style }}>
+    <Box
+      direction="x"
+      {...mergedProps}
+      style={{
+        ...styleInnate,
+        ...themeClassNameStyles,
+        ...themeProps?.style,
+        ...styleOverride,
+        ...classNameStyles,
+        ...style,
+      }}
+    >
       {mergedProps.x && (
         <Text {...mergedProps.xProps} style={{ ...mergedProps.xProps?.style, ...xStyleOverride }}>
           {mergedProps.xValue ?? 'X'}

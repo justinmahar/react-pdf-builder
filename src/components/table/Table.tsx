@@ -9,6 +9,7 @@ import Color from 'color';
 
 export interface TableProps extends BoxProps {
   children?: any;
+  className?: string;
   striped?: boolean;
   stripeStyle?: Style;
   inverseStriped?: boolean;
@@ -28,7 +29,7 @@ export interface TableProps extends BoxProps {
   theme?: Theme;
 }
 
-export const Table = ({ children, theme = Themes.default.build(), style, ...props }: TableProps) => {
+export const Table = ({ children, theme = Themes.default.build(), className, style, ...props }: TableProps) => {
   const themeProps = theme?.tableProps;
   const mergedProps = {
     ...themeProps,
@@ -84,14 +85,20 @@ export const Table = ({ children, theme = Themes.default.build(), style, ...prop
     });
   });
 
+  const themeClassName = themeProps.className;
+  const themeClassNameStyles = ThemeBuilder.getStylesForClassName(themeClassName, theme.classNames);
+  const classNameStyles = ThemeBuilder.getStylesForClassName(className, theme.classNames);
+
   return (
     <Box
       direction="y"
       {...mergedProps}
       style={{
         ...styleInnate,
+        ...themeClassNameStyles,
         ...themeProps?.style,
         ...styleOverride,
+        ...classNameStyles,
         ...style,
       }}
     >

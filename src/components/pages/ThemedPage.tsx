@@ -9,11 +9,18 @@ import { ThemeBuilder } from '../../themes/ThemeBuilder';
 
 export interface ThemedPageProps extends PageProps {
   children?: any;
+  className?: string;
   swatch?: SwatchColor;
   theme?: Theme;
 }
 
-export const ThemedPage = ({ children, theme = Themes.default.build(), style, ...props }: ThemedPageProps) => {
+export const ThemedPage = ({
+  children,
+  theme = Themes.default.build(),
+  className,
+  style,
+  ...props
+}: ThemedPageProps) => {
   const themeProps = theme.pageProps;
   const mergedProps = {
     ...themeProps,
@@ -23,11 +30,17 @@ export const ThemedPage = ({ children, theme = Themes.default.build(), style, ..
   const styleOverride: Style = {};
   if (mergedProps.swatch) {
     styleOverride.backgroundColor = ThemeBuilder.getSwatchColor(mergedProps.swatch, theme.colorScheme);
-    // styleOverride.color = ThemeBuilder.getContrastColor(mergedProps.swatch, theme.colorScheme);
   }
 
+  const themeClassName = themeProps.className;
+  const themeClassNameStyles = ThemeBuilder.getStylesForClassName(themeClassName, theme.classNames);
+  const classNameStyles = ThemeBuilder.getStylesForClassName(className, theme.classNames);
+
   return (
-    <Page {...mergedProps} style={{ ...themeProps?.style, ...styleOverride, ...style }}>
+    <Page
+      {...mergedProps}
+      style={{ ...themeClassNameStyles, ...themeProps?.style, ...styleOverride, ...classNameStyles, ...style }}
+    >
       <PDFSafeChildren>{children}</PDFSafeChildren>
     </Page>
   );

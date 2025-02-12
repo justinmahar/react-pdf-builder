@@ -9,11 +9,18 @@ import { ThemeBuilder } from '../../themes/ThemeBuilder';
 
 export interface ThemedLinkProps extends LinkProps {
   children?: any;
+  className?: string;
   swatch?: SwatchColor;
   theme?: Theme;
 }
 
-export const ThemedLink = ({ children, theme = Themes.default.build(), style, ...props }: ThemedLinkProps) => {
+export const ThemedLink = ({
+  children,
+  theme = Themes.default.build(),
+  className,
+  style,
+  ...props
+}: ThemedLinkProps) => {
   const themeProps = theme?.linkProps;
   const mergedProps = {
     ...themeProps,
@@ -30,8 +37,22 @@ export const ThemedLink = ({ children, theme = Themes.default.build(), style, ..
     styleOverride.color = swatchColor;
   }
 
+  const themeClassName = themeProps.className;
+  const themeClassNameStyles = ThemeBuilder.getStylesForClassName(themeClassName, theme.classNames);
+  const classNameStyles = ThemeBuilder.getStylesForClassName(className, theme.classNames);
+
   return (
-    <Link {...mergedProps} style={{ ...styleInnate, ...themeProps?.style, ...styleOverride, ...style }}>
+    <Link
+      {...mergedProps}
+      style={{
+        ...styleInnate,
+        ...themeClassNameStyles,
+        ...themeProps?.style,
+        ...styleOverride,
+        ...classNameStyles,
+        ...style,
+      }}
+    >
       <PDFSafeChildren>{children}</PDFSafeChildren>
     </Link>
   );

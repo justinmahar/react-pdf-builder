@@ -19,6 +19,7 @@ import { ThemedLinkProps } from '../components/link/ThemedLink';
 import { SignatureProps } from '../components/signature/Signature';
 import { BlockquoteProps } from '../components/typography/Blockquote';
 import { ClassNames } from './classnames/ClassNames';
+import { ThemedPageProps } from '../components/pages/ThemedPage';
 
 export interface Theme {
   // Color scheme
@@ -47,7 +48,7 @@ export interface Theme {
   unorderedListProps: UnorderedListProps;
   orderedListProps: OrderedListProps;
   // Pages
-  pageProps: PageProps;
+  pageProps: ThemedPageProps;
   pageNumberProps: PageNumberProps;
   // Signature
   signatureProps: SignatureProps;

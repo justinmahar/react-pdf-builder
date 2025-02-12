@@ -10,14 +10,22 @@ import Color from 'color';
 
 export interface BlockquoteProps extends ViewProps {
   children?: any;
+  className?: string;
   swatch?: SwatchColor;
   swatchOpacity?: number;
   theme?: Theme;
 }
 
-export const Blockquote = ({ children, theme = Themes.default.build(), style, ...props }: BlockquoteProps) => {
+export const Blockquote = ({
+  children,
+  theme = Themes.default.build(),
+  className,
+  style,
+  ...props
+}: BlockquoteProps) => {
+  const themeProps = theme?.blockquoteProps;
   const mergedProps = {
-    ...theme?.blockquoteProps,
+    ...themeProps,
     ...props,
   };
 
@@ -31,8 +39,15 @@ export const Blockquote = ({ children, theme = Themes.default.build(), style, ..
     styleOverride.backgroundColor = `${new Color(swatchColor ?? '#888').hex()}${swatchOpacityHex}`; // Add opacity to the end
   }
 
+  const themeClassName = themeProps.className;
+  const themeClassNameStyles = ThemeBuilder.getStylesForClassName(themeClassName, theme.classNames);
+  const classNameStyles = ThemeBuilder.getStylesForClassName(className, theme.classNames);
+
   return (
-    <View {...mergedProps} style={{ ...mergedProps?.style, ...styleOverride, ...style }}>
+    <View
+      {...mergedProps}
+      style={{ ...themeClassNameStyles, ...mergedProps?.style, ...styleOverride, ...classNameStyles, ...style }}
+    >
       <PDFSafeChildren>{children}</PDFSafeChildren>
     </View>
   );

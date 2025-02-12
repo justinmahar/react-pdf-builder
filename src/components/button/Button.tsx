@@ -8,15 +8,16 @@ import { Themes } from '../../themes/Themes';
 import { SwatchColor } from '../../themes/ColorScheme';
 
 export interface ButtonProps extends ViewProps {
+  children?: any;
+  className?: string;
   href?: string;
   swatch?: SwatchColor | 'link';
-  children?: any;
   pill?: boolean;
   linkColor?: string;
   theme?: Theme;
 }
 
-export const Button = ({ children, theme = Themes.default.build(), style, ...props }: ButtonProps) => {
+export const Button = ({ children, theme = Themes.default.build(), className, style, ...props }: ButtonProps) => {
   const themeProps = theme?.buttonProps;
   const mergedProps = {
     ...themeProps,
@@ -50,8 +51,22 @@ export const Button = ({ children, theme = Themes.default.build(), style, ...pro
     </PDFSafeChildren>
   );
 
+  const themeClassName = themeProps.className;
+  const themeClassNameStyles = ThemeBuilder.getStylesForClassName(themeClassName, theme.classNames);
+  const classNameStyles = ThemeBuilder.getStylesForClassName(className, theme.classNames);
+
   const buttonElement = (
-    <View {...mergedProps} style={{ ...styleInnate, ...themeProps?.style, ...styleOverride, ...style }}>
+    <View
+      {...mergedProps}
+      style={{
+        ...styleInnate,
+        ...themeClassNameStyles,
+        ...themeProps?.style,
+        ...styleOverride,
+        ...classNameStyles,
+        ...style,
+      }}
+    >
       {child}
     </View>
   );

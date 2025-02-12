@@ -1,4 +1,4 @@
-import { CanvasProps, ImageProps } from '@react-pdf/renderer';
+import { ImageProps } from '@react-pdf/renderer';
 import React from 'react';
 import { Theme } from '../../themes/Theme';
 import { Themes } from '../../themes/Themes';
@@ -76,7 +76,9 @@ export class ReactPDFBuilder {
 
   constructor(public theme: Theme = Themes.default.build()) {
     this.GradientBackdrop = ({ children, ...props }: GradientBackdropProps) => (
-      <GradientBackdrop {...props}>{children}</GradientBackdrop>
+      <GradientBackdrop theme={theme} {...props}>
+        {children}
+      </GradientBackdrop>
     );
     this.Button = ({ children, ...props }: ButtonProps) => (
       <Button theme={theme} {...props}>
@@ -129,11 +131,11 @@ export class ReactPDFBuilder {
         {children}
       </ThemedPage>
     );
-    this.CircleShape = ({ ...props }: CircleShapeProps) => <CircleShape {...props} />;
-    this.EllipseShape = ({ ...props }: EllipseShapeProps) => <EllipseShape {...props} />;
-    this.LineShape = ({ ...props }: LineShapeProps) => <LineShape {...props} />;
-    this.RectangleShape = ({ ...props }: RectangleShapeProps) => <RectangleShape {...props} />;
-    this.SquareShape = ({ ...props }: SquareShapeProps) => <SquareShape {...props} />;
+    this.CircleShape = ({ ...props }: CircleShapeProps) => <CircleShape theme={theme} {...props} />;
+    this.EllipseShape = ({ ...props }: EllipseShapeProps) => <EllipseShape theme={theme} {...props} />;
+    this.LineShape = ({ ...props }: LineShapeProps) => <LineShape theme={theme} {...props} />;
+    this.RectangleShape = ({ ...props }: RectangleShapeProps) => <RectangleShape theme={theme} {...props} />;
+    this.SquareShape = ({ ...props }: SquareShapeProps) => <SquareShape theme={theme} {...props} />;
     this.Table = ({ children, ...props }: TableProps) => (
       <Table theme={theme} {...props}>
         {children}

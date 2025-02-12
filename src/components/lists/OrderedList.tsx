@@ -10,6 +10,7 @@ import { ThemeBuilder } from '../../themes/ThemeBuilder';
 
 export interface OrderedListProps extends ViewProps {
   children?: any;
+  className?: string;
   wrapItems?: boolean;
   markerStyle?: Style;
   markerSwatch?: SwatchColor;
@@ -20,7 +21,13 @@ export interface OrderedListProps extends ViewProps {
   theme?: Theme;
 }
 
-export const OrderedList = ({ theme = Themes.default.build(), children, style, ...props }: OrderedListProps) => {
+export const OrderedList = ({
+  children,
+  theme = Themes.default.build(),
+  className,
+  style,
+  ...props
+}: OrderedListProps) => {
   const themeProps = theme.orderedListProps;
   const mergedProps = {
     ...themeProps,
@@ -60,8 +67,22 @@ export const OrderedList = ({ theme = Themes.default.build(), children, style, .
     flexDirection: 'column',
   };
 
+  const themeClassName = themeProps.className;
+  const themeClassNameStyles = ThemeBuilder.getStylesForClassName(themeClassName, theme.classNames);
+  const classNameStyles = ThemeBuilder.getStylesForClassName(className, theme.classNames);
+
   return (
-    <View {...mergedProps} style={{ ...styleInnate, ...themeProps?.style, ...styleOverride, ...style }}>
+    <View
+      {...mergedProps}
+      style={{
+        ...styleInnate,
+        ...themeClassNameStyles,
+        ...themeProps?.style,
+        ...styleOverride,
+        ...classNameStyles,
+        ...style,
+      }}
+    >
       {liElements}
     </View>
   );

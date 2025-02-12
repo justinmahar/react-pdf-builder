@@ -12,6 +12,7 @@ import Color from 'color';
 
 export interface GradientBackdropProps extends BoxProps {
   children?: any;
+  className?: string;
   size: PageSizeString | { width: number; height: number };
   orientation?: 'portrait' | 'landscape';
   gradient?: string[] | GradientStop[];
@@ -54,6 +55,7 @@ export const GradientBackdrop = ({
   desaturate = false,
   desaturateAmounts = [0, 1],
   theme = Themes.default.build(),
+  className,
   style,
   ...props
 }: GradientBackdropProps) => {
@@ -110,8 +112,14 @@ export const GradientBackdrop = ({
     });
   });
 
+  const classNameStyles = ThemeBuilder.getStylesForClassName(className, theme.classNames);
+
   return (
-    <Box fixed {...props} style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, ...style }}>
+    <Box
+      fixed
+      {...props}
+      style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, ...classNameStyles, ...style }}
+    >
       <RectangleShape width={width} height={height} gradient={gradient} gradientType={gradientType} />
       {injectedChildArray}
     </Box>

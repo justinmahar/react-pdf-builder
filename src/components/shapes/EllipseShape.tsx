@@ -3,9 +3,14 @@ import React from 'react';
 import { randomUuid } from '../../util/util';
 import { Gradients, GradientType } from './Gradients';
 import { ShapeProps } from './ShapeProps';
+import { ThemeBuilder } from '../../themes/ThemeBuilder';
+import { Theme } from '../../themes/Theme';
+import { Themes } from '../../themes/Themes';
 
 export interface EllipseShapeProps extends ShapeProps {
   ellipseProps?: Partial<EllipseProps>;
+  className?: string;
+  theme?: Theme;
 }
 
 export const EllipseShape = ({
@@ -19,6 +24,8 @@ export const EllipseShape = ({
   gradientType = GradientType.topToBottom,
   linearGradientCoords: linearGradientCoordsProps,
   radialGradientCoords: radialGradientCoordsProps,
+  theme = Themes.default.build(),
+  className,
   ...svgProps
 }: EllipseShapeProps) => {
   const uuidRef = React.useRef(randomUuid());
@@ -38,11 +45,14 @@ export const EllipseShape = ({
     ellipseProps?.fill ??
     fill ??
     (!gradient ? 'black' : gradientType === GradientType.radial ? `url('#${radialId}')` : `url('#${linearId}')`);
+
+  const classNameStyles = ThemeBuilder.getStylesForClassName(className, theme.classNames);
+
   return (
     <Svg
       viewBox={`0 0 ${widthNum} ${heightNum}`}
       {...svgProps}
-      style={{ width: widthNum, height: heightNum, ...svgProps.style }}
+      style={{ width: widthNum, height: heightNum, ...classNameStyles, ...svgProps.style }}
     >
       <Defs>
         <LinearGradient id={linearId} {...linearGradientCoords} {...linearGradientProps}>

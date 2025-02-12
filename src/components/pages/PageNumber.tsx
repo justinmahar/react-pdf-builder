@@ -7,12 +7,13 @@ import { Themes } from '../../themes/Themes';
 import { Paragraph, ParagraphProps } from '../typography/Paragraph';
 
 export interface PageNumberProps extends ParagraphProps {
+  className?: string;
   format?: string;
   swatch?: SwatchColor;
   theme?: Theme;
 }
 
-export const PageNumber = ({ theme = Themes.default.build(), style, ...props }: PageNumberProps) => {
+export const PageNumber = ({ theme = Themes.default.build(), className, style, ...props }: PageNumberProps) => {
   const themeProps = theme.pageNumberProps;
   const mergedProps = { ...themeProps, ...props };
   const defaultFormat = '%n / %t';
@@ -25,6 +26,10 @@ export const PageNumber = ({ theme = Themes.default.build(), style, ...props }: 
   if (mergedProps.swatch) {
     styleOverride.color = ThemeBuilder.getSwatchColor(mergedProps.swatch, theme.colorScheme);
   }
+
+  const themeClassName = themeProps.className;
+  const themeClassNameStyles = ThemeBuilder.getStylesForClassName(themeClassName, theme.classNames);
+  const classNameStyles = ThemeBuilder.getStylesForClassName(className, theme.classNames);
 
   return (
     <Paragraph
@@ -42,7 +47,14 @@ export const PageNumber = ({ theme = Themes.default.build(), style, ...props }: 
           .join(`${subPageTotalPages}`);
       }}
       {...mergedProps}
-      style={{ ...styleInnate, ...themeProps?.style, ...styleOverride, ...style }}
+      style={{
+        ...styleInnate,
+        ...themeClassNameStyles,
+        ...themeProps?.style,
+        ...styleOverride,
+        ...classNameStyles,
+        ...style,
+      }}
     />
   );
 };
