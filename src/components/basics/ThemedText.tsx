@@ -10,10 +10,16 @@ export interface ThemedTextProps extends TextProps {
   theme?: Theme;
 }
 
-export const ThemedText = ({ children, theme = Themes.default.build(), className, ...props }: ThemedTextProps) => {
+export const ThemedText = ({
+  children,
+  theme = Themes.default.build(),
+  className,
+  style,
+  ...props
+}: ThemedTextProps) => {
   const classNameStyles = ThemeBuilder.getStylesForClassName(className, theme.classNames);
   return (
-    <Text {...props} style={{ ...classNameStyles, ...props.style }}>
+    <Text {...props} style={{ ...classNameStyles, ...style }}>
       {children}
     </Text>
   );

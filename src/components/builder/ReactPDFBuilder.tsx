@@ -100,7 +100,11 @@ export class ReactPDFBuilder {
         {children}
       </CardHeader>
     );
-    this.Box = ({ children, ...props }: BoxProps) => <Box {...props}>{children}</Box>;
+    this.Box = ({ children, ...props }: BoxProps) => (
+      <Box theme={theme} {...props}>
+        {children}
+      </Box>
+    );
     this.Link = ({ children, ...props }: ThemedLinkProps) => (
       <ThemedLink theme={theme} {...props}>
         {children}

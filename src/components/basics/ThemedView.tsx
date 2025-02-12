@@ -11,10 +11,16 @@ export interface ThemedViewProps extends ViewProps {
   theme?: Theme;
 }
 
-export const ThemedView = ({ children, theme = Themes.default.build(), className, ...props }: ThemedViewProps) => {
+export const ThemedView = ({
+  children,
+  theme = Themes.default.build(),
+  className,
+  style,
+  ...props
+}: ThemedViewProps) => {
   const classNameStyles = ThemeBuilder.getStylesForClassName(className, theme.classNames);
   return (
-    <View {...props} style={{ ...classNameStyles, ...props.style }}>
+    <View {...props} style={{ ...classNameStyles, ...style }}>
       <PDFSafeChildren>{children}</PDFSafeChildren>
     </View>
   );

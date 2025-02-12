@@ -9,7 +9,12 @@ export interface ThemedImageProps {
   theme?: Theme;
 }
 
-export const ThemedImage = ({ theme = Themes.default.build(), className, ...props }: ImageProps & ThemedImageProps) => {
+export const ThemedImage = ({
+  theme = Themes.default.build(),
+  className,
+  style,
+  ...props
+}: ImageProps & ThemedImageProps) => {
   const classNameStyles = ThemeBuilder.getStylesForClassName(className, theme.classNames);
-  return <Image {...props} style={{ ...classNameStyles, ...props.style }} />;
+  return <Image {...props} style={{ ...classNameStyles, ...style }} />;
 };

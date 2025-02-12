@@ -9,7 +9,7 @@ export interface ThemedCanvasProps extends CanvasProps {
   theme?: Theme;
 }
 
-export const ThemedCanvas = ({ theme = Themes.default.build(), className, ...props }: ThemedCanvasProps) => {
+export const ThemedCanvas = ({ theme = Themes.default.build(), className, style, ...props }: ThemedCanvasProps) => {
   const classNameStyles = ThemeBuilder.getStylesForClassName(className, theme.classNames);
-  return <Canvas {...props} style={{ ...classNameStyles, ...props.style }} />;
+  return <Canvas {...props} style={{ ...classNameStyles, ...style }} />;
 };
