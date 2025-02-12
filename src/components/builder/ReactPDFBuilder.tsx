@@ -125,11 +125,7 @@ export class ReactPDFBuilder {
         {children}
       </UnorderedList>
     );
-    this.PageNumber = ({ children, ...props }: PageNumberProps) => (
-      <PageNumber theme={theme} {...props}>
-        {children}
-      </PageNumber>
-    );
+    this.PageNumber = ({ ...props }: PageNumberProps) => <PageNumber theme={theme} {...props} />;
     this.Page = ({ children, ...props }: ThemedPageProps) => (
       <ThemedPage theme={theme} {...props}>
         {children}

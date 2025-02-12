@@ -50,10 +50,13 @@ export const Demo = ({
   // Disable hyphenation
   Font.registerHyphenationCallback(Fonts.noHyphenation);
 
-  const fontOverride: PartialTheme = { pageProps: { style: { fontFamily: bodyFont?.family } } };
+  const themeOverride: PartialTheme = {
+    classNames: { demo: { backgroundColor: 'lightred', transform: 'rotate(50deg)' } },
+    pageProps: { style: { fontFamily: bodyFont?.family } },
+  };
   const themeConfig: ThemeBuilderConfig = {
     scale,
-    override: ThemeBuilder.overrideTheme(override ?? {}, fontOverride),
+    override: ThemeBuilder.overrideTheme(override ?? {}, themeOverride),
   };
   const theme = themeBuilder.build(themeConfig);
   const RPB = new ReactPDFBuilder(theme);
@@ -156,7 +159,7 @@ export const Demo = ({
               <RPB.Paragraph>
                 Paragraph text. <RPB.Link href="#">This is a link.</RPB.Link>{' '}
                 <Text style={{ fontWeight: 'bold' }}>This is bold.</Text>{' '}
-                <Text style={{ fontStyle: 'italic' }}>This is italic.</Text> 👍
+                <Text style={{ fontStyle: 'italic' }}>This is italic.</Text> Emojis ☕️👍✅
               </RPB.Paragraph>
               <RPB.Paragraph>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
@@ -614,14 +617,12 @@ export const Demo = ({
                 paddingBottom: 72 * 0.5 * scale,
               }}
             >
-              <RPB.Paragraph style={{ marginBottom: 0 }}>
-                <RPB.Link
-                  href="https://github.com/justinmahar/react-pdf-builder"
-                  style={{ textDecoration: 'none', color: bodyColor }}
-                >
-                  React PDF Builder
-                </RPB.Link>
-              </RPB.Paragraph>
+              <RPB.Link
+                href="https://github.com/justinmahar/react-pdf-builder"
+                style={{ textDecoration: 'none', color: bodyColor }}
+              >
+                React PDF Builder
+              </RPB.Link>
               <RPB.PageNumber format="Page %n of %t" />
             </RPB.Box>
           </RPB.Page>

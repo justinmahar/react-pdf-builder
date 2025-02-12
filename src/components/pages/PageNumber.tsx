@@ -5,6 +5,8 @@ import { ThemeBuilder } from '../../themes/ThemeBuilder';
 import { SwatchColor } from '../../themes/ColorScheme';
 import { Themes } from '../../themes/Themes';
 import { Paragraph, ParagraphProps } from '../typography/Paragraph';
+import { Text } from '@react-pdf/renderer';
+import { ThemedText } from '../basics/ThemedText';
 
 export interface PageNumberProps extends ParagraphProps {
   className?: string;
@@ -32,7 +34,7 @@ export const PageNumber = ({ theme = Themes.default.build(), className, style, .
   const classNameStyles = ThemeBuilder.getStylesForClassName(className, theme.classNames);
 
   return (
-    <Paragraph
+    <ThemedText
       theme={theme}
       render={({ pageNumber, totalPages, subPageNumber, subPageTotalPages }) => {
         const num = pageNumber;
