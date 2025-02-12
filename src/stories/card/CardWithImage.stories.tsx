@@ -1,6 +1,6 @@
-import { Image } from '@react-pdf/renderer';
 import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
+import { ThemedImage } from '../../components/basics/ThemedImage';
 import { Card } from '../../components/card/Card';
 import { CardBody } from '../../components/card/CardBody';
 import { Heading6 } from '../../components/typography/Heading6';
@@ -12,10 +12,10 @@ const StoryComponent = (props: ParagraphProps) => {
     <PDFStory>
       <Card>
         <CardBody style={{ padding: 0 }}>
-          <Image
+          <ThemedImage
+            className="w-100 rounded-top"
             src="https://justinmahar.github.io/react-pdf-builder/images/600x200.jpg"
-            style={{ width: '100%', borderTopLeftRadius: 9, borderTopRightRadius: 9 }}
-          ></Image>
+          />
         </CardBody>
         <CardBody>
           <Heading6>Card with image</Heading6>

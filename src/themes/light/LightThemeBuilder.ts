@@ -10,58 +10,41 @@ export class LightThemeBuilder extends ThemeBuilder {
   }
   public doBuild(scale: number, colorScheme: ColorScheme): Theme {
     const borderColor = colorScheme.greyscale.gray500;
-    const baseFontSize = 16;
+    const emSize = 16;
+    const baseFontSize = emSize;
     const baseMarginRatio = 1.25;
-    const classNames = createDefaultClassNames(scale, baseFontSize, colorScheme);
+    const classNames = createDefaultClassNames(scale, emSize, colorScheme);
     const scaledFontSize = baseFontSize * scale;
+    const scaledEmSize = emSize * scale;
+    const bodyBgColor = colorScheme.greyscale.white;
     // console.log(classNames);
     return {
       // === Color Scheme === === === === === === === === === === ===
       colorScheme,
       classNames,
-      _bodyBackgroundColor: colorScheme.greyscale.white,
+      _bodyBackgroundColor: bodyBgColor,
       _bodyColor: colorScheme.greyscale.black,
       _bodyFontSize: scaledFontSize,
 
       // === Button === === === === === === === === === === ===
       buttonProps: {
-        style: {
-          padding: 10 * scale,
-          width: 150 * scale,
-          borderRadius: 5 * scale,
-        },
+        className: 'rounded py-1 px-2',
       },
 
       // === Card === === === === === === === === === === ===
       cardProps: {
         style: {
-          marginBottom: scaledFontSize * baseMarginRatio,
+          marginBottom: scaledEmSize * baseMarginRatio,
         },
       },
       cardBodyProps: {
+        className: 'rounded-top rounded-bottom border border-gray500 p-3',
         style: {
-          backgroundColor: colorScheme.greyscale.white, // Color
-          padding: 15 * scale,
-          borderTopLeftRadius: 10 * scale,
-          borderTopRightRadius: 10 * scale,
-          borderBottomLeftRadius: 10 * scale,
-          borderBottomRightRadius: 10 * scale,
-          borderWidth: 1 * scale,
-          borderColor, // Color
+          backgroundColor: bodyBgColor,
         },
       },
       cardHeaderProps: {
-        style: {
-          backgroundColor: colorScheme.greyscale.gray200, // Color
-          paddingVertical: 10 * scale,
-          paddingHorizontal: 15 * scale,
-          borderTopLeftRadius: 10 * scale,
-          borderTopRightRadius: 10 * scale,
-          borderBottomLeftRadius: 10 * scale,
-          borderBottomRightRadius: 10 * scale,
-          borderWidth: 1 * scale,
-          borderColor, // Color
-        },
+        className: 'rounded-top rounded-bottom border border-gray500 bg-gray200 py-2 px-3',
       },
 
       // === Link === === === === === === === === === === ===
@@ -70,7 +53,7 @@ export class LightThemeBuilder extends ThemeBuilder {
       // === Lists === === === === === === === === === === ===
       listItemContainerProps: {
         style: {
-          marginBottom: scaledFontSize * 0.35,
+          marginBottom: scaledEmSize * 0.35,
           columnGap: 20 * scale,
         },
       },
@@ -78,13 +61,13 @@ export class LightThemeBuilder extends ThemeBuilder {
       listItemProps: {},
       orderedListProps: {
         style: {
-          marginBottom: scaledFontSize * baseMarginRatio,
+          marginBottom: scaledEmSize * baseMarginRatio,
           fontSize: scaledFontSize,
         },
       },
       unorderedListProps: {
         style: {
-          marginBottom: scaledFontSize * baseMarginRatio,
+          marginBottom: scaledEmSize * baseMarginRatio,
           fontSize: scaledFontSize,
         },
       },
@@ -121,7 +104,7 @@ export class LightThemeBuilder extends ThemeBuilder {
         borderColor: colorScheme.greyscale.black, // Color
         stripeStyle: { backgroundColor: '#00000015' }, // Color
         style: {
-          marginBottom: scaledFontSize * baseMarginRatio,
+          marginBottom: scaledEmSize * baseMarginRatio,
         },
       },
       tableRowProps: {},
@@ -163,7 +146,7 @@ export class LightThemeBuilder extends ThemeBuilder {
         className: 'mb-3',
         style: {
           fontSize: scaledFontSize,
-          marginBottom: scaledFontSize,
+          marginBottom: scaledEmSize,
         },
       },
     };

@@ -24,9 +24,7 @@ const StoryComponent = () => {
             anim id est laborum.
           </Paragraph>
           <Box direction="x" style={{ justifyContent: 'flex-end' }}>
-            <Button href="#" style={{ width: 120 }}>
-              Learn More
-            </Button>
+            <Button href="#">Learn More</Button>
           </Box>
         </CardBody>
       </Card>
