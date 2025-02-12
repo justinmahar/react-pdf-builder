@@ -160,6 +160,7 @@ export class LightThemeBuilder extends ThemeBuilder {
         className: 'h6 h6-rule',
       },
       paragraphProps: {
+        className: 'mb-3',
         style: {
           fontSize: scaledFontSize,
           marginBottom: scaledFontSize,

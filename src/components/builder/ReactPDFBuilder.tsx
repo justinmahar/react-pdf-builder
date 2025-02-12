@@ -31,6 +31,12 @@ import { Paragraph, ParagraphProps } from '../typography/Paragraph';
 import { Themes } from '../../themes/Themes';
 import { Signature, SignatureProps } from '../signature/Signature';
 import { Blockquote, BlockquoteProps } from '../typography/Blockquote';
+import { CanvasProps, ImageProps, SVGProps, TextProps, ViewProps } from '@react-pdf/renderer';
+import { ThemedCanvas } from '../basics/ThemedCanvas';
+import { ThemedImage } from '../basics/ThemedImage';
+import { ThemedSvg } from '../basics/ThemedSVG';
+import { ThemedText } from '../basics/ThemedText';
+import { ThemedView } from '../basics/ThemedView';
 
 export class ReactPDFBuilder {
   public GradientBackdrop;
@@ -62,6 +68,11 @@ export class ReactPDFBuilder {
   public Heading6;
   public Paragraph;
   public Signature;
+  public Canvas;
+  public Image;
+  public Svg;
+  public Text;
+  public View;
 
   constructor(public theme: Theme = Themes.default.build()) {
     this.GradientBackdrop = ({ children, ...props }: GradientBackdropProps) => (
@@ -182,6 +193,23 @@ export class ReactPDFBuilder {
       <Signature theme={theme} {...props}>
         {children}
       </Signature>
+    );
+    this.Canvas = ({ ...props }: CanvasProps) => <ThemedCanvas theme={theme} {...props} />;
+    this.Image = ({ ...props }: ImageProps) => <ThemedImage theme={theme} {...props} />;
+    this.Svg = ({ children, ...props }: React.PropsWithChildren<SVGProps>) => (
+      <ThemedSvg theme={theme} {...props}>
+        {children}
+      </ThemedSvg>
+    );
+    this.Text = ({ children, ...props }: React.PropsWithChildren<TextProps>) => (
+      <ThemedText theme={theme} {...props}>
+        {children}
+      </ThemedText>
+    );
+    this.View = ({ children, ...props }: React.PropsWithChildren<ViewProps>) => (
+      <ThemedView theme={theme} {...props}>
+        {children}
+      </ThemedView>
     );
   }
 }

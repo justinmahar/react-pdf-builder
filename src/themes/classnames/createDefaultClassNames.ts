@@ -1,7 +1,6 @@
 import Color from 'color';
 import { Style } from '../../components/Style';
 import { ColorScheme, GreyscaleColors, PaletteColors, ThemeColors } from '../ColorScheme';
-import { lightColorScheme } from '../light/LightColorScheme';
 import { ClassNames } from './ClassNames';
 
 function createClasses<T extends number | string>(
