@@ -13,7 +13,6 @@ export class DarkThemeBuilder extends ThemeBuilder {
     const lightTheme = new LightThemeBuilder().build({ override: { colorScheme } });
     const bodyBackgroundColor = colorScheme.greyscale.gray900;
     const bodyColor = colorScheme.greyscale.gray300;
-    const borderColor = colorScheme.greyscale.gray700;
     const linkColor = ThemeBuilder.lighten(lightColorScheme.colors.blue, 0.4);
     const darkThemeOverride: PartialTheme = {
       // === Color Scheme === === === === === === === === === === ===
@@ -28,16 +27,10 @@ export class DarkThemeBuilder extends ThemeBuilder {
 
       // === Card === === === === === === === === === === ===
       cardBodyProps: {
-        style: {
-          backgroundColor: bodyBackgroundColor,
-          borderColor,
-        },
+        className: 'bg-gray900 border-gray700',
       },
       cardHeaderProps: {
-        style: {
-          backgroundColor: colorScheme.greyscale.gray800,
-          borderColor,
-        },
+        className: 'bg-gray800 border-gray700',
       },
 
       // === Link === === === === === === === === === === ===
@@ -49,17 +42,12 @@ export class DarkThemeBuilder extends ThemeBuilder {
 
       // === Pages === === === === === === === === === === ===
       pageProps: {
-        style: {
-          backgroundColor: bodyBackgroundColor,
-          color: bodyColor,
-        },
+        className: 'text-gray300 bg-gray900',
       },
 
       // === Signature === === === === === === === === === === ===
       signatureProps: {
-        style: {
-          borderBottomColor: bodyColor,
-        },
+        className: 'border-gray300',
       },
 
       // === Table === === === === === === === === === === ===
@@ -70,7 +58,6 @@ export class DarkThemeBuilder extends ThemeBuilder {
       },
       tableRowProps: {
         stripeOpacity: 0.3,
-        style: {},
       },
       tableCellProps: {
         swatchOpacity: 0.3,
@@ -78,16 +65,10 @@ export class DarkThemeBuilder extends ThemeBuilder {
 
       // === Typography === === === === === === === === === === ===
       blockquoteProps: {
-        style: {
-          borderColor: colorScheme.greyscale.gray200,
-          backgroundColor: colorScheme.greyscale.gray800,
-        },
+        className: 'border-gray200 bg-gray800',
       },
       headingProps: {
-        // Applies to all headings
-        style: {
-          borderColor: colorScheme.greyscale.gray300,
-        },
+        className: 'border-gray300',
       },
     };
 

@@ -95,37 +95,23 @@ export const PastelCustomTheme: Story = {
         },
       },
       linkProps: {
+        className: 'fw-bold',
         style: {
           color: '#5C9DFE',
-          fontWeight: 'bold',
         },
       },
       cardHeaderProps: {
-        style: {
-          borderTopLeftRadius: 0,
-          borderTopRightRadius: 0,
-          borderBottomLeftRadius: 0,
-          borderBottomRightRadius: 0,
-          borderRadius: 0,
-        },
+        className: 'rounded-0',
       },
       cardBodyProps: {
+        className: 'rounded-0',
         style: {
-          borderTopLeftRadius: 0,
-          borderTopRightRadius: 0,
-          borderBottomLeftRadius: 0,
-          borderBottomRightRadius: 0,
-          borderRadius: 0,
           backgroundColor: '#F5F9FD',
         },
       },
       buttonProps: {
+        className: 'border border-gray800 rounded-0',
         linkColor: '#5C9DFE',
-        style: {
-          borderColor: '#343a40',
-          borderWidth: 1,
-          borderRadius: 0,
-        },
       },
       tableProps: {
         stripeOpacity: 0.1,

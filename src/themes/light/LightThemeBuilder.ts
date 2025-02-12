@@ -11,7 +11,6 @@ export class LightThemeBuilder extends ThemeBuilder {
   public doBuild(scale: number, colorScheme: ColorScheme): Theme {
     const emSize = 16;
     const baseFontSize = emSize;
-    const baseMarginRatio = 1.25;
     const classNames = createDefaultClassNames(scale, emSize, colorScheme);
     const scaledPagePadding = 0.5 * 72 * scale; // Inches x DPI, scaled
     const scaledFontSize = baseFontSize * scale;
@@ -48,21 +47,21 @@ export class LightThemeBuilder extends ThemeBuilder {
       // === Lists === === === === === === === === === === ===
       listItemContainerProps: {
         style: {
-          marginBottom: scaledEmSize * 0.35,
+          marginBottom: scaledEmSize * 0.5,
           columnGap: 20 * scale,
         },
       },
       listItemMarkerProps: {},
       listItemProps: {},
       orderedListProps: {
+        className: 'mb-3',
         style: {
-          marginBottom: scaledEmSize * baseMarginRatio,
           fontSize: scaledFontSize,
         },
       },
       unorderedListProps: {
+        className: 'mb-3',
         style: {
-          marginBottom: scaledEmSize * baseMarginRatio,
           fontSize: scaledFontSize,
         },
       },
@@ -128,7 +127,7 @@ export class LightThemeBuilder extends ThemeBuilder {
         className: 'h6 h6-rule',
       },
       paragraphProps: {
-        className: 'mb-3',
+        className: 'mb-3 lh-base',
         style: {
           fontSize: scaledFontSize,
         },

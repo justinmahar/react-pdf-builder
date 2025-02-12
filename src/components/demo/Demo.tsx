@@ -156,8 +156,11 @@ export const Demo = ({
               <RPB.Paragraph>
                 Paragraph text. <RPB.Link href="#">This is a link.</RPB.Link>{' '}
                 <Text style={{ fontWeight: 'bold' }}>This is bold.</Text>{' '}
-                <Text style={{ fontStyle: 'italic' }}>This is italic.</Text> Lorem ipsum dolor sit amet, consectetur
-                adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 👍
+                <Text style={{ fontStyle: 'italic' }}>This is italic.</Text> 👍
+              </RPB.Paragraph>
+              <RPB.Paragraph>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua.
               </RPB.Paragraph>
               <RPB.Box gap={8 * scale} style={{ marginLeft: 'auto', width: 400 * scale }}>
                 <RPB.Signature x className="mb-0" />

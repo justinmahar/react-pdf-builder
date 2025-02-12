@@ -38,7 +38,16 @@ export abstract class ThemeBuilder {
 
   // === Static === === === === === === === ===
   public static overrideTheme(theme: PartialTheme, override: PartialTheme = {}): Theme {
-    return deepMerge(theme, override) as Theme;
+    // Combine class name strings, if overridden
+    const mergeClassNames = (key: string, a: any, b: any) => {
+      if (key === 'className' && typeof a === 'string' && typeof b === 'string') {
+        const combinedClassNames = `${a} ${b}`;
+        return { success: true, value: combinedClassNames };
+      } else {
+        return { success: false, value: undefined };
+      }
+    };
+    return deepMerge(theme, override, mergeClassNames) as Theme;
   }
 
   public static overrideColorScheme(colorScheme: PartialColorScheme, overrides: PartialColorScheme = {}): ColorScheme {
