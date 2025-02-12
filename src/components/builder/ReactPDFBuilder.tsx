@@ -34,7 +34,7 @@ import { Blockquote, BlockquoteProps } from '../typography/Blockquote';
 import { CanvasProps, ImageProps, SVGProps, TextProps, ViewProps } from '@react-pdf/renderer';
 import { ThemedCanvas } from '../basics/ThemedCanvas';
 import { ThemedImage } from '../basics/ThemedImage';
-import { ThemedSvg } from '../basics/ThemedSVG';
+import { ThemedSvg } from '../basics/ThemedSvg';
 import { ThemedText } from '../basics/ThemedText';
 import { ThemedView } from '../basics/ThemedView';
 
