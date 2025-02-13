@@ -24,10 +24,11 @@ export const EllipseShape = ({
   gradientType = GradientType.topToBottom,
   linearGradientCoords: linearGradientCoordsProps,
   radialGradientCoords: radialGradientCoordsProps,
-  theme = Themes.default.build(),
+  theme,
   className,
   ...svgProps
 }: EllipseShapeProps) => {
+  theme = theme ?? Themes.default.build();
   const uuidRef = React.useRef(randomUuid());
   const linearId = `linear-${uuidRef.current}`;
   const radialId = `radial-${uuidRef.current}`;

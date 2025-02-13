@@ -1,11 +1,12 @@
-import { View, ViewProps } from '@react-pdf/renderer';
+import { ViewProps } from '@react-pdf/renderer';
 import React from 'react';
-import { Theme } from '../../themes/Theme';
-import { Themes } from '../../themes/Themes';
-import { PDFSafeChildren } from '../builder/PDFSafeChildren';
 import { SwatchColor } from '../../themes/ColorScheme';
-import { Style } from '../Style';
+import { Theme } from '../../themes/Theme';
 import { ThemeBuilder } from '../../themes/ThemeBuilder';
+import { Themes } from '../../themes/Themes';
+import { Div } from '../basics/ThemedView';
+import { ThemedChildren } from '../children/ThemedChildren';
+import { Style } from '../Style';
 
 export interface TemplateProps extends ViewProps {
   children?: any;
@@ -14,7 +15,8 @@ export interface TemplateProps extends ViewProps {
   theme?: Theme;
 }
 
-export const Template = ({ children, theme = Themes.default.build(), className, style, ...props }: TemplateProps) => {
+export const Template = ({ children, theme, className, style, ...props }: TemplateProps) => {
+  theme = theme ?? Themes.default.build();
   const themeProps = theme?.cardProps; // TODO: Assign to correct theme props and remove this TODO comment
   const mergedProps = {
     ...themeProps,
@@ -30,7 +32,7 @@ export const Template = ({ children, theme = Themes.default.build(), className, 
   const classNameStyles = ThemeBuilder.getStylesForClassName(className, theme.classNames);
 
   return (
-    <View
+    <Div
       {...mergedProps}
       style={{
         ...styleInnate,
@@ -41,7 +43,7 @@ export const Template = ({ children, theme = Themes.default.build(), className, 
         ...style,
       }}
     >
-      <PDFSafeChildren>{children}</PDFSafeChildren>
-    </View>
+      <ThemedChildren theme={theme}>{children}</ThemedChildren>
+    </Div>
   );
 };

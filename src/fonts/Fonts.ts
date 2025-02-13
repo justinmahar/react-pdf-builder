@@ -645,7 +645,7 @@ export class Fonts {
    * @param fontsDirUrl Optional. URL path where font files are located. Otherwise, fonts will be loaded from cdn.jsdelivr.net.
    * @returns A BulkLoad compatible with React PDF, that can be passed into `Font.register()`
    */
-  public static load = (fontFamily: string, fontsDirUrl?: string): BulkLoad | undefined => {
+  public static load = (fontFamily: string, fontsDirUrl?: string): BulkLoad => {
     const fontDefinition = fontDefinitions.find((d) => d.family.toLowerCase() === fontFamily.toLowerCase());
     if (fontDefinition) {
       const bulkLoad: BulkLoad = {
@@ -661,7 +661,7 @@ export class Fonts {
       };
       return bulkLoad;
     }
-    return undefined;
+    return { family: fontFamily, fonts: [] };
   };
 
   /**

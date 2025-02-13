@@ -1,10 +1,10 @@
-import { Text } from '@react-pdf/renderer';
 import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
+import { ThemedLink, ThemedLinkProps } from '../../components/basics/ThemedLink';
+import { ThemedText } from '../../components/basics/ThemedText';
 import { Card } from '../../components/card/Card';
 import { CardBody } from '../../components/card/CardBody';
 import { Box } from '../../components/layout/Box';
-import { ThemedLink, ThemedLinkProps } from '../../components/link/ThemedLink';
 import { ListItem } from '../../components/lists/ListItem';
 import { UnorderedList } from '../../components/lists/UnorderedList';
 import { PDFStory } from '../parts/PDFStory';
@@ -17,217 +17,217 @@ const StoryComponent = ({ ...props }: ThemedLinkProps) => {
           <Box direction="x" gap={3}>
             <UnorderedList style={{ marginBottom: 0 }}>
               <ListItem style={{ marginBottom: 20 }}>
-                <Text>
+                <ThemedText>
                   <ThemedLink {...props}>Default link text</ThemedLink>
-                </Text>
+                </ThemedText>
               </ListItem>
               <ListItem>Color palette:</ListItem>
               <ListItem>
-                <Text>
+                <ThemedText>
                   <ThemedLink swatch="blue" {...props}>
                     Swatch "blue"
                   </ThemedLink>
-                </Text>
+                </ThemedText>
               </ListItem>
               <ListItem>
-                <Text>
+                <ThemedText>
                   <ThemedLink swatch="indigo" {...props}>
                     Swatch "indigo"
                   </ThemedLink>
-                </Text>
+                </ThemedText>
               </ListItem>
               <ListItem>
-                <Text>
+                <ThemedText>
                   <ThemedLink swatch="purple" {...props}>
                     Swatch "purple"
                   </ThemedLink>
-                </Text>
+                </ThemedText>
               </ListItem>
               <ListItem>
-                <Text>
+                <ThemedText>
                   <ThemedLink swatch="pink" {...props}>
                     Swatch "pink"
                   </ThemedLink>
-                </Text>
+                </ThemedText>
               </ListItem>
               <ListItem>
-                <Text>
+                <ThemedText>
                   <ThemedLink swatch="red" {...props}>
                     Swatch "red"
                   </ThemedLink>
-                </Text>
+                </ThemedText>
               </ListItem>
               <ListItem>
-                <Text>
+                <ThemedText>
                   <ThemedLink swatch="orange" {...props}>
                     Swatch "orange"
                   </ThemedLink>
-                </Text>
+                </ThemedText>
               </ListItem>
               <ListItem>
-                <Text>
+                <ThemedText>
                   <ThemedLink swatch="yellow" {...props}>
                     Swatch "yellow"
                   </ThemedLink>
-                </Text>
+                </ThemedText>
               </ListItem>
               <ListItem>
-                <Text>
+                <ThemedText>
                   <ThemedLink swatch="green" {...props}>
                     Swatch "green"
                   </ThemedLink>
-                </Text>
+                </ThemedText>
               </ListItem>
               <ListItem>
-                <Text>
+                <ThemedText>
                   <ThemedLink swatch="teal" {...props}>
                     Swatch "teal"
                   </ThemedLink>
-                </Text>
+                </ThemedText>
               </ListItem>
               <ListItem>
-                <Text>
+                <ThemedText>
                   <ThemedLink swatch="cyan" {...props}>
                     Swatch "cyan"
                   </ThemedLink>
-                </Text>
+                </ThemedText>
               </ListItem>
             </UnorderedList>
             <UnorderedList style={{ marginBottom: 0 }}>
               <ListItem>Greyscale:</ListItem>
               <ListItem>
-                <Text>
+                <ThemedText>
                   <ThemedLink swatch="white" {...props}>
                     Swatch "white"
                   </ThemedLink>
-                </Text>
+                </ThemedText>
               </ListItem>
               <ListItem>
-                <Text>
+                <ThemedText>
                   <ThemedLink swatch="gray100" {...props}>
                     Swatch "gray100"
                   </ThemedLink>
-                </Text>
+                </ThemedText>
               </ListItem>
               <ListItem>
-                <Text>
+                <ThemedText>
                   <ThemedLink swatch="gray200" {...props}>
                     Swatch "gray200"
                   </ThemedLink>
-                </Text>
+                </ThemedText>
               </ListItem>
               <ListItem>
-                <Text>
+                <ThemedText>
                   <ThemedLink swatch="gray300" {...props}>
                     Swatch "gray300"
                   </ThemedLink>
-                </Text>
+                </ThemedText>
               </ListItem>
               <ListItem>
-                <Text>
+                <ThemedText>
                   <ThemedLink swatch="gray400" {...props}>
                     Swatch "gray400"
                   </ThemedLink>
-                </Text>
+                </ThemedText>
               </ListItem>
               <ListItem>
-                <Text>
+                <ThemedText>
                   <ThemedLink swatch="gray500" {...props}>
                     Swatch "gray500"
                   </ThemedLink>
-                </Text>
+                </ThemedText>
               </ListItem>
               <ListItem>
-                <Text>
+                <ThemedText>
                   <ThemedLink swatch="gray600" {...props}>
                     Swatch "gray600"
                   </ThemedLink>
-                </Text>
+                </ThemedText>
               </ListItem>
               <ListItem>
-                <Text>
+                <ThemedText>
                   <ThemedLink swatch="gray700" {...props}>
                     Swatch "gray700"
                   </ThemedLink>
-                </Text>
+                </ThemedText>
               </ListItem>
               <ListItem>
-                <Text>
+                <ThemedText>
                   <ThemedLink swatch="gray800" {...props}>
                     Swatch "gray800"
                   </ThemedLink>
-                </Text>
+                </ThemedText>
               </ListItem>
               <ListItem>
-                <Text>
+                <ThemedText>
                   <ThemedLink swatch="gray900" {...props}>
                     Swatch "gray900"
                   </ThemedLink>
-                </Text>
+                </ThemedText>
               </ListItem>
               <ListItem style={{ marginBottom: 20 }}>
-                <Text>
+                <ThemedText>
                   <ThemedLink swatch="black" {...props}>
                     Swatch "black"
                   </ThemedLink>
-                </Text>
+                </ThemedText>
               </ListItem>
               <ListItem>Theme colors:</ListItem>
               <ListItem>
-                <Text>
+                <ThemedText>
                   <ThemedLink swatch="primary" {...props}>
                     Swatch "primary"
                   </ThemedLink>
-                </Text>
+                </ThemedText>
               </ListItem>
               <ListItem>
-                <Text>
+                <ThemedText>
                   <ThemedLink swatch="secondary" {...props}>
                     Swatch "secondary"
                   </ThemedLink>
-                </Text>
+                </ThemedText>
               </ListItem>
               <ListItem>
-                <Text>
+                <ThemedText>
                   <ThemedLink swatch="success" {...props}>
                     Swatch "success"
                   </ThemedLink>
-                </Text>
+                </ThemedText>
               </ListItem>
               <ListItem>
-                <Text>
+                <ThemedText>
                   <ThemedLink swatch="info" {...props}>
                     Swatch "info"
                   </ThemedLink>
-                </Text>
+                </ThemedText>
               </ListItem>
               <ListItem>
-                <Text>
+                <ThemedText>
                   <ThemedLink swatch="warning" {...props}>
                     Swatch "warning"
                   </ThemedLink>
-                </Text>
+                </ThemedText>
               </ListItem>
               <ListItem>
-                <Text>
+                <ThemedText>
                   <ThemedLink swatch="danger" {...props}>
                     Swatch "danger"
                   </ThemedLink>
-                </Text>
+                </ThemedText>
               </ListItem>
               <ListItem>
-                <Text>
+                <ThemedText>
                   <ThemedLink swatch="light" {...props}>
                     Swatch "light"
                   </ThemedLink>
-                </Text>
+                </ThemedText>
               </ListItem>
               <ListItem>
-                <Text>
+                <ThemedText>
                   <ThemedLink swatch="dark" {...props}>
                     Swatch "dark"
                   </ThemedLink>
-                </Text>
+                </ThemedText>
               </ListItem>
             </UnorderedList>
           </Box>
@@ -239,7 +239,7 @@ const StoryComponent = ({ ...props }: ThemedLinkProps) => {
 
 // === Setup ===
 const meta: Meta<typeof StoryComponent> = {
-  title: 'Stories/Link', // <-- Set to your story title
+  title: 'Stories/Basics/ThemedLink', // <-- Set to your story title
   component: StoryComponent,
   parameters: {
     options: { showPanel: false }, // Don't show addons panel

@@ -1,16 +1,43 @@
-import { Document, Font, Image, PDFViewer, Text } from '@react-pdf/renderer';
+import { Document, Font, Image, PDFViewer } from '@react-pdf/renderer';
 import React from 'react';
 import { DivProps } from 'react-html-props';
-import { BackdropDecorators } from '../backdrops/BackdropDecorators';
-import { ReactPDFBuilder } from '../builder/ReactPDFBuilder';
 import { Fonts } from '../../fonts/Fonts';
-import { GradientType } from '../shapes/Gradients';
+import { SwatchColor } from '../../themes/ColorScheme';
 import { PartialTheme } from '../../themes/Theme';
 import { ThemeBuilder, ThemeBuilderConfig } from '../../themes/ThemeBuilder';
-import { SwatchColor } from '../../themes/ColorScheme';
 import { Themes } from '../../themes/Themes';
+import { BackdropDecorators } from '../backdrops/BackdropDecorators';
+import { GradientBackdrop } from '../backdrops/GradientBackdrop';
+import { ThemedLink } from '../basics/ThemedLink';
+import { ThemedPage } from '../basics/ThemedPage';
+import { Button } from '../button/Button';
+import { Card } from '../card/Card';
+import { CardBody } from '../card/CardBody';
+import { CardHeader } from '../card/CardHeader';
+import { Box } from '../layout/Box';
+import { ListItem } from '../lists/ListItem';
+import { OrderedList } from '../lists/OrderedList';
+import { UnorderedList } from '../lists/UnorderedList';
+import { PageNumber } from '../pages/PageNumber';
 import { PageSizeString } from '../pages/PageSizes';
+import { CircleShape } from '../shapes/CircleShape';
+import { GradientType } from '../shapes/Gradients';
 import { RectangleShape } from '../shapes/RectangleShape';
+import { Signature } from '../signature/Signature';
+import { Table } from '../table/Table';
+import { TableCell } from '../table/TableCell';
+import { TableRow } from '../table/TableRow';
+import { Blockquote } from '../typography/Blockquote';
+import { Heading1 } from '../typography/Heading1';
+import { Heading2 } from '../typography/Heading2';
+import { Heading3 } from '../typography/Heading3';
+import { Heading4 } from '../typography/Heading4';
+import { Heading5 } from '../typography/Heading5';
+import { Heading6 } from '../typography/Heading6';
+import { Paragraph } from '../typography/Paragraph';
+import { ThemedText } from '../basics/ThemedText';
+import { HorizontalRule } from '../hr/HorizontalRule';
+import { EllipseShape } from '../shapes/EllipseShape';
 
 export interface DemoProps extends DivProps {
   themeName?: string;
@@ -38,13 +65,9 @@ export const Demo = ({
 
   // Register fonts
   const bodyFont = Fonts.load(Fonts.sansSerif.lato);
-  if (bodyFont) {
-    Font.register(bodyFont);
-  }
+  Font.register(bodyFont);
   const titleFont = Fonts.load(Fonts.serif.ebGaramond);
-  if (titleFont) {
-    Font.register(titleFont);
-  }
+  Font.register(titleFont);
   Font.registerEmojiSource(Fonts.emojis.joyPixels());
 
   // Disable hyphenation
@@ -59,7 +82,6 @@ export const Demo = ({
     override: ThemeBuilder.overrideTheme(override ?? {}, themeOverride),
   };
   const theme = themeBuilder.build(themeConfig);
-  const RPB = new ReactPDFBuilder(theme);
 
   const bodyColor = theme._bodyColor;
   const footerHeight = '12.12%';
@@ -69,12 +91,13 @@ export const Demo = ({
       <PDFViewer style={{ height: 700, width: 500 }}>
         <Document>
           {showCoverPage && (
-            <RPB.Page
+            <ThemedPage
+              theme={theme}
               size={pageSize}
               orientation={orientation}
               style={{ flexDirection: 'column', color: 'white', padding: 0 }}
             >
-              <RPB.GradientBackdrop
+              <GradientBackdrop
                 size={pageSize}
                 orientation={orientation}
                 swatch="blue"
@@ -82,11 +105,11 @@ export const Demo = ({
                 darkenAmounts={[0.4, 0.7]}
               >
                 {BackdropDecorators.circles3}
-              </RPB.GradientBackdrop>
-              <RPB.Box direction="y" style={{ height: '100%' }}>
-                <RPB.Box style={{ height: '5%', backgroundColor: '#00000022' }} />
-                <RPB.Box style={{ height: '15%' }} />
-                <RPB.Box
+              </GradientBackdrop>
+              <Box direction="y" style={{ height: '100%' }}>
+                <Box style={{ height: '5%', backgroundColor: '#00000022' }} />
+                <Box style={{ height: '15%' }} />
+                <Box
                   shrink
                   style={{
                     justifyContent: 'center',
@@ -94,25 +117,25 @@ export const Demo = ({
                     backgroundColor: '#00000022',
                   }}
                 >
-                  <RPB.Heading1 style={{ fontFamily: titleFont?.family, textAlign: 'center', fontSize: 63 * scale }}>
+                  <Heading1 style={{ fontFamily: titleFont?.family, textAlign: 'center', fontSize: 63 * scale }}>
                     React PDF Builder
-                  </RPB.Heading1>
-                  <RPB.Heading5 style={{ textAlign: 'center', fontSize: 28 * scale, fontWeight: 400 }}>
+                  </Heading1>
+                  <Heading5 style={{ textAlign: 'center', fontSize: 28 * scale, fontWeight: 400 }}>
                     Build beautiful PDF documents in React.
-                  </RPB.Heading5>
-                </RPB.Box>
-                <RPB.Box grow style={{ justifyContent: 'center', alignItems: 'center' }}>
+                  </Heading5>
+                </Box>
+                <Box grow style={{ justifyContent: 'center', alignItems: 'center' }}>
                   <Image
                     src="https://justinmahar.github.io/react-pdf-builder/images/logo-red.png"
                     style={{ width: 200 * scale }}
                   />
-                </RPB.Box>
-                <RPB.Box style={{ height: '5%', backgroundColor: '#00000022' }} />
-              </RPB.Box>
-            </RPB.Page>
+                </Box>
+                <Box style={{ height: '5%', backgroundColor: '#00000022' }} />
+              </Box>
+            </ThemedPage>
           )}
-          <RPB.Page size={pageSize} orientation={orientation}>
-            <RPB.GradientBackdrop
+          <ThemedPage theme={theme} size={pageSize} orientation={orientation}>
+            <GradientBackdrop
               size={pageSize}
               orientation={orientation}
               gradient={[
@@ -147,66 +170,68 @@ export const Demo = ({
                   { offset: '100%', stopColor: theme.colorScheme.greyscale.black, stopOpacity: 0.05 },
                 ]}
               />
-            </RPB.GradientBackdrop>
-            <RPB.Box direction="y" style={{ gap: 10 * scale }}>
-              <RPB.Heading5 rule>Basic Typography</RPB.Heading5>
-              <RPB.Heading1 rule>Heading 1</RPB.Heading1>
-              <RPB.Heading2 rule>Heading 2</RPB.Heading2>
-              <RPB.Heading3 rule>Heading 3</RPB.Heading3>
-              <RPB.Heading4 rule>Heading 4</RPB.Heading4>
-              <RPB.Heading5 rule>Heading 5</RPB.Heading5>
-              <RPB.Heading6 rule>Heading 6</RPB.Heading6>
-              <RPB.Paragraph>
-                Paragraph text. <RPB.Link href="#">This is a link.</RPB.Link>{' '}
-                <Text style={{ fontWeight: 'bold' }}>This is bold.</Text>{' '}
-                <Text style={{ fontStyle: 'italic' }}>This is italic.</Text> Emojis ☕️👍✅
-              </RPB.Paragraph>
-              <RPB.Paragraph>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua.
-              </RPB.Paragraph>
-              <RPB.Box gap={8 * scale} style={{ marginLeft: 'auto', width: 400 * scale }}>
-                <RPB.Signature x className="mb-0" />
-                <RPB.Paragraph style={{ fontSize: 16 * scale }}>Sign here</RPB.Paragraph>
-              </RPB.Box>
+            </GradientBackdrop>
+            <Box direction="y" style={{ gap: 10 * scale }}>
+              <Heading5 rule>Basic Typography</Heading5>
+              <Heading1 rule>Heading 1</Heading1>
+              <Heading2 rule>Heading 2</Heading2>
+              <Heading3 rule>Heading 3</Heading3>
+              <Heading4 rule>Heading 4</Heading4>
+              <Heading5 rule>Heading 5</Heading5>
+              <Heading6 rule>Heading 6</Heading6>
+              <Paragraph className="mb-0">
+                Paragraph text. <ThemedLink href="#">This is a link.</ThemedLink>{' '}
+                <ThemedText style={{ fontWeight: 'bold' }}>This text is bold.</ThemedText>{' '}
+                <ThemedText style={{ fontStyle: 'italic' }}>This text is italic.</ThemedText> And next, let's try using
+                some emojis in this paragraph. ☕️👍✅
+              </Paragraph>
+              <HorizontalRule />
+              <Paragraph>
+                Above this paragraph is a horizontal rule. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                do eiusmod tempor incididunt ut labore et dolore magna aliqua. Below is a signature component.
+              </Paragraph>
+              <Box gap={8 * scale} style={{ marginLeft: 'auto', width: 400 * scale }}>
+                <Signature x className="mb-0" />
+                <Paragraph style={{ fontSize: 16 * scale }}>Sign here</Paragraph>
+              </Box>
 
-              <RPB.Heading5 rule break>
+              <Heading5 rule break>
                 Unordered Lists
-              </RPB.Heading5>
-              <RPB.UnorderedList>
-                <RPB.ListItem>React</RPB.ListItem>
-                <RPB.ListItem>PDF</RPB.ListItem>
-                <RPB.ListItem>Builder</RPB.ListItem>
-                <RPB.ListItem>
+              </Heading5>
+              <UnorderedList>
+                <ListItem>React</ListItem>
+                <ListItem>PDF</ListItem>
+                <ListItem>Builder</ListItem>
+                <ListItem>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
                   dolore magna aliqua.
-                </RPB.ListItem>
-              </RPB.UnorderedList>
-              <RPB.Heading5 rule>Ordered Lists</RPB.Heading5>
-              <RPB.OrderedList>
-                <RPB.ListItem>List Item A</RPB.ListItem>
-                <RPB.ListItem>List Item B</RPB.ListItem>
-                <RPB.ListItem>List Item C</RPB.ListItem>
-                <RPB.ListItem>
+                </ListItem>
+              </UnorderedList>
+              <Heading5 rule>Ordered Lists</Heading5>
+              <OrderedList>
+                <ListItem>List Item A</ListItem>
+                <ListItem>List Item B</ListItem>
+                <ListItem>List Item C</ListItem>
+                <ListItem>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
                   dolore magna aliqua.
-                </RPB.ListItem>
-              </RPB.OrderedList>
-              <RPB.Heading5 rule>Unstyled Lists</RPB.Heading5>
-              <RPB.OrderedList unstyled>
-                <RPB.ListItem>This list has no bullets or numbers</RPB.ListItem>
-                <RPB.ListItem>Second list item</RPB.ListItem>
-                <RPB.ListItem>Third list item</RPB.ListItem>
-              </RPB.OrderedList>
-              <RPB.Heading5 rule break>
+                </ListItem>
+              </OrderedList>
+              <Heading5 rule>Unstyled Lists</Heading5>
+              <OrderedList unstyled>
+                <ListItem>This list has no bullets or numbers</ListItem>
+                <ListItem>Second list item</ListItem>
+                <ListItem>Third list item</ListItem>
+              </OrderedList>
+              <Heading5 rule break>
                 Blockquotes
-              </RPB.Heading5>
-              <RPB.Box direction="x" gap={20 * scale} style={{ flexWrap: 'wrap', justifyContent: 'center' }}>
-                <RPB.Blockquote className="mb-0" wrap={false} style={{ width: 220 * scale }}>
+              </Heading5>
+              <Box direction="x" gap={20 * scale} style={{ flexWrap: 'wrap', justifyContent: 'center' }}>
+                <Blockquote className="mb-0" wrap={false} style={{ width: 220 * scale }}>
                   Default blockquote
-                </RPB.Blockquote>
+                </Blockquote>
                 {Object.keys(theme.colorScheme?.contrast ?? {}).map((swatch, i) => (
-                  <RPB.Blockquote
+                  <Blockquote
                     className="mb-0"
                     wrap={false}
                     break={i > 0 && (i + 1) % 16 === 0}
@@ -215,205 +240,194 @@ export const Demo = ({
                     style={{ width: 220 * scale }}
                   >
                     {`"${swatch}" swatch`}
-                  </RPB.Blockquote>
+                  </Blockquote>
                 ))}
-              </RPB.Box>
+              </Box>
 
-              <RPB.Heading5 rule break>
+              <Heading5 rule break>
                 Tables
-              </RPB.Heading5>
-              <RPB.Heading6>Plain and bordered inside, 80% width</RPB.Heading6>
-              <RPB.Box direction="x" style={{ justifyContent: 'center' }}>
-                <RPB.Table borderedInside style={{ width: '80%' }}>
-                  <RPB.TableRow>
-                    <RPB.TableCell style={{ textAlign: 'right' }}>Lorem ipsum dolor</RPB.TableCell>
-                    <RPB.TableCell style={{ textAlign: 'center' }}>Consectetur adipiscing elit</RPB.TableCell>
-                    <RPB.TableCell>Sed do eiusmod</RPB.TableCell>
-                  </RPB.TableRow>
-                  <RPB.TableRow>
-                    <RPB.TableCell style={{ textAlign: 'right' }}>Incididunt ut labore</RPB.TableCell>
-                    <RPB.TableCell style={{ textAlign: 'center' }}>Lorem ipsum dolor sit amet</RPB.TableCell>
-                    <RPB.TableCell>Dolore magna aliqua</RPB.TableCell>
-                  </RPB.TableRow>
-                  <RPB.TableRow>
-                    <RPB.TableCell style={{ textAlign: 'right' }}>Lorem ipsum dolor</RPB.TableCell>
-                    <RPB.TableCell style={{ textAlign: 'center' }}>Consectetur adipiscing elit</RPB.TableCell>
-                    <RPB.TableCell>Sed do eiusmod</RPB.TableCell>
-                  </RPB.TableRow>
-                </RPB.Table>
-              </RPB.Box>
-              <RPB.Heading6>Striped, horizontal bordered, with page wrapping support</RPB.Heading6>
-              <RPB.Box style={{ position: 'relative', marginBottom: 10 * scale }}>
-                <RPB.Table borderedOutside borderedHorizontal striped style={{ marginBottom: 0 }}>
-                  <RPB.TableRow>
-                    <RPB.TableCell>Lorem ipsum dolor</RPB.TableCell>
-                    <RPB.TableCell>Consectetur adipiscing elit</RPB.TableCell>
-                    <RPB.TableCell>Sed do eiusmod</RPB.TableCell>
-                  </RPB.TableRow>
-                  <RPB.TableRow>
-                    <RPB.TableCell>Incididunt ut labore</RPB.TableCell>
-                    <RPB.TableCell>
+              </Heading5>
+              <Heading6>Plain and bordered inside, 80% width</Heading6>
+              <Box direction="x" style={{ justifyContent: 'center' }}>
+                <Table borderedInside style={{ width: '80%' }}>
+                  <TableRow>
+                    <TableCell style={{ textAlign: 'right' }}>Lorem ipsum dolor</TableCell>
+                    <TableCell style={{ textAlign: 'center' }}>Consectetur adipiscing elit</TableCell>
+                    <TableCell>Sed do eiusmod</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell style={{ textAlign: 'right' }}>Incididunt ut labore</TableCell>
+                    <TableCell style={{ textAlign: 'center' }}>Lorem ipsum dolor sit amet</TableCell>
+                    <TableCell>Dolore magna aliqua</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell style={{ textAlign: 'right' }}>Lorem ipsum dolor</TableCell>
+                    <TableCell style={{ textAlign: 'center' }}>Consectetur adipiscing elit</TableCell>
+                    <TableCell>Sed do eiusmod</TableCell>
+                  </TableRow>
+                </Table>
+              </Box>
+              <Heading6>Striped, horizontal bordered, with page wrapping support</Heading6>
+              <Box style={{ position: 'relative', marginBottom: 10 * scale }}>
+                <Table borderedOutside borderedHorizontal striped className="mb-0">
+                  <TableRow>
+                    <TableCell>Lorem ipsum dolor</TableCell>
+                    <TableCell>Consectetur adipiscing elit</TableCell>
+                    <TableCell>Sed do eiusmod</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>Incididunt ut labore</TableCell>
+                    <TableCell>
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
                       labore et magna aliqua.
-                    </RPB.TableCell>
-                    <RPB.TableCell>Dolore magna aliqua</RPB.TableCell>
-                  </RPB.TableRow>
-                  <RPB.TableRow>
-                    <RPB.TableCell>Lorem ipsum dolor</RPB.TableCell>
-                    <RPB.TableCell>Consectetur adipiscing elit</RPB.TableCell>
-                    <RPB.TableCell>Sed do eiusmod</RPB.TableCell>
-                  </RPB.TableRow>
-                  <RPB.TableRow>
-                    <RPB.TableCell>Incididunt ut labore</RPB.TableCell>
-                    <RPB.TableCell>
+                    </TableCell>
+                    <TableCell>Dolore magna aliqua</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>Lorem ipsum dolor</TableCell>
+                    <TableCell>Consectetur adipiscing elit</TableCell>
+                    <TableCell>Sed do eiusmod</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>Incididunt ut labore</TableCell>
+                    <TableCell>
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
                       labore et magna aliqua.
-                    </RPB.TableCell>
-                    <RPB.TableCell>Dolore magna aliqua</RPB.TableCell>
-                  </RPB.TableRow>
-                  <RPB.TableRow>
-                    <RPB.TableCell>Lorem ipsum dolor</RPB.TableCell>
-                    <RPB.TableCell>Consectetur adipiscing elit</RPB.TableCell>
-                    <RPB.TableCell>Sed do eiusmod</RPB.TableCell>
-                  </RPB.TableRow>
-                  <RPB.TableRow>
-                    <RPB.TableCell>Lorem ipsum dolor</RPB.TableCell>
-                    <RPB.TableCell>Consectetur adipiscing elit</RPB.TableCell>
-                    <RPB.TableCell>Sed do eiusmod</RPB.TableCell>
-                  </RPB.TableRow>
-                </RPB.Table>
-              </RPB.Box>
-              <RPB.Heading6>Styled with column widths 30%, 50%, 20%</RPB.Heading6>
-              <RPB.Table
-                bordered
-                inverseStriped
-                swatch="primary"
-                style={{ borderRadius: 10 * scale }}
-                colWidths={['30%', '50%', '20%']}
-              >
-                <RPB.TableRow swatch="primary" inverseStriped={false}>
-                  <RPB.TableCell>
-                    <RPB.Heading6 style={{ marginBottom: 0 }}>Col 30% </RPB.Heading6>
-                  </RPB.TableCell>
-                  <RPB.TableCell>
-                    <RPB.Heading6 style={{ marginBottom: 0 }}>Column 50%</RPB.Heading6>
-                  </RPB.TableCell>
-                  <RPB.TableCell>
-                    <RPB.Heading6 style={{ marginBottom: 0 }}>20%</RPB.Heading6>
-                  </RPB.TableCell>
-                </RPB.TableRow>
-                <RPB.TableRow>
-                  <RPB.TableCell>Lorem ipsum dolor</RPB.TableCell>
-                  <RPB.TableCell>This table has the "primary" swatch with inverseStriped</RPB.TableCell>
-                  <RPB.TableCell>Sed do eiusmod</RPB.TableCell>
-                </RPB.TableRow>
-                <RPB.TableRow>
-                  <RPB.TableCell swatch="blue">Blue swatch</RPB.TableCell>
-                  <RPB.TableCell>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                    et magna aliqua.
-                  </RPB.TableCell>
-                  <RPB.TableCell>Dolore magna aliqua</RPB.TableCell>
-                </RPB.TableRow>
-                <RPB.TableRow colWidths={['80%', '20%']}>
-                  <RPB.TableCell>
+                    </TableCell>
+                    <TableCell>Dolore magna aliqua</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>Lorem ipsum dolor</TableCell>
+                    <TableCell>Consectetur adipiscing elit</TableCell>
+                    <TableCell>Sed do eiusmod</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>Lorem ipsum dolor</TableCell>
+                    <TableCell>Consectetur adipiscing elit</TableCell>
+                    <TableCell>Sed do eiusmod</TableCell>
+                  </TableRow>
+                </Table>
+              </Box>
+              <Heading6>Styled with column widths 30%, 50%, 20%</Heading6>
+              <Table bordered inverseStriped swatch="primary" className="rounded" colWidths={['30%', '50%', '20%']}>
+                <TableRow swatch="primary" inverseStriped={false} className="fw-bold">
+                  <TableCell>Col 30%</TableCell>
+                  <TableCell>Column 50%</TableCell>
+                  <TableCell>20%</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>Lorem ipsum dolor</TableCell>
+                  <TableCell>This table has the "primary" swatch with inverseStriped</TableCell>
+                  <TableCell>Sed do eiusmod</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell swatch="blue">Blue swatch</TableCell>
+                  <TableCell>
+                    This cell has a horizontal rule with the "blue" swatch.
+                    <HorizontalRule swatch="blue" />
+                    Sed do eiusmod tempor incididunt ut labore et magna aliqua.
+                  </TableCell>
+                  <TableCell>Dolore magna aliqua</TableCell>
+                </TableRow>
+                <TableRow colWidths={['80%', '20%']}>
+                  <TableCell>
                     This row has only two cells. The first is 80%, the second is 20%. This imitates a colspan.
-                  </RPB.TableCell>
-                  <RPB.TableCell swatch="teal">Teal swatch</RPB.TableCell>
-                </RPB.TableRow>
-                <RPB.TableRow colWidths={['50%', '50%']}>
-                  <RPB.TableCell>50% col width</RPB.TableCell>
-                  <RPB.TableCell>50% col width</RPB.TableCell>
-                </RPB.TableRow>
-              </RPB.Table>
-              <RPB.Heading5 rule break>
+                  </TableCell>
+                  <TableCell swatch="teal">Teal swatch</TableCell>
+                </TableRow>
+                <TableRow colWidths={['50%', '50%']}>
+                  <TableCell>50% col width</TableCell>
+                  <TableCell>50% col width</TableCell>
+                </TableRow>
+              </Table>
+              <Heading5 rule break>
                 Cards &amp; Buttons
-              </RPB.Heading5>
-              <RPB.Card>
-                <RPB.CardHeader>
-                  <RPB.Heading5 style={{ marginBottom: 0 }}>Card Title</RPB.Heading5>
-                </RPB.CardHeader>
-                <RPB.CardBody>
-                  <RPB.Box direction="x" style={{ flexWrap: 'wrap', justifyContent: 'center', gap: '10' }}>
-                    <RPB.Button swatch="primary" href={buttonHref}>
+              </Heading5>
+              <Card>
+                <CardHeader>
+                  <Heading5 className="mb-0">Card Title</Heading5>
+                </CardHeader>
+                <CardBody>
+                  <Box direction="x" style={{ flexWrap: 'wrap', justifyContent: 'center', gap: '10' }}>
+                    <Button swatch="primary" href={buttonHref}>
                       Primary
-                    </RPB.Button>
-                    <RPB.Button swatch="secondary" href={buttonHref}>
+                    </Button>
+                    <Button swatch="secondary" href={buttonHref}>
                       Secondary
-                    </RPB.Button>
-                    <RPB.Button swatch="success" href={buttonHref}>
+                    </Button>
+                    <Button swatch="success" href={buttonHref}>
                       Success
-                    </RPB.Button>
-                    <RPB.Button swatch="danger" href={buttonHref}>
+                    </Button>
+                    <Button swatch="danger" href={buttonHref}>
                       Danger
-                    </RPB.Button>
-                    <RPB.Button swatch="warning" href={buttonHref}>
+                    </Button>
+                    <Button swatch="warning" href={buttonHref}>
                       Warning
-                    </RPB.Button>
-                    <RPB.Button swatch="info" href={buttonHref}>
+                    </Button>
+                    <Button swatch="info" href={buttonHref}>
                       Info
-                    </RPB.Button>
-                    <RPB.Button swatch="light" href={buttonHref}>
+                    </Button>
+                    <Button swatch="light" href={buttonHref}>
                       Light
-                    </RPB.Button>
-                    <RPB.Button swatch="dark" href={buttonHref}>
+                    </Button>
+                    <Button swatch="dark" href={buttonHref}>
                       Dark
-                    </RPB.Button>
-                    <RPB.Button swatch="link" href={buttonHref}>
+                    </Button>
+                    <Button swatch="link" href={buttonHref}>
                       Link
-                    </RPB.Button>
-                  </RPB.Box>
-                </RPB.CardBody>
-              </RPB.Card>
-              <RPB.Card swatch="primary">
-                <RPB.CardHeader>
-                  <RPB.Heading5 style={{ marginBottom: 0 }}>Primary Card</RPB.Heading5>
-                </RPB.CardHeader>
-                <RPB.CardBody>
-                  <RPB.Paragraph>
+                    </Button>
+                  </Box>
+                </CardBody>
+              </Card>
+              <Card swatch="primary">
+                <CardHeader>
+                  <Heading5 className="mb-0">Primary Card</Heading5>
+                </CardHeader>
+                <CardBody>
+                  <Paragraph>
                     Cards can be swatched using theme colors, greyscale colors, or palette colors. Border, background,
                     and the header text contrast color will be configured based on the theme's color scheme.
-                  </RPB.Paragraph>
-                  <RPB.Box direction="x" style={{ flexWrap: 'wrap', justifyContent: 'center', gap: 10 * scale }}>
-                    <RPB.Button swatch="blue" href={buttonHref}>
+                  </Paragraph>
+                  <Box direction="x" style={{ flexWrap: 'wrap', justifyContent: 'center', gap: 10 * scale }}>
+                    <Button swatch="blue" href={buttonHref}>
                       Blue
-                    </RPB.Button>
-                    <RPB.Button swatch="indigo" href={buttonHref}>
+                    </Button>
+                    <Button swatch="indigo" href={buttonHref}>
                       Indigo
-                    </RPB.Button>
-                    <RPB.Button swatch="purple" href={buttonHref}>
+                    </Button>
+                    <Button swatch="purple" href={buttonHref}>
                       Purple
-                    </RPB.Button>
-                    <RPB.Button swatch="pink" href={buttonHref}>
+                    </Button>
+                    <Button swatch="pink" href={buttonHref}>
                       Pink
-                    </RPB.Button>
-                    <RPB.Button swatch="red" href={buttonHref}>
+                    </Button>
+                    <Button swatch="red" href={buttonHref}>
                       Red
-                    </RPB.Button>
-                    <RPB.Button swatch="orange" href={buttonHref}>
+                    </Button>
+                    <Button swatch="orange" href={buttonHref}>
                       Orange
-                    </RPB.Button>
-                    <RPB.Button swatch="yellow" href={buttonHref}>
+                    </Button>
+                    <Button swatch="yellow" href={buttonHref}>
                       Yellow
-                    </RPB.Button>
-                    <RPB.Button swatch="green" href={buttonHref}>
+                    </Button>
+                    <Button swatch="green" href={buttonHref}>
                       Green
-                    </RPB.Button>
-                    <RPB.Button swatch="teal" href={buttonHref}>
+                    </Button>
+                    <Button swatch="teal" href={buttonHref}>
                       Teal
-                    </RPB.Button>
-                    <RPB.Button swatch="cyan" href={buttonHref}>
+                    </Button>
+                    <Button swatch="cyan" href={buttonHref}>
                       Cyan
-                    </RPB.Button>
-                  </RPB.Box>
-                </RPB.CardBody>
-              </RPB.Card>
-              <RPB.Heading5 rule break>
+                    </Button>
+                  </Box>
+                </CardBody>
+              </Card>
+              <Heading5 rule break>
                 Layout
-              </RPB.Heading5>
-              <RPB.Heading6>Horizontal Box</RPB.Heading6>
-              <RPB.Box direction="x">
-                <RPB.Box
+              </Heading5>
+              <Heading6>Horizontal Box</Heading6>
+              <Box direction="x">
+                <Box
                   grow
                   padding={10 * scale}
                   style={{
@@ -424,9 +438,9 @@ export const Demo = ({
                     borderColor: theme.colorScheme?.greyscale.gray500,
                   }}
                 >
-                  <RPB.Paragraph style={{ marginBottom: 0 }}>Grow</RPB.Paragraph>
-                </RPB.Box>
-                <RPB.Box
+                  <Paragraph className="mb-0">Grow</Paragraph>
+                </Box>
+                <Box
                   padding={10 * scale}
                   style={{
                     justifyContent: 'center',
@@ -436,9 +450,9 @@ export const Demo = ({
                     borderColor: theme.colorScheme?.greyscale.gray500,
                   }}
                 >
-                  <RPB.Paragraph style={{ marginBottom: 0 }}>Shrink</RPB.Paragraph>
-                </RPB.Box>
-                <RPB.Box
+                  <Paragraph className="mb-0">Shrink</Paragraph>
+                </Box>
+                <Box
                   direction="y"
                   padding={10 * scale}
                   style={{
@@ -450,15 +464,15 @@ export const Demo = ({
                     textAlign: 'justify',
                   }}
                 >
-                  <RPB.Paragraph>Width 50%. Specify a width to allow text wrapping.</RPB.Paragraph>
-                  <RPB.Paragraph style={{ marginBottom: 0 }}>
+                  <Paragraph>Width 50%. Specify a width to allow text wrapping.</Paragraph>
+                  <Paragraph className="mb-0">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
                     et dolore magna aliqua.
-                  </RPB.Paragraph>
-                </RPB.Box>
-              </RPB.Box>
-              <RPB.Box direction="x" gap={10} style={{ marginBottom: 20 * scale }}>
-                <RPB.Box
+                  </Paragraph>
+                </Box>
+              </Box>
+              <Box direction="x" gap={10} className="mb-3">
+                <Box
                   grow
                   padding={10 * scale}
                   style={{
@@ -468,9 +482,9 @@ export const Demo = ({
                     borderColor: theme.colorScheme?.greyscale.gray500,
                   }}
                 >
-                  <RPB.Paragraph style={{ marginBottom: 0 }}>Grow</RPB.Paragraph>
-                </RPB.Box>
-                <RPB.Box
+                  <Paragraph className="mb-0">Grow</Paragraph>
+                </Box>
+                <Box
                   shrink
                   padding={10 * scale}
                   style={{
@@ -480,9 +494,9 @@ export const Demo = ({
                     borderColor: theme.colorScheme?.greyscale.gray500,
                   }}
                 >
-                  <RPB.Paragraph style={{ marginBottom: 0 }}>Shrink</RPB.Paragraph>
-                </RPB.Box>
-                <RPB.Box
+                  <Paragraph className="mb-0">Shrink</Paragraph>
+                </Box>
+                <Box
                   padding={10 * scale}
                   style={{
                     width: '40%',
@@ -492,18 +506,18 @@ export const Demo = ({
                     borderColor: theme.colorScheme?.greyscale.gray500,
                   }}
                 >
-                  <RPB.Paragraph style={{ marginBottom: 0 }}>40%</RPB.Paragraph>
-                </RPB.Box>
-              </RPB.Box>
-              <RPB.Blockquote swatch="info">
-                <RPB.Box direction="x" gap={15 * scale}>
-                  <Text>ℹ️</Text>
-                  <Text>Borders have been added to visualize boundaries.</Text>
-                </RPB.Box>
-              </RPB.Blockquote>
-              <RPB.Heading6 break>Vertical Box</RPB.Heading6>
-              <RPB.Box direction="y" style={{ marginBottom: 20 * scale }}>
-                <RPB.Box
+                  <Paragraph className="mb-0">40%</Paragraph>
+                </Box>
+              </Box>
+              <Blockquote swatch="info">
+                <Box direction="x" gap={15 * scale}>
+                  <ThemedText>ℹ️</ThemedText>
+                  <ThemedText>Borders have been added to visualize boundaries.</ThemedText>
+                </Box>
+              </Blockquote>
+              <Heading6 break>Vertical Box</Heading6>
+              <Box direction="y" className="mb-3">
+                <Box
                   padding={10 * scale}
                   style={{
                     justifyContent: 'center',
@@ -513,9 +527,9 @@ export const Demo = ({
                     borderColor: theme.colorScheme?.greyscale.gray500,
                   }}
                 >
-                  <RPB.Paragraph style={{ marginBottom: 0 }}>A</RPB.Paragraph>
-                </RPB.Box>
-                <RPB.Box
+                  <Paragraph className="mb-0">A</Paragraph>
+                </Box>
+                <Box
                   grow
                   padding={10 * scale}
                   style={{
@@ -526,9 +540,9 @@ export const Demo = ({
                     borderColor: theme.colorScheme?.greyscale.gray500,
                   }}
                 >
-                  <RPB.Paragraph style={{ marginBottom: 0 }}>B</RPB.Paragraph>
-                </RPB.Box>
-                <RPB.Box
+                  <Paragraph className="mb-0">B</Paragraph>
+                </Box>
+                <Box
                   direction="y"
                   padding={10 * scale}
                   style={{
@@ -538,68 +552,75 @@ export const Demo = ({
                     textAlign: 'justify',
                   }}
                 >
-                  <RPB.Paragraph>
+                  <Paragraph>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
                     et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
                     aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
                     cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
                     culpa qui officia deserunt mollit anim id est laborum.
-                  </RPB.Paragraph>
-                  <RPB.Paragraph style={{ marginBottom: 0 }}>
+                  </Paragraph>
+                  <Paragraph className="mb-0">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
                     et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
                     aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
                     cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
                     culpa qui officia deserunt mollit anim id est laborum.
-                  </RPB.Paragraph>
-                </RPB.Box>
-              </RPB.Box>
-              <RPB.Blockquote swatch="info">
-                <RPB.Box direction="x" gap={15 * scale}>
-                  <Text>ℹ️</Text>
-                  <Text>Borders have been added to visualize boundaries.</Text>
-                </RPB.Box>
-              </RPB.Blockquote>
-              <RPB.Heading5 rule break>
-                Shapes
-              </RPB.Heading5>
-              <RPB.Box direction="x" gap={20 * scale}>
-                <RPB.Box>
-                  <RPB.CircleShape size={75 * scale} fill="red" />
-                </RPB.Box>
-                <RPB.Box style={{ padding: 10 * scale }}>
-                  <RPB.CircleShape
-                    size={100 * scale}
-                    gradient={['white', 'darkgray']}
-                    ellipseProps={{ stroke: 'green', strokeWidth: 5 * scale }}
+                  </Paragraph>
+                </Box>
+              </Box>
+              <Blockquote swatch="info">
+                <Box direction="x" gap={15 * scale}>
+                  <ThemedText>ℹ️</ThemedText>
+                  <ThemedText>Borders have been added to visualize boundaries.</ThemedText>
+                </Box>
+              </Blockquote>
+              <Heading5 rule break>
+                SVG Shapes
+              </Heading5>
+              <Paragraph>
+                Shape components are available for circles, ellipses, rectangles, and squares. These components make SVG
+                sizing, gradients, and strokes convenient for these four simple shapes so you can focus on bringing your
+                design to life.
+              </Paragraph>
+              <Heading6 rule>Circles & Ellipses</Heading6>
+              <Box direction="x" gap={20 * scale} className="mb-4">
+                <Box>
+                  <CircleShape size={75 * scale} fill="red" />
+                </Box>
+                <Box style={{ padding: 10 * scale }}>
+                  <EllipseShape
+                    width={100 * scale}
+                    height={60 * scale}
+                    gradient={['yellow', 'maroon']}
+                    ellipseProps={{ stroke: 'maroon', strokeWidth: 2 * scale }}
                     gradientType={GradientType.radial}
+                    style={{ transform: 'rotate(15deg)' }}
                   />
-                </RPB.Box>
-                <RPB.Box style={{ transform: 'rotate(20deg)', marginTop: 20 * scale }}>
-                  <RPB.LineShape
-                    length={200 * scale}
-                    width={5 * scale}
-                    gradient={['white', 'blue']}
-                    gradientType={GradientType.leftToRight}
-                  />
-                </RPB.Box>
-              </RPB.Box>
-              <RPB.Box direction="x" gap={20 * scale}>
-                <RPB.Box>
-                  <RPB.RectangleShape width={75 * scale} height={150 * scale} fill="orange" color="red" />
-                </RPB.Box>
-                <RPB.Box>
-                  <RPB.RectangleShape
-                    width={150 * scale}
-                    height={150 * scale}
+                </Box>
+              </Box>
+              <Heading6 rule>Rectangles & Squares</Heading6>
+              <Box direction="x" gap={20 * scale} className="mb-4">
+                <Box>
+                  <RectangleShape width={75 * scale} height={150 * scale} fill="orange" color="red" />
+                </Box>
+                <Box>
+                  <RectangleShape
+                    className="mt-3 ms-4"
+                    width={75 * scale}
+                    height={75 * scale}
                     gradient={['lightblue', 'darkblue']}
                     gradientType={GradientType.topLeftToBottomRight}
-                    style={{ transform: 'rotate(-15deg)', marginLeft: 30 * scale }}
+                    rectProps={{ stroke: 'darkblue', strokeWidth: 3 * scale }}
+                    style={{ transform: 'rotate(15deg)' }}
                   />
-                </RPB.Box>
-              </RPB.Box>
-            </RPB.Box>
-            <RPB.Box
+                </Box>
+              </Box>
+              <Paragraph>
+                Shapes can be rotated, scaled, and skewed using the CSS transform style. Additional SVG components are
+                available for more advanced SVG creation.
+              </Paragraph>
+            </Box>
+            <Box
               fixed
               direction="x"
               style={{
@@ -617,15 +638,15 @@ export const Demo = ({
                 paddingBottom: 72 * 0.5 * scale,
               }}
             >
-              <RPB.Link
+              <ThemedLink
                 href="https://github.com/justinmahar/react-pdf-builder"
                 style={{ textDecoration: 'none', color: bodyColor }}
               >
                 React PDF Builder
-              </RPB.Link>
-              <RPB.PageNumber format="Page %n of %t" />
-            </RPB.Box>
-          </RPB.Page>
+              </ThemedLink>
+              <PageNumber format="Page %n of %t" />
+            </Box>
+          </ThemedPage>
         </Document>
       </PDFViewer>
     </div>

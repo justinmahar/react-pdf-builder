@@ -15,7 +15,7 @@ const StoryComponent = () => {
       <Card>
         <CardHeader>Card Header</CardHeader>
         <CardBody>
-          <Heading6 className="rule">This is the card body</Heading6>
+          <Heading6>This is the card body</Heading6>
           <Paragraph>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
             dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
@@ -23,7 +23,7 @@ const StoryComponent = () => {
             nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
             anim id est laborum.
           </Paragraph>
-          <Box direction="x" style={{ justifyContent: 'flex-end' }}>
+          <Box direction="x" className="justify-content-end">
             <Button href="#">Learn More</Button>
           </Box>
         </CardBody>

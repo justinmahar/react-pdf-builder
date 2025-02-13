@@ -1,11 +1,13 @@
-import { Text } from '@react-pdf/renderer';
 import React from 'react';
-import { Themes } from '../../themes/Themes';
-import { HeadingProps } from './Heading';
-import { Style } from '../Style';
 import { ThemeBuilder } from '../../themes/ThemeBuilder';
+import { Themes } from '../../themes/Themes';
+import { ThemedText } from '../basics/ThemedText';
+import { Style } from '../Style';
+import { HeadingProps } from './Heading';
+import { ThemedChildren } from '../children/ThemedChildren';
 
-export const Heading2 = ({ children, theme = Themes.default.build(), className, style, ...props }: HeadingProps) => {
+export const Heading2 = ({ children, theme, className, style, ...props }: HeadingProps) => {
+  theme = theme ?? Themes.default.build();
   const mergedProps = {
     ...theme?.headingProps,
     ...theme?.heading2Props,
@@ -32,11 +34,14 @@ export const Heading2 = ({ children, theme = Themes.default.build(), className, 
   const classNameStyles = ThemeBuilder.getStylesForClassName(className, theme.classNames);
 
   return (
-    <Text
+    <ThemedText
+      theme={theme}
       {...mergedProps}
       style={{ ...themeClassNameStyles, ...mergedThemeStyles, ...styleOverride, ...classNameStyles, ...style }}
     >
-      {children}
-    </Text>
+      <ThemedChildren theme={theme} allowStrings>
+        {children}
+      </ThemedChildren>
+    </ThemedText>
   );
 };

@@ -1,5 +1,5 @@
 import React from 'react';
-import { PDFSafeChildren } from '../builder/PDFSafeChildren';
+import { ThemedChildren } from '../children/ThemedChildren';
 import { Box, BoxProps } from '../layout/Box';
 import { Theme } from '../../themes/Theme';
 import { Themes } from '../../themes/Themes';
@@ -15,7 +15,8 @@ export interface CardProps extends BoxProps {
   theme?: Theme;
 }
 
-export const Card = ({ children, theme = Themes.default.build(), className, style, ...props }: CardProps) => {
+export const Card = ({ children, theme, className, style, ...props }: CardProps) => {
+  theme = theme ?? Themes.default.build();
   const themeProps = theme.cardProps;
   const mergedProps = {
     ...themeProps,
@@ -67,10 +68,11 @@ export const Card = ({ children, theme = Themes.default.build(), className, styl
 
   return (
     <Box
+      theme={theme}
       {...mergedProps}
       style={{ ...styleInnate, ...themeClassNameStyles, ...themeProps?.style, ...classNameStyles, ...style }}
     >
-      <PDFSafeChildren>{injectedChildArray}</PDFSafeChildren>
+      <ThemedChildren theme={theme}>{injectedChildArray}</ThemedChildren>
     </Box>
   );
 };

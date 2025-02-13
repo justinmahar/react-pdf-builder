@@ -1,10 +1,12 @@
-import { Text, TextProps, View } from '@react-pdf/renderer';
+import { TextProps } from '@react-pdf/renderer';
 import React from 'react';
-import { Style } from '../Style';
+import { SwatchColor } from '../../themes/ColorScheme';
 import { Theme } from '../../themes/Theme';
 import { ThemeBuilder } from '../../themes/ThemeBuilder';
-import { SwatchColor } from '../../themes/ColorScheme';
 import { Themes } from '../../themes/Themes';
+import { Style } from '../Style';
+import { ThemedText } from '../basics/ThemedText';
+import { ThemedChildren } from '../children/ThemedChildren';
 
 export interface ParagraphProps extends TextProps {
   children?: any;
@@ -13,7 +15,8 @@ export interface ParagraphProps extends TextProps {
   theme?: Theme;
 }
 
-export const Paragraph = ({ children, theme = Themes.default.build(), className, style, ...props }: ParagraphProps) => {
+export const Paragraph = ({ children, theme, className, style, ...props }: ParagraphProps) => {
+  theme = theme ?? Themes.default.build();
   const themeProps = theme?.paragraphProps;
   const mergedProps = {
     ...themeProps,
@@ -30,11 +33,14 @@ export const Paragraph = ({ children, theme = Themes.default.build(), className,
   const classNameStyles = ThemeBuilder.getStylesForClassName(className, theme.classNames);
 
   return (
-    <Text
+    <ThemedText
+      theme={theme}
       {...mergedProps}
       style={{ ...themeClassNameStyles, ...themeProps?.style, ...styleOverride, ...classNameStyles, ...style }}
     >
-      {children}
-    </Text>
+      <ThemedChildren theme={theme} allowStrings>
+        {children}
+      </ThemedChildren>
+    </ThemedText>
   );
 };

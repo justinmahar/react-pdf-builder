@@ -1,11 +1,13 @@
-import { Text, View, ViewProps } from '@react-pdf/renderer';
+import { Text, ViewProps } from '@react-pdf/renderer';
 import React from 'react';
-import { Style } from '../Style';
-import { PDFSafeChildren } from '../builder/PDFSafeChildren';
-import { Themes } from '../../themes/Themes';
-import { Theme } from '../../themes/Theme';
 import { SwatchColor } from '../../themes/ColorScheme';
+import { Theme } from '../../themes/Theme';
 import { ThemeBuilder } from '../../themes/ThemeBuilder';
+import { Themes } from '../../themes/Themes';
+import { Style } from '../Style';
+import { Div } from '../basics/ThemedView';
+import { ThemedChildren } from '../children/ThemedChildren';
+import { ThemedText } from '../basics/ThemedText';
 
 export interface ListItemContainerProps extends ViewProps {
   children?: any;
@@ -19,13 +21,8 @@ export interface ListItemContainerProps extends ViewProps {
   theme?: Theme;
 }
 
-export const ListItemContainer = ({
-  children,
-  theme = Themes.default.build(),
-  markerStyle,
-  style,
-  ...props
-}: ListItemContainerProps) => {
+export const ListItemContainer = ({ children, theme, markerStyle, style, ...props }: ListItemContainerProps) => {
+  theme = theme ?? Themes.default.build();
   const mergedProps = {
     ...theme?.listItemContainerProps,
     ...props,
@@ -57,11 +54,13 @@ export const ListItemContainer = ({
   const isNumbered = typeof mergedProps.num !== 'undefined';
   const bullet = mergedProps.bullet ?? '•';
   return (
-    <View {...mergedProps} style={{ ...styleInnate, ...mergedProps.style, ...styleOverride, ...style }}>
+    <Div theme={theme} {...mergedProps} style={{ ...styleInnate, ...mergedProps.style, ...styleOverride, ...style }}>
       {!mergedProps.unstyled && (
-        <Text style={{ ...mergedMarkerStyle }}>{isNumbered ? numberRenderer(mergedProps.num ?? 0) : bullet}</Text>
+        <ThemedText theme={theme} style={{ ...mergedMarkerStyle }}>
+          {isNumbered ? numberRenderer(mergedProps.num ?? 0) : bullet}
+        </ThemedText>
       )}
-      <PDFSafeChildren>{children}</PDFSafeChildren>
-    </View>
+      <ThemedChildren theme={theme}>{children}</ThemedChildren>
+    </Div>
   );
 };

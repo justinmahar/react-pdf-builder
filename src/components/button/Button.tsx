@@ -1,11 +1,13 @@
-import { Link, View, ViewProps } from '@react-pdf/renderer';
+import { ViewProps } from '@react-pdf/renderer';
 import React from 'react';
-import { PDFSafeChildren } from '../builder/PDFSafeChildren';
-import { Style } from '../Style';
+import { SwatchColor } from '../../themes/ColorScheme';
 import { Theme } from '../../themes/Theme';
 import { ThemeBuilder } from '../../themes/ThemeBuilder';
 import { Themes } from '../../themes/Themes';
-import { SwatchColor } from '../../themes/ColorScheme';
+import { ThemedLink } from '../basics/ThemedLink';
+import { Div } from '../basics/ThemedView';
+import { ThemedChildren } from '../children/ThemedChildren';
+import { Style } from '../Style';
 
 export interface ButtonProps extends ViewProps {
   children?: any;
@@ -17,7 +19,8 @@ export interface ButtonProps extends ViewProps {
   theme?: Theme;
 }
 
-export const Button = ({ children, theme = Themes.default.build(), className, style, ...props }: ButtonProps) => {
+export const Button = ({ children, theme, className, style, ...props }: ButtonProps) => {
+  theme = theme ?? Themes.default.build();
   const themeProps = theme?.buttonProps;
   const mergedProps = {
     ...themeProps,
@@ -45,10 +48,10 @@ export const Button = ({ children, theme = Themes.default.build(), className, st
   }
 
   const hasHref = typeof mergedProps.href !== 'undefined';
-  const child = (
-    <PDFSafeChildren textStyle={hasHref ? { textDecoration: 'no-underline' as any } : undefined}>
+  const themedChildren = (
+    <ThemedChildren theme={theme} textStyle={hasHref ? { textDecoration: 'no-underline' as any } : undefined}>
       {children}
-    </PDFSafeChildren>
+    </ThemedChildren>
   );
 
   const themeClassName = themeProps.className;
@@ -56,7 +59,8 @@ export const Button = ({ children, theme = Themes.default.build(), className, st
   const classNameStyles = ThemeBuilder.getStylesForClassName(className, theme.classNames);
 
   const buttonElement = (
-    <View
+    <Div
+      theme={theme}
       {...mergedProps}
       style={{
         ...styleInnate,
@@ -67,12 +71,16 @@ export const Button = ({ children, theme = Themes.default.build(), className, st
         ...style,
       }}
     >
-      {child}
-    </View>
+      {themedChildren}
+    </Div>
   );
 
   if (hasHref) {
-    return <Link href={mergedProps.href}>{buttonElement}</Link>;
+    return (
+      <ThemedLink theme={theme} href={mergedProps.href}>
+        {buttonElement}
+      </ThemedLink>
+    );
   } else {
     return buttonElement;
   }

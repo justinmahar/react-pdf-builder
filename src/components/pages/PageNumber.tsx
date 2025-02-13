@@ -1,12 +1,11 @@
 import React from 'react';
-import { Style } from '../Style';
+import { SwatchColor } from '../../themes/ColorScheme';
 import { Theme } from '../../themes/Theme';
 import { ThemeBuilder } from '../../themes/ThemeBuilder';
-import { SwatchColor } from '../../themes/ColorScheme';
 import { Themes } from '../../themes/Themes';
-import { Paragraph, ParagraphProps } from '../typography/Paragraph';
-import { Text } from '@react-pdf/renderer';
 import { ThemedText } from '../basics/ThemedText';
+import { Style } from '../Style';
+import { ParagraphProps } from '../typography/Paragraph';
 
 export interface PageNumberProps extends ParagraphProps {
   className?: string;
@@ -15,7 +14,8 @@ export interface PageNumberProps extends ParagraphProps {
   theme?: Theme;
 }
 
-export const PageNumber = ({ theme = Themes.default.build(), className, style, ...props }: PageNumberProps) => {
+export const PageNumber = ({ theme, className, style, ...props }: PageNumberProps) => {
+  theme = theme ?? Themes.default.build();
   const themeProps = theme.pageNumberProps;
   const mergedProps = { ...themeProps, ...props };
   const defaultFormat = '%n / %t';

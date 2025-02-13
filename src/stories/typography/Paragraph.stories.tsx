@@ -8,7 +8,7 @@ import { Heading5 } from '../../components/typography/Heading5';
 import { Heading6 } from '../../components/typography/Heading6';
 import { Paragraph, ParagraphProps } from '../../components/typography/Paragraph';
 import { PDFStory } from '../parts/PDFStory';
-import { ThemedLink } from '../../components/link/ThemedLink';
+import { ThemedLink } from '../../components/basics/ThemedLink';
 
 const StoryComponent = (props: ParagraphProps) => {
   return (

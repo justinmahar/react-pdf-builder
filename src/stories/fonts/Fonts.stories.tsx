@@ -11,8 +11,10 @@ import { Heading5 } from '../../components/typography/Heading5';
 import { Heading6 } from '../../components/typography/Heading6';
 import { Paragraph } from '../../components/typography/Paragraph';
 import { PDFStory } from '../parts/PDFStory';
+import { ThemedText } from '../../components/basics/ThemedText';
+import { ThemedLink } from '../../components/basics/ThemedLink';
 
-const StoryComponent = ({ fontFamily, ...props }: { fontFamily: string }) => {
+const StoryComponent = ({ fontFamily }: { fontFamily: string }) => {
   console.log('Loading', fontDefinitions.length, 'fonts...');
   fontDefinitions.forEach((f) => {
     // Register fonts
@@ -38,9 +40,9 @@ const StoryComponent = ({ fontFamily, ...props }: { fontFamily: string }) => {
         <Heading5 rule>Heading 5</Heading5>
         <Heading6 rule>Heading 6</Heading6>
         <Paragraph>
-          Paragraph text. <Link href="#">This is a link.</Link>{' '}
-          <Text style={{ fontWeight: 'bold' }}>This is bold.</Text>{' '}
-          <Text style={{ fontStyle: 'italic' }}>This is italic.</Text> Lorem ipsum dolor sit amet, consectetur
+          Paragraph text. <ThemedLink href="#">This is a link.</ThemedLink>{' '}
+          <ThemedText className="fw-bold">This is bold.</ThemedText>{' '}
+          <ThemedText className="fst-italic">This is italic.</ThemedText> Lorem ipsum dolor sit amet, consectetur
           adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
         </Paragraph>
       </Box>

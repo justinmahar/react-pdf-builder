@@ -12,6 +12,7 @@ const StoryComponent = (props: ButtonProps) => {
     ...Object.keys(theme.colorScheme?.colors ?? {}),
     ...Object.keys(theme.colorScheme?.theme ?? {}),
     ...Object.keys(theme.colorScheme?.greyscale ?? {}),
+    'link',
   ];
   const elements = swatches.map((swatch) => (
     <Button wrap={false} key={swatch} theme={theme} swatch={swatch as any} {...props}>

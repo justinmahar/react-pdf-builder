@@ -1,13 +1,13 @@
 import { Font } from '@react-pdf/renderer';
 import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
+import { ThemedText } from '../../components/basics/ThemedText';
 import { Card } from '../../components/card/Card';
 import { CardBody } from '../../components/card/CardBody';
 import { Box } from '../../components/layout/Box';
 import { ListItem } from '../../components/lists/ListItem';
-import { UnorderedList } from '../../components/lists/UnorderedList';
+import { OrderedList } from '../../components/lists/OrderedList';
 import { Heading3 } from '../../components/typography/Heading3';
-import { Paragraph } from '../../components/typography/Paragraph';
 import { Fonts } from '../../fonts/Fonts';
 import { PDFStory } from '../parts/PDFStory';
 
@@ -17,18 +17,16 @@ const StoryComponent = (props: { emojiSource: any; showFullList: boolean; source
     <PDFStory key={props.emojiSource}>
       <Heading3 rule>{props.sourceName}</Heading3>
       <Card swatch="primary">
-        <CardBody>
-          <Box direction="x" gap={15} style={{ alignItems: 'center' }}>
-            <Paragraph style={{ width: 40, fontSize: 36, marginBottom: 0 }}>ℹ️</Paragraph>
-            <Paragraph style={{ width: '100%', marginBottom: 0 }}>
-              Note: You must reload the page to view different emoji sources.
-            </Paragraph>
+        <CardBody className="justify-content-center">
+          <Box direction="x" className="align-items-center gap-3">
+            <ThemedText className="fs-3">ℹ️</ThemedText>
+            <ThemedText className="w-100">Note: You must reload the page to view different emoji sources.</ThemedText>
           </Box>
         </CardBody>
       </Card>
 
       {props.showFullList && (
-        <UnorderedList style={{ fontSize: 22 }}>
+        <OrderedList style={{ fontSize: 22 }}>
           <ListItem>😀 E1.0 grinning face</ListItem>
           <ListItem>😃 E0.6 grinning face with big eyes</ListItem>
           <ListItem>😄 E0.6 grinning face with smiling eyes</ListItem>
@@ -1725,10 +1723,10 @@ const StoryComponent = (props: { emojiSource: any; showFullList: boolean; source
           <ListItem>🇮🇨 E2.0 flag: Canary Islands</ListItem>
           <ListItem>🇮🇩 E2.0 flag: Indonesia</ListItem>
           <ListItem>🇮🇪 E2.0 flag: Ireland</ListItem>
-        </UnorderedList>
+        </OrderedList>
       )}
       {!props.showFullList && (
-        <UnorderedList style={{ fontSize: 22 }}>
+        <OrderedList style={{ fontSize: 22 }}>
           <ListItem>😊 - Smiling Face with Smiling Eyes</ListItem>
           <ListItem>😂 - Face with Tears of Joy</ListItem>
           <ListItem>👍 - Thumbs Up</ListItem>
@@ -1829,7 +1827,7 @@ const StoryComponent = (props: { emojiSource: any; showFullList: boolean; source
           <ListItem>🧘 - Person in Lotus Position</ListItem>
           <ListItem>🌠 - Shooting Star</ListItem>
           <ListItem>🤝 - Handshake</ListItem>
-        </UnorderedList>
+        </OrderedList>
       )}
     </PDFStory>
   );
@@ -1882,7 +1880,7 @@ export const TwemojiSampleOf100: Story = {
   },
 };
 
-export const JoyPixelsFullList: Story = {
+export const JoyPixelsHugeList: Story = {
   args: {
     sourceName: 'JoyPixels - Full List',
     emojiSource: Fonts.emojis.joyPixels(),
@@ -1890,7 +1888,7 @@ export const JoyPixelsFullList: Story = {
   },
 };
 
-export const NotoEmojiFullList: Story = {
+export const NotoEmojiHugeList: Story = {
   args: {
     sourceName: 'NotoEmoji - Full List',
     emojiSource: Fonts.emojis.notoEmoji(),
@@ -1898,15 +1896,15 @@ export const NotoEmojiFullList: Story = {
   },
 };
 
-export const OpenMojiFullList: Story = {
+export const OpenMojiColorHugeList: Story = {
   args: {
-    sourceName: 'OpenMoji - Full List',
+    sourceName: 'OpenMoji Color - Full List',
     emojiSource: Fonts.emojis.openMojiColor(),
     showFullList: true,
   },
 };
 
-export const OpenMojiBlackFullList: Story = {
+export const OpenMojiBlackHugeList: Story = {
   args: {
     sourceName: 'OpenMoji Black - Full List',
     emojiSource: Fonts.emojis.openMojiBlack(),
@@ -1914,7 +1912,7 @@ export const OpenMojiBlackFullList: Story = {
   },
 };
 
-export const TwemojiFullList: Story = {
+export const TwemojiHugeList: Story = {
   args: {
     sourceName: 'Twemoji - Full List',
     emojiSource: Fonts.emojis.twemoji(),

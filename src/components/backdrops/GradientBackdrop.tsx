@@ -54,11 +54,12 @@ export const GradientBackdrop = ({
   saturateAmounts = [0, 1],
   desaturate = false,
   desaturateAmounts = [0, 1],
-  theme = Themes.default.build(),
+  theme,
   className,
   style,
   ...props
 }: GradientBackdropProps) => {
+  theme = theme ?? Themes.default.build();
   const d = Backdrops.getDimensions(size, orientation);
   const width = d.width;
   const height = d.height;
@@ -105,6 +106,7 @@ export const GradientBackdrop = ({
   const injectedChildArray = originalChildArray.map((c, i, arr) => {
     return React.cloneElement(c, {
       key: `gradient-child-` + i,
+      theme,
       width,
       height,
       ...c.props,
@@ -116,11 +118,12 @@ export const GradientBackdrop = ({
 
   return (
     <Box
+      theme={theme}
       fixed
       {...props}
       style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, ...classNameStyles, ...style }}
     >
-      <RectangleShape width={width} height={height} gradient={gradient} gradientType={gradientType} />
+      <RectangleShape theme={theme} width={width} height={height} gradient={gradient} gradientType={gradientType} />
       {injectedChildArray}
     </Box>
   );
