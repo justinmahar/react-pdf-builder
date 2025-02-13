@@ -1,10 +1,11 @@
-import { View, ViewProps } from '@react-pdf/renderer';
+import { ViewProps } from '@react-pdf/renderer';
 import React from 'react';
-import { PDFSafeChildren } from '../builder/PDFSafeChildren';
-import { Style } from '../Style';
 import { Theme } from '../../themes/Theme';
-import { Themes } from '../../themes/Themes';
 import { ThemeBuilder } from '../../themes/ThemeBuilder';
+import { Themes } from '../../themes/Themes';
+import { Div } from '../basics/ThemedView';
+import { ThemedChildren } from '../children/ThemedChildren';
+import { Style } from '../Style';
 
 export interface BoxProps extends ViewProps {
   children?: any;
@@ -19,7 +20,7 @@ export interface BoxProps extends ViewProps {
 
 export const Box = ({
   children,
-  theme = Themes.default.build(),
+  theme,
   direction,
   grow,
   shrink,
@@ -29,6 +30,7 @@ export const Box = ({
   style,
   ...props
 }: BoxProps) => {
+  theme = theme ?? Themes.default.build();
   const styleInnate: Style = {
     display: 'flex',
     flexDirection: direction === 'horizontal' || direction === 'x' ? 'row' : 'column',
@@ -39,8 +41,8 @@ export const Box = ({
   };
   const classNameStyles = ThemeBuilder.getStylesForClassName(className, theme.classNames);
   return (
-    <View {...props} style={{ ...styleInnate, ...classNameStyles, ...style }}>
-      <PDFSafeChildren>{children}</PDFSafeChildren>
-    </View>
+    <Div theme={theme} {...props} style={{ ...styleInnate, ...classNameStyles, ...style }}>
+      <ThemedChildren theme={theme}>{children}</ThemedChildren>
+    </Div>
   );
 };

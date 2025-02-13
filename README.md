@@ -39,8 +39,8 @@ If you want to build beautiful PDFs in React without starting from scratch, this
   - Easily scale all components to match your preferred size.
 - **🖋️ Drop-in support for 25 commonly used fonts, with bold & italics**
   - Easily use popular fonts like Roboto, Lato, Raleway, or Montserrat—including formatting styles!
-- **🥳 Support for 4 different emoji sets**
-  - Enable emojis by JoyPixels, Noto Emoji, OpenMoji, or Twemoji, with one line of code.
+- **🥳 Support for 5 different emoji sets**
+  - Enable 5 different emoji sets by JoyPixels, Noto Emoji, OpenMoji, or Twemoji, with one line of code.
 - **📊 Table support with page wrapping, theming, and colspans**
   - Need tables? Look no further. Beautiful tables are at your fingertips.
 - **🟦 Easy to use gradient backdrops for your pages**
@@ -89,48 +89,58 @@ npm i @react-pdf/renderer react-pdf-builder
 
 Below is a component that renders a standard A4 size PDF with a heading, paragraph, card, and table. You can use this as a starting point.
 
-Most components can be themed using the `swatch` prop, and custom styled using `style` and CSS. 
+Most components can be themed using the `swatch` prop, and custom styled using `style` and CSS, or even custom class names.
 
 Use `LETTER` page size for 8.5x11" paper used in the USA.
 
 ```jsx
-import { ReactPDFBuilder, Themes } from 'react-pdf-builder';
+import React from 'react';
+import { Box, Button, Card, CardBody, CardHeader, Div, Heading3, Page, Paragraph, Table, TableCell, TableRow, ThemedPage } from 'react-pdf-builder'
 import { Document, PDFViewer } from '@react-pdf/renderer';
 
 export const QuickStart = () => {
-  const RPB = new ReactPDFBuilder();
+  const roboto = Fonts.load(Fonts.sansSerif.roboto);
+  Font.register(roboto);
+  Font.registerEmojiSource(Fonts.emojis.joyPixels());
+  const theme = Themes.default.build({
+    scale: 1,
+    override: {
+      classNames: { 'my-custom-class': { color: 'white', backgroundColor: 'darkblue', padding: 10 } },
+    },
+  });
   return (
     <PDFViewer style={{ height: 700, width: 500 }}>
       <Document>
-        <RPB.Page size="A4">
-          <RPB.Heading3 rule>Hello, world!</RPB.Heading3>
-          <RPB.Paragraph>Let's get started building the PDF.</RPB.Paragraph>
-          <RPB.Box direction="y" gap={15}>
-            <RPB.Box direction="x">
-              <RPB.Button href="#">Button</RPB.Button>
-            </RPB.Box>
-            <RPB.Box direction="x" gap={15}>
-              <RPB.Card swatch="gray300" style={{ marginBottom: 0, width: '50%' }}>
-                <RPB.CardHeader>Example</RPB.CardHeader>
-                <RPB.CardBody>This is a card with some text inside as an example</RPB.CardBody>
-              </RPB.Card>
-              <RPB.Table bordered inverseStriped swatch="cyan" style={{ borderRadius: 10, width: '50%' }}>
-                <RPB.TableRow swatch="cyan">
-                  <RPB.TableCell>Header 1</RPB.TableCell>
-                  <RPB.TableCell>Header 2</RPB.TableCell>
-                </RPB.TableRow>
-                <RPB.TableRow>
-                  <RPB.TableCell>Cell A</RPB.TableCell>
-                  <RPB.TableCell>Cell Y</RPB.TableCell>
-                </RPB.TableRow>
-                <RPB.TableRow>
-                  <RPB.TableCell>Cell B</RPB.TableCell>
-                  <RPB.TableCell>Cell Z</RPB.TableCell>
-                </RPB.TableRow>
-              </RPB.Table>
-            </RPB.Box>
-          </RPB.Box>
-        </RPB.Page>
+        <ThemedPage theme={theme} size="A4" style={{ fontFamily: roboto.family }}>
+          <Heading3 rule>Hello, world!</Heading3>
+          <Paragraph>Let's get started building the PDF.</Paragraph>
+          <Box direction="y" gap={15}>
+            <Box direction="x">
+              <Button href="#">Button</Button>
+            </Box>
+            <Box direction="x" gap={15}>
+              <Card swatch="gray300" className="mb-0 w-50">
+                <CardHeader>Example</CardHeader>
+                <CardBody>This is a card with some text inside as an example 👍</CardBody>
+              </Card>
+              <Table bordered inverseStriped swatch="cyan" className="rounded w-50">
+                <TableRow swatch="cyan" className="fw-bold">
+                  <TableCell>Header 1</TableCell>
+                  <TableCell>Header 2</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>Cell A</TableCell>
+                  <TableCell>Cell Y</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>Cell B</TableCell>
+                  <TableCell>Cell Z</TableCell>
+                </TableRow>
+              </Table>
+            </Box>
+            <Div className="my-custom-class">This has a custom class applied.</Div>
+          </Box>
+        </ThemedPage>
       </Document>
     </PDFViewer>
   );

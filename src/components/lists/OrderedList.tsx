@@ -1,12 +1,13 @@
-import { View, ViewProps } from '@react-pdf/renderer';
+import { ViewProps } from '@react-pdf/renderer';
 import React from 'react';
-import { ListItemContainer, ListItemContainerProps } from './ListItemContainer';
-import { Style } from '../Style';
-import { PDFSafeChildren } from '../builder/PDFSafeChildren';
-import { Theme } from '../../themes/Theme';
-import { Themes } from '../../themes/Themes';
 import { SwatchColor } from '../../themes/ColorScheme';
+import { Theme } from '../../themes/Theme';
 import { ThemeBuilder } from '../../themes/ThemeBuilder';
+import { Themes } from '../../themes/Themes';
+import { Style } from '../Style';
+import { Div } from '../basics/ThemedView';
+import { ThemedChildren } from '../children/ThemedChildren';
+import { ListItemContainer, ListItemContainerProps } from './ListItemContainer';
 
 export interface OrderedListProps extends ViewProps {
   children?: any;
@@ -21,13 +22,8 @@ export interface OrderedListProps extends ViewProps {
   theme?: Theme;
 }
 
-export const OrderedList = ({
-  children,
-  theme = Themes.default.build(),
-  className,
-  style,
-  ...props
-}: OrderedListProps) => {
+export const OrderedList = ({ children, theme, className, style, ...props }: OrderedListProps) => {
+  theme = theme ?? Themes.default.build();
   const themeProps = theme.orderedListProps;
   const mergedProps = {
     ...themeProps,
@@ -58,7 +54,7 @@ export const OrderedList = ({
       {...mergedWrapperProps}
       num={i + 1}
     >
-      <PDFSafeChildren>{c}</PDFSafeChildren>
+      <ThemedChildren theme={theme}>{c}</ThemedChildren>
     </ListItemContainer>
   ));
 
@@ -72,7 +68,8 @@ export const OrderedList = ({
   const classNameStyles = ThemeBuilder.getStylesForClassName(className, theme.classNames);
 
   return (
-    <View
+    <Div
+      theme={theme}
       {...mergedProps}
       style={{
         ...styleInnate,
@@ -84,6 +81,6 @@ export const OrderedList = ({
       }}
     >
       {liElements}
-    </View>
+    </Div>
   );
 };

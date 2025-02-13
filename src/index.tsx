@@ -7,8 +7,7 @@ export * from './components/backdrops/Backdrops';
 export * from './components/backdrops/GradientBackdrop';
 
 // Builder
-export * from './components/builder/PDFSafeChildren';
-export * from './components/builder/ReactPDFBuilder';
+export * from './components/children/ThemedChildren';
 
 // Button
 export * from './components/button/Button';
@@ -26,7 +25,7 @@ export * from './components/demo/QuickStart';
 export * from './components/layout/Box';
 
 // Link
-export * from './components/link/ThemedLink';
+export * from './components/basics/ThemedLink';
 
 // Lists
 export * from './components/lists/ListItem';
@@ -36,13 +35,12 @@ export * from './components/lists/UnorderedList';
 // Pages
 export * from './components/pages/PageNumber';
 export * from './components/pages/PageSizes';
-export * from './components/pages/ThemedPage';
+export * from './components/basics/ThemedPage';
 
 // Shapes
 export * from './components/shapes/CircleShape';
 export * from './components/shapes/EllipseShape';
 export * from './components/shapes/Gradients';
-export * from './components/shapes/LineShape';
 export * from './components/shapes/RectangleShape';
 export * from './components/shapes/ShapeProps';
 export * from './components/shapes/SquareShape';

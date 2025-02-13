@@ -1,12 +1,13 @@
 import { Text, TextProps } from '@react-pdf/renderer';
 import React from 'react';
 import { Style } from '../Style';
-import { PDFSafeChildren } from '../builder/PDFSafeChildren';
+import { ThemedChildren } from '../children/ThemedChildren';
 import { Box, BoxProps } from '../layout/Box';
 import { Theme } from '../../themes/Theme';
 import { SwatchColor } from '../../themes/ColorScheme';
 import { Themes } from '../../themes/Themes';
 import { ThemeBuilder } from '../../themes/ThemeBuilder';
+import { ThemedText } from '../basics/ThemedText';
 
 export interface SignatureProps extends BoxProps {
   children?: any;
@@ -19,7 +20,8 @@ export interface SignatureProps extends BoxProps {
   theme?: Theme;
 }
 
-export const Signature = ({ children, theme = Themes.default.build(), className, style, ...props }: SignatureProps) => {
+export const Signature = ({ children, theme, className, style, ...props }: SignatureProps) => {
+  theme = theme ?? Themes.default.build();
   const themeProps = theme?.signatureProps;
   const mergedProps = {
     ...themeProps,
@@ -48,6 +50,7 @@ export const Signature = ({ children, theme = Themes.default.build(), className,
 
   return (
     <Box
+      theme={theme}
       direction="x"
       {...mergedProps}
       style={{
@@ -60,11 +63,11 @@ export const Signature = ({ children, theme = Themes.default.build(), className,
       }}
     >
       {mergedProps.x && (
-        <Text {...mergedProps.xProps} style={{ ...mergedProps.xProps?.style, ...xStyleOverride }}>
+        <ThemedText theme={theme} {...mergedProps.xProps} style={{ ...mergedProps.xProps?.style, ...xStyleOverride }}>
           {mergedProps.xValue ?? 'X'}
-        </Text>
+        </ThemedText>
       )}
-      <PDFSafeChildren>{children}</PDFSafeChildren>
+      <ThemedChildren theme={theme}>{children}</ThemedChildren>
     </Box>
   );
 };

@@ -11,7 +11,7 @@ const StoryComponent = (props: ParagraphProps) => {
   return (
     <PDFStory>
       <Card>
-        <CardBody style={{ padding: 0 }}>
+        <CardBody className="p-0">
           <ThemedImage
             className="w-100 rounded-top"
             src="https://justinmahar.github.io/react-pdf-builder/images/600x200.jpg"
@@ -21,8 +21,8 @@ const StoryComponent = (props: ParagraphProps) => {
           <Heading6>Card with image</Heading6>
           <Paragraph style={{ marginBottom: 0 }}>
             This card has two card bodies. The first is a card body with no padding and a 100% width placeholder image
-            inside. The image has a top border radius to allow it to fit snugly within the card body. The second card
-            body contains this text.
+            inside. The image has a top border radius (class name "rounded-top") to allow it to fit snugly within the
+            card body. The second card body contains this text.
           </Paragraph>
         </CardBody>
       </Card>

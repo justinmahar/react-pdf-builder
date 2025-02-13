@@ -1,35 +1,35 @@
-import { ViewProps } from '@react-pdf/renderer';
+import { Link, LinkProps, View, ViewProps } from '@react-pdf/renderer';
 import React from 'react';
-import { SwatchColor } from '../../themes/ColorScheme';
 import { Theme } from '../../themes/Theme';
-import { ThemeBuilder } from '../../themes/ThemeBuilder';
 import { Themes } from '../../themes/Themes';
-import { Div } from '../basics/ThemedView';
 import { ThemedChildren } from '../children/ThemedChildren';
+import { SwatchColor } from '../../themes/ColorScheme';
 import { Style } from '../Style';
+import { ThemeBuilder } from '../../themes/ThemeBuilder';
 
-export interface ListItemProps extends ViewProps {
+export interface ThemedLinkProps extends LinkProps {
   children?: any;
   className?: string;
   swatch?: SwatchColor;
   theme?: Theme;
 }
 
-export const ListItem = ({ children, theme, className, style, ...props }: ListItemProps) => {
+export const ThemedLink = ({ children, theme, className, style, ...props }: ThemedLinkProps) => {
   theme = theme ?? Themes.default.build();
-  const themeProps = theme?.listItemProps;
+  const themeProps = theme?.linkProps;
   const mergedProps = {
     ...themeProps,
     ...props,
   };
 
   const styleInnate: Style = {
-    width: '100%',
+    color: theme.colorScheme?.colors.blue,
   };
 
   const styleOverride: Style = {};
   if (mergedProps.swatch) {
-    styleOverride.color = ThemeBuilder.getSwatchColor(mergedProps.swatch, theme.colorScheme);
+    const swatchColor = ThemeBuilder.getSwatchColor(mergedProps.swatch, theme.colorScheme);
+    styleOverride.color = swatchColor;
   }
 
   const themeClassName = themeProps.className;
@@ -37,8 +37,7 @@ export const ListItem = ({ children, theme, className, style, ...props }: ListIt
   const classNameStyles = ThemeBuilder.getStylesForClassName(className, theme.classNames);
 
   return (
-    <Div
-      theme={theme}
+    <Link
       {...mergedProps}
       style={{
         ...styleInnate,
@@ -50,6 +49,6 @@ export const ListItem = ({ children, theme, className, style, ...props }: ListIt
       }}
     >
       <ThemedChildren theme={theme}>{children}</ThemedChildren>
-    </Div>
+    </Link>
   );
 };

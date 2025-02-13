@@ -405,7 +405,7 @@ export const createDefaultClassNames = (scale: number, emSize: number, colorSche
     ...createClasses(
       (v, i) => `h${i + 1}-rule`,
       (v) => ({ borderBottomWidth: v * scale }),
-      [4, 3.5, 3, 2.5, 2, 1.75],
+      [4, 3.5, 3, 2.5, 2, 1.5],
     ),
     ...createClasses(
       (v, i) => `fs-${i + 1}`,

@@ -1,5 +1,5 @@
 import React from 'react';
-import { PDFSafeChildren } from '../builder/PDFSafeChildren';
+import { ThemedChildren } from '../children/ThemedChildren';
 import { Style } from '../Style';
 import { Box, BoxProps } from '../layout/Box';
 import { Theme } from '../../themes/Theme';
@@ -33,14 +33,8 @@ export interface TableRowProps extends BoxProps {
   theme?: Theme;
 }
 
-export const TableRow = ({
-  children,
-  theme = Themes.default.build(),
-  stripeStyle,
-  className,
-  style,
-  ...props
-}: TableRowProps) => {
+export const TableRow = ({ children, theme, stripeStyle, className, style, ...props }: TableRowProps) => {
+  theme = theme ?? Themes.default.build();
   const themeProps = theme.tableRowProps;
   const mergedProps = {
     ...themeProps,
@@ -132,6 +126,7 @@ export const TableRow = ({
 
   return (
     <Box
+      theme={theme}
       wrap={false}
       direction="x"
       {...mergedProps}
@@ -146,7 +141,7 @@ export const TableRow = ({
         ...style,
       }}
     >
-      <PDFSafeChildren>{injectedChildArray}</PDFSafeChildren>
+      <ThemedChildren theme={theme}>{injectedChildArray}</ThemedChildren>
     </Box>
   );
 };

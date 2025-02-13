@@ -1,12 +1,13 @@
-import { View, ViewProps } from '@react-pdf/renderer';
-import React from 'react';
-import { Theme } from '../../themes/Theme';
-import { Themes } from '../../themes/Themes';
-import { PDFSafeChildren } from '../builder/PDFSafeChildren';
-import { SwatchColor } from '../../themes/ColorScheme';
-import { Style } from '../Style';
-import { ThemeBuilder } from '../../themes/ThemeBuilder';
+import { ViewProps } from '@react-pdf/renderer';
 import Color from 'color';
+import React from 'react';
+import { SwatchColor } from '../../themes/ColorScheme';
+import { Theme } from '../../themes/Theme';
+import { ThemeBuilder } from '../../themes/ThemeBuilder';
+import { Themes } from '../../themes/Themes';
+import { Div } from '../basics/ThemedView';
+import { ThemedChildren } from '../children/ThemedChildren';
+import { Style } from '../Style';
 
 export interface BlockquoteProps extends ViewProps {
   children?: any;
@@ -16,13 +17,8 @@ export interface BlockquoteProps extends ViewProps {
   theme?: Theme;
 }
 
-export const Blockquote = ({
-  children,
-  theme = Themes.default.build(),
-  className,
-  style,
-  ...props
-}: BlockquoteProps) => {
+export const Blockquote = ({ children, theme, className, style, ...props }: BlockquoteProps) => {
+  theme = theme ?? Themes.default.build();
   const themeProps = theme?.blockquoteProps;
   const mergedProps = {
     ...themeProps,
@@ -44,11 +40,12 @@ export const Blockquote = ({
   const classNameStyles = ThemeBuilder.getStylesForClassName(className, theme.classNames);
 
   return (
-    <View
+    <Div
+      theme={theme}
       {...mergedProps}
       style={{ ...themeClassNameStyles, ...mergedProps?.style, ...styleOverride, ...classNameStyles, ...style }}
     >
-      <PDFSafeChildren>{children}</PDFSafeChildren>
-    </View>
+      <ThemedChildren theme={theme}>{children}</ThemedChildren>
+    </Div>
   );
 };

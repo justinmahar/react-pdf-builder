@@ -1,6 +1,6 @@
 import React from 'react';
 import { Style } from '../Style';
-import { PDFSafeChildren } from '../builder/PDFSafeChildren';
+import { ThemedChildren } from '../children/ThemedChildren';
 import { Box, BoxProps } from '../layout/Box';
 import { Theme } from '../../themes/Theme';
 import { Themes } from '../../themes/Themes';
@@ -26,7 +26,8 @@ export interface TableCellProps extends BoxProps {
   theme?: Theme;
 }
 
-export const TableCell = ({ children, theme = Themes.default.build(), className, style, ...props }: TableCellProps) => {
+export const TableCell = ({ children, theme, className, style, ...props }: TableCellProps) => {
+  theme = theme ?? Themes.default.build();
   const themeProps = theme.tableCellProps;
   const mergedProps = {
     ...themeProps,
@@ -66,6 +67,7 @@ export const TableCell = ({ children, theme = Themes.default.build(), className,
 
   return (
     <Box
+      theme={theme}
       direction="y"
       {...mergedProps}
       style={{
@@ -78,7 +80,7 @@ export const TableCell = ({ children, theme = Themes.default.build(), className,
         ...style,
       }}
     >
-      <PDFSafeChildren>{children}</PDFSafeChildren>
+      <ThemedChildren theme={theme}>{children}</ThemedChildren>
     </Box>
   );
 };

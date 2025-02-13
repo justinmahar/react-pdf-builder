@@ -19,14 +19,9 @@ export interface CardHeaderProps extends BoxProps {
   theme?: Theme;
 }
 
-export const CardHeader = ({
-  children,
-  theme = Themes.default.build(),
-  className,
-  style,
-  ...props
-}: CardHeaderProps) => {
-  const themeProps = theme?.cardHeaderProps;
+export const CardHeader = ({ children, theme, className, style, ...props }: CardHeaderProps) => {
+  theme = theme ?? Themes.default.build();
+  const themeProps = theme.cardHeaderProps;
   const mergedProps = {
     ...themeProps,
     ...props,
@@ -71,6 +66,7 @@ export const CardHeader = ({
 
   return (
     <Box
+      theme={theme}
       wrap={false}
       {...mergedProps}
       style={{

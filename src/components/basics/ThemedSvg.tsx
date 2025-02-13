@@ -10,7 +10,8 @@ export interface ThemedSvgProps extends React.PropsWithChildren<SVGProps> {
   theme?: Theme;
 }
 
-export const ThemedSvg = ({ children, theme = Themes.default.build(), className, style, ...props }: ThemedSvgProps) => {
+export const ThemedSvg = ({ children, theme, className, style, ...props }: ThemedSvgProps) => {
+  theme = theme ?? Themes.default.build();
   const classNameStyles = ThemeBuilder.getStylesForClassName(className, theme.classNames);
   return (
     <Svg {...props} style={{ ...classNameStyles, ...style }}>

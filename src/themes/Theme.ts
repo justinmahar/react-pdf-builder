@@ -15,11 +15,12 @@ import { ListItemContainerProps } from '../components/lists/ListItemContainer';
 import { ButtonProps } from '../components/button/Button';
 import { ColorScheme } from './ColorScheme';
 import { DeepPartial } from '../util/util';
-import { ThemedLinkProps } from '../components/link/ThemedLink';
+import { ThemedLinkProps } from '../components/basics/ThemedLink';
 import { SignatureProps } from '../components/signature/Signature';
 import { BlockquoteProps } from '../components/typography/Blockquote';
 import { ClassNames } from './classnames/ClassNames';
-import { ThemedPageProps } from '../components/pages/ThemedPage';
+import { ThemedPageProps } from '../components/basics/ThemedPage';
+import { HorizontalRuleProps } from '../components/hr/HorizontalRule';
 
 export interface Theme {
   // Color scheme
@@ -39,6 +40,8 @@ export interface Theme {
   cardProps: CardProps;
   cardBodyProps: CardBodyProps;
   cardHeaderProps: CardHeaderProps;
+  // Horizontal Rule
+  hrProps: HorizontalRuleProps;
   // Link
   linkProps: ThemedLinkProps;
   // Lists

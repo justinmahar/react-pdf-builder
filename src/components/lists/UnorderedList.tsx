@@ -1,12 +1,13 @@
-import { View, ViewProps } from '@react-pdf/renderer';
+import { ViewProps } from '@react-pdf/renderer';
 import React from 'react';
-import { ListItemContainer, ListItemContainerProps } from './ListItemContainer';
-import { Style } from '../Style';
-import { PDFSafeChildren } from '../builder/PDFSafeChildren';
-import { Theme } from '../../themes/Theme';
-import { Themes } from '../../themes/Themes';
 import { SwatchColor } from '../../themes/ColorScheme';
+import { Theme } from '../../themes/Theme';
 import { ThemeBuilder } from '../../themes/ThemeBuilder';
+import { Themes } from '../../themes/Themes';
+import { Style } from '../Style';
+import { Div } from '../basics/ThemedView';
+import { ThemedChildren } from '../children/ThemedChildren';
+import { ListItemContainer, ListItemContainerProps } from './ListItemContainer';
 
 export interface UnorderedListProps extends ViewProps {
   children?: any;
@@ -21,13 +22,8 @@ export interface UnorderedListProps extends ViewProps {
   theme?: Theme;
 }
 
-export const UnorderedList = ({
-  theme = Themes.default.build(),
-  children,
-  className,
-  style,
-  ...props
-}: UnorderedListProps) => {
+export const UnorderedList = ({ theme, children, className, style, ...props }: UnorderedListProps) => {
+  theme = theme ?? Themes.default.build();
   const themeProps = theme.unorderedListProps;
   const mergedProps = {
     ...themeProps,
@@ -57,7 +53,7 @@ export const UnorderedList = ({
       unstyled={mergedProps.unstyled}
       {...mergedWrapperProps}
     >
-      <PDFSafeChildren>{c}</PDFSafeChildren>
+      <ThemedChildren theme={theme}>{c}</ThemedChildren>
     </ListItemContainer>
   ));
 
@@ -71,7 +67,7 @@ export const UnorderedList = ({
   const classNameStyles = ThemeBuilder.getStylesForClassName(className, theme.classNames);
 
   return (
-    <View
+    <Div
       {...mergedProps}
       style={{
         ...styleInnate,
@@ -83,6 +79,6 @@ export const UnorderedList = ({
       }}
     >
       {liElements}
-    </View>
+    </Div>
   );
 };

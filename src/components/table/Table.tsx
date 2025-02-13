@@ -29,7 +29,8 @@ export interface TableProps extends BoxProps {
   theme?: Theme;
 }
 
-export const Table = ({ children, theme = Themes.default.build(), className, style, ...props }: TableProps) => {
+export const Table = ({ children, theme, className, style, ...props }: TableProps) => {
+  theme = theme ?? Themes.default.build();
   const themeProps = theme?.tableProps;
   const mergedProps = {
     ...themeProps,
@@ -91,6 +92,7 @@ export const Table = ({ children, theme = Themes.default.build(), className, sty
 
   return (
     <Box
+      theme={theme}
       direction="y"
       {...mergedProps}
       style={{

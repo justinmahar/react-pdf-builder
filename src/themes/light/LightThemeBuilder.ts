@@ -27,7 +27,8 @@ export class LightThemeBuilder extends ThemeBuilder {
 
       // === Button === === === === === === === === === === ===
       buttonProps: {
-        className: 'rounded py-1 px-2',
+        className: 'rounded py-2',
+        style: { paddingLeft: scaledEmSize * 0.75, paddingRight: scaledEmSize * 0.75 },
       },
 
       // === Card === === === === === === === === === === ===
@@ -39,6 +40,11 @@ export class LightThemeBuilder extends ThemeBuilder {
       },
       cardHeaderProps: {
         className: 'rounded-top rounded-bottom border border-gray500 bg-gray200 py-2 px-3',
+      },
+
+      // === Horizontal Rule === === === === === === === === === === ===
+      hrProps: {
+        className: 'border-bottom-1 border-gray500 my-3',
       },
 
       // === Link === === === === === === === === === === ===

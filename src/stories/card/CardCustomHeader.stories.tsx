@@ -8,6 +8,7 @@ import { Heading6 } from '../../components/typography/Heading6';
 import { Paragraph, ParagraphProps } from '../../components/typography/Paragraph';
 import { PDFStory } from '../parts/PDFStory';
 import { Text } from '@react-pdf/renderer';
+import { ThemedText } from '../../components/basics/ThemedText';
 
 const StoryComponent = (props: ParagraphProps) => {
   return (
@@ -21,8 +22,12 @@ const StoryComponent = (props: ParagraphProps) => {
             for you.
           </Paragraph>
           <Paragraph style={{ marginBottom: 0 }}>
-            However you can use the <Text style={{ color: 'magenta' }}>as</Text> prop to specify a custom component for
-            the heading text. The default is a Heading5, but this header is using a Heading1 instead.
+            However you can use the{' '}
+            <ThemedText swatch="indigo" className="fw-bold">
+              as
+            </ThemedText>{' '}
+            prop to specify a custom component for the heading text. The default is a Heading5, but this header is using
+            a Heading1 instead.
           </Paragraph>
         </CardBody>
       </Card>
