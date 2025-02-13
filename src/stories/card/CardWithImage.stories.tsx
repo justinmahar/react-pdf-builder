@@ -4,10 +4,10 @@ import { ThemedImage } from '../../components/basics/ThemedImage';
 import { Card } from '../../components/card/Card';
 import { CardBody } from '../../components/card/CardBody';
 import { Heading6 } from '../../components/typography/Heading6';
-import { Paragraph, ParagraphProps } from '../../components/typography/Paragraph';
+import { Paragraph } from '../../components/typography/Paragraph';
 import { PDFStory } from '../parts/PDFStory';
 
-const StoryComponent = (props: ParagraphProps) => {
+const StoryComponent = () => {
   return (
     <PDFStory>
       <Card>
@@ -19,7 +19,7 @@ const StoryComponent = (props: ParagraphProps) => {
         </CardBody>
         <CardBody>
           <Heading6>Card with image</Heading6>
-          <Paragraph style={{ marginBottom: 0 }}>
+          <Paragraph className="mb-0">
             This card has two card bodies. The first is a card body with no padding and a 100% width placeholder image
             inside. The image has a top border radius (class name "rounded-top") to allow it to fit snugly within the
             card body. The second card body contains this text.

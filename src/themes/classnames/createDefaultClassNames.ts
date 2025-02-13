@@ -423,7 +423,7 @@ export const createDefaultClassNames = (scale: number, emSize: number, colorSche
       [5, 4.5, 4, 3.5, 3, 2.5],
     ),
     ...createClasses(
-      (v) => `text-${v}`,
+      (v) => `text-${v === 'left' ? 'start' : v === 'right' ? 'end' : v}`,
       (v) => ({ textAlign: v }),
       ['center', 'justify', 'left', 'right'],
     ),

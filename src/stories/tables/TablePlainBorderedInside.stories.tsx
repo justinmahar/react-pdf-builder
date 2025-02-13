@@ -12,21 +12,21 @@ const StoryComponent = (props: ParagraphProps) => {
   return (
     <PDFStory>
       <Heading6>Plain and bordered inside, 80% width</Heading6>
-      <Box direction="x" style={{ justifyContent: 'center' }}>
+      <Box direction="x" className="justify-content-center">
         <Table borderedInside style={{ width: '80%' }}>
           <TableRow>
-            <TableCell style={{ textAlign: 'right' }}>Lorem ipsum dolor</TableCell>
-            <TableCell style={{ textAlign: 'center' }}>Consectetur adipiscing elit</TableCell>
-            <TableCell>Sed do eiusmod</TableCell>
+            <TableCell className="justify-content-end text-end">Lorem ipsum</TableCell>
+            <TableCell className="justify-content-end text-center">Consectetur adipiscing elit</TableCell>
+            <TableCell className="justify-content-end">Sed do eiusmod</TableCell>
           </TableRow>
           <TableRow>
-            <TableCell style={{ textAlign: 'right' }}>Incididunt ut labore</TableCell>
-            <TableCell style={{ textAlign: 'center' }}>Lorem ipsum dolor sit amet</TableCell>
+            <TableCell className="text-end">Incididunt ut labore</TableCell>
+            <TableCell className="text-center">Lorem ipsum dolor sit amet</TableCell>
             <TableCell>Dolore magna aliqua</TableCell>
           </TableRow>
           <TableRow>
-            <TableCell style={{ textAlign: 'right' }}>Lorem ipsum dolor</TableCell>
-            <TableCell style={{ textAlign: 'center' }}>Consectetur adipiscing elit</TableCell>
+            <TableCell className="text-end">Lorem ipsum dolor</TableCell>
+            <TableCell className="text-center">Consectetur adipiscing elit</TableCell>
             <TableCell>Sed do eiusmod</TableCell>
           </TableRow>
         </Table>

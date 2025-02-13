@@ -21,7 +21,7 @@ const StoryComponent = (props: ParagraphProps) => {
             If a CardHeader's child is a string, it will automatically be wrapped in a Heading5 with no bottom margin
             for you.
           </Paragraph>
-          <Paragraph style={{ marginBottom: 0 }}>
+          <Paragraph className="mb-0">
             However you can use the{' '}
             <ThemedText swatch="indigo" className="fw-bold">
               as

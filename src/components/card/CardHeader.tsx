@@ -31,7 +31,7 @@ export const CardHeader = ({ children, theme, className, style, ...props }: Card
   let child = children;
   if (typeof child === 'string') {
     child = (
-      <AsComponent theme={theme} style={{ marginBottom: 0 }}>
+      <AsComponent theme={theme} className="mb-0">
         {child}
       </AsComponent>
     );

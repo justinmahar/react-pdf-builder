@@ -91,12 +91,7 @@ export const Demo = ({
       <PDFViewer style={{ height: 700, width: 500 }}>
         <Document>
           {showCoverPage && (
-            <ThemedPage
-              theme={theme}
-              size={pageSize}
-              orientation={orientation}
-              style={{ flexDirection: 'column', color: 'white', padding: 0 }}
-            >
+            <ThemedPage theme={theme} size={pageSize} orientation={orientation} className="flex-column text-white p-0">
               <GradientBackdrop
                 size={pageSize}
                 orientation={orientation}
@@ -106,25 +101,22 @@ export const Demo = ({
               >
                 {BackdropDecorators.circles3}
               </GradientBackdrop>
-              <Box direction="y" style={{ height: '100%' }}>
+              <Box direction="y" className="h-100">
                 <Box style={{ height: '5%', backgroundColor: '#00000022' }} />
                 <Box style={{ height: '15%' }} />
                 <Box
                   shrink
+                  className="justify-content-center p-4"
                   style={{
-                    justifyContent: 'center',
-                    padding: 30 * scale,
                     backgroundColor: '#00000022',
                   }}
                 >
-                  <Heading1 style={{ fontFamily: titleFont?.family, textAlign: 'center', fontSize: 63 * scale }}>
+                  <Heading1 className="text-center display-3 fw-semibold" style={{ fontFamily: titleFont?.family }}>
                     React PDF Builder
                   </Heading1>
-                  <Heading5 style={{ textAlign: 'center', fontSize: 28 * scale, fontWeight: 400 }}>
-                    Build beautiful PDF documents in React.
-                  </Heading5>
+                  <Heading5 className="text-center fs-3 fw-medium">Build beautiful PDF documents in React.</Heading5>
                 </Box>
-                <Box grow style={{ justifyContent: 'center', alignItems: 'center' }}>
+                <Box grow className="justify-content-center align-items-center">
                   <Image
                     src="https://justinmahar.github.io/react-pdf-builder/images/logo-red.png"
                     style={{ width: 200 * scale }}
@@ -171,7 +163,7 @@ export const Demo = ({
                 ]}
               />
             </GradientBackdrop>
-            <Box direction="y" style={{ gap: 10 * scale }}>
+            <Box direction="y" className="gap-2">
               <Heading5 rule>Basic Typography</Heading5>
               <Heading1 rule>Heading 1</Heading1>
               <Heading2 rule>Heading 2</Heading2>
@@ -181,18 +173,18 @@ export const Demo = ({
               <Heading6 rule>Heading 6</Heading6>
               <Paragraph className="mb-0">
                 Paragraph text. <ThemedLink href="#">This is a link.</ThemedLink>{' '}
-                <ThemedText style={{ fontWeight: 'bold' }}>This text is bold.</ThemedText>{' '}
-                <ThemedText style={{ fontStyle: 'italic' }}>This text is italic.</ThemedText> And next, let's try using
-                some emojis in this paragraph. ☕️👍✅
+                <ThemedText className="fw-bold">This text is bold.</ThemedText>{' '}
+                <ThemedText className="fst-italic">This text is italic.</ThemedText> And next, let's try using some
+                emojis in this paragraph. ☕️👍✅
               </Paragraph>
               <HorizontalRule />
               <Paragraph>
                 Above this paragraph is a horizontal rule. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                 do eiusmod tempor incididunt ut labore et dolore magna aliqua. Below is a signature component.
               </Paragraph>
-              <Box gap={8 * scale} style={{ marginLeft: 'auto', width: 400 * scale }}>
+              <Box className="gap-1 ms-auto" style={{ width: 400 * scale }}>
                 <Signature x className="mb-0" />
-                <Paragraph style={{ fontSize: 16 * scale }}>Sign here</Paragraph>
+                <Paragraph className="small">Sign here</Paragraph>
               </Box>
 
               <Heading5 rule break>
@@ -226,8 +218,8 @@ export const Demo = ({
               <Heading5 rule break>
                 Blockquotes
               </Heading5>
-              <Box direction="x" gap={20 * scale} style={{ flexWrap: 'wrap', justifyContent: 'center' }}>
-                <Blockquote className="mb-0" wrap={false} style={{ width: 220 * scale }}>
+              <Box direction="x" className="gap-3 flex-wrap justify-content-center">
+                <Blockquote wrap={false} className="mb-0" style={{ width: 220 * scale }}>
                   Default blockquote
                 </Blockquote>
                 {Object.keys(theme.colorScheme?.contrast ?? {}).map((swatch, i) => (
@@ -248,27 +240,27 @@ export const Demo = ({
                 Tables
               </Heading5>
               <Heading6>Plain and bordered inside, 80% width</Heading6>
-              <Box direction="x" style={{ justifyContent: 'center' }}>
+              <Box direction="x" className="justify-content-center mb-3">
                 <Table borderedInside style={{ width: '80%' }}>
                   <TableRow>
-                    <TableCell style={{ textAlign: 'right' }}>Lorem ipsum dolor</TableCell>
-                    <TableCell style={{ textAlign: 'center' }}>Consectetur adipiscing elit</TableCell>
-                    <TableCell>Sed do eiusmod</TableCell>
+                    <TableCell className="justify-content-end text-end">Lorem ipsum</TableCell>
+                    <TableCell className="justify-content-end text-center">Consectetur adipiscing elit</TableCell>
+                    <TableCell className="justify-content-end">Sed do eiusmod</TableCell>
                   </TableRow>
                   <TableRow>
-                    <TableCell style={{ textAlign: 'right' }}>Incididunt ut labore</TableCell>
-                    <TableCell style={{ textAlign: 'center' }}>Lorem ipsum dolor sit amet</TableCell>
+                    <TableCell className="text-end">Incididunt ut labore</TableCell>
+                    <TableCell className="text-center">Lorem ipsum dolor sit amet</TableCell>
                     <TableCell>Dolore magna aliqua</TableCell>
                   </TableRow>
                   <TableRow>
-                    <TableCell style={{ textAlign: 'right' }}>Lorem ipsum dolor</TableCell>
-                    <TableCell style={{ textAlign: 'center' }}>Consectetur adipiscing elit</TableCell>
+                    <TableCell className="text-end">Lorem ipsum dolor</TableCell>
+                    <TableCell className="text-center">Consectetur adipiscing elit</TableCell>
                     <TableCell>Sed do eiusmod</TableCell>
                   </TableRow>
                 </Table>
               </Box>
               <Heading6>Striped, horizontal bordered, with page wrapping support</Heading6>
-              <Box style={{ position: 'relative', marginBottom: 10 * scale }}>
+              <Box className="mb-3">
                 <Table borderedOutside borderedHorizontal striped className="mb-0">
                   <TableRow>
                     <TableCell>Lorem ipsum dolor</TableCell>
@@ -348,7 +340,7 @@ export const Demo = ({
                   <Heading5 className="mb-0">Card Title</Heading5>
                 </CardHeader>
                 <CardBody>
-                  <Box direction="x" style={{ flexWrap: 'wrap', justifyContent: 'center', gap: '10' }}>
+                  <Box direction="x" className="flex-wrap justify-content-center gap-2">
                     <Button swatch="primary" href={buttonHref}>
                       Primary
                     </Button>
@@ -388,7 +380,7 @@ export const Demo = ({
                     Cards can be swatched using theme colors, greyscale colors, or palette colors. Border, background,
                     and the header text contrast color will be configured based on the theme's color scheme.
                   </Paragraph>
-                  <Box direction="x" style={{ flexWrap: 'wrap', justifyContent: 'center', gap: 10 * scale }}>
+                  <Box direction="x" className="flex-wrap justify-content-center gap-2">
                     <Button swatch="blue" href={buttonHref}>
                       Blue
                     </Button>
@@ -427,43 +419,13 @@ export const Demo = ({
               </Heading5>
               <Heading6>Horizontal Box</Heading6>
               <Box direction="x">
-                <Box
-                  grow
-                  padding={10 * scale}
-                  style={{
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    borderWidth: 1 * scale,
-                    borderRight: 0,
-                    borderColor: theme.colorScheme?.greyscale.gray500,
-                  }}
-                >
+                <Box grow className="justify-content-center align-items-center border border-end-0 p-3">
                   <Paragraph className="mb-0">Grow</Paragraph>
                 </Box>
-                <Box
-                  padding={10 * scale}
-                  style={{
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    borderWidth: 1 * scale,
-                    borderRight: 0,
-                    borderColor: theme.colorScheme?.greyscale.gray500,
-                  }}
-                >
+                <Box className="justify-content-center align-items-center border border-end-0 p-3">
                   <Paragraph className="mb-0">Shrink</Paragraph>
                 </Box>
-                <Box
-                  direction="y"
-                  padding={10 * scale}
-                  style={{
-                    width: '50%',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    borderWidth: 1 * scale,
-                    borderColor: theme.colorScheme?.greyscale.gray500,
-                    textAlign: 'justify',
-                  }}
-                >
+                <Box direction="y" className="justify-content-center align-items-center border text-justify w-50 p-3">
                   <Paragraph>Width 50%. Specify a width to allow text wrapping.</Paragraph>
                   <Paragraph className="mb-0">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore

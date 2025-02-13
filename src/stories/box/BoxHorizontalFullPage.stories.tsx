@@ -9,24 +9,16 @@ const StoryComponent = (props: BoxProps) => {
   return (
     <PDFStory pageProps={{ style: { padding: 0 } }}>
       <Box {...props}>
-        <Box grow padding={30} style={{ justifyContent: 'center', alignItems: 'center', backgroundColor: 'lightblue' }}>
-          <Paragraph style={{ marginBottom: 0 }}>Grow</Paragraph>
+        <Box grow className="p-3 justify-content-center align-items-center bg-faded-blue">
+          <Paragraph className="mb-0">Grow</Paragraph>
         </Box>
-        <Box padding={30} style={{ justifyContent: 'center', alignItems: 'center', backgroundColor: 'lightpink' }}>
-          <Paragraph style={{ marginBottom: 0 }}>Shrink</Paragraph>
+        <Box className="p-3 justify-content-center align-items-center bg-faded-pink">
+          <Paragraph className="mb-0">Shrink</Paragraph>
         </Box>
-        <Box
-          direction="y"
-          padding={30}
-          style={{
-            width: 300,
-            backgroundColor: 'lightyellow',
-            textAlign: 'justify',
-          }}
-        >
+        <Box direction="y" className="p-3 justify-content-center text-justify bg-faded-teal w-50">
           <Heading5>Lorem ipsum dolor</Heading5>
           <Paragraph>Width 300. Specify a width to allow text wrapping.</Paragraph>
-          <Paragraph style={{ marginBottom: 0 }}>
+          <Paragraph className="mb-0">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
             dolore magna aliqua.
           </Paragraph>

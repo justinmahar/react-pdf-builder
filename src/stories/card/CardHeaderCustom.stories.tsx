@@ -1,32 +1,30 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
+import { Button } from '../../components/button/Button';
 import { Card } from '../../components/card/Card';
 import { CardBody } from '../../components/card/CardBody';
 import { CardHeader } from '../../components/card/CardHeader';
-import { Heading1 } from '../../components/typography/Heading1';
-import { Heading6 } from '../../components/typography/Heading6';
-import { Paragraph, ParagraphProps } from '../../components/typography/Paragraph';
-import { PDFStory } from '../parts/PDFStory';
-import { Heading5 } from '../../components/typography/Heading5';
 import { Box } from '../../components/layout/Box';
-import { Button } from '../../components/button/Button';
-import { Heading3 } from '../../components/typography/Heading3';
-import { Heading4 } from '../../components/typography/Heading4';
-import { OrderedList } from '../../components/lists/OrderedList';
 import { ListItem } from '../../components/lists/ListItem';
+import { OrderedList } from '../../components/lists/OrderedList';
+import { Heading3 } from '../../components/typography/Heading3';
+import { Heading5 } from '../../components/typography/Heading5';
+import { Heading6 } from '../../components/typography/Heading6';
+import { Paragraph } from '../../components/typography/Paragraph';
+import { PDFStory } from '../parts/PDFStory';
 
-const StoryComponent = (props: ParagraphProps) => {
+const StoryComponent = () => {
   return (
     <PDFStory>
       <Card>
         <CardHeader>
-          <Box direction="x" gap={10} style={{ alignItems: 'center', justifyContent: 'space-between' }}>
+          <Box direction="x" className="p-2 align-items-center justify-content-between">
             <Box>
               <Heading5>Custom card header (H5)</Heading5>
-              <Paragraph style={{ marginBottom: 0 }}>Custom header with text (paragraph)</Paragraph>
+              <Paragraph className="mb-0">Custom header with text (paragraph)</Paragraph>
             </Box>
-            <Button pill swatch="info" style={{ width: 100 }}>
-              <Heading3 style={{ marginBottom: 0 }}>42%</Heading3>
+            <Button pill swatch="info" className="w-100">
+              <Heading3 className="mb-0">42%</Heading3>
             </Button>
           </Box>
         </CardHeader>
@@ -37,7 +35,7 @@ const StoryComponent = (props: ParagraphProps) => {
             space-between.
           </Paragraph>
           <Paragraph>Inside the horizontal box is:</Paragraph>
-          <OrderedList style={{ marginBottom: 0 }}>
+          <OrderedList className="mb-0">
             <ListItem>A vertical box with a Heading5 and a Paragraph</ListItem>
             <ListItem>A Button containing a Heading3 with no bottom margin and the text 42%</ListItem>
           </OrderedList>

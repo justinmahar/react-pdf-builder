@@ -13,7 +13,7 @@ const StoryComponent = ({ paragraphText, ...props }: SignatureProps & { paragrap
 
   return (
     <PDFStory>
-      <Signature {...props} style={{ marginBottom: 5 }} />
+      <Signature {...props} className="mb-1" />
       {paragraphText && <Paragraph>{paragraphText}</Paragraph>}
     </PDFStory>
   );
@@ -40,7 +40,7 @@ export const NoX: Story = {
 };
 
 export const CustomX: Story = {
-  args: { x: true, xValue: '❌', xProps: { style: { fontSize: 20 } } },
+  args: { x: true, xValue: '❌', xProps: { style: { fontSize: 20, marginBottom: 5, marginLeft: 10 } } },
 };
 
 export const WithSwatch: Story = {

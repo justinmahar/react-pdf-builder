@@ -15,8 +15,8 @@ const StoryComponent = ({ ...props }: ThemedLinkProps) => {
       <Card swatch="gray600">
         <CardBody>
           <Box direction="x" gap={3}>
-            <UnorderedList style={{ marginBottom: 0 }}>
-              <ListItem style={{ marginBottom: 20 }}>
+            <UnorderedList className="mb-0">
+              <ListItem className="mb-3">
                 <ThemedText>
                   <ThemedLink {...props}>Default link text</ThemedLink>
                 </ThemedText>
@@ -93,7 +93,7 @@ const StoryComponent = ({ ...props }: ThemedLinkProps) => {
                 </ThemedText>
               </ListItem>
             </UnorderedList>
-            <UnorderedList style={{ marginBottom: 0 }}>
+            <UnorderedList className="mb-0">
               <ListItem>Greyscale:</ListItem>
               <ListItem>
                 <ThemedText>
@@ -165,7 +165,7 @@ const StoryComponent = ({ ...props }: ThemedLinkProps) => {
                   </ThemedLink>
                 </ThemedText>
               </ListItem>
-              <ListItem style={{ marginBottom: 20 }}>
+              <ListItem className="mb-3">
                 <ThemedText>
                   <ThemedLink swatch="black" {...props}>
                     Swatch "black"

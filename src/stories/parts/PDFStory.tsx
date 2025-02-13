@@ -13,8 +13,8 @@ export interface PDFStoryProps {
   theme?: Theme;
 }
 
-export const PDFStory = ({ children, pageSize = 'A4', scale = 1, pageProps, theme, ...props }: PDFStoryProps) => {
-  theme = theme ?? Themes.default.build();
+export const PDFStory = ({ children, pageSize = 'LETTER', scale = 1, pageProps, theme, ...props }: PDFStoryProps) => {
+  theme = theme ?? Themes.default.build({ scale });
   const roboto = Fonts.load(Fonts.sansSerif.roboto);
   Font.register(roboto as any);
   return (
@@ -24,7 +24,7 @@ export const PDFStory = ({ children, pageSize = 'A4', scale = 1, pageProps, them
           theme={theme}
           size={pageSize as any}
           {...pageProps}
-          style={{ fontFamily: 'Roboto', ...pageProps?.style }}
+          style={{ fontFamily: roboto.family, ...pageProps?.style }}
         >
           {children}
         </ThemedPage>

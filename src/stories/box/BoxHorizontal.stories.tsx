@@ -8,26 +8,18 @@ import { Heading5 } from '../../components/typography/Heading5';
 const StoryComponent = (props: BoxProps) => {
   return (
     <PDFStory>
-      <Heading5 style={{ textAlign: 'center' }}>Horizontal box containing 3 nested boxes</Heading5>
+      <Heading5 className="text-center">Horizontal box containing 3 nested boxes</Heading5>
       <Box {...props}>
-        <Box grow padding={10} style={{ justifyContent: 'center', alignItems: 'center', backgroundColor: 'lightblue' }}>
-          <Paragraph style={{ marginBottom: 0 }}>Grow</Paragraph>
+        <Box grow className="p-3 justify-content-center align-items-center bg-faded-blue">
+          <Paragraph className="mb-0">Grow</Paragraph>
         </Box>
-        <Box padding={10} style={{ justifyContent: 'center', alignItems: 'center', backgroundColor: 'lightpink' }}>
-          <Paragraph style={{ marginBottom: 0 }}>Shrink</Paragraph>
+        <Box className="p-3 justify-content-center align-items-center bg-faded-pink">
+          <Paragraph className="mb-0">Shrink</Paragraph>
         </Box>
-        <Box
-          direction="y"
-          padding={10}
-          style={{
-            width: 275,
-            backgroundColor: 'lightyellow',
-            textAlign: 'justify',
-          }}
-        >
+        <Box direction="y" className="p-3 text-justify bg-faded-teal w-50">
           <Heading5>Lorem ipsum dolor</Heading5>
-          <Paragraph>Width 275. Specify a width to allow text wrapping.</Paragraph>
-          <Paragraph style={{ marginBottom: 0 }}>
+          <Paragraph>Width 50%. Specify a width to allow text wrapping.</Paragraph>
+          <Paragraph className="mb-0">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
             dolore magna aliqua.
           </Paragraph>

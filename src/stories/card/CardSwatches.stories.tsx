@@ -15,7 +15,7 @@ const StoryComponent = (props: CardProps) => {
         <CardHeader>{`${swatch.substring(0, 1).toUpperCase() + swatch.substring(1)} Card`}</CardHeader>
         <CardBody>
           <Heading6>{`This card uses the "${swatch}" swatch`}</Heading6>
-          <Paragraph style={{ marginBottom: 0 }}>
+          <Paragraph className="mb-0">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
             dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
             ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
@@ -24,10 +24,10 @@ const StoryComponent = (props: CardProps) => {
           </Paragraph>
         </CardBody>
         <CardBody>
-          <Paragraph style={{ marginBottom: 0 }}>This is a middle section.</Paragraph>
+          <Paragraph className="mb-0">This is a middle section.</Paragraph>
         </CardBody>
         <CardBody>
-          <Paragraph style={{ marginBottom: 0 }}>This is a footer. It's just another CardBody.</Paragraph>
+          <Paragraph className="mb-0">This is a footer. It's just another CardBody.</Paragraph>
         </CardBody>
       </Card>
     </PDFStory>

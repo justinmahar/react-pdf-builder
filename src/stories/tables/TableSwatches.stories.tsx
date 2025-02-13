@@ -12,13 +12,13 @@ const StoryComponent = (props: TableProps) => {
       <Table bordered inverseStriped colWidths={['30%', '50%', '20%']} {...props}>
         <TableRow swatch={props.swatch} inverseStriped={false}>
           <TableCell>
-            <Heading6 style={{ marginBottom: 0 }}>Col 30% </Heading6>
+            <Heading6 className="mb-0">Col 30% </Heading6>
           </TableCell>
           <TableCell>
-            <Heading6 style={{ marginBottom: 0 }}>Column 50%</Heading6>
+            <Heading6 className="mb-0">Column 50%</Heading6>
           </TableCell>
           <TableCell>
-            <Heading6 style={{ marginBottom: 0 }}>20%</Heading6>
+            <Heading6 className="mb-0">20%</Heading6>
           </TableCell>
         </TableRow>
         <TableRow>
