@@ -9,14 +9,14 @@ const StoryComponent = (props: BoxProps) => {
   return (
     <PDFStory>
       <Box {...props}>
-        <Box direction="y" grow className="p-3 justify-content-center align-items-center bg-faded-blue">
+        <Box dir="y" grow className="p-3 justify-content-center align-items-center bg-faded-blue">
           <Heading5 className="text-center">Vertical box containing 3 nested boxes</Heading5>
           <Paragraph className="mb-0">Grow</Paragraph>
         </Box>
         <Box className="p-3 justify-content-center align-items-center bg-faded-pink">
           <Paragraph className="mb-0">Shrink</Paragraph>
         </Box>
-        <Box direction="y" className="p-3 text-justify bg-faded-green">
+        <Box dir="y" className="p-3 text-justify bg-faded-green">
           <Heading5>Lorem ipsum dolor</Heading5>
           <Paragraph>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
@@ -53,7 +53,7 @@ type Story = StoryObj<typeof meta>;
 
 export const WithoutGap: Story = {
   args: {
-    direction: 'vertical',
+    dir: 'column',
     style: { height: 700 },
   },
 };
@@ -61,7 +61,7 @@ export const WithoutGap: Story = {
 export const WithGap: Story = {
   args: {
     gap: 10,
-    direction: 'vertical',
+    dir: 'column',
     style: { height: 700 },
   },
 };

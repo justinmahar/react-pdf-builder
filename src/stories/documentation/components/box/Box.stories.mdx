@@ -1,0 +1,119 @@
+import { Meta } from '@storybook/addon-docs';
+import { DocsPDF } from '../../DocsPDF';
+
+import { Box } from '../../../../components/layout/Box';
+import { Paragraph } from '../../../../components/typography/Paragraph';
+import { Blockquote } from '../../../../components/typography/Blockquote';
+import { ThemedText } from '../../../../components/basics/ThemedText';
+
+<Meta title="Documentation/Components/Box" />
+
+<h1>Box</h1>
+
+## Description
+
+Description of the Box component.
+
+## Usage
+
+```jsx
+import { Box } from 'react-pdf-builder';
+```
+
+Describe how to use the component here.
+
+```jsx
+<Box label="Bomb Diggity!" />
+```
+
+### Props
+
+| Prop            | Type                        | Description                                |
+| --------------- | --------------------------- | ------------------------------------------ |
+| label           | `string`                    | **Required.** Label shown in the component |
+| backgroundColor | `string` &#124; `undefined` | Optional. What background color to use     |
+
+## Box Example
+
+<DocsPDF>
+  <Box dir="y" className="gap-3">
+    <Box>
+      <Box grow className="justify-content-center align-items-center border border-end-0 p-3">
+        <Paragraph className="mb-0">Grow</Paragraph>
+      </Box>
+      <Box className="justify-content-center align-items-center border border-end-0 p-3">
+        <Paragraph className="mb-0">Shrink</Paragraph>
+      </Box>
+      <Box dir="y" className="justify-content-center align-items-center border text-justify w-50 p-3">
+        <Paragraph>Width 50%. Text justified. Specify a width to allow text wrapping.</Paragraph>
+        <Paragraph className="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</Paragraph>
+      </Box>
+    </Box>
+    <Box className="mb-3 gap-3">
+      <Box grow className="justify-content-center align-items-center border py-2 px-3">
+        <Paragraph className="mb-0">Grow</Paragraph>
+      </Box>
+      <Box shrink className="justify-content-center align-items-center border py-2 px-3">
+        <Paragraph className="mb-0">Shrink</Paragraph>
+      </Box>
+      <Box className="justify-content-center align-items-center border py-2 px-3 w-50">
+        <Paragraph className="mb-0">50%</Paragraph>
+      </Box>
+    </Box>
+    <Blockquote swatch="info">
+      <Box className="gap-3">
+        <ThemedText>Borders have been added to visualize boundaries.</ThemedText>
+      </Box>
+    </Blockquote>
+  </Box>
+</DocsPDF>
+
+```jsx
+import * as React from 'react';
+import { Box, ThemedPage } from 'react-pdf-builder';
+import { PDFViewer, Document } from '@react-pdf/renderer';
+
+export function Example() {
+  return (
+    <PDFViewer style={{ width: 420, height: 600 }}>
+      <Document>
+        <ThemedPage size="LETTER">
+          <Box dir="y" className="gap-3">
+            <Box>
+              <Box grow className="justify-content-center align-items-center border border-end-0 p-3">
+                <Paragraph className="mb-0">Grow</Paragraph>
+              </Box>
+              <Box className="justify-content-center align-items-center border border-end-0 p-3">
+                <Paragraph className="mb-0">Shrink</Paragraph>
+              </Box>
+              <Box dir="y" className="justify-content-center align-items-center border text-justify w-50 p-3">
+                <Paragraph>Width 50%. Text justified. Specify a width to allow text wrapping.</Paragraph>
+                <Paragraph className="mb-0">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                  et dolore magna aliqua.
+                </Paragraph>
+              </Box>
+            </Box>
+            <Box className="mb-3 gap-3">
+              <Box grow className="justify-content-center align-items-center border py-2 px-3">
+                <Paragraph className="mb-0">Grow</Paragraph>
+              </Box>
+              <Box shrink className="justify-content-center align-items-center border py-2 px-3">
+                <Paragraph className="mb-0">Shrink</Paragraph>
+              </Box>
+              <Box className="justify-content-center align-items-center border py-2 px-3 w-50">
+                <Paragraph className="mb-0">50%</Paragraph>
+              </Box>
+            </Box>
+            <Blockquote swatch="info">
+              <Box className="gap-3">
+                <ThemedText>Borders have been added to visualize boundaries.</ThemedText>
+              </Box>
+            </Blockquote>
+          </Box>
+        </ThemedPage>
+      </Document>
+    </PDFViewer>
+  );
+}
+```

@@ -1,0 +1,55 @@
+import { Meta } from '@storybook/addon-docs';
+import { DocsPDF } from '../../DocsPDF';
+
+import { ThemedLink } from '../../../../components/basics/ThemedLink';
+
+<Meta title="Documentation/Components/Basics/ThemedLink" />
+
+<h1>ThemedLink</h1>
+
+## Description
+
+Description of the ThemedLink component.
+
+## Usage
+
+```jsx
+import { ThemedLink } from 'react-pdf-builder';
+```
+
+Describe how to use the component here.
+
+```jsx
+<ThemedLink label="Bomb Diggity!" />
+```
+
+### Props
+
+| Prop            | Type                        | Description                                |
+| --------------- | --------------------------- | ------------------------------------------ |
+| label           | `string`                    | **Required.** Label shown in the component |
+| backgroundColor | `string` &#124; `undefined` | Optional. What background color to use     |
+
+## ThemedLink Example
+
+<DocsPDF>
+  <ThemedLink href="https://justinmahar.github.io/react-pdf-builder/?path=/docs/home--docs">React PDF Builder</ThemedLink>
+</DocsPDF>
+
+```jsx
+import * as React from 'react';
+import { ThemedLink, ThemedPage } from 'react-pdf-builder';
+import { PDFViewer, Document } from '@react-pdf/renderer';
+
+export function Example() {
+  return (
+    <PDFViewer style={{ width: 420, height: 600 }}>
+      <Document>
+        <ThemedLink href="https://justinmahar.github.io/react-pdf-builder/?path=/docs/home--docs">
+          React PDF Builder
+        </ThemedLink>
+      </Document>
+    </PDFViewer>
+  );
+}
+```

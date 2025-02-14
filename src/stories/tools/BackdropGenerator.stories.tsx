@@ -337,7 +337,7 @@ export const CustomBackdrop = ({
   const width = d.width;
   const height = d.height;
   return (
-    <Box {...props} style={{ position: 'absolute', ...props.style }}>
+    <Box dir="y" {...props} style={{ position: 'absolute', ...props.style }}>
       {/* Background gradient */}
       <RectangleShape
         style={{ position: 'absolute' }}
@@ -448,7 +448,7 @@ export const CustomBackdrop = ({
   const width = d.width;
   const height = d.height;
   return (
-    <Box {...props} style={{ position: 'absolute', ...props.style }}>
+    <Box dir="y" {...props} style={{ position: 'absolute', ...props.style }}>
       {/* RectangleShape components go here -- First RectangleShape must use the gradient prop */}
     </Box>
   );

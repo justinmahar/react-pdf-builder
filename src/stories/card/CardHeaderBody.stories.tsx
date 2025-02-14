@@ -23,7 +23,7 @@ const StoryComponent = () => {
             nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
             anim id est laborum.
           </Paragraph>
-          <Box direction="x" className="justify-content-end">
+          <Box className="justify-content-end">
             <Button href="#">Learn More</Button>
           </Box>
         </CardBody>

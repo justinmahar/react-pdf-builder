@@ -1,0 +1,56 @@
+import { Meta } from '@storybook/addon-docs';
+import { DocsPDF } from '../../DocsPDF';
+
+import { OrderedList } from '../../../../components/lists/OrderedList';
+import { ListItem } from '../../../../components/lists/ListItem';
+
+<Meta title="Documentation/Components/Lists/OrderedList" />
+
+<h1>OrderedList</h1>
+
+## Description
+
+Description of the OrderedList component.
+
+## Usage
+
+```jsx
+import { OrderedList } from 'react-pdf-builder';
+```
+
+Describe how to use the component here.
+
+```jsx
+<OrderedList label="Bomb Diggity!" />
+```
+
+### Props
+
+| Prop            | Type                        | Description                                |
+| --------------- | --------------------------- | ------------------------------------------ |
+| label           | `string`                    | **Required.** Label shown in the component |
+| backgroundColor | `string` &#124; `undefined` | Optional. What background color to use     |
+
+## OrderedList Example
+
+<DocsPDF>
+  <OrderedList className="p-3 border">Testing 123</OrderedList>
+</DocsPDF>
+
+```jsx
+import * as React from 'react';
+import { OrderedList, ThemedPage } from 'react-pdf-builder';
+import { PDFViewer, Document } from '@react-pdf/renderer';
+
+export function Example() {
+  return (
+    <PDFViewer style={{ width: 420, height: 600 }}>
+      <Document>
+        <ThemedPage size="LETTER">
+          <OrderedList className="p-3 border">Testing 123</OrderedList>
+        </ThemedPage>
+      </Document>
+    </PDFViewer>
+  );
+}
+```

@@ -1,0 +1,57 @@
+import { Meta } from '@storybook/addon-docs';
+import { DocsPDF } from '../../DocsPDF';
+
+import { Table } from '../../../../components/table/Table';
+import { TableRow } from '../../../../components/table/TableRow';
+import { TableCell } from '../../../../components/table/TableCell';
+
+<Meta title="Documentation/Components/Tables/TableCell" />
+
+<h1>TableCell</h1>
+
+## Description
+
+Description of the TableCell component.
+
+## Usage
+
+```jsx
+import { TableCell } from 'react-pdf-builder';
+```
+
+Describe how to use the component here.
+
+```jsx
+<TableCell label="Bomb Diggity!" />
+```
+
+### Props
+
+| Prop            | Type                        | Description                                |
+| --------------- | --------------------------- | ------------------------------------------ |
+| label           | `string`                    | **Required.** Label shown in the component |
+| backgroundColor | `string` &#124; `undefined` | Optional. What background color to use     |
+
+## TableCell Example
+
+<DocsPDF>
+  <TableCell className="p-3 border">Testing 123</TableCell>
+</DocsPDF>
+
+```jsx
+import * as React from 'react';
+import { TableCell, ThemedPage } from 'react-pdf-builder';
+import { PDFViewer, Document } from '@react-pdf/renderer';
+
+export function Example() {
+  return (
+    <PDFViewer style={{ width: 420, height: 600 }}>
+      <Document>
+        <ThemedPage size="LETTER">
+          <TableCell className="p-3 border">Testing 123</TableCell>
+        </ThemedPage>
+      </Document>
+    </PDFViewer>
+  );
+}
+```

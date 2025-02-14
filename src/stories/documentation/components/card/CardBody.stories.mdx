@@ -1,0 +1,98 @@
+import { Meta } from '@storybook/addon-docs';
+import { DocsPDF } from '../../DocsPDF';
+
+import { Box } from '../../../../components/layout/Box';
+import { Card } from '../../../../components/card/Card';
+import { CardBody } from '../../../../components/card/CardBody';
+import { CardHeader } from '../../../../components/card/CardHeader';
+
+<Meta title="Documentation/Components/Cards/CardBody" />
+
+<h1>CardBody</h1>
+
+## Description
+
+Description of the CardBody component.
+
+## Usage
+
+```jsx
+import { CardBody } from 'react-pdf-builder';
+```
+
+Describe how to use the component here.
+
+```jsx
+<CardBody label="Bomb Diggity!" />
+```
+
+### Props
+
+| Prop            | Type                        | Description                                |
+| --------------- | --------------------------- | ------------------------------------------ |
+| label           | `string`                    | **Required.** Label shown in the component |
+| backgroundColor | `string` &#124; `undefined` | Optional. What background color to use     |
+
+## CardBody Example
+
+<DocsPDF>
+  <Box dir="y" className="gap-3">
+    <Card>
+      <CardHeader>Header</CardHeader>
+      <CardBody className="lh-1">This is the card body.</CardBody>
+    </Card>
+    <Card swatch="blue">
+      <CardHeader>Blue Card</CardHeader>
+      <CardBody>You can easily theme cards by providing the "swatch" prop. This card is using the "blue" swatch.</CardBody>
+    </Card>
+    <Card swatch="yellow">
+      <CardHeader>Yellow Card</CardHeader>
+      <CardBody>You can easily theme cards by providing the "swatch" prop. This card is using the "yellow" swatch.</CardBody>
+    </Card>
+    <Card swatch="indigo">
+      <CardHeader>Indigo Card</CardHeader>
+      <CardBody>You can easily theme cards by providing the "swatch" prop. This card is using the "indigo" swatch.</CardBody>
+    </Card>
+  </Box>
+</DocsPDF>
+
+```jsx
+import * as React from 'react';
+import { CardBody, ThemedPage } from 'react-pdf-builder';
+import { PDFViewer, Document } from '@react-pdf/renderer';
+
+export function Example() {
+  return (
+    <PDFViewer style={{ width: 420, height: 600 }}>
+      <Document>
+        <ThemedPage size="LETTER">
+          <Box dir="y" className="gap-3">
+            <Card>
+              <CardHeader>Header</CardHeader>
+              <CardBody className="lh-1">This is the card body.</CardBody>
+            </Card>
+            <Card swatch="blue">
+              <CardHeader>Blue Card</CardHeader>
+              <CardBody>
+                You can easily theme cards by providing the "swatch" prop. This card is using the "blue" swatch.
+              </CardBody>
+            </Card>
+            <Card swatch="yellow">
+              <CardHeader>Yellow Card</CardHeader>
+              <CardBody>
+                You can easily theme cards by providing the "swatch" prop. This card is using the "yellow" swatch.
+              </CardBody>
+            </Card>
+            <Card swatch="indigo">
+              <CardHeader>Indigo Card</CardHeader>
+              <CardBody>
+                You can easily theme cards by providing the "swatch" prop. This card is using the "indigo" swatch.
+              </CardBody>
+            </Card>
+          </Box>
+        </ThemedPage>
+      </Document>
+    </PDFViewer>
+  );
+}
+```

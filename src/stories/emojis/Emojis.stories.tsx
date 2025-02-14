@@ -18,7 +18,7 @@ const StoryComponent = (props: { emojiSource: any; showFullList: boolean; source
       <Heading3 rule>{props.sourceName}</Heading3>
       <Card swatch="primary">
         <CardBody className="justify-content-center">
-          <Box direction="x" className="align-items-center gap-3">
+          <Box className="align-items-center gap-3">
             <ThemedText className="fs-3">ℹ️</ThemedText>
             <ThemedText className="w-100">Note: You must reload the page to view different emoji sources.</ThemedText>
           </Box>

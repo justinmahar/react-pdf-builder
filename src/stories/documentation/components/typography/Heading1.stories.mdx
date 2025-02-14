@@ -1,0 +1,57 @@
+import { Meta } from '@storybook/addon-docs';
+import { DocsPDF } from '../../DocsPDF';
+
+import { Heading1 } from '../../../../components/typography/Heading1';
+
+<Meta title="Documentation/Components/Typography/Heading1" />
+
+<h1>Heading1</h1>
+
+## Description
+
+Description of the Heading1 component.
+
+## Usage
+
+```jsx
+import { Heading1 } from 'react-pdf-builder';
+```
+
+Describe how to use the component here.
+
+```jsx
+<Heading1 label="Bomb Diggity!" />
+```
+
+### Props
+
+| Prop            | Type                        | Description                                |
+| --------------- | --------------------------- | ------------------------------------------ |
+| label           | `string`                    | **Required.** Label shown in the component |
+| backgroundColor | `string` &#124; `undefined` | Optional. What background color to use     |
+
+## Heading1 Example
+
+<DocsPDF>
+  <Heading1 className="mb-5">Heading 1</Heading1>
+  <Heading1 rule>Heading 1 with rule</Heading1>
+</DocsPDF>
+
+```jsx
+import * as React from 'react';
+import { Heading1, ThemedPage } from 'react-pdf-builder';
+import { PDFViewer, Document } from '@react-pdf/renderer';
+
+export function Example() {
+  return (
+    <PDFViewer style={{ width: 420, height: 600 }}>
+      <Document>
+        <ThemedPage size="LETTER">
+          <Heading1 className="mb-5">Heading 1</Heading1>
+          <Heading1 rule>Heading 1 with rule</Heading1>
+        </ThemedPage>
+      </Document>
+    </PDFViewer>
+  );
+}
+```

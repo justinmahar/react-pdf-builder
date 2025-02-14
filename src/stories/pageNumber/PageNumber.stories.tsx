@@ -139,7 +139,6 @@ const StoryComponent = ({ swatch, format }: StoryProps) => {
         laborum.
       </Paragraph>
       <Box
-        direction="x"
         style={{
           position: 'absolute',
           bottom: 0,

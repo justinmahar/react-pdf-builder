@@ -1,0 +1,57 @@
+import { Meta } from '@storybook/addon-docs';
+import { DocsPDF } from '../../DocsPDF';
+
+import { Heading4 } from '../../../../components/typography/Heading4';
+
+<Meta title="Documentation/Components/Typography/Heading4" />
+
+<h1>Heading4</h1>
+
+## Description
+
+Description of the Heading4 component.
+
+## Usage
+
+```jsx
+import { Heading4 } from 'react-pdf-builder';
+```
+
+Describe how to use the component here.
+
+```jsx
+<Heading4 label="Bomb Diggity!" />
+```
+
+### Props
+
+| Prop            | Type                        | Description                                |
+| --------------- | --------------------------- | ------------------------------------------ |
+| label           | `string`                    | **Required.** Label shown in the component |
+| backgroundColor | `string` &#124; `undefined` | Optional. What background color to use     |
+
+## Heading4 Example
+
+<DocsPDF>
+  <Heading4 className="mb-4">Heading 4</Heading4>
+  <Heading4 rule>Heading 4 with rule</Heading4>
+</DocsPDF>
+
+```jsx
+import * as React from 'react';
+import { Heading4, ThemedPage } from 'react-pdf-builder';
+import { PDFViewer, Document } from '@react-pdf/renderer';
+
+export function Example() {
+  return (
+    <PDFViewer style={{ width: 420, height: 600 }}>
+      <Document>
+        <ThemedPage size="LETTER">
+          <Heading4 className="mb-4">Heading 4</Heading4>
+          <Heading4 rule>Heading 4 with rule</Heading4>
+        </ThemedPage>
+      </Document>
+    </PDFViewer>
+  );
+}
+```

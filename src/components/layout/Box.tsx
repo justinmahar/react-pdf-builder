@@ -10,7 +10,7 @@ import { Style } from '../Style';
 export interface BoxProps extends ViewProps {
   children?: any;
   className?: string;
-  direction?: 'horizontal' | 'x' | 'vertical' | 'y';
+  dir?: 'row' | 'x' | 'column' | 'y';
   grow?: boolean;
   shrink?: boolean;
   gap?: number;
@@ -18,24 +18,13 @@ export interface BoxProps extends ViewProps {
   theme?: Theme;
 }
 
-export const Box = ({
-  children,
-  theme,
-  direction,
-  grow,
-  shrink,
-  gap,
-  padding,
-  className,
-  style,
-  ...props
-}: BoxProps) => {
+export const Box = ({ children, theme, dir, grow, shrink, gap, padding, className, style, ...props }: BoxProps) => {
   theme = theme ?? Themes.default.build();
   const styleInnate: Style = {
     display: 'flex',
-    flexDirection: direction === 'horizontal' || direction === 'x' ? 'row' : 'column',
-    flexGrow: grow ? 1 : undefined,
+    flexDirection: dir === 'column' || dir === 'y' ? 'column' : 'row',
     flexShrink: shrink ? 1 : undefined,
+    flexGrow: grow ? 1 : undefined,
     gap,
     padding,
   };

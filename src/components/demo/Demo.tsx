@@ -101,10 +101,11 @@ export const Demo = ({
               >
                 {BackdropDecorators.circles3}
               </GradientBackdrop>
-              <Box direction="y" className="h-100">
+              <Box dir="y" className="h-100">
                 <Box style={{ height: '5%', backgroundColor: '#00000022' }} />
                 <Box style={{ height: '15%' }} />
                 <Box
+                  dir="y"
                   shrink
                   className="justify-content-center p-4"
                   style={{
@@ -163,7 +164,7 @@ export const Demo = ({
                 ]}
               />
             </GradientBackdrop>
-            <Box direction="y" className="gap-2">
+            <Box dir="y" className="gap-2">
               <Heading5 rule>Basic Typography</Heading5>
               <Heading1 rule>Heading 1</Heading1>
               <Heading2 rule>Heading 2</Heading2>
@@ -182,7 +183,7 @@ export const Demo = ({
                 Above this paragraph is a horizontal rule. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                 do eiusmod tempor incididunt ut labore et dolore magna aliqua. Below is a signature component.
               </Paragraph>
-              <Box className="gap-1 ms-auto" style={{ width: 400 * scale }}>
+              <Box dir="y" className="gap-1 ms-auto" style={{ width: 400 * scale }}>
                 <Signature x className="mb-0" />
                 <Paragraph className="small">Sign here</Paragraph>
               </Box>
@@ -218,7 +219,7 @@ export const Demo = ({
               <Heading5 rule break>
                 Blockquotes
               </Heading5>
-              <Box direction="x" className="gap-3 flex-wrap justify-content-center">
+              <Box className="gap-3 flex-wrap justify-content-center">
                 <Blockquote wrap={false} className="mb-0" style={{ width: 220 * scale }}>
                   Default blockquote
                 </Blockquote>
@@ -240,7 +241,7 @@ export const Demo = ({
                 Tables
               </Heading5>
               <Heading6>Plain and bordered inside, 80% width</Heading6>
-              <Box direction="x" className="justify-content-center mb-3">
+              <Box className="justify-content-center mb-3">
                 <Table borderedInside style={{ width: '80%' }}>
                   <TableRow>
                     <TableCell className="justify-content-end text-end">Lorem ipsum</TableCell>
@@ -260,46 +261,44 @@ export const Demo = ({
                 </Table>
               </Box>
               <Heading6>Striped, horizontal bordered, with page wrapping support</Heading6>
-              <Box className="mb-3">
-                <Table borderedOutside borderedHorizontal striped className="mb-0">
-                  <TableRow>
-                    <TableCell>Lorem ipsum dolor</TableCell>
-                    <TableCell>Consectetur adipiscing elit</TableCell>
-                    <TableCell>Sed do eiusmod</TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell>Incididunt ut labore</TableCell>
-                    <TableCell>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                      labore et magna aliqua.
-                    </TableCell>
-                    <TableCell>Dolore magna aliqua</TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell>Lorem ipsum dolor</TableCell>
-                    <TableCell>Consectetur adipiscing elit</TableCell>
-                    <TableCell>Sed do eiusmod</TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell>Incididunt ut labore</TableCell>
-                    <TableCell>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                      labore et magna aliqua.
-                    </TableCell>
-                    <TableCell>Dolore magna aliqua</TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell>Lorem ipsum dolor</TableCell>
-                    <TableCell>Consectetur adipiscing elit</TableCell>
-                    <TableCell>Sed do eiusmod</TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell>Lorem ipsum dolor</TableCell>
-                    <TableCell>Consectetur adipiscing elit</TableCell>
-                    <TableCell>Sed do eiusmod</TableCell>
-                  </TableRow>
-                </Table>
-              </Box>
+              <Table borderedOutside borderedHorizontal striped className="mb-0">
+                <TableRow>
+                  <TableCell>Lorem ipsum dolor</TableCell>
+                  <TableCell>Consectetur adipiscing elit</TableCell>
+                  <TableCell>Sed do eiusmod</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>Incididunt ut labore</TableCell>
+                  <TableCell>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et magna aliqua.
+                  </TableCell>
+                  <TableCell>Dolore magna aliqua</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>Lorem ipsum dolor</TableCell>
+                  <TableCell>Consectetur adipiscing elit</TableCell>
+                  <TableCell>Sed do eiusmod</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>Incididunt ut labore</TableCell>
+                  <TableCell>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et magna aliqua.
+                  </TableCell>
+                  <TableCell>Dolore magna aliqua</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>Lorem ipsum dolor</TableCell>
+                  <TableCell>Consectetur adipiscing elit</TableCell>
+                  <TableCell>Sed do eiusmod</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>Lorem ipsum dolor</TableCell>
+                  <TableCell>Consectetur adipiscing elit</TableCell>
+                  <TableCell>Sed do eiusmod</TableCell>
+                </TableRow>
+              </Table>
               <Heading6>Styled with column widths 30%, 50%, 20%</Heading6>
               <Table bordered inverseStriped swatch="primary" className="rounded" colWidths={['30%', '50%', '20%']}>
                 <TableRow swatch="primary" inverseStriped={false} className="fw-bold">
@@ -340,7 +339,7 @@ export const Demo = ({
                   <Heading5 className="mb-0">Card Title</Heading5>
                 </CardHeader>
                 <CardBody>
-                  <Box direction="x" className="flex-wrap justify-content-center gap-2">
+                  <Box className="flex-wrap justify-content-center gap-2">
                     <Button swatch="primary" href={buttonHref}>
                       Primary
                     </Button>
@@ -380,7 +379,7 @@ export const Demo = ({
                     Cards can be swatched using theme colors, greyscale colors, or palette colors. Border, background,
                     and the header text contrast color will be configured based on the theme's color scheme.
                   </Paragraph>
-                  <Box direction="x" className="flex-wrap justify-content-center gap-2">
+                  <Box className="flex-wrap justify-content-center gap-2">
                     <Button swatch="blue" href={buttonHref}>
                       Blue
                     </Button>
@@ -418,14 +417,14 @@ export const Demo = ({
                 Layout
               </Heading5>
               <Heading6>Horizontal Box</Heading6>
-              <Box direction="x">
+              <Box>
                 <Box grow className="justify-content-center align-items-center border border-end-0 p-3">
                   <Paragraph className="mb-0">Grow</Paragraph>
                 </Box>
                 <Box className="justify-content-center align-items-center border border-end-0 p-3">
                   <Paragraph className="mb-0">Shrink</Paragraph>
                 </Box>
-                <Box direction="y" className="justify-content-center align-items-center border text-justify w-50 p-3">
+                <Box dir="y" className="justify-content-center align-items-center border text-justify w-50 p-3">
                   <Paragraph>Width 50%. Text justified. Specify a width to allow text wrapping.</Paragraph>
                   <Paragraph className="mb-0">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
@@ -433,7 +432,7 @@ export const Demo = ({
                   </Paragraph>
                 </Box>
               </Box>
-              <Box direction="x" className="mb-3 gap-2">
+              <Box className="mb-3 gap-2">
                 <Box grow className="justify-content-center align-items-center border py-2 px-3">
                   <Paragraph className="mb-0">Grow</Paragraph>
                 </Box>
@@ -445,20 +444,20 @@ export const Demo = ({
                 </Box>
               </Box>
               <Blockquote swatch="info">
-                <Box direction="x" className="gap-3">
+                <Box className="gap-3">
                   <ThemedText>ℹ️</ThemedText>
                   <ThemedText>Borders have been added to visualize boundaries.</ThemedText>
                 </Box>
               </Blockquote>
               <Heading6 break>Vertical Box</Heading6>
-              <Box direction="y" className="mb-3">
+              <Box dir="y" className="mb-3">
                 <Box className="justify-content-center align-items-center border border-bottom-0 p-3">
                   <Paragraph className="mb-0">A</Paragraph>
                 </Box>
                 <Box className="justify-content-center align-items-center border border-bottom-0 p-3">
                   <Paragraph className="mb-0">B</Paragraph>
                 </Box>
-                <Box direction="y" className="justify-content-center align-items-center border text-justify p-3">
+                <Box dir="y" className="justify-content-center align-items-center border text-justify p-3">
                   <Paragraph>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
                     et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
@@ -472,7 +471,7 @@ export const Demo = ({
                 </Box>
               </Box>
               <Blockquote swatch="info">
-                <Box direction="x" className="gap-3">
+                <Box className="gap-3">
                   <ThemedText>ℹ️</ThemedText>
                   <ThemedText>Borders have been added to visualize boundaries.</ThemedText>
                 </Box>
@@ -486,7 +485,7 @@ export const Demo = ({
                 design to life.
               </Paragraph>
               <Heading6 rule>Circles & Ellipses</Heading6>
-              <Box direction="x" className="mb-4 gap-4">
+              <Box className="mb-4 gap-4">
                 <Box>
                   <CircleShape size={75 * scale} fill="red" />
                 </Box>
@@ -502,7 +501,7 @@ export const Demo = ({
                 </Box>
               </Box>
               <Heading6 rule>Rectangles & Squares</Heading6>
-              <Box direction="x" className="mb-4 gap-4">
+              <Box className="mb-4 gap-4">
                 <Box>
                   <RectangleShape width={75 * scale} height={150 * scale} fill="orange" color="red" />
                 </Box>
@@ -525,7 +524,6 @@ export const Demo = ({
             </Box>
             <Box
               fixed
-              direction="x"
               className="position-absolute start-0 bottom-0 w-100 justify-content-between gap-2 align-items-end"
               style={{
                 height: footerHeight,

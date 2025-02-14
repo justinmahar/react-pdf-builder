@@ -118,6 +118,7 @@ export const GradientBackdrop = ({
 
   return (
     <Box
+      dir="y"
       theme={theme}
       fixed
       {...props}

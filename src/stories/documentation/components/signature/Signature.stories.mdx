@@ -1,0 +1,58 @@
+import { Meta } from '@storybook/addon-docs';
+import { DocsPDF } from '../../DocsPDF';
+
+import { Signature } from '../../../../components/signature/Signature';
+import { Paragraph } from '../../../../components/typography/Paragraph';
+
+<Meta title="Documentation/Components/Signature" />
+
+<h1>Signature</h1>
+
+## Description
+
+Description of the Signature component.
+
+## Usage
+
+```jsx
+import { Signature } from 'react-pdf-builder';
+```
+
+Describe how to use the component here.
+
+```jsx
+<Signature label="Bomb Diggity!" />
+```
+
+### Props
+
+| Prop            | Type                        | Description                                |
+| --------------- | --------------------------- | ------------------------------------------ |
+| label           | `string`                    | **Required.** Label shown in the component |
+| backgroundColor | `string` &#124; `undefined` | Optional. What background color to use     |
+
+## Signature Example
+
+<DocsPDF>
+  <Signature className="mb-1" x />
+  <Paragraph>Sign here</Paragraph>
+</DocsPDF>
+
+```jsx
+import * as React from 'react';
+import { Signature, ThemedPage } from 'react-pdf-builder';
+import { PDFViewer, Document } from '@react-pdf/renderer';
+
+export function Example() {
+  return (
+    <PDFViewer style={{ width: 420, height: 600 }}>
+      <Document>
+        <ThemedPage size="LETTER">
+          <Signature className="mb-1" x />
+          <Paragraph>Sign here</Paragraph>
+        </ThemedPage>
+      </Document>
+    </PDFViewer>
+  );
+}
+```

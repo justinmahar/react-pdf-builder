@@ -19,8 +19,8 @@ const StoryComponent = () => {
     <PDFStory>
       <Card>
         <CardHeader>
-          <Box direction="x" className="p-2 align-items-center justify-content-between">
-            <Box>
+          <Box className="p-2 align-items-center justify-content-between w-100">
+            <Box dir="y">
               <Heading5>Custom card header (H5)</Heading5>
               <ThemedText className="mb-0">Custom header with text (ThemedText)</ThemedText>
             </Box>
@@ -38,7 +38,7 @@ const StoryComponent = () => {
           <Paragraph>Inside the horizontal box is:</Paragraph>
           <OrderedList className="mb-0">
             <ListItem>A vertical box with a Heading5 and a ThemedText</ListItem>
-            <ListItem>A Button containing a Heading3 with no bottom margin and the text 42%</ListItem>
+            <ListItem>A pill Button containing a Heading3 with no bottom margin and the text 42%</ListItem>
           </OrderedList>
         </CardBody>
       </Card>

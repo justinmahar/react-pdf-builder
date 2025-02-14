@@ -1,5 +1,5 @@
 import React from 'react';
-import { ThemedChildren } from '../children/ThemedChildren';
+import { getThemedChildren, ThemedChildren } from '../children/ThemedChildren';
 import { Box, BoxProps } from '../layout/Box';
 import { Theme } from '../../themes/Theme';
 import { Themes } from '../../themes/Themes';
@@ -28,9 +28,9 @@ export const Card = ({ children, theme, className, style, ...props }: CardProps)
     width: '100%',
   };
 
-  // Inject children with props from Card
-  const originalChildArray = Array.isArray(children) ? children : typeof children !== 'undefined' ? [children] : [];
-  const injectedChildArray = originalChildArray.map((c, i, arr) => {
+  // Inject themed children with props from Card
+  const themedChildren = getThemedChildren(children);
+  const injectedChildArray = themedChildren.map((c, i, arr) => {
     const name = c.type?.displayName || c.type?.name || 'Unknown';
     const isHeader = name === 'CardHeader';
     const isBody = name === 'CardBody';
@@ -69,6 +69,7 @@ export const Card = ({ children, theme, className, style, ...props }: CardProps)
 
   return (
     <Box
+      dir="y"
       theme={theme}
       {...mergedProps}
       style={{ ...styleInnate, ...themeClassNameStyles, ...themeProps?.style, ...classNameStyles, ...style }}

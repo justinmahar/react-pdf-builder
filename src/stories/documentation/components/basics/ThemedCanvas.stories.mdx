@@ -1,0 +1,79 @@
+import { Meta } from '@storybook/addon-docs';
+import { DocsPDF } from '../../DocsPDF';
+
+import { ThemedCanvas } from '../../../../components/basics/ThemedCanvas';
+import { Paragraph } from '../../../../components/typography/Paragraph';
+
+<Meta title="Documentation/Components/Basics/ThemedCanvas" />
+
+<h1>ThemedCanvas</h1>
+
+## Description
+
+Description of the ThemedCanvas component.
+
+## Usage
+
+```jsx
+import { ThemedCanvas } from 'react-pdf-builder';
+```
+
+Describe how to use the component here.
+
+```jsx
+<ThemedCanvas label="Bomb Diggity!" />
+```
+
+### Props
+
+| Prop            | Type                        | Description                                |
+| --------------- | --------------------------- | ------------------------------------------ |
+| label           | `string`                    | **Required.** Label shown in the component |
+| backgroundColor | `string` &#124; `undefined` | Optional. What background color to use     |
+
+## ThemedCanvas Example
+
+<DocsPDF>
+  <ThemedCanvas
+    className="border border-2 mb-3"
+    paint={(painter, w, h) => {
+      painter.fillColor('#0d6efd');
+      painter.fillOpacity(1);
+      painter.fontSize(40);
+      painter.text('Canvas text', 92, 125);
+      return null;
+    }}
+    style={{ width: 400, height: 300 }}
+  />
+  <Paragraph>This 400x300 canvas uses "border border-2 mb-3" class names from the theme for a border of width 2, with a bottom margin.</Paragraph>
+</DocsPDF>
+
+```jsx
+import * as React from 'react';
+import { ThemedCanvas, Paragraph, ThemedPage } from 'react-pdf-builder';
+import { PDFViewer, Document } from '@react-pdf/renderer';
+
+export function Example() {
+  return (
+    <PDFViewer style={{ width: 420, height: 600 }}>
+      <Document>
+        <ThemedCanvas
+          className="border border-2 mb-3"
+          paint={(painter, w, h) => {
+            painter.fillColor('#0d6efd');
+            painter.fillOpacity(1);
+            painter.fontSize(40);
+            painter.text('Canvas text', 92, 125);
+            return null;
+          }}
+          style={{ width: 400, height: 300 }}
+        />
+        <Paragraph>
+          This 400x300 canvas uses "border border-2 mb-3" class names from the theme for a border of width 2, with a
+          bottom margin.
+        </Paragraph>
+      </Document>
+    </PDFViewer>
+  );
+}
+```

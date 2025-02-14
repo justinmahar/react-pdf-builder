@@ -8,12 +8,12 @@ const StoryComponent = () => {
   return (
     <PDFStory>
       <ThemedImage
-        className="border p-3 rounded mb-3"
+        className="border p-2 rounded mb-3"
         src="https://justinmahar.github.io/react-pdf-builder/images/scootie-460.png"
         style={{ width: 230 }}
       />
       <Paragraph>
-        This image uses the "border p-3 rounded mb-3" class names from the theme to achieve a thumbnail style with a
+        This image uses the "border p-2 rounded mb-3" class names from the theme to achieve a thumbnail style with a
         bottom margin.
       </Paragraph>
     </PDFStory>

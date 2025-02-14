@@ -54,6 +54,7 @@ export const CardBody = ({ children, theme, className, style, ...props }: CardBo
 
   return (
     <Box
+      dir="y"
       theme={theme}
       {...mergedProps}
       style={{

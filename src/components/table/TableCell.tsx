@@ -68,7 +68,7 @@ export const TableCell = ({ children, theme, className, style, ...props }: Table
   return (
     <Box
       theme={theme}
-      direction="y"
+      dir="y"
       {...mergedProps}
       style={{
         ...styleInnate,

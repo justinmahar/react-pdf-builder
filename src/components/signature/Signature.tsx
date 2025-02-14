@@ -51,7 +51,6 @@ export const Signature = ({ children, theme, className, style, ...props }: Signa
   return (
     <Box
       theme={theme}
-      direction="x"
       {...mergedProps}
       style={{
         ...styleInnate,

@@ -28,7 +28,7 @@ const StoryComponent = ({ fontFamily }: { fontFamily: string }) => {
 
   return (
     <PDFStory pageProps={{ style: { fontFamily } }}>
-      <Box direction="y" className="gap-3">
+      <Box dir="y" className="gap-3">
         <Heading5 rule className="mb-0">
           Font Family {fontFamily ? `"${fontFamily}"` : 'Not Specified'}
         </Heading5>

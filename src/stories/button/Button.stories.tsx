@@ -21,9 +21,7 @@ const StoryComponent = (props: ButtonProps) => {
   ));
   return (
     <PDFStory pageProps={{ theme }}>
-      <Box direction="x" gap={15} className="justify-content-center flex-wrap">
-        {elements}
-      </Box>
+      <Box className="justify-content-center flex-wrap gap-3">{elements}</Box>
     </PDFStory>
   );
 };

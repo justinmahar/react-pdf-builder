@@ -1,5 +1,5 @@
 import React from 'react';
-import { ThemedChildren } from '../children/ThemedChildren';
+import { getThemedChildren, ThemedChildren } from '../children/ThemedChildren';
 import { Style } from '../Style';
 import { Box, BoxProps } from '../layout/Box';
 import { Theme } from '../../themes/Theme';
@@ -101,8 +101,8 @@ export const TableRow = ({ children, theme, stripeStyle, className, style, ...pr
   }
 
   // Inject cells with props from Table, as well as the col index and count
-  const originalChildArray = Array.isArray(children) ? children : typeof children !== 'undefined' ? [children] : [];
-  const injectedChildArray = originalChildArray.map((c, i, arr) => {
+  const themedChildren = getThemedChildren(children);
+  const injectedChildArray = themedChildren.map((c, i, arr) => {
     return React.cloneElement(c, {
       key: `col-` + i,
       colWidths: mergedProps.colWidths,
@@ -128,7 +128,6 @@ export const TableRow = ({ children, theme, stripeStyle, className, style, ...pr
     <Box
       theme={theme}
       wrap={false}
-      direction="x"
       {...mergedProps}
       style={{
         ...styleInnate,

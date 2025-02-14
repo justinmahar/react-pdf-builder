@@ -6,6 +6,7 @@ import { Themes } from '../../themes/Themes';
 import { SwatchColor } from '../../themes/ColorScheme';
 import { ThemeBuilder } from '../../themes/ThemeBuilder';
 import Color from 'color';
+import { getThemedChildren } from '../children/ThemedChildren';
 
 export interface TableProps extends BoxProps {
   children?: any;
@@ -60,8 +61,8 @@ export const Table = ({ children, theme, className, style, ...props }: TableProp
   }
 
   // Inject rows with props from Table, as well as the row index and count
-  const originalChildArray = Array.isArray(children) ? children : typeof children !== 'undefined' ? [children] : [];
-  const injectedChildArray = originalChildArray.map((c, i, arr) => {
+  const themedChildren = getThemedChildren(children);
+  const injectedChildArray = themedChildren.map((c, i, arr) => {
     return React.cloneElement(c, {
       key: `row-` + i,
       striped: mergedProps.striped,
@@ -93,7 +94,7 @@ export const Table = ({ children, theme, className, style, ...props }: TableProp
   return (
     <Box
       theme={theme}
-      direction="y"
+      dir="y"
       {...mergedProps}
       style={{
         ...styleInnate,

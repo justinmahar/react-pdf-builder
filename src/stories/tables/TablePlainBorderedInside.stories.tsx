@@ -12,7 +12,7 @@ const StoryComponent = (props: ParagraphProps) => {
   return (
     <PDFStory>
       <Heading6>Plain and bordered inside, 80% width</Heading6>
-      <Box direction="x" className="justify-content-center">
+      <Box className="justify-content-center">
         <Table borderedInside style={{ width: '80%' }}>
           <TableRow>
             <TableCell className="justify-content-end text-end">Lorem ipsum</TableCell>

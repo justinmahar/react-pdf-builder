@@ -31,8 +31,8 @@ export const QuickStart = () => {
         <ThemedPage theme={theme} size="A4" style={{ fontFamily: roboto.family }}>
           <Heading3 rule>Hello, world!</Heading3>
           <Paragraph>Let's get started building the PDF.</Paragraph>
-          <Box direction="y" gap={15}>
-            <Box direction="x" gap={15}>
+          <Box dir="y" className="gap-3">
+            <Box className="gap-3">
               <Card swatch="gray300" className="mb-0 w-100">
                 <CardHeader>Example</CardHeader>
                 <CardBody className="d-flex flex-column gap-2">
@@ -54,7 +54,7 @@ export const QuickStart = () => {
                 <TableCell>Cell Z</TableCell>
               </TableRow>
             </Table>
-            <Box direction="x" className="justify-content-end">
+            <Box className="justify-content-end">
               <Button href="#">Button</Button>
             </Box>
             <Div className="my-custom-class">This has a custom class applied.</Div>

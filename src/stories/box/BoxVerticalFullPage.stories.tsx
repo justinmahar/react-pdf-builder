@@ -9,14 +9,14 @@ const StoryComponent = (props: BoxProps) => {
   return (
     <PDFStory pageProps={{ style: { padding: 0 } }}>
       <Box {...props}>
-        <Box direction="y" grow className="p-4 justify-content-center align-items-center bg-faded-blue">
+        <Box dir="y" grow className="p-4 justify-content-center align-items-center bg-faded-blue">
           <Heading5 className="text-center">Vertical box containing 3 nested boxes</Heading5>
           <Paragraph className="mb-0">Grow</Paragraph>
         </Box>
         <Box className="p-4 justify-content-center align-items-center bg-faded-pink">
           <Paragraph className="mb-0">Shrink</Paragraph>
         </Box>
-        <Box direction="y" className="p-5 text-justify bg-faded-green">
+        <Box dir="y" className="p-5 text-justify bg-faded-green">
           <Heading5>Lorem ipsum dolor</Heading5>
           <Paragraph>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
@@ -53,7 +53,7 @@ type Story = StoryObj<typeof meta>;
 
 export const FullPageWithoutGap: Story = {
   args: {
-    direction: 'vertical',
+    dir: 'column',
     style: { height: '100%' },
   },
 };
@@ -61,7 +61,7 @@ export const FullPageWithoutGap: Story = {
 export const FullPageWithGap: Story = {
   args: {
     gap: 10,
-    direction: 'vertical',
+    dir: 'column',
     style: { height: '100%' },
   },
 };

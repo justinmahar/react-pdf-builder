@@ -14,7 +14,7 @@ const StoryComponent = ({ ...props }: ThemedLinkProps) => {
     <PDFStory>
       <Card swatch="gray600">
         <CardBody>
-          <Box direction="x" gap={3}>
+          <Box className="gap-3">
             <UnorderedList className="mb-0">
               <ListItem className="mb-3">
                 <ThemedText>

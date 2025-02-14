@@ -16,6 +16,10 @@ export interface ThemedChildrenProps {
  */
 export const ThemedChildren = ({ children, theme, textStyle, allowStrings }: ThemedChildrenProps) => {
   theme = theme ?? Themes.default.build();
+  return getThemedChildren(children, theme, textStyle, allowStrings);
+};
+
+export const getThemedChildren = (children?: any, theme?: Theme, textStyle?: Style, allowStrings?: boolean) => {
   const originalChildArray = Array.isArray(children) ? children : typeof children !== 'undefined' ? [children] : [];
   const injectedChildArray = originalChildArray.map((c, i, arr) => {
     if (typeof c === 'string') {

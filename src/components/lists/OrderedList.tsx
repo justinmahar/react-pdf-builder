@@ -6,7 +6,7 @@ import { ThemeBuilder } from '../../themes/ThemeBuilder';
 import { Themes } from '../../themes/Themes';
 import { Style } from '../Style';
 import { Div } from '../basics/ThemedView';
-import { ThemedChildren } from '../children/ThemedChildren';
+import { getThemedChildren, ThemedChildren } from '../children/ThemedChildren';
 import { ListItemContainer, ListItemContainerProps } from './ListItemContainer';
 
 export interface OrderedListProps extends ViewProps {

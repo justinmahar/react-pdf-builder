@@ -16,7 +16,7 @@ const StoryComponent = (props: BoxProps) => {
         <Box className="p-3 justify-content-center align-items-center bg-faded-pink">
           <Paragraph className="mb-0">Shrink</Paragraph>
         </Box>
-        <Box direction="y" className="p-3 text-justify bg-faded-teal w-50">
+        <Box dir="y" className="p-3 text-justify bg-faded-teal w-50">
           <Heading5>Lorem ipsum dolor</Heading5>
           <Paragraph>Width 50%. Specify a width to allow text wrapping.</Paragraph>
           <Paragraph className="mb-0">
@@ -44,13 +44,13 @@ type Story = StoryObj<typeof meta>;
 
 export const WithoutGap: Story = {
   args: {
-    direction: 'horizontal',
+    dir: 'row',
   },
 };
 
 export const WithGap: Story = {
   args: {
     gap: 10,
-    direction: 'horizontal',
+    dir: 'row',
   },
 };
