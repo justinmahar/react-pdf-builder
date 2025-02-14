@@ -1,13 +1,14 @@
-// === Components ===
 export * from './components/Style';
 
-// Backdrops
-export * from './components/backdrops/BackdropDecorators';
-export * from './components/backdrops/Backdrops';
-export * from './components/backdrops/GradientBackdrop';
-
-// Builder
-export * from './components/children/ThemedChildren';
+// === Components ===
+// Basics
+export * from './components/basics/ThemedCanvas';
+export * from './components/basics/ThemedImage';
+export * from './components/basics/ThemedLink';
+export * from './components/basics/ThemedPage';
+export * from './components/basics/ThemedSvg';
+export * from './components/basics/ThemedText';
+export * from './components/basics/ThemedView';
 
 // Button
 export * from './components/button/Button';
@@ -17,15 +18,23 @@ export * from './components/card/Card';
 export * from './components/card/CardBody';
 export * from './components/card/CardHeader';
 
+// Children
+export * from './components/children/ThemedChildren';
+
 // Demo
 export * from './components/demo/Demo';
 export * from './components/demo/QuickStart';
 
+// Gradient Backdrop
+export * from './components/backdrops/BackdropDecorators';
+export * from './components/backdrops/Backdrops';
+export * from './components/backdrops/GradientBackdrop';
+
+// Horizontal Rule
+export * from './components/hr/HorizontalRule';
+
 // Layout
 export * from './components/layout/Box';
-
-// Link
-export * from './components/basics/ThemedLink';
 
 // Lists
 export * from './components/lists/ListItem';
@@ -35,7 +44,6 @@ export * from './components/lists/UnorderedList';
 // Pages
 export * from './components/pages/PageNumber';
 export * from './components/pages/PageSizes';
-export * from './components/basics/ThemedPage';
 
 // Shapes
 export * from './components/shapes/CircleShape';
@@ -73,6 +81,10 @@ export * from './themes/Theme';
 export * from './themes/ThemeBuilder';
 export * from './themes/Themes';
 
+// Class names
+export * from './themes/classnames/ClassNames';
+export * from './themes/classnames/createDefaultClassNames';
+
 // Dark
 export * from './themes/dark/DarkColorScheme';
 export * from './themes/dark/DarkThemeBuilder';
@@ -80,3 +92,6 @@ export * from './themes/dark/DarkThemeBuilder';
 // Light
 export * from './themes/light/LightColorScheme';
 export * from './themes/light/LightThemeBuilder';
+
+// === Utils ===
+export * from './util/util';
