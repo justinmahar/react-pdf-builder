@@ -83,8 +83,8 @@ export const Demo = ({
   };
   const theme = themeBuilder.build(themeConfig);
 
-  const bodyColor = theme._bodyColor;
   const footerHeight = '12.12%';
+  const pagePadding = 72 * 0.5 * scale;
 
   return (
     <div {...props}>
@@ -426,112 +426,53 @@ export const Demo = ({
                   <Paragraph className="mb-0">Shrink</Paragraph>
                 </Box>
                 <Box direction="y" className="justify-content-center align-items-center border text-justify w-50 p-3">
-                  <Paragraph>Width 50%. Specify a width to allow text wrapping.</Paragraph>
+                  <Paragraph>Width 50%. Text justified. Specify a width to allow text wrapping.</Paragraph>
                   <Paragraph className="mb-0">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
                     et dolore magna aliqua.
                   </Paragraph>
                 </Box>
               </Box>
-              <Box direction="x" gap={10} className="mb-3">
-                <Box
-                  grow
-                  padding={10 * scale}
-                  style={{
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    borderWidth: 1 * scale,
-                    borderColor: theme.colorScheme?.greyscale.gray500,
-                  }}
-                >
+              <Box direction="x" className="mb-3 gap-2">
+                <Box grow className="justify-content-center align-items-center border py-2 px-3">
                   <Paragraph className="mb-0">Grow</Paragraph>
                 </Box>
-                <Box
-                  shrink
-                  padding={10 * scale}
-                  style={{
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    borderWidth: 1 * scale,
-                    borderColor: theme.colorScheme?.greyscale.gray500,
-                  }}
-                >
+                <Box shrink className="justify-content-center align-items-center border py-2 px-3">
                   <Paragraph className="mb-0">Shrink</Paragraph>
                 </Box>
-                <Box
-                  padding={10 * scale}
-                  style={{
-                    width: '40%',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    borderWidth: 1 * scale,
-                    borderColor: theme.colorScheme?.greyscale.gray500,
-                  }}
-                >
-                  <Paragraph className="mb-0">40%</Paragraph>
+                <Box className="justify-content-center align-items-center border py-2 px-3 w-50">
+                  <Paragraph className="mb-0">50%</Paragraph>
                 </Box>
               </Box>
               <Blockquote swatch="info">
-                <Box direction="x" gap={15 * scale}>
+                <Box direction="x" className="gap-3">
                   <ThemedText>ℹ️</ThemedText>
                   <ThemedText>Borders have been added to visualize boundaries.</ThemedText>
                 </Box>
               </Blockquote>
               <Heading6 break>Vertical Box</Heading6>
               <Box direction="y" className="mb-3">
-                <Box
-                  padding={10 * scale}
-                  style={{
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    borderWidth: 1 * scale,
-                    borderBottom: 0,
-                    borderColor: theme.colorScheme?.greyscale.gray500,
-                  }}
-                >
+                <Box className="justify-content-center align-items-center border border-bottom-0 p-3">
                   <Paragraph className="mb-0">A</Paragraph>
                 </Box>
-                <Box
-                  grow
-                  padding={10 * scale}
-                  style={{
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    borderWidth: 1 * scale,
-                    borderBottom: 0,
-                    borderColor: theme.colorScheme?.greyscale.gray500,
-                  }}
-                >
+                <Box className="justify-content-center align-items-center border border-bottom-0 p-3">
                   <Paragraph className="mb-0">B</Paragraph>
                 </Box>
-                <Box
-                  direction="y"
-                  padding={10 * scale}
-                  style={{
-                    justifyContent: 'center',
-                    borderWidth: 1 * scale,
-                    borderColor: theme.colorScheme?.greyscale.gray500,
-                    textAlign: 'justify',
-                  }}
-                >
+                <Box direction="y" className="justify-content-center align-items-center border text-justify p-3">
                   <Paragraph>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
                     et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                    aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                    culpa qui officia deserunt mollit anim id est laborum.
+                    aliquip ex ea commodo consequat.
                   </Paragraph>
                   <Paragraph className="mb-0">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                    aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                    culpa qui officia deserunt mollit anim id est laborum.
+                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                    pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
+                    anim id est laborum.
                   </Paragraph>
                 </Box>
               </Box>
               <Blockquote swatch="info">
-                <Box direction="x" gap={15 * scale}>
+                <Box direction="x" className="gap-3">
                   <ThemedText>ℹ️</ThemedText>
                   <ThemedText>Borders have been added to visualize boundaries.</ThemedText>
                 </Box>
@@ -545,7 +486,7 @@ export const Demo = ({
                 design to life.
               </Paragraph>
               <Heading6 rule>Circles & Ellipses</Heading6>
-              <Box direction="x" gap={20 * scale} className="mb-4">
+              <Box direction="x" className="mb-4 gap-4">
                 <Box>
                   <CircleShape size={75 * scale} fill="red" />
                 </Box>
@@ -561,7 +502,7 @@ export const Demo = ({
                 </Box>
               </Box>
               <Heading6 rule>Rectangles & Squares</Heading6>
-              <Box direction="x" gap={20 * scale} className="mb-4">
+              <Box direction="x" className="mb-4 gap-4">
                 <Box>
                   <RectangleShape width={75 * scale} height={150 * scale} fill="orange" color="red" />
                 </Box>
@@ -585,25 +526,15 @@ export const Demo = ({
             <Box
               fixed
               direction="x"
+              className="position-absolute start-0 bottom-0 w-100 justify-content-between gap-2 align-items-end"
               style={{
-                position: 'absolute',
-                left: 0,
-                bottom: 0,
-                width: '100%',
                 height: footerHeight,
-                justifyContent: 'space-between',
-                gap: 10 * scale,
-                alignItems: 'flex-end',
-                // backgroundColor: '#00000005',
-                paddingLeft: 72 * 0.5 * scale,
-                paddingRight: 72 * 0.5 * scale,
-                paddingBottom: 72 * 0.5 * scale,
+                paddingLeft: pagePadding,
+                paddingRight: pagePadding,
+                paddingBottom: pagePadding,
               }}
             >
-              <ThemedLink
-                href="https://github.com/justinmahar/react-pdf-builder"
-                style={{ textDecoration: 'none', color: bodyColor }}
-              >
+              <ThemedLink href="https://github.com/justinmahar/react-pdf-builder" className="text-decoration-none">
                 React PDF Builder
               </ThemedLink>
               <PageNumber format="Page %n of %t" />

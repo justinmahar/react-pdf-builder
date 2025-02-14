@@ -17,8 +17,11 @@ export type DeepPartial<T> = {
  * in record1 and record2 are objects, it recursively calls mergeRecords. If not,
  * it assigns the value from record2 to merged. Finally, it returns the merged record.
  *
+ * A third customMerge function arg allows for custom merging of certain values.
+ *
  * @param record1 - The first record to merge.
  * @param record2 - The second record to merge.
+ * @param customMerge - A function allowing custom value merging in certain circumstances.
  * @returns The merged record.
  */
 export function deepMerge<T extends Record<string, any>>(
