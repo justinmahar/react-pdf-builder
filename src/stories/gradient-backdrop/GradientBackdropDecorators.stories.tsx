@@ -7,7 +7,7 @@ import { PDFStory } from '../parts/PDFStory';
 const StoryComponent = ({ decorators, ...props }: { decorators: React.JSX.Element[] }) => {
   return (
     <PDFStory>
-      <GradientBackdrop size="A4" darken swatch="primary">
+      <GradientBackdrop size="LETTER" darken swatch="primary">
         {decorators}
       </GradientBackdrop>
     </PDFStory>

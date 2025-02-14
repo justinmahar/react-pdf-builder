@@ -14,7 +14,7 @@ const StoryComponent = (props: ParagraphProps) => {
   return (
     <PDFStory>
       <Card>
-        <CardHeader as={Heading1}>Heading1</CardHeader>
+        <CardHeader as={Heading6}>Heading6</CardHeader>
         <CardBody>
           <Heading6>What's happening here?</Heading6>
           <Paragraph>
@@ -27,7 +27,7 @@ const StoryComponent = (props: ParagraphProps) => {
               as
             </ThemedText>{' '}
             prop to specify a custom component for the heading text. The default is a Heading5, but this header is using
-            a Heading1 instead.
+            a Heading6 instead.
           </Paragraph>
         </CardBody>
       </Card>
@@ -47,6 +47,6 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 // === Stories ===
-export const HeaderAsHeading1: Story = {
+export const HeaderAsHeading6: Story = {
   args: {},
 };

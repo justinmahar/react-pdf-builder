@@ -26,7 +26,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Blue: Story = {
   args: {
-    size: 'A4',
+    size: 'LETTER',
     darken: true,
     swatch: 'blue',
   },
@@ -34,7 +34,7 @@ export const Blue: Story = {
 
 export const Indigo: Story = {
   args: {
-    size: 'A4',
+    size: 'LETTER',
     darken: true,
     swatch: 'indigo',
   },
@@ -42,7 +42,7 @@ export const Indigo: Story = {
 
 export const Purple: Story = {
   args: {
-    size: 'A4',
+    size: 'LETTER',
     darken: true,
     swatch: 'purple',
   },
@@ -50,7 +50,7 @@ export const Purple: Story = {
 
 export const Pink: Story = {
   args: {
-    size: 'A4',
+    size: 'LETTER',
     darken: true,
     swatch: 'pink',
   },
@@ -58,7 +58,7 @@ export const Pink: Story = {
 
 export const Red: Story = {
   args: {
-    size: 'A4',
+    size: 'LETTER',
     darken: true,
     swatch: 'red',
   },
@@ -66,7 +66,7 @@ export const Red: Story = {
 
 export const Orange: Story = {
   args: {
-    size: 'A4',
+    size: 'LETTER',
     darken: true,
     swatch: 'orange',
   },
@@ -74,7 +74,7 @@ export const Orange: Story = {
 
 export const Yellow: Story = {
   args: {
-    size: 'A4',
+    size: 'LETTER',
     darken: true,
     swatch: 'yellow',
   },
@@ -82,7 +82,7 @@ export const Yellow: Story = {
 
 export const Green: Story = {
   args: {
-    size: 'A4',
+    size: 'LETTER',
     darken: true,
     swatch: 'green',
   },
@@ -90,7 +90,7 @@ export const Green: Story = {
 
 export const Teal: Story = {
   args: {
-    size: 'A4',
+    size: 'LETTER',
     darken: true,
     swatch: 'teal',
   },
@@ -98,7 +98,7 @@ export const Teal: Story = {
 
 export const Cyan: Story = {
   args: {
-    size: 'A4',
+    size: 'LETTER',
     darken: true,
     swatch: 'cyan',
   },
@@ -106,7 +106,7 @@ export const Cyan: Story = {
 
 export const White: Story = {
   args: {
-    size: 'A4',
+    size: 'LETTER',
     darken: true,
     swatch: 'white',
   },
@@ -114,7 +114,7 @@ export const White: Story = {
 
 export const Gray100: Story = {
   args: {
-    size: 'A4',
+    size: 'LETTER',
     darken: true,
     swatch: 'gray100',
   },
@@ -122,7 +122,7 @@ export const Gray100: Story = {
 
 export const Gray200: Story = {
   args: {
-    size: 'A4',
+    size: 'LETTER',
     darken: true,
     swatch: 'gray200',
   },
@@ -130,7 +130,7 @@ export const Gray200: Story = {
 
 export const Gray300: Story = {
   args: {
-    size: 'A4',
+    size: 'LETTER',
     darken: true,
     swatch: 'gray300',
   },
@@ -138,7 +138,7 @@ export const Gray300: Story = {
 
 export const Gray400: Story = {
   args: {
-    size: 'A4',
+    size: 'LETTER',
     darken: true,
     swatch: 'gray400',
   },
@@ -146,7 +146,7 @@ export const Gray400: Story = {
 
 export const Gray500: Story = {
   args: {
-    size: 'A4',
+    size: 'LETTER',
     darken: true,
     swatch: 'gray500',
   },
@@ -154,7 +154,7 @@ export const Gray500: Story = {
 
 export const Gray600: Story = {
   args: {
-    size: 'A4',
+    size: 'LETTER',
     darken: true,
     swatch: 'gray600',
   },
@@ -162,7 +162,7 @@ export const Gray600: Story = {
 
 export const Gray700: Story = {
   args: {
-    size: 'A4',
+    size: 'LETTER',
     darken: true,
     swatch: 'gray700',
   },
@@ -170,7 +170,7 @@ export const Gray700: Story = {
 
 export const Gray800: Story = {
   args: {
-    size: 'A4',
+    size: 'LETTER',
     darken: true,
     swatch: 'gray800',
   },
@@ -178,7 +178,7 @@ export const Gray800: Story = {
 
 export const Gray900: Story = {
   args: {
-    size: 'A4',
+    size: 'LETTER',
     darken: true,
     swatch: 'gray900',
   },
@@ -186,7 +186,7 @@ export const Gray900: Story = {
 
 export const Black: Story = {
   args: {
-    size: 'A4',
+    size: 'LETTER',
     darken: true,
     swatch: 'black',
   },
@@ -194,7 +194,7 @@ export const Black: Story = {
 
 export const Primary: Story = {
   args: {
-    size: 'A4',
+    size: 'LETTER',
     darken: true,
     swatch: 'primary',
   },
@@ -202,7 +202,7 @@ export const Primary: Story = {
 
 export const Secondary: Story = {
   args: {
-    size: 'A4',
+    size: 'LETTER',
     darken: true,
     swatch: 'secondary',
   },
@@ -210,7 +210,7 @@ export const Secondary: Story = {
 
 export const Success: Story = {
   args: {
-    size: 'A4',
+    size: 'LETTER',
     darken: true,
     swatch: 'success',
   },
@@ -218,7 +218,7 @@ export const Success: Story = {
 
 export const Info: Story = {
   args: {
-    size: 'A4',
+    size: 'LETTER',
     darken: true,
     swatch: 'info',
   },
@@ -226,7 +226,7 @@ export const Info: Story = {
 
 export const Warning: Story = {
   args: {
-    size: 'A4',
+    size: 'LETTER',
     darken: true,
     swatch: 'warning',
   },
@@ -234,7 +234,7 @@ export const Warning: Story = {
 
 export const Danger: Story = {
   args: {
-    size: 'A4',
+    size: 'LETTER',
     darken: true,
     swatch: 'danger',
   },
@@ -242,7 +242,7 @@ export const Danger: Story = {
 
 export const Light: Story = {
   args: {
-    size: 'A4',
+    size: 'LETTER',
     darken: true,
     swatch: 'light',
   },
@@ -250,7 +250,7 @@ export const Light: Story = {
 
 export const Dark: Story = {
   args: {
-    size: 'A4',
+    size: 'LETTER',
     darken: true,
     swatch: 'dark',
   },

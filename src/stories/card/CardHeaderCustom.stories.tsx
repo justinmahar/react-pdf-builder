@@ -12,6 +12,7 @@ import { Heading5 } from '../../components/typography/Heading5';
 import { Heading6 } from '../../components/typography/Heading6';
 import { Paragraph } from '../../components/typography/Paragraph';
 import { PDFStory } from '../parts/PDFStory';
+import { ThemedText } from '../../components/basics/ThemedText';
 
 const StoryComponent = () => {
   return (
@@ -21,9 +22,9 @@ const StoryComponent = () => {
           <Box direction="x" className="p-2 align-items-center justify-content-between">
             <Box>
               <Heading5>Custom card header (H5)</Heading5>
-              <Paragraph className="mb-0">Custom header with text (paragraph)</Paragraph>
+              <ThemedText className="mb-0">Custom header with text (ThemedText)</ThemedText>
             </Box>
-            <Button pill swatch="info" className="w-100">
+            <Button pill swatch="success">
               <Heading3 className="mb-0">42%</Heading3>
             </Button>
           </Box>
@@ -36,7 +37,7 @@ const StoryComponent = () => {
           </Paragraph>
           <Paragraph>Inside the horizontal box is:</Paragraph>
           <OrderedList className="mb-0">
-            <ListItem>A vertical box with a Heading5 and a Paragraph</ListItem>
+            <ListItem>A vertical box with a Heading5 and a ThemedText</ListItem>
             <ListItem>A Button containing a Heading3 with no bottom margin and the text 42%</ListItem>
           </OrderedList>
         </CardBody>

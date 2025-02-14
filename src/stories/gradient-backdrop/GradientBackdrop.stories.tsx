@@ -26,27 +26,27 @@ type Story = StoryObj<typeof meta>;
 // === Stories ===
 export const SolidDefault: Story = {
   args: {
-    size: 'A4',
+    size: 'LETTER',
   },
 };
 
 export const SolidSingleColor: Story = {
   args: {
-    size: 'A4',
+    size: 'LETTER',
     gradient: ['red'],
   },
 };
 
 export const CustomColors: Story = {
   args: {
-    size: 'A4',
+    size: 'LETTER',
     gradient: ['red', 'purple'],
   },
 };
 
 export const CustomGradientStops: Story = {
   args: {
-    size: 'A4',
+    size: 'LETTER',
     gradient: [
       { offset: '0%', stopColor: 'red' },
       { offset: '10%', stopColor: 'darkred' },
@@ -60,21 +60,21 @@ export const CustomGradientStops: Story = {
 
 export const Darken: Story = {
   args: {
-    size: 'A4',
+    size: 'LETTER',
     darken: true,
   },
 };
 
 export const Lighten: Story = {
   args: {
-    size: 'A4',
+    size: 'LETTER',
     lighten: true,
   },
 };
 
 export const Saturate: Story = {
   args: {
-    size: 'A4',
+    size: 'LETTER',
     darken: true,
     saturate: true,
   },
@@ -82,7 +82,7 @@ export const Saturate: Story = {
 
 export const Desaturate: Story = {
   args: {
-    size: 'A4',
+    size: 'LETTER',
     darken: true,
     desaturate: true,
   },
@@ -90,7 +90,7 @@ export const Desaturate: Story = {
 
 export const CustomColorsDarken: Story = {
   args: {
-    size: 'A4',
+    size: 'LETTER',
     gradient: ['red', 'yellow', 'orange'],
     darken: true,
     darkenAmounts: [0.2, 0.5, 0.8],
@@ -99,7 +99,7 @@ export const CustomColorsDarken: Story = {
 
 export const CustomColorsLighten: Story = {
   args: {
-    size: 'A4',
+    size: 'LETTER',
     gradient: ['blue', 'teal', 'cyan'],
     lighten: true,
     lightenAmounts: [0.2, 0.5, 0.8],
@@ -108,7 +108,7 @@ export const CustomColorsLighten: Story = {
 
 export const CustomColorsSaturate: Story = {
   args: {
-    size: 'A4',
+    size: 'LETTER',
     gradient: ['red', 'yellow', 'orange'],
     saturate: true,
     saturateAmounts: [0.2, 0.5, 0.8],
@@ -117,7 +117,7 @@ export const CustomColorsSaturate: Story = {
 
 export const CustomColorsDesaturate: Story = {
   args: {
-    size: 'A4',
+    size: 'LETTER',
     gradient: ['blue', 'teal', 'cyan'],
     desaturate: true,
     desaturateAmounts: [0.2, 0.5, 0.8],
@@ -126,7 +126,7 @@ export const CustomColorsDesaturate: Story = {
 
 export const LeftToRight: Story = {
   args: {
-    size: 'A4',
+    size: 'LETTER',
     swatch: 'primary',
     darken: true,
     gradientType: GradientType.leftToRight,
@@ -135,7 +135,7 @@ export const LeftToRight: Story = {
 
 export const RightToLeft: Story = {
   args: {
-    size: 'A4',
+    size: 'LETTER',
     swatch: 'primary',
     darken: true,
     gradientType: GradientType.rightToLeft,
@@ -144,7 +144,7 @@ export const RightToLeft: Story = {
 
 export const TopToBottom: Story = {
   args: {
-    size: 'A4',
+    size: 'LETTER',
     swatch: 'primary',
     darken: true,
     gradientType: GradientType.topToBottom,
@@ -153,7 +153,7 @@ export const TopToBottom: Story = {
 
 export const BottomToTop: Story = {
   args: {
-    size: 'A4',
+    size: 'LETTER',
     swatch: 'primary',
     darken: true,
     gradientType: GradientType.bottomToTop,
@@ -162,7 +162,7 @@ export const BottomToTop: Story = {
 
 export const TopLeftToBottomRight: Story = {
   args: {
-    size: 'A4',
+    size: 'LETTER',
     swatch: 'primary',
     darken: true,
     gradientType: GradientType.topLeftToBottomRight,
@@ -171,7 +171,7 @@ export const TopLeftToBottomRight: Story = {
 
 export const BottomLeftToTopRight: Story = {
   args: {
-    size: 'A4',
+    size: 'LETTER',
     swatch: 'primary',
     darken: true,
     gradientType: GradientType.bottomLeftToTopRight,
@@ -180,7 +180,7 @@ export const BottomLeftToTopRight: Story = {
 
 export const BottomRightToTopLeft: Story = {
   args: {
-    size: 'A4',
+    size: 'LETTER',
     swatch: 'primary',
     darken: true,
     gradientType: GradientType.bottomRightToTopLeft,
@@ -189,7 +189,7 @@ export const BottomRightToTopLeft: Story = {
 
 export const TopRightToBottomLeft: Story = {
   args: {
-    size: 'A4',
+    size: 'LETTER',
     swatch: 'primary',
     darken: true,
     gradientType: GradientType.topRightToBottomLeft,
@@ -198,7 +198,7 @@ export const TopRightToBottomLeft: Story = {
 
 export const Radial: Story = {
   args: {
-    size: 'A4',
+    size: 'LETTER',
     swatch: 'primary',
     darken: true,
     gradientType: GradientType.radial,
@@ -207,7 +207,7 @@ export const Radial: Story = {
 
 export const Landscape: Story = {
   args: {
-    size: 'A4',
+    size: 'LETTER',
     darken: true,
     orientation: 'landscape',
   },

@@ -115,28 +115,30 @@ export const QuickStart = () => {
           <Heading3 rule>Hello, world!</Heading3>
           <Paragraph>Let's get started building the PDF.</Paragraph>
           <Box direction="y" gap={15}>
-            <Box direction="x">
-              <Button href="#">Button</Button>
-            </Box>
             <Box direction="x" gap={15}>
-              <Card swatch="gray300" className="mb-0 w-50">
+              <Card swatch="gray300" className="mb-0 w-100">
                 <CardHeader>Example</CardHeader>
-                <CardBody>This is a card with some text inside as an example 👍</CardBody>
+                <CardBody className="d-flex flex-column gap-2">
+                  This is a card with some text inside as an example 👍
+                </CardBody>
               </Card>
-              <Table bordered inverseStriped swatch="cyan" className="rounded w-50">
-                <TableRow swatch="cyan" className="fw-bold">
-                  <TableCell>Header 1</TableCell>
-                  <TableCell>Header 2</TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell>Cell A</TableCell>
-                  <TableCell>Cell Y</TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell>Cell B</TableCell>
-                  <TableCell>Cell Z</TableCell>
-                </TableRow>
-              </Table>
+            </Box>
+            <Table bordered inverseStriped swatch="primary" className="rounded mb-0">
+              <TableRow swatch="primary" className="fw-bold">
+                <TableCell>Header 1</TableCell>
+                <TableCell>Header 2</TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell>Cell A</TableCell>
+                <TableCell>Cell Y</TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell>Cell B</TableCell>
+                <TableCell>Cell Z</TableCell>
+              </TableRow>
+            </Table>
+            <Box direction="x" className="justify-content-end">
+              <Button href="#">Button</Button>
             </Box>
             <Div className="my-custom-class">This has a custom class applied.</Div>
           </Box>

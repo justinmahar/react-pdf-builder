@@ -25,6 +25,7 @@ export const Card = ({ children, theme, className, style, ...props }: CardProps)
 
   const styleInnate: Style = {
     overflow: 'hidden',
+    width: '100%',
   };
 
   // Inject children with props from Card
