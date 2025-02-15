@@ -73,6 +73,19 @@ Describe how to use the component here.
 | `light`     | <span style={{backgroundColor: "#f8f9fa", color: "black", padding: 2, paddingLeft: 4, paddingRight: 4, borderRadius: 5, fontFamily: "monospace" }}>#f8f9fa</span> |
 | `dark`      | <span style={{backgroundColor: "#212529", color: "white", padding: 2, paddingLeft: 4, paddingRight: 4, borderRadius: 5, fontFamily: "monospace" }}>#212529</span> |
   
+## Class Names
+
+You can define custom class names via themes.
+
+Just add your class names to the override option, like so:
+
+```tsx
+const theme = Themes.default.build({
+  override: {
+    classNames: { 'my-custom-class': { color: 'white', backgroundColor: 'darkblue', padding: 10 } },
+  },
+});
+```
 
 ## Example
 
