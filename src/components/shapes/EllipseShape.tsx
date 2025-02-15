@@ -1,16 +1,14 @@
 import { Defs, Ellipse, EllipseProps, LinearGradient, RadialGradient, Stop, Svg } from '@react-pdf/renderer';
 import React from 'react';
+import { ThemeBuilder } from '../../themes/ThemeBuilder';
 import { randomUuid } from '../../util/util';
+import { usePDFThemeContext } from '../theme/PDFThemeProvider';
 import { Gradients, GradientType } from './Gradients';
 import { ShapeProps } from './ShapeProps';
-import { ThemeBuilder } from '../../themes/ThemeBuilder';
-import { Theme } from '../../themes/Theme';
-import { Themes } from '../../themes/Themes';
 
 export interface EllipseShapeProps extends ShapeProps {
   ellipseProps?: Partial<EllipseProps>;
   className?: string;
-  theme?: Theme;
 }
 
 export const EllipseShape = ({
@@ -24,11 +22,10 @@ export const EllipseShape = ({
   gradientType = GradientType.topToBottom,
   linearGradientCoords: linearGradientCoordsProps,
   radialGradientCoords: radialGradientCoordsProps,
-  theme,
   className,
   ...svgProps
 }: EllipseShapeProps) => {
-  theme = theme ?? Themes.default.build();
+  const theme = usePDFThemeContext();
   const uuidRef = React.useRef(randomUuid());
   const linearId = `linear-${uuidRef.current}`;
   const radialId = `radial-${uuidRef.current}`;

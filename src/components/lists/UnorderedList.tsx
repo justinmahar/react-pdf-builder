@@ -1,12 +1,11 @@
 import { ViewProps } from '@react-pdf/renderer';
 import React from 'react';
 import { SwatchColor } from '../../themes/ColorScheme';
-import { Theme } from '../../themes/Theme';
 import { ThemeBuilder } from '../../themes/ThemeBuilder';
-import { Themes } from '../../themes/Themes';
 import { Style } from '../Style';
 import { Div } from '../basics/ThemedView';
 import { ThemedChildren } from '../children/ThemedChildren';
+import { usePDFThemeContext } from '../theme/PDFThemeProvider';
 import { ListItemContainer, ListItemContainerProps } from './ListItemContainer';
 
 export interface UnorderedListProps extends ViewProps {
@@ -19,11 +18,10 @@ export interface UnorderedListProps extends ViewProps {
   bullet?: string;
   unstyled?: boolean;
   swatch?: SwatchColor;
-  theme?: Theme;
 }
 
-export const UnorderedList = ({ theme, children, className, style, ...props }: UnorderedListProps) => {
-  theme = theme ?? Themes.default.build();
+export const UnorderedList = ({ children, className, style, ...props }: UnorderedListProps) => {
+  const theme = usePDFThemeContext();
   const themeProps = theme.unorderedListProps;
   const mergedProps = {
     ...themeProps,
@@ -45,7 +43,6 @@ export const UnorderedList = ({ theme, children, className, style, ...props }: U
   const liElements: JSX.Element[] = childArray.map((c, i) => (
     <ListItemContainer
       key={'ul-li-' + i}
-      theme={theme}
       wrap={!!mergedProps.wrapItems}
       markerStyle={mergedProps.markerStyle}
       markerSwatch={mergedProps.markerSwatch}
@@ -53,7 +50,7 @@ export const UnorderedList = ({ theme, children, className, style, ...props }: U
       unstyled={mergedProps.unstyled}
       {...mergedWrapperProps}
     >
-      <ThemedChildren theme={theme}>{c}</ThemedChildren>
+      <ThemedChildren>{c}</ThemedChildren>
     </ListItemContainer>
   ));
 

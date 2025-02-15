@@ -1,13 +1,12 @@
 import { ViewProps } from '@react-pdf/renderer';
 import React from 'react';
 import { SwatchColor } from '../../themes/ColorScheme';
-import { Theme } from '../../themes/Theme';
 import { ThemeBuilder } from '../../themes/ThemeBuilder';
-import { Themes } from '../../themes/Themes';
 import { ThemedLink } from '../basics/ThemedLink';
 import { Div } from '../basics/ThemedView';
 import { ThemedChildren } from '../children/ThemedChildren';
 import { Style } from '../Style';
+import { usePDFThemeContext } from '../theme/PDFThemeProvider';
 
 export interface ButtonProps extends ViewProps {
   children?: any;
@@ -16,11 +15,10 @@ export interface ButtonProps extends ViewProps {
   swatch?: SwatchColor | 'link';
   pill?: boolean;
   linkColor?: string;
-  theme?: Theme;
 }
 
-export const Button = ({ children, theme, className, style, ...props }: ButtonProps) => {
-  theme = theme ?? Themes.default.build();
+export const Button = ({ children, className, style, ...props }: ButtonProps) => {
+  const theme = usePDFThemeContext();
   const themeProps = theme?.buttonProps;
   const mergedProps = {
     ...themeProps,
@@ -49,7 +47,7 @@ export const Button = ({ children, theme, className, style, ...props }: ButtonPr
 
   const hasHref = typeof mergedProps.href !== 'undefined';
   const themedChildren = (
-    <ThemedChildren theme={theme} textStyle={hasHref ? { textDecoration: 'no-underline' as any } : undefined}>
+    <ThemedChildren textStyle={hasHref ? { textDecoration: 'no-underline' as any } : undefined}>
       {children}
     </ThemedChildren>
   );
@@ -60,7 +58,6 @@ export const Button = ({ children, theme, className, style, ...props }: ButtonPr
 
   const buttonElement = (
     <Div
-      theme={theme}
       {...mergedProps}
       style={{
         ...styleInnate,
@@ -76,11 +73,7 @@ export const Button = ({ children, theme, className, style, ...props }: ButtonPr
   );
 
   if (hasHref) {
-    return (
-      <ThemedLink theme={theme} href={mergedProps.href}>
-        {buttonElement}
-      </ThemedLink>
-    );
+    return <ThemedLink href={mergedProps.href}>{buttonElement}</ThemedLink>;
   } else {
     return buttonElement;
   }

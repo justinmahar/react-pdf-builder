@@ -1,21 +1,19 @@
 import { Page, PageProps } from '@react-pdf/renderer';
 import React from 'react';
-import { ThemedChildren } from '../children/ThemedChildren';
-import { Theme } from '../../themes/Theme';
-import { Themes } from '../../themes/Themes';
 import { SwatchColor } from '../../themes/ColorScheme';
-import { Style } from '../Style';
 import { ThemeBuilder } from '../../themes/ThemeBuilder';
+import { ThemedChildren } from '../children/ThemedChildren';
+import { Style } from '../Style';
+import { usePDFThemeContext } from '../theme/PDFThemeProvider';
 
 export interface ThemedPageProps extends PageProps {
   children?: any;
   className?: string;
   swatch?: SwatchColor;
-  theme?: Theme;
 }
 
-export const ThemedPage = ({ children, theme, className, style, ...props }: ThemedPageProps) => {
-  theme = theme ?? Themes.default.build();
+export const ThemedPage = ({ children, className, style, ...props }: ThemedPageProps) => {
+  const theme = usePDFThemeContext();
   const themeProps = theme.pageProps;
   const mergedProps = {
     ...themeProps,
@@ -36,7 +34,7 @@ export const ThemedPage = ({ children, theme, className, style, ...props }: Them
       {...mergedProps}
       style={{ ...themeClassNameStyles, ...themeProps?.style, ...styleOverride, ...classNameStyles, ...style }}
     >
-      <ThemedChildren theme={theme}>{children}</ThemedChildren>
+      <ThemedChildren>{children}</ThemedChildren>
     </Page>
   );
 };

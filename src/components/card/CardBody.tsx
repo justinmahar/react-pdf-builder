@@ -1,12 +1,11 @@
+import Color from 'color';
 import React from 'react';
-import { Box, BoxProps } from '../layout/Box';
-import { ThemedChildren } from '../children/ThemedChildren';
-import { Style } from '../Style';
-import { Theme } from '../../themes/Theme';
-import { Themes } from '../../themes/Themes';
 import { SwatchColor } from '../../themes/ColorScheme';
 import { ThemeBuilder } from '../../themes/ThemeBuilder';
-import Color from 'color';
+import { ThemedChildren } from '../children/ThemedChildren';
+import { Box, BoxProps } from '../layout/Box';
+import { Style } from '../Style';
+import { usePDFThemeContext } from '../theme/PDFThemeProvider';
 
 export interface CardBodyProps extends BoxProps {
   children?: any;
@@ -15,11 +14,10 @@ export interface CardBodyProps extends BoxProps {
   withFooter?: boolean;
   swatch?: SwatchColor;
   swatchOpacity?: number;
-  theme?: Theme;
 }
 
-export const CardBody = ({ children, theme, className, style, ...props }: CardBodyProps) => {
-  theme = theme ?? Themes.default.build();
+export const CardBody = ({ children, className, style, ...props }: CardBodyProps) => {
+  const theme = usePDFThemeContext();
   const themeProps = theme.cardBodyProps;
   const mergedProps = {
     ...themeProps,
@@ -55,7 +53,6 @@ export const CardBody = ({ children, theme, className, style, ...props }: CardBo
   return (
     <Box
       dir="y"
-      theme={theme}
       {...mergedProps}
       style={{
         ...styleInnate,
@@ -66,7 +63,7 @@ export const CardBody = ({ children, theme, className, style, ...props }: CardBo
         ...style,
       }}
     >
-      <ThemedChildren theme={theme}>{children}</ThemedChildren>
+      <ThemedChildren>{children}</ThemedChildren>
     </Box>
   );
 };

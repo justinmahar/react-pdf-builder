@@ -1,21 +1,19 @@
 import { Text, TextProps } from '@react-pdf/renderer';
 import React from 'react';
-import { Theme } from '../../themes/Theme';
-import { ThemeBuilder } from '../../themes/ThemeBuilder';
-import { Themes } from '../../themes/Themes';
-import { ThemedChildren } from '../children/ThemedChildren';
 import { SwatchColor } from '../../themes/ColorScheme';
+import { ThemeBuilder } from '../../themes/ThemeBuilder';
+import { ThemedChildren } from '../children/ThemedChildren';
 import { Style } from '../Style';
+import { usePDFThemeContext } from '../theme/PDFThemeProvider';
 
 export interface ThemedTextProps extends TextProps {
   children?: any;
   swatch?: SwatchColor;
   className?: string;
-  theme?: Theme;
 }
 
-export const ThemedText = ({ children, theme, className, style, swatch, ...props }: ThemedTextProps) => {
-  theme = theme ?? Themes.default.build();
+export const ThemedText = ({ children, className, style, swatch, ...props }: ThemedTextProps) => {
+  const theme = usePDFThemeContext();
 
   const styleOverride: Style = {};
   if (swatch) {
@@ -26,9 +24,7 @@ export const ThemedText = ({ children, theme, className, style, swatch, ...props
   const classNameStyles = ThemeBuilder.getStylesForClassName(className, theme.classNames);
   return (
     <Text {...props} style={{ ...styleOverride, ...classNameStyles, ...style }}>
-      <ThemedChildren theme={theme} allowStrings>
-        {children}
-      </ThemedChildren>
+      <ThemedChildren allowStrings>{children}</ThemedChildren>
     </Text>
   );
 };

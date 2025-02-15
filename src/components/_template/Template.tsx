@@ -1,22 +1,20 @@
 import { ViewProps } from '@react-pdf/renderer';
 import React from 'react';
 import { SwatchColor } from '../../themes/ColorScheme';
-import { Theme } from '../../themes/Theme';
 import { ThemeBuilder } from '../../themes/ThemeBuilder';
-import { Themes } from '../../themes/Themes';
 import { Div } from '../basics/ThemedView';
 import { ThemedChildren } from '../children/ThemedChildren';
 import { Style } from '../Style';
+import { usePDFThemeContext } from '../theme/PDFThemeProvider';
 
 export interface TemplateProps extends ViewProps {
   children?: any;
   className?: string;
   swatch?: SwatchColor;
-  theme?: Theme;
 }
 
-export const Template = ({ children, theme, className, style, ...props }: TemplateProps) => {
-  theme = theme ?? Themes.default.build();
+export const Template = ({ children, className, style, ...props }: TemplateProps) => {
+  const theme = usePDFThemeContext();
   const themeProps = theme?.cardProps; // TODO: Assign to correct theme props and remove this TODO comment
   const mergedProps = {
     ...themeProps,
@@ -43,7 +41,7 @@ export const Template = ({ children, theme, className, style, ...props }: Templa
         ...style,
       }}
     >
-      <ThemedChildren theme={theme}>{children}</ThemedChildren>
+      <ThemedChildren>{children}</ThemedChildren>
     </Div>
   );
 };

@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 import { Button, ButtonProps } from '../../components/button/Button';
-import { PDFStory } from '../parts/PDFStory';
 import { Box } from '../../components/layout/Box';
-import { Themes } from '../../themes/Themes';
+import { usePDFThemeContext } from '../../components/theme/PDFThemeProvider';
+import { PDFStory } from '../parts/PDFStory';
 
 const StoryComponent = (props: ButtonProps) => {
-  const theme = Themes.default.build();
+  const theme = usePDFThemeContext();
   const swatches = [
     undefined,
     ...Object.keys(theme.colorScheme?.colors ?? {}),
@@ -15,12 +15,12 @@ const StoryComponent = (props: ButtonProps) => {
     'link',
   ];
   const elements = swatches.map((swatch) => (
-    <Button wrap={false} key={swatch} theme={theme} swatch={swatch as any} {...props}>
+    <Button wrap={false} key={swatch} swatch={swatch as any} {...props}>
       {swatch ? swatch.substring(0, 1).toUpperCase() + swatch.substring(1) : 'Default'}
     </Button>
   ));
   return (
-    <PDFStory pageProps={{ theme }}>
+    <PDFStory>
       <Box className="justify-content-center flex-wrap gap-3">{elements}</Box>
     </PDFStory>
   );

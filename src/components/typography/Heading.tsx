@@ -7,5 +7,4 @@ export interface HeadingProps extends TextProps {
   className?: string;
   rule?: boolean;
   swatch?: SwatchColor;
-  theme?: Theme;
 }

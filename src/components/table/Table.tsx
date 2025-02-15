@@ -1,12 +1,11 @@
+import Color from 'color';
 import React from 'react';
-import { Style } from '../Style';
-import { Box, BoxProps } from '../layout/Box';
-import { Theme } from '../../themes/Theme';
-import { Themes } from '../../themes/Themes';
 import { SwatchColor } from '../../themes/ColorScheme';
 import { ThemeBuilder } from '../../themes/ThemeBuilder';
-import Color from 'color';
+import { Style } from '../Style';
 import { getThemedChildren } from '../children/ThemedChildren';
+import { Box, BoxProps } from '../layout/Box';
+import { usePDFThemeContext } from '../theme/PDFThemeProvider';
 
 export interface TableProps extends BoxProps {
   children?: any;
@@ -27,11 +26,10 @@ export interface TableProps extends BoxProps {
   borderWidth?: string | number;
   colWidths?: (string | number)[];
   swatch?: SwatchColor;
-  theme?: Theme;
 }
 
-export const Table = ({ children, theme, className, style, ...props }: TableProps) => {
-  theme = theme ?? Themes.default.build();
+export const Table = ({ children, className, style, ...props }: TableProps) => {
+  const theme = usePDFThemeContext();
   const themeProps = theme?.tableProps;
   const mergedProps = {
     ...themeProps,
@@ -80,7 +78,6 @@ export const Table = ({ children, theme, className, style, ...props }: TableProp
       borderStyle: mergedProps.borderStyle,
       borderWidth: mergedProps.borderWidth,
       colWidths: mergedProps.colWidths,
-      theme,
       ...c.props,
       rowIndex: i,
       rowCount: arr.length,
@@ -93,7 +90,6 @@ export const Table = ({ children, theme, className, style, ...props }: TableProp
 
   return (
     <Box
-      theme={theme}
       dir="y"
       {...mergedProps}
       style={{

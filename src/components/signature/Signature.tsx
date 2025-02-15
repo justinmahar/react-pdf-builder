@@ -1,13 +1,12 @@
-import { Text, TextProps } from '@react-pdf/renderer';
+import { TextProps } from '@react-pdf/renderer';
 import React from 'react';
+import { SwatchColor } from '../../themes/ColorScheme';
+import { ThemeBuilder } from '../../themes/ThemeBuilder';
 import { Style } from '../Style';
+import { ThemedText } from '../basics/ThemedText';
 import { ThemedChildren } from '../children/ThemedChildren';
 import { Box, BoxProps } from '../layout/Box';
-import { Theme } from '../../themes/Theme';
-import { SwatchColor } from '../../themes/ColorScheme';
-import { Themes } from '../../themes/Themes';
-import { ThemeBuilder } from '../../themes/ThemeBuilder';
-import { ThemedText } from '../basics/ThemedText';
+import { usePDFThemeContext } from '../theme/PDFThemeProvider';
 
 export interface SignatureProps extends BoxProps {
   children?: any;
@@ -17,11 +16,10 @@ export interface SignatureProps extends BoxProps {
   xProps?: TextProps;
   xValue?: string;
   swatch?: SwatchColor;
-  theme?: Theme;
 }
 
-export const Signature = ({ children, theme, className, style, ...props }: SignatureProps) => {
-  theme = theme ?? Themes.default.build();
+export const Signature = ({ children, className, style, ...props }: SignatureProps) => {
+  const theme = usePDFThemeContext();
   const themeProps = theme?.signatureProps;
   const mergedProps = {
     ...themeProps,
@@ -50,7 +48,6 @@ export const Signature = ({ children, theme, className, style, ...props }: Signa
 
   return (
     <Box
-      theme={theme}
       {...mergedProps}
       style={{
         ...styleInnate,
@@ -62,11 +59,11 @@ export const Signature = ({ children, theme, className, style, ...props }: Signa
       }}
     >
       {mergedProps.x && (
-        <ThemedText theme={theme} {...mergedProps.xProps} style={{ ...mergedProps.xProps?.style, ...xStyleOverride }}>
+        <ThemedText {...mergedProps.xProps} style={{ ...mergedProps.xProps?.style, ...xStyleOverride }}>
           {mergedProps.xValue ?? 'X'}
         </ThemedText>
       )}
-      <ThemedChildren theme={theme}>{children}</ThemedChildren>
+      <ThemedChildren>{children}</ThemedChildren>
     </Box>
   );
 };

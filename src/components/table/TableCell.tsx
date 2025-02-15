@@ -1,12 +1,11 @@
+import Color from 'color';
 import React from 'react';
+import { SwatchColor } from '../../themes/ColorScheme';
+import { ThemeBuilder } from '../../themes/ThemeBuilder';
 import { Style } from '../Style';
 import { ThemedChildren } from '../children/ThemedChildren';
 import { Box, BoxProps } from '../layout/Box';
-import { Theme } from '../../themes/Theme';
-import { Themes } from '../../themes/Themes';
-import { SwatchColor } from '../../themes/ColorScheme';
-import { ThemeBuilder } from '../../themes/ThemeBuilder';
-import Color from 'color';
+import { usePDFThemeContext } from '../theme/PDFThemeProvider';
 
 export interface TableCellProps extends BoxProps {
   children?: any;
@@ -23,11 +22,10 @@ export interface TableCellProps extends BoxProps {
   borderStyle?: 'dashed' | 'dotted' | 'solid';
   swatch?: SwatchColor;
   swatchOpacity?: number;
-  theme?: Theme;
 }
 
-export const TableCell = ({ children, theme, className, style, ...props }: TableCellProps) => {
-  theme = theme ?? Themes.default.build();
+export const TableCell = ({ children, className, style, ...props }: TableCellProps) => {
+  const theme = usePDFThemeContext();
   const themeProps = theme.tableCellProps;
   const mergedProps = {
     ...themeProps,
@@ -67,7 +65,6 @@ export const TableCell = ({ children, theme, className, style, ...props }: Table
 
   return (
     <Box
-      theme={theme}
       dir="y"
       {...mergedProps}
       style={{
@@ -80,7 +77,7 @@ export const TableCell = ({ children, theme, className, style, ...props }: Table
         ...style,
       }}
     >
-      <ThemedChildren theme={theme}>{children}</ThemedChildren>
+      <ThemedChildren>{children}</ThemedChildren>
     </Box>
   );
 };

@@ -2,23 +2,21 @@ import { ViewProps } from '@react-pdf/renderer';
 import Color from 'color';
 import React from 'react';
 import { SwatchColor } from '../../themes/ColorScheme';
-import { Theme } from '../../themes/Theme';
 import { ThemeBuilder } from '../../themes/ThemeBuilder';
-import { Themes } from '../../themes/Themes';
 import { Div } from '../basics/ThemedView';
 import { ThemedChildren } from '../children/ThemedChildren';
 import { Style } from '../Style';
+import { usePDFThemeContext } from '../theme/PDFThemeProvider';
 
 export interface BlockquoteProps extends ViewProps {
   children?: any;
   className?: string;
   swatch?: SwatchColor;
   swatchOpacity?: number;
-  theme?: Theme;
 }
 
-export const Blockquote = ({ children, theme, className, style, ...props }: BlockquoteProps) => {
-  theme = theme ?? Themes.default.build();
+export const Blockquote = ({ children, className, style, ...props }: BlockquoteProps) => {
+  const theme = usePDFThemeContext();
   const themeProps = theme?.blockquoteProps;
   const mergedProps = {
     ...themeProps,
@@ -41,11 +39,10 @@ export const Blockquote = ({ children, theme, className, style, ...props }: Bloc
 
   return (
     <Div
-      theme={theme}
       {...mergedProps}
       style={{ ...themeClassNameStyles, ...mergedProps?.style, ...styleOverride, ...classNameStyles, ...style }}
     >
-      <ThemedChildren theme={theme}>{children}</ThemedChildren>
+      <ThemedChildren>{children}</ThemedChildren>
     </Div>
   );
 };

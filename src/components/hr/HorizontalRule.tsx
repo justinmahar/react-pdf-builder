@@ -1,21 +1,18 @@
-import { View, ViewProps } from '@react-pdf/renderer';
+import { ViewProps } from '@react-pdf/renderer';
 import React from 'react';
-import { Theme } from '../../themes/Theme';
-import { Themes } from '../../themes/Themes';
-import { ThemedChildren } from '../children/ThemedChildren';
 import { SwatchColor } from '../../themes/ColorScheme';
-import { Style } from '../Style';
 import { ThemeBuilder } from '../../themes/ThemeBuilder';
 import { Div } from '../basics/ThemedView';
+import { Style } from '../Style';
+import { usePDFThemeContext } from '../theme/PDFThemeProvider';
 
 export interface HorizontalRuleProps extends ViewProps {
   className?: string;
   swatch?: SwatchColor;
-  theme?: Theme;
 }
 
-export const HorizontalRule = ({ theme, className, style, ...props }: HorizontalRuleProps) => {
-  theme = theme ?? Themes.default.build();
+export const HorizontalRule = ({ className, style, ...props }: HorizontalRuleProps) => {
+  const theme = usePDFThemeContext();
   const themeProps = theme?.hrProps;
   const mergedProps = {
     ...themeProps,

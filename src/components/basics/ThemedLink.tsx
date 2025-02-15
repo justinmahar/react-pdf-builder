@@ -1,21 +1,19 @@
-import { Link, LinkProps, View, ViewProps } from '@react-pdf/renderer';
+import { Link, LinkProps } from '@react-pdf/renderer';
 import React from 'react';
-import { Theme } from '../../themes/Theme';
-import { Themes } from '../../themes/Themes';
-import { ThemedChildren } from '../children/ThemedChildren';
 import { SwatchColor } from '../../themes/ColorScheme';
-import { Style } from '../Style';
 import { ThemeBuilder } from '../../themes/ThemeBuilder';
+import { ThemedChildren } from '../children/ThemedChildren';
+import { Style } from '../Style';
+import { usePDFThemeContext } from '../theme/PDFThemeProvider';
 
 export interface ThemedLinkProps extends LinkProps {
   children?: any;
   className?: string;
   swatch?: SwatchColor;
-  theme?: Theme;
 }
 
-export const ThemedLink = ({ children, theme, className, style, ...props }: ThemedLinkProps) => {
-  theme = theme ?? Themes.default.build();
+export const ThemedLink = ({ children, className, style, ...props }: ThemedLinkProps) => {
+  const theme = usePDFThemeContext();
   const themeProps = theme?.linkProps;
   const mergedProps = {
     ...themeProps,
@@ -48,7 +46,7 @@ export const ThemedLink = ({ children, theme, className, style, ...props }: Them
         ...style,
       }}
     >
-      <ThemedChildren theme={theme}>{children}</ThemedChildren>
+      <ThemedChildren>{children}</ThemedChildren>
     </Link>
   );
 };

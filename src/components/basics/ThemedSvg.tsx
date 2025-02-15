@@ -1,17 +1,15 @@
 import { Svg, SVGProps } from '@react-pdf/renderer';
 import React from 'react';
-import { Theme } from '../../themes/Theme';
 import { ThemeBuilder } from '../../themes/ThemeBuilder';
-import { Themes } from '../../themes/Themes';
+import { usePDFThemeContext } from '../theme/PDFThemeProvider';
 
 export interface ThemedSvgProps extends React.PropsWithChildren<SVGProps> {
   children?: any;
   className?: string;
-  theme?: Theme;
 }
 
-export const ThemedSvg = ({ children, theme, className, style, ...props }: ThemedSvgProps) => {
-  theme = theme ?? Themes.default.build();
+export const ThemedSvg = ({ children, className, style, ...props }: ThemedSvgProps) => {
+  const theme = usePDFThemeContext();
   const classNameStyles = ThemeBuilder.getStylesForClassName(className, theme.classNames);
   return (
     <Svg {...props} style={{ ...classNameStyles, ...style }}>

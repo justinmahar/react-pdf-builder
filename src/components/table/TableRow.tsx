@@ -1,12 +1,11 @@
+import Color from 'color';
 import React from 'react';
-import { getThemedChildren, ThemedChildren } from '../children/ThemedChildren';
-import { Style } from '../Style';
-import { Box, BoxProps } from '../layout/Box';
-import { Theme } from '../../themes/Theme';
-import { Themes } from '../../themes/Themes';
 import { SwatchColor } from '../../themes/ColorScheme';
 import { ThemeBuilder } from '../../themes/ThemeBuilder';
-import Color from 'color';
+import { getThemedChildren, ThemedChildren } from '../children/ThemedChildren';
+import { Box, BoxProps } from '../layout/Box';
+import { Style } from '../Style';
+import { usePDFThemeContext } from '../theme/PDFThemeProvider';
 
 export interface TableRowProps extends BoxProps {
   children?: any;
@@ -30,11 +29,10 @@ export interface TableRowProps extends BoxProps {
   colWidths?: (string | number)[];
   swatchOpacity?: number;
   swatch?: SwatchColor;
-  theme?: Theme;
 }
 
-export const TableRow = ({ children, theme, stripeStyle, className, style, ...props }: TableRowProps) => {
-  theme = theme ?? Themes.default.build();
+export const TableRow = ({ children, stripeStyle, className, style, ...props }: TableRowProps) => {
+  const theme = usePDFThemeContext();
   const themeProps = theme.tableRowProps;
   const mergedProps = {
     ...themeProps,
@@ -113,7 +111,6 @@ export const TableRow = ({ children, theme, stripeStyle, className, style, ...pr
       borderColor: mergedProps.borderColor,
       borderWidth: mergedProps.borderWidth,
       borderStyle: mergedProps.borderStyle,
-      theme,
       ...c.props,
       colIndex: i,
       colCount: arr.length,
@@ -126,7 +123,6 @@ export const TableRow = ({ children, theme, stripeStyle, className, style, ...pr
 
   return (
     <Box
-      theme={theme}
       wrap={false}
       {...mergedProps}
       style={{
@@ -140,7 +136,7 @@ export const TableRow = ({ children, theme, stripeStyle, className, style, ...pr
         ...style,
       }}
     >
-      <ThemedChildren theme={theme}>{injectedChildArray}</ThemedChildren>
+      <ThemedChildren>{injectedChildArray}</ThemedChildren>
     </Box>
   );
 };

@@ -1,13 +1,12 @@
-import { Text, ViewProps } from '@react-pdf/renderer';
+import { ViewProps } from '@react-pdf/renderer';
 import React from 'react';
 import { SwatchColor } from '../../themes/ColorScheme';
-import { Theme } from '../../themes/Theme';
 import { ThemeBuilder } from '../../themes/ThemeBuilder';
-import { Themes } from '../../themes/Themes';
 import { Style } from '../Style';
+import { ThemedText } from '../basics/ThemedText';
 import { Div } from '../basics/ThemedView';
 import { ThemedChildren } from '../children/ThemedChildren';
-import { ThemedText } from '../basics/ThemedText';
+import { usePDFThemeContext } from '../theme/PDFThemeProvider';
 
 export interface ListItemContainerProps extends ViewProps {
   children?: any;
@@ -18,11 +17,10 @@ export interface ListItemContainerProps extends ViewProps {
   numberRenderer?: (num: number) => string;
   unstyled?: boolean;
   swatch?: SwatchColor;
-  theme?: Theme;
 }
 
-export const ListItemContainer = ({ children, theme, markerStyle, style, ...props }: ListItemContainerProps) => {
-  theme = theme ?? Themes.default.build();
+export const ListItemContainer = ({ children, markerStyle, style, ...props }: ListItemContainerProps) => {
+  const theme = usePDFThemeContext();
   const mergedProps = {
     ...theme?.listItemContainerProps,
     ...props,
@@ -54,13 +52,13 @@ export const ListItemContainer = ({ children, theme, markerStyle, style, ...prop
   const isNumbered = typeof mergedProps.num !== 'undefined';
   const bullet = mergedProps.bullet ?? '•';
   return (
-    <Div theme={theme} {...mergedProps} style={{ ...styleInnate, ...mergedProps.style, ...styleOverride, ...style }}>
+    <Div {...mergedProps} style={{ ...styleInnate, ...mergedProps.style, ...styleOverride, ...style }}>
       {!mergedProps.unstyled && (
-        <ThemedText theme={theme} style={{ ...mergedMarkerStyle }}>
+        <ThemedText style={{ ...mergedMarkerStyle }}>
           {isNumbered ? numberRenderer(mergedProps.num ?? 0) : bullet}
         </ThemedText>
       )}
-      <ThemedChildren theme={theme}>{children}</ThemedChildren>
+      <ThemedChildren>{children}</ThemedChildren>
     </Div>
   );
 };

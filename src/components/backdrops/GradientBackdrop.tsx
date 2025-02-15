@@ -1,14 +1,13 @@
+import Color from 'color';
 import React from 'react';
+import { SwatchColor } from '../../themes/ColorScheme';
+import { ThemeBuilder } from '../../themes/ThemeBuilder';
 import { Box, BoxProps } from '../layout/Box';
 import { PageSizeString } from '../pages/PageSizes';
 import { GradientStop, GradientType } from '../shapes/Gradients';
 import { RectangleShape } from '../shapes/RectangleShape';
+import { usePDFThemeContext } from '../theme/PDFThemeProvider';
 import { Backdrops } from './Backdrops';
-import { Theme } from '../../themes/Theme';
-import { SwatchColor } from '../../themes/ColorScheme';
-import { ThemeBuilder } from '../../themes/ThemeBuilder';
-import { Themes } from '../../themes/Themes';
-import Color from 'color';
 
 export interface GradientBackdropProps extends BoxProps {
   children?: any;
@@ -36,7 +35,6 @@ export interface GradientBackdropProps extends BoxProps {
   desaturate?: boolean;
   /** How much to desaturate each gradient color from 0 to 1, as an array. */
   desaturateAmounts?: number[];
-  theme?: Theme;
 }
 
 export const GradientBackdrop = ({
@@ -54,12 +52,11 @@ export const GradientBackdrop = ({
   saturateAmounts = [0, 1],
   desaturate = false,
   desaturateAmounts = [0, 1],
-  theme,
   className,
   style,
   ...props
 }: GradientBackdropProps) => {
-  theme = theme ?? Themes.default.build();
+  const theme = usePDFThemeContext();
   const d = Backdrops.getDimensions(size, orientation);
   const width = d.width;
   const height = d.height;
@@ -106,7 +103,6 @@ export const GradientBackdrop = ({
   const injectedChildArray = originalChildArray.map((c, i, arr) => {
     return React.cloneElement(c, {
       key: `gradient-child-` + i,
-      theme,
       width,
       height,
       ...c.props,
@@ -119,12 +115,11 @@ export const GradientBackdrop = ({
   return (
     <Box
       dir="y"
-      theme={theme}
       fixed
       {...props}
       style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, ...classNameStyles, ...style }}
     >
-      <RectangleShape theme={theme} width={width} height={height} gradient={gradient} gradientType={gradientType} />
+      <RectangleShape width={width} height={height} gradient={gradient} gradientType={gradientType} />
       {injectedChildArray}
     </Box>
   );

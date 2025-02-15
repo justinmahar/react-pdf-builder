@@ -4,6 +4,8 @@ import { ThemedPage, ThemedPageProps } from '../../components/basics/ThemedPage'
 import { Themes } from '../../themes/Themes';
 import { Fonts } from '../../fonts/Fonts';
 import { Theme } from '../../themes/Theme';
+import { PDFThemeProvider } from '../../components/theme/PDFThemeProvider';
+import { ThemeBuilder } from '../../themes/ThemeBuilder';
 
 export interface PDFStoryProps {
   children?: any;
@@ -11,7 +13,7 @@ export interface PDFStoryProps {
   orientation?: 'portrait' | 'landscape';
   scale?: number;
   pageProps?: ThemedPageProps;
-  theme?: Theme;
+  themeBuilder?: ThemeBuilder;
   width?: number;
   height?: number;
 }
@@ -22,27 +24,27 @@ export const PDFStory = ({
   orientation,
   scale = 1,
   pageProps,
-  theme,
+  themeBuilder,
   width = 500,
   height = 700,
-  ...props
 }: PDFStoryProps) => {
-  theme = theme ?? Themes.default.build({ scale });
+  const theme = (themeBuilder ?? Themes.default).build({ scale });
   const roboto = Fonts.load(Fonts.sansSerif.roboto);
   Font.register(roboto as any);
   return (
-    <PDFViewer style={{ height, width }}>
-      <Document>
-        <ThemedPage
-          theme={theme}
-          size={pageSize as any}
-          orientation={orientation}
-          {...pageProps}
-          style={{ fontFamily: roboto.family, ...pageProps?.style }}
-        >
-          {children}
-        </ThemedPage>
-      </Document>
-    </PDFViewer>
+    <PDFThemeProvider theme={theme}>
+      <PDFViewer style={{ height, width }}>
+        <Document>
+          <ThemedPage
+            size={pageSize as any}
+            orientation={orientation}
+            {...pageProps}
+            style={{ fontFamily: roboto.family, ...pageProps?.style }}
+          >
+            {children}
+          </ThemedPage>
+        </Document>
+      </PDFViewer>
+    </PDFThemeProvider>
   );
 };

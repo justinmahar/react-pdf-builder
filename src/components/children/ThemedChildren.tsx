@@ -3,29 +3,28 @@ import { Theme } from '../../themes/Theme';
 import { Themes } from '../../themes/Themes';
 import { ThemedText } from '../basics/ThemedText';
 import { Style } from '../Style';
+import { usePDFThemeContext } from '../theme/PDFThemeProvider';
 
 export interface ThemedChildrenProps {
   children?: any;
-  theme?: Theme;
   textStyle?: Style;
   allowStrings?: boolean;
 }
 
 /**
- * Injects children with the theme prop, and ensures that strings are wrapped in a ThemedText component.
+ * Ensures that raw strings are wrapped in a ThemedText component so they can be rendered by React-PDF.
  */
-export const ThemedChildren = ({ children, theme, textStyle, allowStrings }: ThemedChildrenProps) => {
-  theme = theme ?? Themes.default.build();
-  return getThemedChildren(children, theme, textStyle, allowStrings);
+export const ThemedChildren = ({ children, textStyle, allowStrings }: ThemedChildrenProps) => {
+  return getThemedChildren(children, textStyle, allowStrings);
 };
 
-export const getThemedChildren = (children?: any, theme?: Theme, textStyle?: Style, allowStrings?: boolean) => {
+export const getThemedChildren = (children?: any, textStyle?: Style, allowStrings?: boolean) => {
   const originalChildArray = Array.isArray(children) ? children : typeof children !== 'undefined' ? [children] : [];
-  const injectedChildArray = originalChildArray.map((c, i, arr) => {
+  const modifiedChildArray = originalChildArray.map((c, i) => {
     if (typeof c === 'string') {
       if (!allowStrings) {
         return (
-          <ThemedText theme={theme} key={`child-ThemedText-${i}`} style={textStyle}>
+          <ThemedText key={`child-ThemedText-${i}`} style={textStyle}>
             {c}
           </ThemedText>
         );
@@ -33,25 +32,15 @@ export const getThemedChildren = (children?: any, theme?: Theme, textStyle?: Sty
         return c;
       }
     } else if (Array.isArray(c)) {
-      return (
-        <ThemedChildren key={`child-array-${i}`} theme={theme}>
-          {c}
-        </ThemedChildren>
-      );
+      return <ThemedChildren key={`child-array-${i}`}>{c}</ThemedChildren>;
     } else if (c && typeof c === 'object' && c !== null && c?.hasOwnProperty('type')) {
       if (c.type === React.Fragment) {
         return <ThemedChildren key={`child-fragment-${i}`}>{c.props.children}</ThemedChildren>;
-      } else {
-        const name = c.type?.displayName || c.type?.name || (typeof c.type === 'string' && c.type ? c.type : 'Unknown');
-        return React.cloneElement(c, {
-          key: `child-${name}-${i}`,
-          theme,
-          ...c.props,
-        });
       }
+      return c;
     } else {
       return c;
     }
   });
-  return injectedChildArray;
+  return modifiedChildArray;
 };

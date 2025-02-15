@@ -1,22 +1,20 @@
 import React from 'react';
-import { getThemedChildren, ThemedChildren } from '../children/ThemedChildren';
-import { Box, BoxProps } from '../layout/Box';
-import { Theme } from '../../themes/Theme';
-import { Themes } from '../../themes/Themes';
-import { Style } from '../Style';
 import { SwatchColor } from '../../themes/ColorScheme';
 import { ThemeBuilder } from '../../themes/ThemeBuilder';
+import { getThemedChildren, ThemedChildren } from '../children/ThemedChildren';
+import { Box, BoxProps } from '../layout/Box';
+import { Style } from '../Style';
+import { usePDFThemeContext } from '../theme/PDFThemeProvider';
 
 export interface CardProps extends BoxProps {
   children?: any;
   className?: string;
   swatch?: SwatchColor;
   swatchOpacity?: number;
-  theme?: Theme;
 }
 
-export const Card = ({ children, theme, className, style, ...props }: CardProps) => {
-  theme = theme ?? Themes.default.build();
+export const Card = ({ children, className, style, ...props }: CardProps) => {
+  const theme = usePDFThemeContext();
   const themeProps = theme.cardProps;
   const mergedProps = {
     ...themeProps,
@@ -55,7 +53,6 @@ export const Card = ({ children, theme, className, style, ...props }: CardProps)
     }
     return React.cloneElement(c, {
       key: `card-child-` + i,
-      theme,
       swatch: mergedProps.swatch,
       swatchOpacity: mergedProps.swatchOpacity,
       ...additionalProps,
@@ -70,11 +67,10 @@ export const Card = ({ children, theme, className, style, ...props }: CardProps)
   return (
     <Box
       dir="y"
-      theme={theme}
       {...mergedProps}
       style={{ ...styleInnate, ...themeClassNameStyles, ...themeProps?.style, ...classNameStyles, ...style }}
     >
-      <ThemedChildren theme={theme}>{injectedChildArray}</ThemedChildren>
+      <ThemedChildren>{injectedChildArray}</ThemedChildren>
     </Box>
   );
 };

@@ -1,22 +1,20 @@
 import { ViewProps } from '@react-pdf/renderer';
 import React from 'react';
 import { SwatchColor } from '../../themes/ColorScheme';
-import { Theme } from '../../themes/Theme';
 import { ThemeBuilder } from '../../themes/ThemeBuilder';
-import { Themes } from '../../themes/Themes';
 import { Div } from '../basics/ThemedView';
 import { ThemedChildren } from '../children/ThemedChildren';
 import { Style } from '../Style';
+import { usePDFThemeContext } from '../theme/PDFThemeProvider';
 
 export interface ListItemProps extends ViewProps {
   children?: any;
   className?: string;
   swatch?: SwatchColor;
-  theme?: Theme;
 }
 
-export const ListItem = ({ children, theme, className, style, ...props }: ListItemProps) => {
-  theme = theme ?? Themes.default.build();
+export const ListItem = ({ children, className, style, ...props }: ListItemProps) => {
+  const theme = usePDFThemeContext();
   const themeProps = theme?.listItemProps;
   const mergedProps = {
     ...themeProps,
@@ -38,7 +36,6 @@ export const ListItem = ({ children, theme, className, style, ...props }: ListIt
 
   return (
     <Div
-      theme={theme}
       {...mergedProps}
       style={{
         ...styleInnate,
@@ -49,7 +46,7 @@ export const ListItem = ({ children, theme, className, style, ...props }: ListIt
         ...style,
       }}
     >
-      <ThemedChildren theme={theme}>{children}</ThemedChildren>
+      <ThemedChildren>{children}</ThemedChildren>
     </Div>
   );
 };

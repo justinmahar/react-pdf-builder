@@ -1,13 +1,13 @@
 import React from 'react';
 import { ThemeBuilder } from '../../themes/ThemeBuilder';
-import { Themes } from '../../themes/Themes';
 import { ThemedText } from '../basics/ThemedText';
-import { Style } from '../Style';
-import { HeadingProps } from './Heading';
 import { ThemedChildren } from '../children/ThemedChildren';
+import { Style } from '../Style';
+import { usePDFThemeContext } from '../theme/PDFThemeProvider';
+import { HeadingProps } from './Heading';
 
-export const Heading1 = ({ children, theme, className, style, ...props }: HeadingProps) => {
-  theme = theme ?? Themes.default.build();
+export const Heading1 = ({ children, className, style, ...props }: HeadingProps) => {
+  const theme = usePDFThemeContext();
   const mergedProps = {
     ...theme?.headingProps,
     ...theme?.heading1Props,
@@ -35,13 +35,10 @@ export const Heading1 = ({ children, theme, className, style, ...props }: Headin
 
   return (
     <ThemedText
-      theme={theme}
       {...mergedProps}
       style={{ ...themeClassNameStyles, ...mergedThemeStyles, ...styleOverride, ...classNameStyles, ...style }}
     >
-      <ThemedChildren theme={theme} allowStrings>
-        {children}
-      </ThemedChildren>
+      <ThemedChildren allowStrings>{children}</ThemedChildren>
     </ThemedText>
   );
 };

@@ -1,12 +1,11 @@
+import Color from 'color';
 import React from 'react';
-import { Box, BoxProps } from '../layout/Box';
-import { Style } from '../Style';
-import { Theme } from '../../themes/Theme';
-import { Themes } from '../../themes/Themes';
-import { Heading5 } from '../typography/Heading5';
 import { SwatchColor } from '../../themes/ColorScheme';
 import { ThemeBuilder } from '../../themes/ThemeBuilder';
-import Color from 'color';
+import { Box, BoxProps } from '../layout/Box';
+import { Style } from '../Style';
+import { usePDFThemeContext } from '../theme/PDFThemeProvider';
+import { Heading5 } from '../typography/Heading5';
 
 export interface CardHeaderProps extends BoxProps {
   children?: any;
@@ -16,11 +15,10 @@ export interface CardHeaderProps extends BoxProps {
   withHeader?: boolean;
   swatch?: SwatchColor;
   swatchOpacity?: number;
-  theme?: Theme;
 }
 
-export const CardHeader = ({ children, theme, className, style, ...props }: CardHeaderProps) => {
-  theme = theme ?? Themes.default.build();
+export const CardHeader = ({ children, className, style, ...props }: CardHeaderProps) => {
+  const theme = usePDFThemeContext();
   const themeProps = theme.cardHeaderProps;
   const mergedProps = {
     ...themeProps,
@@ -30,11 +28,7 @@ export const CardHeader = ({ children, theme, className, style, ...props }: Card
   const AsComponent = mergedProps.as ?? Heading5;
   let child = children;
   if (typeof child === 'string') {
-    child = (
-      <AsComponent theme={theme} className="mb-0">
-        {child}
-      </AsComponent>
-    );
+    child = <AsComponent className="mb-0">{child}</AsComponent>;
   }
 
   const styleInnate: Style = {
@@ -66,7 +60,6 @@ export const CardHeader = ({ children, theme, className, style, ...props }: Card
 
   return (
     <Box
-      theme={theme}
       wrap={false}
       {...mergedProps}
       style={{

@@ -1,21 +1,19 @@
 import React from 'react';
 import { SwatchColor } from '../../themes/ColorScheme';
-import { Theme } from '../../themes/Theme';
 import { ThemeBuilder } from '../../themes/ThemeBuilder';
-import { Themes } from '../../themes/Themes';
 import { ThemedText } from '../basics/ThemedText';
 import { Style } from '../Style';
+import { usePDFThemeContext } from '../theme/PDFThemeProvider';
 import { ParagraphProps } from '../typography/Paragraph';
 
 export interface PageNumberProps extends ParagraphProps {
   className?: string;
   format?: string;
   swatch?: SwatchColor;
-  theme?: Theme;
 }
 
-export const PageNumber = ({ theme, className, style, ...props }: PageNumberProps) => {
-  theme = theme ?? Themes.default.build();
+export const PageNumber = ({ className, style, ...props }: PageNumberProps) => {
+  const theme = usePDFThemeContext();
   const themeProps = theme.pageNumberProps;
   const mergedProps = { ...themeProps, ...props };
   const defaultFormat = '%n / %t';
@@ -35,7 +33,6 @@ export const PageNumber = ({ theme, className, style, ...props }: PageNumberProp
 
   return (
     <ThemedText
-      theme={theme}
       render={({ pageNumber, totalPages, subPageNumber, subPageTotalPages }) => {
         const num = pageNumber;
         return (mergedProps.format ?? defaultFormat)
