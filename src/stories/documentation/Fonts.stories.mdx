@@ -12,6 +12,10 @@ Most likely, you'll want to use fonts in your PDF that are beyond these basic ch
 
 React PDF Builder includes support for 25 different fonts, with bold and italics, available via [jsdelivr](https://www.jsdelivr.com/) so you can get up and running quickly.
 
+There is also support for 5 sets of emojis.
+
+Find out more below.
+
 ## Table of Contents
 
 - [Overview](#overview)
@@ -32,15 +36,18 @@ React PDF Builder includes support for 25 different fonts, with bold and italics
   - [8. Noto Sans \& Open Sans](#8-noto-sans--open-sans)
   - [9. Lato \& Poppins](#9-lato--poppins)
   - [10. Inter \& Roboto Condensed](#10-inter--roboto-condensed)
+- [Self hosting built-in fonts](#self-hosting-built-in-fonts)
 - [Using custom fonts](#using-custom-fonts)
   - [Step 1 - Upload TTF files to host](#step-1---upload-ttf-files-to-host)
   - [Step 2 - Register custom font](#step-2---register-custom-font)
   - [Step 3 - Specify fontFamily style](#step-3---specify-fontfamily-style)
+- [Adding Emoji support](#adding-emoji-support)
+- [Disabling text hyphenation](#disabling-text-hyphenation)
 
 
 ## Using built-in fonts
 
-Fonts must first be registered with [react-pdf](https://react-pdf.org/fonts) to be usable in your PDF. 
+Fonts must first be registered with [react-pdf](https://react-pdf.org/fonts#register) to be usable in your PDF. 
 
 Register any of the built-in fonts as follows.
 
@@ -253,11 +260,36 @@ Font.register(Fonts.load(Fonts.sansSerif.inter));
 Font.register(Fonts.load(Fonts.sansSerif.robotoCondensed));
 ```
 
+## Self hosting built-in fonts
+
+All built-in fonts are hosted via the [jsdelivr](https://www.jsdelivr.com/) CDN. However, if you'd like to self-host them instead, you can pass a base URL to `Fonts.load()`, like so:
+
+```ts
+Font.register(Fonts.load(Fonts.sansSerif.lato), "https://example.com/fonts/");
+```
+
+For example, for the "Lato" font family example above, React PDF Builder would attempt to access the following files:
+
+```
+https://example.com/fonts/lato-v24-latin-100.ttf
+https://example.com/fonts/lato-v24-latin-100italic.ttf
+https://example.com/fonts/lato-v24-latin-300.ttf
+https://example.com/fonts/lato-v24-latin-300italic.ttf
+https://example.com/fonts/lato-v24-latin-700.ttf
+https://example.com/fonts/lato-v24-latin-700italic.ttf
+https://example.com/fonts/lato-v24-latin-900.ttf
+https://example.com/fonts/lato-v24-latin-900italic.ttf
+https://example.com/fonts/lato-v24-latin-italic.ttf
+https://example.com/fonts/lato-v24-latin-regular.ttf
+```
+
+All files must be present. You can access the expected font files for each family from [the project repo](https://github.com/justinmahar/react-pdf-builder/tree/master/public/fonts).
+
 ## Using custom fonts
 
 Looking to use a font that's not included with React PDF Builder?
 
-To register a custom font, you'll use the [Font registration interface](https://react-pdf.org/fonts) via react-pdf.
+To register a custom font, you'll use the [Font registration interface](https://react-pdf.org/fonts#register) via react-pdf.
 
 At the moment, only TTF and WOFF font files are supported.
 
@@ -276,7 +308,7 @@ You can use the [Google Webfonts Helper](https://gwfh.mranftl.com/fonts) to down
 
 ### Step 2 - Register custom font
 
-Next, you'll [register the font](https://react-pdf.org/fonts) with react-pdf, being sure to specify the font weight and style for each font file:
+Next, you'll [register the font](https://react-pdf.org/fonts#register) with react-pdf, being sure to specify the font weight and style for each font file:
 
 ```ts
 Font.register({
@@ -306,4 +338,48 @@ If you loaded font files supporting bold and italics, you can use the `fontWeigh
 <Paragraph style={{ fontFamily: "Ubuntu" }}>
   ...
 </Paragraph>
+```
+
+## Adding Emoji support
+
+React PDF Builder comes with built-in support for the following emoji sets:
+
+| Emoji Source                                             | Available sizes (in pixels) | Examples                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | Sample of 100                                                                                                                 |
+| -------------------------------------------------------- | --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| [JoyPixels](https://github.com/joypixels/emoji-toolkit)  | `32` `64`                   | <img src="https://cdn.jsdelivr.net/joypixels/assets/9.0/png/unicode/64/1f60a.png" width="16" /> <img src="https://cdn.jsdelivr.net/joypixels/assets/9.0/png/unicode/64/2764.png" width="16" /> <img src="https://cdn.jsdelivr.net/joypixels/assets/9.0/png/unicode/64/1f30e.png" width="16" /> <img src="https://cdn.jsdelivr.net/joypixels/assets/9.0/png/unicode/64/1f389.png" width="16" /> <img src="https://cdn.jsdelivr.net/joypixels/assets/9.0/png/unicode/64/1f44d.png" width="16" />                                                        | [View more](https://justinmahar.github.io/react-pdf-builder/?path=/story/stories-fonts-emojis--joy-pixels-sample-of-100)      |
+| [Noto Emoji](https://github.com/googlefonts/noto-emoji)  | `32` `72` `128` `512`       | <img src="https://cdn.jsdelivr.net/gh/googlefonts/noto-emoji@v2.047/png/72/emoji_u1f60a.png" width="16" /> <img src="https://cdn.jsdelivr.net/gh/googlefonts/noto-emoji@v2.047/png/72/emoji_u2764.png" width="16" /> <img src="https://cdn.jsdelivr.net/gh/googlefonts/noto-emoji@v2.047/png/72/emoji_u1f30e.png" width="16" /> <img src="https://cdn.jsdelivr.net/gh/googlefonts/noto-emoji@v2.047/png/72/emoji_u1f389.png" width="16" /> <img src="https://cdn.jsdelivr.net/gh/googlefonts/noto-emoji@v2.047/png/72/emoji_u1f44d.png" width="16" /> | [View more](https://justinmahar.github.io/react-pdf-builder/?path=/story/stories-fonts-emojis--noto-emoji-sample-of-100)      |
+| [OpenMoji Black](https://github.com/hfg-gmuend/openmoji) | `72` `618`                  | <img src="https://cdn.jsdelivr.net/gh/hfg-gmuend/openmoji@15.1.0/black/72x72/1F60A.png" width="16" /> <img src="https://cdn.jsdelivr.net/gh/hfg-gmuend/openmoji@15.1.0/black/72x72/2764.png" width="16" /> <img src="https://cdn.jsdelivr.net/gh/hfg-gmuend/openmoji@15.1.0/black/72x72/1F30E.png" width="16" /> <img src="https://cdn.jsdelivr.net/gh/hfg-gmuend/openmoji@15.1.0/black/72x72/1F389.png" width="16" /> <img src="https://cdn.jsdelivr.net/gh/hfg-gmuend/openmoji@15.1.0/black/72x72/1F44D.png" width="16" />                          | [View more](https://justinmahar.github.io/react-pdf-builder/?path=/story/stories-fonts-emojis--open-moji-black-sample-of-100) |
+| [OpenMoji Color](https://github.com/hfg-gmuend/openmoji) | `72` `618`                  | <img src="https://cdn.jsdelivr.net/gh/hfg-gmuend/openmoji@15.1.0/color/72x72/1F60A.png" width="16" /> <img src="https://cdn.jsdelivr.net/gh/hfg-gmuend/openmoji@15.1.0/color/72x72/2764.png" width="16" /> <img src="https://cdn.jsdelivr.net/gh/hfg-gmuend/openmoji@15.1.0/color/72x72/1F30E.png" width="16" /> <img src="https://cdn.jsdelivr.net/gh/hfg-gmuend/openmoji@15.1.0/color/72x72/1F389.png" width="16" /> <img src="https://cdn.jsdelivr.net/gh/hfg-gmuend/openmoji@15.1.0/color/72x72/1F44D.png" width="16" />                          | [View more](https://justinmahar.github.io/react-pdf-builder/?path=/story/stories-fonts-emojis--open-moji-color-sample-of-100) |
+| [Twemoji](https://github.com/twitter/twemoji)            | `72`                        | <img src="https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f60a.png" width="16" /> <img src="https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/2764.png" width="16" /> <img src="https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f30e.png" width="16" /> <img src="https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f389.png" width="16" /> <img src="https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f44d.png" width="16" />                                                             | [View more](https://justinmahar.github.io/react-pdf-builder/?path=/story/stories-fonts-emojis--twemoji-sample-of-100)         |
+
+You must [register an emoji source](https://react-pdf.org/fonts#registeremojisource) to enable emojis.
+
+To use one of the emoji sets above, call the following in your PDF component:
+
+```ts
+Font.registerEmojiSource(Fonts.emojis.joyPixels());
+```
+
+You can optionally pass a size, and a version, to customize the set further:
+
+```ts
+Font.registerEmojiSource(Fonts.emojis.notoEmoji(128));
+```
+
+```ts
+Font.registerEmojiSource(Fonts.emojis.openMojiColor(618, "14.0.0"));
+```
+
+The default size is `64` for JoyPixels and `72` for all other sets.
+
+## Disabling text hyphenation
+
+By default, [react-pdf breaks up and hyphenates](https://react-pdf.org/fonts#registerhyphenationcallback) any text that wraps to the next line.
+
+You may not want this behavior, as it can disrupt the readability of your PDF.
+
+Easily disable hyphenation with the following:
+
+```ts
+Font.registerHyphenationCallback(Fonts.noHyphenation);
 ```
