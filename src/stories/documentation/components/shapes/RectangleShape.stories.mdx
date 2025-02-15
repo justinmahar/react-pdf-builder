@@ -2,6 +2,7 @@ import { Meta } from '@storybook/addon-docs';
 import { DocsPDF } from '../../DocsPDF';
 
 import { RectangleShape } from '../../../../components/shapes/RectangleShape';
+import { GradientType } from '../../../../components/shapes/Gradients';
 
 <Meta title="Documentation/Components/Shapes/RectangleShape" />
 
@@ -33,12 +34,18 @@ Describe how to use the component here.
 ## RectangleShape Example
 
 <DocsPDF>
-  <RectangleShape className="p-3 border">Testing 123</RectangleShape>
+  <RectangleShape 
+    width={300}
+    height={200}
+    gradient={['red', 'blue']}
+    gradientType={GradientType.leftToRight}
+    rectProps={{ stroke: 'darkblue', strokeWidth: 10 }}
+   />
 </DocsPDF>
 
 ```jsx
 import * as React from 'react';
-import { RectangleShape, ThemedPage } from 'react-pdf-builder';
+import { RectangleShape, GradientType, ThemedPage } from 'react-pdf-builder';
 import { PDFViewer, Document } from '@react-pdf/renderer';
 
 export function Example() {
@@ -46,7 +53,13 @@ export function Example() {
     <PDFViewer style={{ width: 420, height: 600 }}>
       <Document>
         <ThemedPage size="LETTER">
-          <RectangleShape className="p-3 border">Testing 123</RectangleShape>
+          <RectangleShape 
+            width={300}
+            height={200}
+            gradient={['red', 'blue']}
+            gradientType={GradientType.leftToRight}
+            rectProps={{ stroke: 'darkblue', strokeWidth: 10 }}
+          />
         </ThemedPage>
       </Document>
     </PDFViewer>

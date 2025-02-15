@@ -2,6 +2,7 @@ import { Meta } from '@storybook/addon-docs';
 import { DocsPDF } from '../../DocsPDF';
 
 import { EllipseShape } from '../../../../components/shapes/EllipseShape';
+import { GradientType } from '../../../../components/shapes/Gradients';
 
 <Meta title="Documentation/Components/Shapes/EllipseShape" />
 
@@ -33,12 +34,18 @@ Describe how to use the component here.
 ## EllipseShape Example
 
 <DocsPDF>
-  <EllipseShape className="p-3 border">Testing 123</EllipseShape>
+  <EllipseShape 
+    width={300}
+    height={200}
+    gradient={['red', 'blue']}
+    gradientType={GradientType.leftToRight}
+    ellipseProps={{ stroke: 'darkblue', strokeWidth: 5 }}
+   />
 </DocsPDF>
 
 ```jsx
 import * as React from 'react';
-import { EllipseShape, ThemedPage } from 'react-pdf-builder';
+import { EllipseShape, GradientType, ThemedPage } from 'react-pdf-builder';
 import { PDFViewer, Document } from '@react-pdf/renderer';
 
 export function Example() {
@@ -46,7 +53,13 @@ export function Example() {
     <PDFViewer style={{ width: 420, height: 600 }}>
       <Document>
         <ThemedPage size="LETTER">
-          <EllipseShape className="p-3 border">Testing 123</EllipseShape>
+          <EllipseShape 
+            width={300}
+            height={200}
+            gradient={['red', 'blue']}
+            gradientType={GradientType.leftToRight}
+            ellipseProps={{ stroke: 'darkblue', strokeWidth: 5 }}
+          />
         </ThemedPage>
       </Document>
     </PDFViewer>

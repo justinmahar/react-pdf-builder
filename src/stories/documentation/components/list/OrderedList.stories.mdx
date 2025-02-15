@@ -34,12 +34,16 @@ Describe how to use the component here.
 ## OrderedList Example
 
 <DocsPDF>
-  <OrderedList className="p-3 border">Testing 123</OrderedList>
+  <OrderedList>
+    <ListItem>First list item</ListItem>
+    <ListItem>Second list item</ListItem>
+    <ListItem>Third list item</ListItem>
+  </OrderedList>
 </DocsPDF>
 
 ```jsx
 import * as React from 'react';
-import { OrderedList, ThemedPage } from 'react-pdf-builder';
+import { OrderedList, ListItem, ThemedPage } from 'react-pdf-builder';
 import { PDFViewer, Document } from '@react-pdf/renderer';
 
 export function Example() {
@@ -47,7 +51,11 @@ export function Example() {
     <PDFViewer style={{ width: 420, height: 600 }}>
       <Document>
         <ThemedPage size="LETTER">
-          <OrderedList className="p-3 border">Testing 123</OrderedList>
+          <OrderedList>
+            <ListItem>First list item</ListItem>
+            <ListItem>Second list item</ListItem>
+            <ListItem>Third list item</ListItem>
+          </OrderedList>
         </ThemedPage>
       </Document>
     </PDFViewer>

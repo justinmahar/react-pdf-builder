@@ -2,6 +2,7 @@ import { Meta } from '@storybook/addon-docs';
 import { DocsPDF } from '../../DocsPDF';
 
 import { CircleShape } from '../../../../components/shapes/CircleShape';
+import { GradientType } from '../../../../components/shapes/Gradients';
 
 <Meta title="Documentation/Components/Shapes/CircleShape" />
 
@@ -33,12 +34,17 @@ Describe how to use the component here.
 ## CircleShape Example
 
 <DocsPDF>
-  <CircleShape className="p-3 border">Testing 123</CircleShape>
+  <CircleShape 
+    size={300}
+    gradient={['red', 'blue']}
+    gradientType={GradientType.leftToRight}
+    ellipseProps={{ stroke: 'darkblue', strokeWidth: 5 }}
+   />
 </DocsPDF>
 
 ```jsx
 import * as React from 'react';
-import { CircleShape, ThemedPage } from 'react-pdf-builder';
+import { CircleShape, GradientType, ThemedPage } from 'react-pdf-builder';
 import { PDFViewer, Document } from '@react-pdf/renderer';
 
 export function Example() {
@@ -46,7 +52,12 @@ export function Example() {
     <PDFViewer style={{ width: 420, height: 600 }}>
       <Document>
         <ThemedPage size="LETTER">
-          <CircleShape className="p-3 border">Testing 123</CircleShape>
+          <CircleShape 
+            size={300}
+            gradient={['red', 'blue']}
+            gradientType={GradientType.leftToRight}
+            ellipseProps={{ stroke: 'darkblue', strokeWidth: 5 }}
+          />
         </ThemedPage>
       </Document>
     </PDFViewer>

@@ -4,6 +4,8 @@ import { DocsPDF } from '../../DocsPDF';
 import { Table } from '../../../../components/table/Table';
 import { TableRow } from '../../../../components/table/TableRow';
 import { TableCell } from '../../../../components/table/TableCell';
+import { Box } from '../../../../components/layout/Box';
+import { HorizontalRule } from '../../../../components/hr/HorizontalRule';
 
 <Meta title="Documentation/Components/Tables/Table" />
 
@@ -35,12 +37,55 @@ Describe how to use the component here.
 ## Table Example
 
 <DocsPDF>
-  <Table className="p-3 border">Testing 123</Table>
+  <Box className="justify-content-center mb-5">
+    <Table borderedInside style={{ width: '80%' }}>
+      <TableRow>
+        <TableCell className="justify-content-end text-end">Lorem ipsum</TableCell>
+        <TableCell className="justify-content-end text-center">Consectetur adipiscing elit</TableCell>
+        <TableCell className="justify-content-end">Sed do eiusmod</TableCell>
+      </TableRow>
+      <TableRow>
+        <TableCell className="text-end">Incididunt ut labore</TableCell>
+        <TableCell className="text-center">Lorem ipsum dolor sit amet</TableCell>
+        <TableCell>Dolore magna aliqua</TableCell>
+      </TableRow>
+      <TableRow>
+        <TableCell className="text-end">Lorem ipsum dolor</TableCell>
+        <TableCell className="text-center">Consectetur adipiscing elit</TableCell>
+        <TableCell>Sed do eiusmod</TableCell>
+      </TableRow>
+    </Table>
+  </Box>
+  <Table bordered inverseStriped swatch="primary" className="bg-white rounded" colWidths={['30%', '50%', '20%']}>
+    <TableRow swatch="primary" inverseStriped={false} className="fw-bold">
+      <TableCell>Col 30%</TableCell>
+      <TableCell>Column 50%</TableCell>
+      <TableCell>20%</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>Lorem ipsum dolor</TableCell>
+      <TableCell swatch="teal">Teal swatch</TableCell>
+      <TableCell>Sed do eiusmod</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell swatch="blue">Blue swatch</TableCell>
+      <TableCell>This cell has a horizontal rule with the "blue" swatch.<HorizontalRule swatch="blue" />Sed do eiusmod tempor incididunt ut labore et magna aliqua.</TableCell>
+      <TableCell>Dolore magna aliqua</TableCell>
+    </TableRow>
+    <TableRow colWidths={['80%', '20%']}>
+      <TableCell>This row has only two cells. The first is 80%, the second is 20%. This imitates a colspan.</TableCell>
+      <TableCell>Dolore magna aliqua</TableCell>
+    </TableRow>
+    <TableRow colWidths={['50%', '50%']}>
+      <TableCell>50% col width</TableCell>
+      <TableCell>50% col width</TableCell>
+    </TableRow>
+  </Table>
 </DocsPDF>
 
 ```jsx
 import * as React from 'react';
-import { Table, ThemedPage } from 'react-pdf-builder';
+import { Table, TableRow, TableCell, Box, HorizontalRule, ThemedPage } from 'react-pdf-builder';
 import { PDFViewer, Document } from '@react-pdf/renderer';
 
 export function Example() {
@@ -48,7 +93,50 @@ export function Example() {
     <PDFViewer style={{ width: 420, height: 600 }}>
       <Document>
         <ThemedPage size="LETTER">
-          <Table className="p-3 border">Testing 123</Table>
+          <Box className="justify-content-center mb-5">
+            <Table borderedInside style={{ width: '80%' }}>
+              <TableRow>
+                <TableCell className="justify-content-end text-end">Lorem ipsum</TableCell>
+                <TableCell className="justify-content-end text-center">Consectetur adipiscing elit</TableCell>
+                <TableCell className="justify-content-end">Sed do eiusmod</TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell className="text-end">Incididunt ut labore</TableCell>
+                <TableCell className="text-center">Lorem ipsum dolor sit amet</TableCell>
+                <TableCell>Dolore magna aliqua</TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell className="text-end">Lorem ipsum dolor</TableCell>
+                <TableCell className="text-center">Consectetur adipiscing elit</TableCell>
+                <TableCell>Sed do eiusmod</TableCell>
+              </TableRow>
+            </Table>
+          </Box>
+          <Table bordered inverseStriped swatch="primary" className="bg-white rounded" colWidths={['30%', '50%', '20%']}>
+            <TableRow swatch="primary" inverseStriped={false} className="fw-bold">
+              <TableCell>Col 30%</TableCell>
+              <TableCell>Column 50%</TableCell>
+              <TableCell>20%</TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell>Lorem ipsum dolor</TableCell>
+              <TableCell swatch="teal">Teal swatch</TableCell>
+              <TableCell>Sed do eiusmod</TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell swatch="blue">Blue swatch</TableCell>
+              <TableCell>This cell has a horizontal rule with the "blue" swatch.<HorizontalRule swatch="blue" />Sed do eiusmod tempor incididunt ut labore et magna aliqua.</TableCell>
+              <TableCell>Dolore magna aliqua</TableCell>
+            </TableRow>
+            <TableRow colWidths={['80%', '20%']}>
+              <TableCell>This row has only two cells. The first is 80%, the second is 20%. This imitates a colspan.</TableCell>
+              <TableCell>Dolore magna aliqua</TableCell>
+            </TableRow>
+            <TableRow colWidths={['50%', '50%']}>
+              <TableCell>50% col width</TableCell>
+              <TableCell>50% col width</TableCell>
+            </TableRow>
+          </Table>
         </ThemedPage>
       </Document>
     </PDFViewer>
