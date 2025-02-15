@@ -95,7 +95,7 @@ Use `LETTER` page size for 8.5x11" paper used in the USA.
 
 ```jsx
 import React from 'react';
-import { Box, Button, Card, CardBody, CardHeader, Div, Heading3, Page, Paragraph, Table, TableCell, TableRow, ThemedPage, PDFThemeProvider } from 'react-pdf-builder'
+import { Box, Button, Div, Heading3, Paragraph, ThemedPage, PDFThemeProvider } from 'react-pdf-builder'
 import { Document, PDFViewer } from '@react-pdf/renderer';
 
 export const QuickStart = () => {
@@ -113,35 +113,13 @@ export const QuickStart = () => {
       <Document>
         <PDFThemeProvider theme={theme}>
           <ThemedPage size="A4" style={{ fontFamily: roboto.family }}>
-            <Heading3 rule>Hello, world!</Heading3>
-            <Paragraph>Let's get started building the PDF.</Paragraph>
             <Box dir="y" className="gap-3">
-              <Box className="gap-3">
-                <Card swatch="gray300" className="mb-0 w-100">
-                  <CardHeader>Example</CardHeader>
-                  <CardBody className="d-flex flex-column gap-2">
-                    This is a card with some text inside as an example 👍
-                  </CardBody>
-                </Card>
-              </Box>
-              <Table bordered inverseStriped swatch="primary" className="rounded mb-0">
-                <TableRow swatch="primary" className="fw-bold">
-                  <TableCell>Header 1</TableCell>
-                  <TableCell>Header 2</TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell>Cell A</TableCell>
-                  <TableCell>Cell Y</TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell>Cell B</TableCell>
-                  <TableCell>Cell Z</TableCell>
-                </TableRow>
-              </Table>
-              <Box className="justify-content-end">
+              <Heading3 rule>Hello, world!</Heading3>
+              <Paragraph className="mb-0">Let's get started building the PDF.</Paragraph>
+              <Box>
                 <Button href="#">Button</Button>
               </Box>
-              <Div className="my-custom-class">This has a custom class applied.</Div>
+              <Div className="my-custom-class w-50">50% Div with a custom class. 👍</Div>
             </Box>
           </ThemedPage>
         </PDFThemeProvider>

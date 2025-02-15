@@ -62,6 +62,9 @@ export * from './components/table/Table';
 export * from './components/table/TableCell';
 export * from './components/table/TableRow';
 
+// Theme Provider
+export * from './components/theme/PDFThemeProvider';
+
 // Typography
 export * from './components/typography/Blockquote';
 export * from './components/typography/Heading';
