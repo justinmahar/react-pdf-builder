@@ -1,6 +1,8 @@
 // [lock-all/] 🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫
 import { Preview } from '@storybook/react';
 
+import './custom.css';
+
 // Uncomment to enable Bootstrap (First run: npm i bootstrap --save-dev):
 // import 'bootstrap/dist/css/bootstrap.min.css';
 

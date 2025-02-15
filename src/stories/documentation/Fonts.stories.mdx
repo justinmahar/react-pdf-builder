@@ -2,40 +2,287 @@ import { Meta } from '@storybook/addon-docs';
 
 <Meta title="Documentation/Fonts" />
 
-<h1>Example</h1>
+<h1>Fonts</h1>
 
-## Description
+## Overview
 
-Description of the Example component.
+The underlying framework, [react-pdf](https://react-pdf.org/fonts), includes three basic fonts: `Courier`, `Helvetic`, and `Times-Roman`, with no bold or italic formatting enabled by default.
 
-## Usage
+Most likely, you'll want to use fonts in your PDF that are beyond these basic choices, especially if you'd like to use formatting styles.
 
-```jsx
-import { Example } from 'react-kindling';
+React PDF Builder includes support for 25 different fonts available via [jsdelivr](https://www.jsdelivr.com/) so you can get up and running quickly.
+
+- [Overview](#overview)
+- [Using built-in fonts](#using-built-in-fonts)
+- [Supported fonts](#supported-fonts)
+  - [Sans-serif Fonts](#sans-serif-fonts)
+  - [Serif Fonts](#serif-fonts)
+  - [Monospaced Fonts](#monospaced-fonts)
+- [Suggested font pairings](#suggested-font-pairings)
+  - [1. Inter \& Bitter](#1-inter--bitter)
+  - [2. Montserrat \& Merriweather](#2-montserrat--merriweather)
+  - [3. Poppins \& Playfair Display](#3-poppins--playfair-display)
+  - [4. Lato \& Libre Baskerville](#4-lato--libre-baskerville)
+  - [5. Roboto \& Noto Serif](#5-roboto--noto-serif)
+  - [6. Raleway \& Lora](#6-raleway--lora)
+  - [7. Montserrat \& Roboto](#7-montserrat--roboto)
+  - [8. Noto Sans \& Open Sans](#8-noto-sans--open-sans)
+  - [9. Lato \& Poppins](#9-lato--poppins)
+  - [10. Inter \& Roboto Condensed](#10-inter--roboto-condensed)
+- [Using custom fonts](#using-custom-fonts)
+  - [Step 1 - Upload TTF files to host](#step-1---upload-ttf-files-to-host)
+  - [Step 2 - Register custom font](#step-2---register-custom-font)
+  - [Step 3 - Specify fontFamily style](#step-3---specify-fontfamily-style)
+
+
+## Using built-in fonts
+
+Fonts must first be registered with [react-pdf](https://react-pdf.org/fonts) to be usable in your PDF. 
+
+Register any of the built in fonts like so:
+
+```ts
+Font.register(Fonts.load(Fonts.sansSerif.roboto));
 ```
 
-Describe how to use the component here.
+You can then use the font family like so:
 
-```jsx
-<Example label="Bomb Diggity!" />
+```tsx
+<Div style={{ fontFamily: "Roboto" }}>This text has the Roboto font family.</Div>
 ```
 
-### Props
+## Supported fonts
 
-| Prop            | Type                        | Description                                |
-| --------------- | --------------------------- | ------------------------------------------ |
-| label           | `string`                    | **Required.** Label shown in the component |
-| backgroundColor | `string` &#124; `undefined` | Optional. What background color to use     |
+React PDF Builder includes a selection of the most popular sans-serif, serif, and monospaced Google fonts, all curated from the [Google Webfonts Helper](https://gwfh.mranftl.com/fonts).
 
-## Example
+All built-in typefaces include the Latin character set, and include all supported font weights and styles, allowing you to use `fontWeight` and `fontStyle` styles, or the `fw-bold` and `fst-italic` [utility class names](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-utility-classes--docs#text), to format text.
 
-Provide an example. Since this is MDX, you can import and use the component right within these docs.
+### Sans-serif Fonts
+| Font Family        | Preview                                                                                          |
+| ------------------ | ------------------------------------------------------------------------------------------------ |
+| `Inter`            | <span style={{fontFamily: "Inter"}}>The quick brown fox jumps over a lazy dog.</span>            |
+| `Lato`             | <span style={{fontFamily: "Lato"}}>The quick brown fox jumps over a lazy dog.</span>             |
+| `Montserrat`       | <span style={{fontFamily: "Montserrat"}}>The quick brown fox jumps over a lazy dog.</span>       |
+| `Noto Sans`        | <span style={{fontFamily: "Noto Sans"}}>The quick brown fox jumps over a lazy dog.</span>        |
+| `Open Sans`        | <span style={{fontFamily: "Open Sans"}}>The quick brown fox jumps over a lazy dog.</span>        |
+| `Poppins`          | <span style={{fontFamily: "Poppins"}}>The quick brown fox jumps over a lazy dog.</span>          |
+| `Raleway`          | <span style={{fontFamily: "Raleway"}}>The quick brown fox jumps over a lazy dog.</span>          |
+| `Roboto Condensed` | <span style={{fontFamily: "Roboto Condensed"}}>The quick brown fox jumps over a lazy dog.</span> |
+| `Roboto`           | <span style={{fontFamily: "Roboto"}}>The quick brown fox jumps over a lazy dog.</span>           |
 
-```jsx
-import * as React from 'react';
-import { Example } from 'react-kindling';
+### Serif Fonts
+| Font Family         | Preview                                                                                           |
+| ------------------- | ------------------------------------------------------------------------------------------------- |
+| `Bitter`            | <span style={{fontFamily: "Bitter"}}>The quick brown fox jumps over a lazy dog.</span>            |
+| `Crimson Text`      | <span style={{fontFamily: "Crimson Text"}}>The quick brown fox jumps over a lazy dog.</span>      |
+| `EB Garamond`       | <span style={{fontFamily: "EB Garamond"}}>The quick brown fox jumps over a lazy dog.</span>       |
+| `Libre Baskerville` | <span style={{fontFamily: "Libre Baskerville"}}>The quick brown fox jumps over a lazy dog.</span> |
+| `Lora`              | <span style={{fontFamily: "Lora"}}>The quick brown fox jumps over a lazy dog.</span>              |
+| `Merriweather`      | <span style={{fontFamily: "Merriweather"}}>The quick brown fox jumps over a lazy dog.</span>      |
+| `Noto Serif`        | <span style={{fontFamily: "Noto Serif"}}>The quick brown fox jumps over a lazy dog.</span>        |
+| `Playfair Display`  | <span style={{fontFamily: "Playfair Display"}}>The quick brown fox jumps over a lazy dog.</span>  |
+| `PT Serif`          | <span style={{fontFamily: "PT Serif"}}>The quick brown fox jumps over a lazy dog.</span>          |
 
-export function StoryExample() {
-  return <Example label="Bomb Diggity!" />;
-}
+### Monospaced Fonts
+| Font Family       | Preview                                                                                         |
+| ----------------- | ----------------------------------------------------------------------------------------------- |
+| `Courier Prime`   | <span style={{fontFamily: "Courier Prime"}}>The quick brown fox jumps over a lazy dog.</span>   |
+| `DM Mono`         | <span style={{fontFamily: "DM Mono"}}>The quick brown fox jumps over a lazy dog.</span>         |
+| `JetBrains Mono`  | <span style={{fontFamily: "JetBrains Mono"}}>The quick brown fox jumps over a lazy dog.</span>  |
+| `Roboto Mono`     | <span style={{fontFamily: "Roboto Mono"}}>The quick brown fox jumps over a lazy dog.</span>     |
+| `Source Code Pro` | <span style={{fontFamily: "Source Code Pro"}}>The quick brown fox jumps over a lazy dog.</span> |
+| `Space Mono`      | <span style={{fontFamily: "Space Mono"}}>The quick brown fox jumps over a lazy dog.</span>      |
+| `Ubuntu Mono`     | <span style={{fontFamily: "Ubuntu Mono"}}>The quick brown fox jumps over a lazy dog.</span>     |
+
+> Fun fact: The sentence "the quick brown fox jumps over a lazy dog" isn't just a silly statement. It's called a "pangram", or a sentence that contains all the letters of the alphabet, and is useful for quickly previewing all letters in any given typeface. Thank you for coming to my TED talk.
+
+## Suggested font pairings
+
+Knowing which fonts to choose can be difficult, so here are 10 different font pairing suggestions using the built-in fonts above.
+
+Each pairing includes a preview and the code needed to register and use the fonts.
+
+### 1. Inter & Bitter
+
+Clean sans-serif with classic serif for a balanced design.
+
+<h2 style={{ marginLeft: 23, fontFamily: "Inter", fontWeight: "bold" }}>The quick brown fox jumps over a lazy dog.</h2>
+
+<p style={{ marginLeft: 23, fontFamily: "Bitter" }}>The quick brown fox jumps over a lazy dog. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+```ts
+Font.register(Fonts.load(Fonts.sansSerif.inter));
+Font.register(Fonts.load(Fonts.serif.bitter));
+```
+
+### 2. Montserrat & Merriweather
+
+Modern geometric with traditional serif for a contemporary yet classic feel.
+
+<h2 style={{ marginLeft: 23, fontFamily: "Montserrat", fontWeight: "bold" }}>The quick brown fox jumps over a lazy dog.</h2>
+
+<p style={{ marginLeft: 23, fontFamily: "Merriweather" }}>The quick brown fox jumps over a lazy dog. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+```ts
+Font.register(Fonts.load(Fonts.sansSerif.montserrat));
+Font.register(Fonts.load(Fonts.serif.merriweather));
+```
+
+### 3. Poppins & Playfair Display
+
+Rounded sans-serif paired with elegant serif for a stylish contrast.
+
+<h2 style={{ marginLeft: 23, fontFamily: "Poppins", fontWeight: "bold" }}>The quick brown fox jumps over a lazy dog.</h2>
+
+<p style={{ marginLeft: 23, fontFamily: "Playfair Display" }}>The quick brown fox jumps over a lazy dog. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+```ts
+Font.register(Fonts.load(Fonts.sansSerif.poppins));
+Font.register(Fonts.load(Fonts.serif.playfairDisplay));
+```
+
+### 4. Lato & Libre Baskerville
+
+Friendly sans-serif with sophisticated serif for an approachable elegance.
+
+<h2 style={{ marginLeft: 23, fontFamily: "Lato", fontWeight: "bold" }}>The quick brown fox jumps over a lazy dog.</h2>
+
+<p style={{ marginLeft: 23, fontFamily: "Libre Baskerville" }}>The quick brown fox jumps over a lazy dog. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+```ts
+Font.register(Fonts.load(Fonts.sansSerif.lato));
+Font.register(Fonts.load(Fonts.serif.libreBaskerville));
+```
+
+### 5. Roboto & Noto Serif
+
+Versatile sans-serif matched with legible serif for dependable readability.
+
+<h2 style={{ marginLeft: 23, fontFamily: "Roboto", fontWeight: "bold" }}>The quick brown fox jumps over a lazy dog.</h2>
+
+<p style={{ marginLeft: 23, fontFamily: "Noto Serif" }}>The quick brown fox jumps over a lazy dog. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+```ts
+Font.register(Fonts.load(Fonts.sansSerif.roboto));
+Font.register(Fonts.load(Fonts.serif.notoSerif));
+```
+
+### 6. Raleway & Lora
+
+Stylish sans-serif with a warm serif for a welcoming aesthetic.
+
+<h2 style={{ marginLeft: 23, fontFamily: "Raleway", fontWeight: "bold" }}>The quick brown fox jumps over a lazy dog.</h2>
+
+<p style={{ marginLeft: 23, fontFamily: "Lora" }}>The quick brown fox jumps over a lazy dog. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+```ts
+Font.register(Fonts.load(Fonts.sansSerif.raleway));
+Font.register(Fonts.load(Fonts.serif.lora));
+```
+
+### 7. Montserrat & Roboto
+
+Bold geometric sans-serif combined with simple sans-serif for dynamic clarity.
+
+<h2 style={{ marginLeft: 23, fontFamily: "Montserrat", fontWeight: "bold" }}>The quick brown fox jumps over a lazy dog.</h2>
+
+<p style={{ marginLeft: 23, fontFamily: "Roboto" }}>The quick brown fox jumps over a lazy dog. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+```ts
+Font.register(Fonts.load(Fonts.sansSerif.montserrat));
+Font.register(Fonts.load(Fonts.sansSerif.roboto));
+```
+
+### 8. Noto Sans & Open Sans
+
+Clean and modern sans-serifs for clear readability.
+
+<h2 style={{ marginLeft: 23, fontFamily: "Noto Sans", fontWeight: "bold" }}>The quick brown fox jumps over a lazy dog.</h2>
+
+<p style={{ marginLeft: 23, fontFamily: "Open Sans" }}>The quick brown fox jumps over a lazy dog. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+```ts
+Font.register(Fonts.load(Fonts.sansSerif.notoSans));
+Font.register(Fonts.load(Fonts.sansSerif.openSans));
+```
+
+### 9. Lato & Poppins
+
+A friendly sans-serif paired with a rounded sans-serif for a cohesive and inviting look.
+
+<h2 style={{ marginLeft: 23, fontFamily: "Lato", fontWeight: "bold" }}>The quick brown fox jumps over a lazy dog.</h2>
+
+<p style={{ marginLeft: 23, fontFamily: "Poppins" }}>The quick brown fox jumps over a lazy dog. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+```ts
+Font.register(Fonts.load(Fonts.sansSerif.lato));
+Font.register(Fonts.load(Fonts.sansSerif.poppins));
+```
+
+### 10. Inter & Roboto Condensed
+
+Versatile sans-serif with a sleek condensed option for efficient use of space.
+
+<h2 style={{ marginLeft: 23, fontFamily: "Inter", fontWeight: "bold" }}>The quick brown fox jumps over a lazy dog.</h2>
+
+<p style={{ marginLeft: 23, fontFamily: "Roboto Condensed" }}>The quick brown fox jumps over a lazy dog. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+```ts
+Font.register(Fonts.load(Fonts.sansSerif.inter));
+Font.register(Fonts.load(Fonts.sansSerif.robotoCondensed));
+```
+
+## Using custom fonts
+
+Looking to use a font that's not included with React PDF Builder?
+
+To register a custom font, you'll use the [Font registration interface](https://react-pdf.org/fonts) via react-pdf.
+
+At the moment, only TTF and WOFF font files are supported.
+
+> *Side note: While building React PDF Builder, support for handwriting and display fonts was initially planned, but all of these fonts (20 total attempted) failed to load. In fact, 50 total fonts were planned, but half of them did not load. So your mileage may vary when loading custom fonts. Please [open a PR](https://github.com/justinmahar/react-pdf-builder/pulls) if you find a way to support handwriting and display fonts!*
+
+### Step 1 - Upload TTF files to host
+
+First, you will need to make sure all of your font files (TTF or WOFF) are at a publicly accessible URL. 
+
+You can use the [Google Webfonts Helper](https://gwfh.mranftl.com/fonts) to download the appropriate font files:
+
+1. Select your desired font
+1. Select your desired charsets (choose Latin for English)
+1. Select Legacy Support to download TTF files, or Historic Support to download WOFF files
+1. Download, unzip, and upload the TTF or WOFF font files to your host
+
+### Step 2 - Register custom font
+
+Next, you'll [register the font](https://react-pdf.org/fonts) with react-pdf, being sure to specify the font weight and style for each font file:
+
+```ts
+Font.register({
+  family: "Ubuntu",
+  fonts: [
+    { src: "https://example.com/fonts/ubuntu-v20-latin-300.ttf", fontWeight: 300 },
+    { src: "https://example.com/fonts/ubuntu-v20-latin-300italic.ttf", fontWeight: 300, fontStyle: "italic" },
+    { src: "https://example.com/fonts/ubuntu-v20-latin-regular.ttf", fontWeight: 400 },
+    { src: "https://example.com/fonts/ubuntu-v20-latin-italic.ttf", fontWeight: 400, fontStyle: "italic" },
+    { src: "https://example.com/fonts/ubuntu-v20-latin-500.ttf", fontWeight: 500 },
+    { src: "https://example.com/fonts/ubuntu-v20-latin-500italic.ttf", fontWeight: 500, fontStyle: "italic" },
+    { src: "https://example.com/fonts/ubuntu-v20-latin-700.ttf", fontWeight: 700 },
+    { src: "https://example.com/fonts/ubuntu-v20-latin-700italic.ttf", fontWeight: 700, fontStyle: "italic" },
+  ],
+});
+```
+
+Generally speaking, "regular" means a font weight of `400`.
+
+### Step 3 - Specify fontFamily style
+
+Finally, specify the value you used for `family` as the `fontFamily` style for your PDF elements to use your custom font.
+
+If you loaded font files supporting italics and bold, you can now use `fontWeight` and `fontStyle` styles, or the `fw-bold` and `fst-italic` [utility class names](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-utility-classes--docs#text), to format text.
+
+```tsx
+<Paragraph style={{ fontFamily: "Ubuntu" }}>
+  ...
+</Paragraph>
 ```
