@@ -42,7 +42,16 @@ React PDF Builder includes support for 25 different fonts, with bold and italics
 
 Fonts must first be registered with [react-pdf](https://react-pdf.org/fonts) to be usable in your PDF. 
 
-Register any of the built-in fonts like so:
+Register any of the built-in fonts as follows.
+
+Add the following imports:
+
+```ts
+import { Fonts } from 'react-pdf-builder';
+import { Font } from '@react-pdf/renderer';
+```
+
+Then, in your component, call the following:
 
 ```ts
 Font.register(Fonts.load(Fonts.sansSerif.roboto));
@@ -129,7 +138,7 @@ Font.register(Fonts.load(Fonts.serif.bitter));
 
 ### 2. Montserrat & Merriweather
 
-> Modern geometric with traditional serif for a contemporary yet classic feel.
+> Modern geometric sans-serif with traditional serif for a contemporary yet classic feel.
 
 <h2 style={{ marginLeft: 20, fontFamily: "Montserrat", fontWeight: "bold" }}>The quick brown fox jumps over a lazy dog.</h2>
 
