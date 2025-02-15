@@ -8,8 +8,6 @@ import { usePDFThemeContext } from '../theme/PDFThemeProvider';
 import { Heading5 } from '../typography/Heading5';
 
 export interface CardHeaderProps extends BoxProps {
-  children?: any;
-  className?: string;
   as?: any;
   noBody?: boolean;
   withHeader?: boolean;

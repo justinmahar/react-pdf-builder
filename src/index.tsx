@@ -3,13 +3,13 @@ export * from './components/Style';
 
 // === Components ===
 // Basics
+export * from './components/basics/Div';
 export * from './components/basics/ThemedCanvas';
 export * from './components/basics/ThemedImage';
 export * from './components/basics/ThemedLink';
 export * from './components/basics/ThemedPage';
 export * from './components/basics/ThemedSvg';
 export * from './components/basics/ThemedText';
-export * from './components/basics/Div';
 
 // Button
 export * from './components/button/Button';

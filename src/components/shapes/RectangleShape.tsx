@@ -8,7 +8,6 @@ import { ShapeProps } from './ShapeProps';
 
 export interface RectangleShapeProps extends ShapeProps {
   rectProps?: Partial<RectProps>;
-  className?: string;
 }
 
 export const RectangleShape = ({

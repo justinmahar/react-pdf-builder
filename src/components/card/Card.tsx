@@ -7,8 +7,6 @@ import { Style } from '../Style';
 import { usePDFThemeContext } from '../theme/PDFThemeProvider';
 
 export interface CardProps extends BoxProps {
-  children?: any;
-  className?: string;
   swatch?: SwatchColor;
   swatchOpacity?: number;
 }

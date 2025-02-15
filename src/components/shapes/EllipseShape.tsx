@@ -8,7 +8,6 @@ import { ShapeProps } from './ShapeProps';
 
 export interface EllipseShapeProps extends ShapeProps {
   ellipseProps?: Partial<EllipseProps>;
-  className?: string;
 }
 
 export const EllipseShape = ({

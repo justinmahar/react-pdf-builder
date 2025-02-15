@@ -1,15 +1,11 @@
 import React from 'react';
-import { SwatchColor } from '../../themes/ColorScheme';
 import { ThemeBuilder } from '../../themes/ThemeBuilder';
-import { ThemedText } from '../basics/ThemedText';
+import { ThemedText, ThemedTextProps } from '../basics/ThemedText';
 import { Style } from '../Style';
 import { usePDFThemeContext } from '../theme/PDFThemeProvider';
-import { ParagraphProps } from '../typography/Paragraph';
 
-export interface PageNumberProps extends ParagraphProps {
-  className?: string;
+export interface PageNumberProps extends ThemedTextProps {
   format?: string;
-  swatch?: SwatchColor;
 }
 
 export const PageNumber = ({ className, style, ...props }: PageNumberProps) => {

@@ -8,8 +8,6 @@ import { Box, BoxProps } from '../layout/Box';
 import { usePDFThemeContext } from '../theme/PDFThemeProvider';
 
 export interface TableProps extends BoxProps {
-  children?: any;
-  className?: string;
   striped?: boolean;
   stripeStyle?: Style;
   inverseStriped?: boolean;

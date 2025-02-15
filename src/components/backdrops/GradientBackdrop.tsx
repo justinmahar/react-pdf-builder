@@ -10,8 +10,6 @@ import { usePDFThemeContext } from '../theme/PDFThemeProvider';
 import { Backdrops } from './Backdrops';
 
 export interface GradientBackdropProps extends BoxProps {
-  children?: any;
-  className?: string;
   size: PageSizeString | { width: number; height: number };
   orientation?: 'portrait' | 'landscape';
   gradient?: string[] | GradientStop[];

@@ -8,8 +8,6 @@ import { Style } from '../Style';
 import { usePDFThemeContext } from '../theme/PDFThemeProvider';
 
 export interface TableRowProps extends BoxProps {
-  children?: any;
-  className?: string;
   rowIndex?: number;
   rowCount?: number;
   striped?: boolean;

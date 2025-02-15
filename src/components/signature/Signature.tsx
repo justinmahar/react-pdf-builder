@@ -9,8 +9,6 @@ import { Box, BoxProps } from '../layout/Box';
 import { usePDFThemeContext } from '../theme/PDFThemeProvider';
 
 export interface SignatureProps extends BoxProps {
-  children?: any;
-  className?: string;
   lineSize?: number;
   x?: boolean;
   xProps?: TextProps;

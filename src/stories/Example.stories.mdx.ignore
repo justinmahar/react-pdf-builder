@@ -26,6 +26,7 @@ Describe how to use the component here.
 | Inherits all props from                                                                                      |
 | ------------------------------------------------------------------------------------------------------------ |
 | [Div](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-basics-div--docs) |
+| [View](https://react-pdf.org/components#view)                                                                |
 
 And supports the following props:
 

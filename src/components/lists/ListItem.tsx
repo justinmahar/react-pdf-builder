@@ -1,15 +1,12 @@
-import { ViewProps } from '@react-pdf/renderer';
 import React from 'react';
 import { SwatchColor } from '../../themes/ColorScheme';
 import { ThemeBuilder } from '../../themes/ThemeBuilder';
-import { Div } from '../basics/Div';
+import { Div, DivProps } from '../basics/Div';
 import { ThemedChildren } from '../children/ThemedChildren';
 import { Style } from '../Style';
 import { usePDFThemeContext } from '../theme/PDFThemeProvider';
 
-export interface ListItemProps extends ViewProps {
-  children?: any;
-  className?: string;
+export interface ListItemProps extends DivProps {
   swatch?: SwatchColor;
 }
 

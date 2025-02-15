@@ -8,8 +8,6 @@ import { Box, BoxProps } from '../layout/Box';
 import { usePDFThemeContext } from '../theme/PDFThemeProvider';
 
 export interface TableCellProps extends BoxProps {
-  children?: any;
-  className?: string;
   colIndex?: number;
   colCount?: number;
   colWidths?: (string | number)[];

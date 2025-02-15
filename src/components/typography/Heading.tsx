@@ -1,10 +1,5 @@
-import { TextProps } from '@react-pdf/renderer';
-import { Theme } from '../../themes/Theme';
-import { SwatchColor } from '../../themes/ColorScheme';
+import { ThemedTextProps } from '../basics/ThemedText';
 
-export interface HeadingProps extends TextProps {
-  children?: any;
-  className?: string;
+export interface HeadingProps extends ThemedTextProps {
   rule?: boolean;
-  swatch?: SwatchColor;
 }

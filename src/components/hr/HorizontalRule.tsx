@@ -1,13 +1,11 @@
-import { ViewProps } from '@react-pdf/renderer';
 import React from 'react';
 import { SwatchColor } from '../../themes/ColorScheme';
 import { ThemeBuilder } from '../../themes/ThemeBuilder';
-import { Div } from '../basics/Div';
+import { Div, DivProps } from '../basics/Div';
 import { Style } from '../Style';
 import { usePDFThemeContext } from '../theme/PDFThemeProvider';
 
-export interface HorizontalRuleProps extends ViewProps {
-  className?: string;
+export interface HorizontalRuleProps extends DivProps {
   swatch?: SwatchColor;
 }
 

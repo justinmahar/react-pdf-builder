@@ -1,5 +1,5 @@
-import { ViewProps } from '@react-pdf/renderer';
 import React from 'react';
+import { DivProps } from 'react-html-props';
 import { SwatchColor } from '../../themes/ColorScheme';
 import { ThemeBuilder } from '../../themes/ThemeBuilder';
 import { Style } from '../Style';
@@ -8,9 +8,7 @@ import { ThemedChildren } from '../children/ThemedChildren';
 import { usePDFThemeContext } from '../theme/PDFThemeProvider';
 import { ListItemContainer, ListItemContainerProps } from './ListItemContainer';
 
-export interface OrderedListProps extends ViewProps {
-  children?: any;
-  className?: string;
+export interface OrderedListProps extends DivProps {
   wrapItems?: boolean;
   markerStyle?: Style;
   markerSwatch?: SwatchColor;

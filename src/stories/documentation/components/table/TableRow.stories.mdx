@@ -35,7 +35,9 @@ Describe how to use the component here.
 
 | Inherits all props from                                                                                      |
 | ------------------------------------------------------------------------------------------------------------ |
+| [Box](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-box--docs)        |
 | [Div](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-basics-div--docs) |
+| [View](https://react-pdf.org/components#view)                                                                |
 
 And supports the following props:
 
@@ -44,6 +46,24 @@ And supports the following props:
 | xxxxxx | xxxxxx                           | Optional.                                                                                                                                                                    |
 | swatch | `SwatchColor` &#124; `undefined` | Optional. One of the [swatch color names](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-themes--docs#swatch-colors) from the theme, as a string. |
 
+  striped?: boolean;
+  stripeStyle?: Style;
+  inverseStriped?: boolean;
+  stripeOpacity?: number;
+  rowStyle?: Style;
+  cellStyle?: Style;
+  bordered?: boolean;
+  borderedOutside?: boolean;
+  borderedInside?: boolean;
+  borderedVertical?: boolean;
+  borderedHorizontal?: boolean;
+  borderColor?: string;
+  borderStyle?: 'dashed' | 'dotted' | 'solid';
+  borderWidth?: string | number;
+  colWidths?: (string | number)[];
+  swatchOpacity?: number;
+  swatch?: SwatchColor;
+  
 ## TableRow Example
 
 <DocsPDF>
