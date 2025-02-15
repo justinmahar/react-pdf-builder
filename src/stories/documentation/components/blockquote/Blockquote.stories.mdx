@@ -21,7 +21,7 @@ import { Blockquote } from 'react-pdf-builder';
 Describe how to use the component here.
 
 ```jsx
-<Blockquote>
+<Blockquote className="lh-base">
   “Contents of blockquote go here.”
 </Blockquote>
 ```
@@ -37,10 +37,10 @@ Describe how to use the component here.
 
 <DocsPDF>
   <Box dir="y">
-    <Blockquote>“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.”</Blockquote>
-    <Blockquote swatch="blue">Blockquotes can be swatched easily by passing the swatch prop. This blockquote is swatched "blue".</Blockquote>
-    <Blockquote swatch="yellow">Blockquotes can be swatched easily by passing the swatch prop. This blockquote is swatched "yellow".</Blockquote>
-    <Blockquote swatch="success">Blockquotes can be swatched easily by passing the swatch prop. This blockquote is swatched "success".</Blockquote>
+    <Blockquote className="lh-base">“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.”</Blockquote>
+    <Blockquote className="lh-base" swatch="blue">Blockquotes can be swatched easily by passing the swatch prop. This blockquote is swatched "blue".</Blockquote>
+    <Blockquote className="lh-base" swatch="yellow">Blockquotes can be swatched easily by passing the swatch prop. This blockquote is swatched "yellow".</Blockquote>
+    <Blockquote className="lh-base" swatch="success">Blockquotes can be swatched easily by passing the swatch prop. This blockquote is swatched "success".</Blockquote>
   </Box>
 </DocsPDF>
 
@@ -54,18 +54,18 @@ export function Example() {
     <PDFViewer style={{ width: 420, height: 600 }}>
       <Document>
         <ThemedPage size="LETTER">
-          <Blockquote>
+          <Blockquote className="lh-base">
             “Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
             magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
             consequat.”
           </Blockquote>
-          <Blockquote swatch="blue">
+          <Blockquote className="lh-base" swatch="blue">
             Blockquotes can be swatched easily by passing the swatch prop. This blockquote is swatched "blue".
           </Blockquote>
-          <Blockquote swatch="yellow">
+          <Blockquote className="lh-base" swatch="yellow">
             Blockquotes can be swatched easily by passing the swatch prop. This blockquote is swatched "yellow".
           </Blockquote>
-          <Blockquote swatch="green">
+          <Blockquote className="lh-base" swatch="green">
             Blockquotes can be swatched easily by passing the swatch prop. This blockquote is swatched "green".
           </Blockquote>
         </ThemedPage>

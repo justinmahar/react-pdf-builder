@@ -36,7 +36,7 @@ export class LightThemeBuilder extends ThemeBuilder {
         className: 'mb-3',
       },
       cardBodyProps: {
-        className: 'rounded-top rounded-bottom border border-gray500 bg-white p-3 lh-base',
+        className: 'rounded-top rounded-bottom border border-gray500 bg-white p-3',
       },
       cardHeaderProps: {
         className: 'rounded-top rounded-bottom border border-gray500 bg-gray200 py-2 px-3',
@@ -111,7 +111,7 @@ export class LightThemeBuilder extends ThemeBuilder {
 
       // === Typography === === === === === === === === === === ===
       blockquoteProps: {
-        className: 'mb-3 p-3 fs-5 border-start-5 border-color-gray800 bg-gray200 lh-base',
+        className: 'mb-3 p-3 fs-5 border-start-5 border-color-gray800 bg-gray200',
       },
       headingProps: {},
       heading1Props: {
