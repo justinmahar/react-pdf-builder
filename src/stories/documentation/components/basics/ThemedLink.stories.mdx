@@ -27,10 +27,12 @@ Describe how to use the component here.
 
 ### Props
 
-| Prop            | Type                        | Description                                |
-| --------------- | --------------------------- | ------------------------------------------ |
-| label           | `string`                    | **Required.** Label shown in the component |
-| backgroundColor | `string` &#124; `undefined` | Optional. What background color to use     |
+This component inherits all props from [Link](https://react-pdf.org/components#link), with the following additional props:
+
+| Prop      | Type                             | Description                                                                                                                                                                                       |
+| --------- | -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| swatch    | `SwatchColor` &#124; `undefined` | Optional. One of the [swatch color names](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-themes--docs#swatch-colors) from the theme, as a string.                      |
+| className | `string` &#124; `undefined`      | Optional. Class name string used to style the component. [Class names](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-themes--docs#class-names) are defined in themes. |
 
 ## ThemedLink Example
 
