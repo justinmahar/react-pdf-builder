@@ -1,14 +1,12 @@
 import { ViewProps } from '@react-pdf/renderer';
 import React from 'react';
 import { ThemeBuilder } from '../../themes/ThemeBuilder';
-import { Div } from '../basics/ThemedView';
+import { Div, DivProps } from '../basics/ThemedView';
 import { ThemedChildren } from '../children/ThemedChildren';
 import { Style } from '../Style';
 import { usePDFThemeContext } from '../theme/PDFThemeProvider';
 
-export interface BoxProps extends ViewProps {
-  children?: any;
-  className?: string;
+export interface BoxProps extends DivProps {
   dir?: 'row' | 'x' | 'column' | 'y';
   grow?: boolean;
   shrink?: boolean;
