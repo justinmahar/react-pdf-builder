@@ -73,35 +73,25 @@ This allows you to easily add `RectangleShape` children to create gradient overl
 
 And supports the following props:
 
-| Prop   | Type                             | Description                                                                                                                                                                  |
-| ------ | -------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| xxxxxx | xxxxxx                           | Optional.                                                                                                                                                                    |
-| swatch | `SwatchColor` &#124; `undefined` | Optional. One of the [swatch color names](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-themes--docs#swatch-colors) from the theme, as a string. |
-
-
-  size: PageSizeString | `{ width: number; height: number }`;
-  orientation?: 'portrait' | 'landscape';
-  gradient?: string[] | GradientStop[];
-  gradientType?: GradientType;
-  swatch?: SwatchColor;
-  darken?: boolean;
-  /** How much to darken each gradient color from 0 to 1, as an array. */
-  darkenAmounts?: number[];
-  lighten?: boolean;
-  /** How much to lighten each gradient color from 0 to 1, as an array. */
-  lightenAmounts?: number[];
-  whiten?: boolean;
-  /** How much to whiten each gradient color from 0 to 1, as an array. */
-  whitenAmounts?: number[];
-  blacken?: boolean;
-  /** How much to blacken each gradient color from 0 to 1, as an array. */
-  blackenAmounts?: number[];
-  saturate?: boolean;
-  /** How much to saturate each gradient color from 0 to 1, as an array. */
-  saturateAmounts?: number[];
-  desaturate?: boolean;
-  /** How much to desaturate each gradient color from 0 to 1, as an array. */
-  desaturateAmounts?: number[];
+| Prop              | Type                                                                                                                                                                                   | Description                                                                                                                                                                                                                      |
+| ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| size              | [`PageSizeString`](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-basics-themedpage--docs#page-sizes) &#124; `{ width: number; height: number }` | **Required.** A [page string size](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-basics-themedpage--docs#page-sizes), such as `"A4"` or `"LETTER"`, or an object with a width and height. |
+| orientation       | `'portrait'` &#124; `'landscape'`                                                                                                                                                      | Optional.                                                                                                                                                                                                                        |
+| gradient          | `string[]` &#124; `GradientStop[]`                                                                                                                                                     | Optional.                                                                                                                                                                                                                        |
+| gradientType      | `GradientType`                                                                                                                                                                         | Optional.                                                                                                                                                                                                                        |
+| swatch            | `SwatchColor`                                                                                                                                                                          | Optional. One of the [swatch color names](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-themes--docs#swatch-colors) from the theme, as a string.                                                     |
+| darken            | `boolean`                                                                                                                                                                              | Optional.                                                                                                                                                                                                                        |
+| darkenAmounts     | `number[]`                                                                                                                                                                             | Optional. How much to darken each gradient color from 0 to 1, as an array.                                                                                                                                                       |
+| lighten           | `boolean`                                                                                                                                                                              | Optional.                                                                                                                                                                                                                        |
+| lightenAmounts    | `number[]`                                                                                                                                                                             | Optional. How much to lighten each gradient color from 0 to 1, as an array.                                                                                                                                                      |
+| whiten            | `boolean`                                                                                                                                                                              | Optional.                                                                                                                                                                                                                        |
+| whitenAmounts     | `number[]`                                                                                                                                                                             | Optional. How much to whiten each gradient color from 0 to 1, as an array.                                                                                                                                                       |
+| blacken           | `boolean`                                                                                                                                                                              | Optional.                                                                                                                                                                                                                        |
+| blackenAmounts    | `number[]`                                                                                                                                                                             | Optional. How much to blacken each gradient color from 0 to 1, as an array.                                                                                                                                                      |
+| saturate          | `boolean`                                                                                                                                                                              | Optional.                                                                                                                                                                                                                        |
+| saturateAmounts   | `number[]`                                                                                                                                                                             | Optional. How much to saturate each gradient color from 0 to 1, as an array.                                                                                                                                                     |
+| desaturate        | `boolean`                                                                                                                                                                              | Optional.                                                                                                                                                                                                                        |
+| desaturateAmounts | `number[]`                                                                                                                                                                             | Optional. How much to desaturate each gradient color from 0 to 1, as an array.                                                                                                                                                   |
 
 ## GradientBackdrop Example
 
