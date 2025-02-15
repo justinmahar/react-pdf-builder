@@ -18,13 +18,24 @@ Description of the Table component.
 ## Usage
 
 ```jsx
-import { Table } from 'react-pdf-builder';
+import { Table, TableRow, TableCell } from 'react-pdf-builder';
 ```
 
 Describe how to use the component here.
 
 ```jsx
-<Table label="Bomb Diggity!" />
+<Table bordered striped>
+  <TableRow>
+    <TableCell>Lorem ipsum dolor</TableCell>
+    <TableCell>Sit amet</TableCell>
+    <TableCell>Sed do eiusmod</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>Lorem ipsum dolor</TableCell>
+    <TableCell>Sit amet</TableCell>
+    <TableCell>Sed do eiusmod</TableCell>
+  </TableRow>
+</Table>
 ```
 
 ### Props

@@ -24,7 +24,13 @@ import { PageNumber } from 'react-pdf-builder';
 Describe how to use the component here.
 
 ```jsx
-<PageNumber label="Bomb Diggity!" />
+<PageNumber />
+```
+
+You can specify a custom format, like so:
+
+```jsx
+<PageNumber format="Page %n of %t"/>
 ```
 
 ### Props
@@ -38,7 +44,7 @@ Describe how to use the component here.
 
 <DocsPDF>
   <Box fixed className="p-3 border-bottom justify-content-center mb-3">
-    <PageNumber format='Page %n of %t'/>
+    <PageNumber format="Page %n of %t"/>
   </Box>
   <Paragraph>This is some filler text. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</Paragraph>
   <Paragraph>This is some more filler text. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</Paragraph>
@@ -59,7 +65,7 @@ export function Example() {
       <Document>
         <ThemedPage size="LETTER">
           <Box fixed className="p-3 border-bottom justify-content-center mb-3">
-            <PageNumber format='Page %n of %t'/>
+            <PageNumber format="Page %n of %t"/>
           </Box>
           <Paragraph>This is some filler text. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</Paragraph>
           <Paragraph>This is some more filler text. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</Paragraph>

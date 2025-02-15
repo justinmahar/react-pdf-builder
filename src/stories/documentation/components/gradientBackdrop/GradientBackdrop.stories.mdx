@@ -15,14 +15,53 @@ Description of the GradientBackdrop component.
 ## Usage
 
 ```jsx
-import { GradientBackdrop } from 'react-pdf-builder';
+import { GradientBackdrop, GradientType } from 'react-pdf-builder';
 ```
 
-Describe how to use the component here.
+You can use any theme swatch with the `darken` or `lighten` prop:
 
 ```jsx
-<GradientBackdrop label="Bomb Diggity!" />
+<GradientBackdrop size="A4" darken swatch="primary" />
 ```
+
+Or, specify the colors you'd like, and a direction for the gradient:
+
+```jsx
+<GradientBackdrop size="A4" gradient={['red', 'purple']} gradientType={GradientType.leftToRight} />
+```
+
+For fine-grained control over gradients, you can use gradient stops:
+
+```jsx
+<GradientBackdrop
+  size="A4"
+  gradient={[
+    { offset: "0%", stopColor: "black", stopOpacity: 0.3 },
+    { offset: "100%", stopColor: "black", stopOpacity: 0.7 },
+  ]}
+  gradientType={GradientType.topLeftToBottomRight}
+/>;
+```
+
+For a solid color, provide a single color in the gradient array, like so:
+
+```jsx
+<GradientBackdrop size="A4" gradient={['red']} />
+```
+
+A few pre-made decorators are available to make your backdrop more interesting:
+
+```jsx
+import { BackdropDecorators } from 'react-pdf-builder';
+
+<GradientBackdrop size="A4" darken swatch="cyan">
+  {BackdropDecorators.circles1}
+</GradientBackdrop>
+```
+
+All children will be given the same `width` and `height` as the `GradientBackdrop` itself and will be positioned `absolute`. 
+
+This allows you to easily add `RectangleShape` children to create gradient overlays, which is how `BackdropDecorators` function.
 
 ### Props
 

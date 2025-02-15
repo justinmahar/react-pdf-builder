@@ -21,7 +21,13 @@ import { ThemedCanvas } from 'react-pdf-builder';
 Describe how to use the component here.
 
 ```jsx
-<ThemedCanvas label="Bomb Diggity!" />
+<ThemedCanvas
+  paint={(painter, w, h) => {
+    // Paint your canvas here
+    return null;
+  }}
+  style={{ width: 400, height: 400 }}
+/>
 ```
 
 ### Props
