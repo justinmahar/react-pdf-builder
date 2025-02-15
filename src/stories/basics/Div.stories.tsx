@@ -1,24 +1,24 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
 import { ThemedText } from '../../components/basics/ThemedText';
-import { Div } from '../../components/basics/ThemedView';
+import { Div } from '../../components/basics/Div';
 import { Paragraph, ParagraphProps } from '../../components/typography/Paragraph';
 import { PDFStory } from '../parts/PDFStory';
 
 const StoryComponent = (props: ParagraphProps) => {
   return (
     <PDFStory>
-      <Div className="text-indigo border border-indigo p-3 rounded bg-faded-indigo fw-bold">
+      <Div className="text-blue border border-blue p-3 rounded bg-faded-blue fw-bold">
         <Paragraph>
           This is a Div with a variety of class names from the theme to achieve a unique look. It contains 3 Paragraph
           components and a ThemedText containing the class names.
         </Paragraph>
         <Paragraph>
           A Div can be used like an HTML div in this framework. It supports both the className and style props to make
-          styling easy. Div is an alias for the component ThemedView.
+          styling easy.
         </Paragraph>
         <Paragraph className="mb-0">Class names used:</Paragraph>
-        <ThemedText>"text-indigo border border-indigo p-3 rounded bg-faded-indigo fw-bold"</ThemedText>
+        <ThemedText>"text-blue border border-blue p-3 rounded bg-faded-blue fw-bold"</ThemedText>
       </Div>
     </PDFStory>
   );

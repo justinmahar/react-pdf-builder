@@ -3,7 +3,7 @@ import React from 'react';
 import { Fonts } from '../../fonts/Fonts';
 import { Themes } from '../../themes/Themes';
 import { ThemedPage } from '../basics/ThemedPage';
-import { Div } from '../basics/ThemedView';
+import { Div } from '../basics/Div';
 import { Button } from '../button/Button';
 import { Box } from '../layout/Box';
 import { PDFThemeProvider } from '../theme/PDFThemeProvider';

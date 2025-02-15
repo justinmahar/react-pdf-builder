@@ -4,12 +4,12 @@ import { ThemeBuilder } from '../../themes/ThemeBuilder';
 import { ThemedChildren } from '../children/ThemedChildren';
 import { usePDFThemeContext } from '../theme/PDFThemeProvider';
 
-export interface ThemedViewProps extends ViewProps {
+export interface DivProps extends ViewProps {
   children?: any;
   className?: string;
 }
 
-export const ThemedView = ({ children, className, style, ...props }: ThemedViewProps) => {
+export const Div = ({ children, className, style, ...props }: DivProps) => {
   const theme = usePDFThemeContext();
   const classNameStyles = ThemeBuilder.getStylesForClassName(className, theme.classNames);
   return (
@@ -18,6 +18,3 @@ export const ThemedView = ({ children, className, style, ...props }: ThemedViewP
     </View>
   );
 };
-
-export const Div = ThemedView;
-export type DivProps = ThemedViewProps;

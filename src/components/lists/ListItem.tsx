@@ -2,7 +2,7 @@ import { ViewProps } from '@react-pdf/renderer';
 import React from 'react';
 import { SwatchColor } from '../../themes/ColorScheme';
 import { ThemeBuilder } from '../../themes/ThemeBuilder';
-import { Div } from '../basics/ThemedView';
+import { Div } from '../basics/Div';
 import { ThemedChildren } from '../children/ThemedChildren';
 import { Style } from '../Style';
 import { usePDFThemeContext } from '../theme/PDFThemeProvider';

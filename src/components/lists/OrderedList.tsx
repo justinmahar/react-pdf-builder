@@ -3,7 +3,7 @@ import React from 'react';
 import { SwatchColor } from '../../themes/ColorScheme';
 import { ThemeBuilder } from '../../themes/ThemeBuilder';
 import { Style } from '../Style';
-import { Div } from '../basics/ThemedView';
+import { Div } from '../basics/Div';
 import { ThemedChildren } from '../children/ThemedChildren';
 import { usePDFThemeContext } from '../theme/PDFThemeProvider';
 import { ListItemContainer, ListItemContainerProps } from './ListItemContainer';

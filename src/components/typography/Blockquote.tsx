@@ -2,7 +2,7 @@ import Color from 'color';
 import React from 'react';
 import { SwatchColor } from '../../themes/ColorScheme';
 import { ThemeBuilder } from '../../themes/ThemeBuilder';
-import { Div, DivProps } from '../basics/ThemedView';
+import { Div, DivProps } from '../basics/Div';
 import { ThemedChildren } from '../children/ThemedChildren';
 import { Style } from '../Style';
 import { usePDFThemeContext } from '../theme/PDFThemeProvider';
