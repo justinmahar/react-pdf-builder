@@ -5,8 +5,8 @@ import remarkGfm from 'remark-gfm';
 const config: StorybookConfig = {
   stories: [
     '../src/stories/core/1.README.stories.mdx', // default page
-    '../src/**/documentation/*.stories.mdx', // default page
-    '../src/**/demo/**.stories.tsx', // default page
+    '../src/**/documentation/*.stories.mdx',
+    '../src/**/demo/**.stories.tsx',
     '../src/**/*.stories.mdx',
     '../src/**/*.stories.@(js|jsx|ts|tsx)',
   ],

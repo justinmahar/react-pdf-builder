@@ -87,9 +87,9 @@ npm i @react-pdf/renderer react-pdf-builder
 
 ## Quick Start
 
-Below is a component that renders a standard A4 size PDF with a heading, paragraph, card, and table. You can use this as a starting point.
+Below is a component that renders a standard A4 size PDF with a heading, paragraph, button, and custom styled div. You can use this as a starting point.
 
-Most components can be themed using the `swatch` prop, and custom styled using `style` and CSS, or even custom class names.
+Most components can be themed using the `swatch` prop, and custom styled with CSS using `style` or `className`.
 
 Use `LETTER` page size for 8.5x11" paper used in the USA.
 
