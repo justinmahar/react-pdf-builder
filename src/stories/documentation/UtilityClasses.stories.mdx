@@ -6,7 +6,21 @@ import { Meta } from '@storybook/addon-docs';
 
 <h2>Overview</h2>
 
-Description of the Example component.
+React PDF Builder includes support for CSS class names, and the built-in light and dark themes both include a large set of utility classes to make styling easy and convenient.
+
+Utility classes in this framework are an adaptation of the [Bootstrap 5 utility classes](https://getbootstrap.com/docs/5.2/utilities/spacing/). You can read the [documentation](https://getbootstrap.com/docs/5.2/utilities/spacing/) for a better understanding of the naming and numbering system used.
+
+All utility class names toggle the [styles supported by react-pdf](https://react-pdf.org/styling#valid-css-properties), the underlying framework.
+
+You can also define custom class names, allowing you to specify your own reusable styles. Read more on how to do that [here](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-themes--docs). 
+
+<h3>Sizes and scaling</h3>
+
+All sizes are in points, and documents are based on a standard 72 dpi PDF document. 72 points = 1 inch or 2.54 cm.
+
+The utility class styles are computed using a color scheme and a scale factor. Keep in mind that all point sizes will be multiplied by the scale factor provided in the theme config, with a default of `1`. 
+
+As such, all values shown in the tables below are normalized to a scale factor of `1`.
 
 <h2>Utility Class Reference</h2>
 
