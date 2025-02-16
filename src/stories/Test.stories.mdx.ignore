@@ -15,8 +15,6 @@ Description of the Example component.
 import { Example } from 'react-kindling';
 ```
 
-Describe how to use the component here.
-
 ```jsx
 <Example label="Bomb Diggity!" />
 ```

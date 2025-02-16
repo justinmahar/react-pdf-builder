@@ -17,8 +17,6 @@ Description of the Template component.
 import { Template } from 'react-pdf-builder';
 ```
 
-Describe how to use the component here.
-
 ```jsx
 <Template label="Bomb Diggity!" />
 ```
