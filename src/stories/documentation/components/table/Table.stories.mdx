@@ -13,7 +13,11 @@ import { HorizontalRule } from '../../../../components/hr/HorizontalRule';
 
 ## Description
 
-Description of the Table component.
+The Table component is designed for displaying structured data in a clean and organized format. 
+
+It includes options for borders, striping, and custom column widths.
+
+You can apply [swatch colors](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-themes--docs#swatch-colors) to a table via the `swatch` prop. Applying a swatch to a table will affect the striping and border colors.
 
 ## Usage
 
@@ -35,6 +39,12 @@ import { Table, TableRow, TableCell } from 'react-pdf-builder';
   </TableRow>
 </Table>
 ```
+
+### Custom columns
+
+You can use the `colWidths` prop to specify custom widths for each column. By default, cell widths are divided evenly.
+
+[TableRow](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-tables-tablerow--docs) can also be given the `colWidths` prop to change the cells widths for just that row. This is particularly useful if you want to use colspans in your table. See the example below.
 
 ### Props
 

@@ -13,7 +13,9 @@ import { HorizontalRule } from '../../../../components/hr/HorizontalRule';
 
 ## Description
 
-Description of the TableRow component.
+The TableRow component is used to create a row in a [Table](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-tables-table--docs). It serves as a container for [TableCell](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-tables-tablecell--docs) components, allowing you to organize data in a structured format. 
+
+You can apply [swatch colors](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-themes--docs#swatch-colors) to a table row via the `swatch` prop. Applying a swatch will change the row's background color and will set a contrasting color for the text.
 
 ## Usage
 
@@ -29,6 +31,18 @@ import { TableRow, TableCell } from 'react-pdf-builder';
 </TableRow>
 ```
 
+### Header rows
+
+Applying a [swatch](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-themes--docs#swatch-colors) to a table row with class name `fw-bold` for a bold font is an easy way to create a distinctive table header row.
+
+### Custom columns
+
+A TableRow can have more or less cells than other rows. Cells widths will simply be divided equally.
+
+You can use the `colWidths` prop to specify custom widths for each column.
+
+For rows with less columns than others, you can specify custom widths to achieve a colspan. See the example below.
+
 ### Props
 
 | Inherits all props from                                                                                      |
@@ -41,7 +55,6 @@ And supports the following props:
 
 | Prop               | Type                                          | Description                                                                                                                                                                  |
 | ------------------ | --------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| swatch             | `SwatchColor`                                 | Optional. One of the [swatch color names](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-themes--docs#swatch-colors) from the theme, as a string. |
 | striped            | `boolean`                                     | Optional.                                                                                                                                                                    |
 | stripeStyle        | `Style`                                       | Optional.                                                                                                                                                                    |
 | inverseStriped     | `boolean`                                     | Optional.                                                                                                                                                                    |
@@ -57,8 +70,8 @@ And supports the following props:
 | borderStyle        | `'dashed'` &#124; `'dotted'` &#124; `'solid'` | Optional.                                                                                                                                                                    |
 | borderWidth        | `string` &#124; `number`                      | Optional.                                                                                                                                                                    |
 | colWidths          | `(string OR number)[]`                        | Optional.                                                                                                                                                                    |
+| swatch             | `SwatchColor`                                 | Optional. One of the [swatch color names](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-themes--docs#swatch-colors) from the theme, as a string. |
 | swatchOpacity      | `number`                                      | Optional.                                                                                                                                                                    |
-| swatch             | `SwatchColor`                                 | Optional.                                                                                                                                                                    |
   
 ## TableRow Example
 

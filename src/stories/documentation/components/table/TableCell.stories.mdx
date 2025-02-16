@@ -13,7 +13,9 @@ import { HorizontalRule } from '../../../../components/hr/HorizontalRule';
 
 ## Description
 
-Description of the TableCell component.
+The TableCell component is used to define individual cells within a [Table](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-tables-table--docs). 
+
+You can apply [swatch colors](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-themes--docs#swatch-colors) to individual cells via the `swatch` prop. Applying a swatch will add a partly transparent background color to the cell.
 
 ## Usage
 
@@ -35,20 +37,10 @@ import { TableCell } from 'react-pdf-builder';
 
 And supports the following props:
 
-| Prop             | Type                                          | Description                                                                                                                                                                  |
-| ---------------- | --------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| xxxxxx           | xxxxxx                                        | Optional.                                                                                                                                                                    |
-| swatch           | `SwatchColor`                                 | Optional. One of the [swatch color names](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-themes--docs#swatch-colors) from the theme, as a string. |
-| colWidths        | `(string OR number)[]`                        | Optional.                                                                                                                                                                    |
-| cellStyle        | `Style`                                       | Optional.                                                                                                                                                                    |
-| bordered         | `boolean`                                     | Optional.                                                                                                                                                                    |
-| borderedInside   | `boolean`                                     | Optional.                                                                                                                                                                    |
-| borderedVertical | `boolean`                                     | Optional.                                                                                                                                                                    |
-| borderColor      | `string`                                      | Optional.                                                                                                                                                                    |
-| borderWidth      | `string` &#124; `number`                      | Optional.                                                                                                                                                                    |
-| borderStyle      | `'dashed'` &#124; `'dotted'` &#124; `'solid'` | Optional.                                                                                                                                                                    |
-| swatch           | `SwatchColor`                                 | Optional.                                                                                                                                                                    |
-| swatchOpacity    | `number`                                      | Optional.                                                                                                                                                                    |
+| Prop          | Type          | Description                                                                                                                                                                  |
+| ------------- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| swatch        | `SwatchColor` | Optional. One of the [swatch color names](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-themes--docs#swatch-colors) from the theme, as a string. |
+| swatchOpacity | `number`      | Optional.                                                                                                                                                                    |
 
 ## TableCell Example
 
