@@ -1,9 +1,8 @@
 import React from 'react';
-import { DivProps } from 'react-html-props';
 import { SwatchColor } from '../../themes/ColorScheme';
 import { ThemeBuilder } from '../../themes/ThemeBuilder';
 import { Style } from '../Style';
-import { Div } from '../basics/Div';
+import { Div, DivProps } from '../basics/Div';
 import { ThemedChildren } from '../children/ThemedChildren';
 import { usePDFThemeContext } from '../theme/PDFThemeProvider';
 import { ListItemContainer, ListItemContainerProps } from './ListItemContainer';
