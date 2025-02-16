@@ -93,10 +93,10 @@ const theme = Themes.default.build({
 });
 ```
 
-By default, a scale of `1` is sized for `A4` or `LETTER` pages at 72 dpi, with a font size of 16 pts.
+By default, a scale of `1` is sized for `A4` or `LETTER` pages at 72 dpi, with a font size of `16 pts`.
 
-A scale of `2` would be sized to fit an `A2` (which is 2x the size of `A4`), a scale of `4` would be sized for an `A0` (which is 2x the size of `A2`).
+A scale of `2` would therefore use a font size of `32 pts` and would be sized to fit an `A2` (which is 2x the size of `A4`), a scale of `4` would be sized for an `A0` (which is 2x the size of `A2`), and so forth. 
 
-You can easily scale your entire PDF to match any page size by changing this one config value. 
+Of course, you may simply want to fit more on the page, so you could scale your `A4` or `LETTER` layout to `0.5`. It's up to you, really. But you can easily scale your entire PDF to fit any page size by changing this one config value.
 
-Be sure to multiply any custom style sizes by the scale factor as well.
+Just be sure to multiply any custom style sizes by the scale factor as well.

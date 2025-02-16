@@ -32,21 +32,18 @@ Describe how to use the component here.
 
 And supports the following props:
 
-| Prop   | Type                             | Description                                                                                                                                                                  |
-| ------ | -------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| xxxxxx | xxxxxx                           | Optional.                                                                                                                                                                    |
-| swatch | `SwatchColor` | Optional. One of the [swatch color names](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-themes--docs#swatch-colors) from the theme, as a string. |
+| Prop                 | Type                                                 | Description                                                                                                                                                                  |
+| -------------------- | ---------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| swatch               | `SwatchColor`                                        | Optional. One of the [swatch color names](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-themes--docs#swatch-colors) from the theme, as a string. |
+| ellipseProps         | `Partial<EllipseProps>`                              | Optional.                                                                                                                                                                    |
+| linearGradientProps  | `Partial<LinearGradientProps>`                       | Optional.                                                                                                                                                                    |
+| radialGradientProps  | `Partial<RadialGradientProps>`                       | Optional.                                                                                                                                                                    |
+| gradient             | `GradientStop[]` &#124; `string[]`                   | Optional.                                                                                                                                                                    |
+| gradientType         | `GradientType`                                       | Optional.                                                                                                                                                                    |
+| linearGradientCoords | `{ x1: number; y1: number; x2: number; y2: number }` | Optional.                                                                                                                                                                    |
+| radialGradientCoords | `{ x: number; y: number }`                           | Optional.                                                                                                                                                                    |
+| className            | `string`                                             | Optional.                                                                                                                                                                    |
 
-```
-  ellipseProps?: Partial<EllipseProps>;
-  linearGradientProps?: Partial<LinearGradientProps>;
-  radialGradientProps?: Partial<RadialGradientProps>;
-  gradient?: GradientStop[] | string[];
-  gradientType?: GradientType;
-  linearGradientCoords?: { x1: number; y1: number; x2: number; y2: number };
-  radialGradientCoords?: { x: number; y: number };
-  className?: string;
-```
 
 ## EllipseShape Example
 
