@@ -10,7 +10,15 @@ import { Box } from '../../../../components/layout/Box';
 
 ## Description
 
-Description of the Button component.
+## Description
+
+The Button component is designed to create interactive elements that users can click on.
+
+You can customize the look with [swatch colors](http://localhost:6006/?path=/docs/documentation-themes--docs#swatch-colors), styles, and [class names](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-themes--docs#class-names). 
+
+By specifying the `href` prop, you can link to other pages or resources, too. 
+
+In addition to the theme's [swatch colors](http://localhost:6006/?path=/docs/documentation-themes--docs#swatch-colors), a special swatch is available called `'link'` that will make the button appear as a link.
 
 ## Usage
 
@@ -48,6 +56,7 @@ And supports the following props:
     <Button href="https://justinmahar.github.io/react-pdf-builder/" swatch='yellow'>Yellow</Button>
     <Button href="https://justinmahar.github.io/react-pdf-builder/" swatch='danger'>Danger</Button>
     <Button href="https://justinmahar.github.io/react-pdf-builder/" swatch='success'>Success</Button>
+    <Button href="https://justinmahar.github.io/react-pdf-builder/" swatch='link'>Link</Button>
   </Box>
 </DocsPDF>
 
@@ -67,6 +76,7 @@ export function Example() {
             <Button href="https://justinmahar.github.io/react-pdf-builder/" swatch='yellow'>Yellow</Button>
             <Button href="https://justinmahar.github.io/react-pdf-builder/" swatch='danger'>Danger</Button>
             <Button href="https://justinmahar.github.io/react-pdf-builder/" swatch='success'>Success</Button>
+            <Button href="https://justinmahar.github.io/react-pdf-builder/" swatch='link'>Link</Button>
           </Box>
         </ThemedPage>
       </Document>
