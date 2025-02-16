@@ -10,7 +10,9 @@ import { GradientType } from '../../../../components/shapes/Gradients';
 
 ## Description
 
-Description of the RectangleShape component.
+The RectangleShape component lets you easily create and customize SVG rectangles for your PDF.
+
+Just provide a `width` and `height` then configure your rectangle via the props below.
 
 ## Usage
 
@@ -32,7 +34,6 @@ And supports the following props:
 
 | Prop                 | Type                                                 | Description                                                                                                                                                                  |
 | -------------------- | ---------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| swatch               | `SwatchColor`                                        | Optional. One of the [swatch color names](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-themes--docs#swatch-colors) from the theme, as a string. |
 | rectProps            | `Partial<RectProps>`                                 | Optional.                                                                                                                                                                    |
 | linearGradientProps  | `Partial<LinearGradientProps>`                       | Optional.                                                                                                                                                                    |
 | radialGradientProps  | `Partial<RadialGradientProps>`                       | Optional.                                                                                                                                                                    |
@@ -42,6 +43,37 @@ And supports the following props:
 | radialGradientCoords | `{ x: number; y: number }`                           | Optional.                                                                                                                                                                    |
 | className            | `string`                                             | Optional.                                                                                                                                                                    |
 
+### Gradient Types 
+
+The following gradient types are available:
+
+- `GradientType.leftToRight`
+- `GradientType.rightToLeft`
+- `GradientType.topToBottom`
+- `GradientType.bottomToTop`
+- `GradientType.topLeftToBottomRight`
+- `GradientType.bottomLeftToTopRight`
+- `GradientType.bottomRightToTopLeft`
+- `GradientType.topRightToBottomLeft`
+- `GradientType.radial`
+
+### Gradient Stops
+
+You can use gradient stops to create custom gradients.
+
+A gradient stop is an object with the following properties:
+
+| Property    | Type                     | Description                                                 |
+| ----------- | ------------------------ | ----------------------------------------------------------- |
+| offset      | `string` &#124; `number` | Offset as a percentage, such as `0%`, `50%`, `80%`, `100%`. |
+| stopColor   | `string`                 | The color for the stop.                                     |
+| stopOpacity | `string` &#124; `number` | Opacity for the stop from `0` to `1`.                       |
+
+For example, here is a gradient stop at with offset of 20% with a gray color and an opacity of 4%:
+
+```ts
+{ offset: '20%', stopColor: '#5f5f5f', stopOpacity: 0.04 }
+```
 
 ## RectangleShape Example
 

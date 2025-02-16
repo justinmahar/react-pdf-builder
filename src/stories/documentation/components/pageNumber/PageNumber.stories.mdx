@@ -13,7 +13,15 @@ import { Box } from '../../../../components/layout/Box';
 
 ## Description
 
-Description of the PageNumber component.
+## Description
+
+A PageNumber component allows you to easily display the page number in a customizable format within your PDF documents.
+
+You can use this in conjunction with the `fixed` prop to create headers and footers that include the page number and total number of pages. 
+
+See the example below, and read the [Fixed components section](https://react-pdf.org/advanced#page-wrapping) of the react-pdf docs for more info.
+
+This component utilizes [react-pdf Dynamic Content](https://react-pdf.org/advanced#dynamic-content) to determine page number information.
 
 ## Usage
 
@@ -25,11 +33,24 @@ import { PageNumber } from 'react-pdf-builder';
 <PageNumber />
 ```
 
+The default format will be `page number / total pages`, such as `2 / 14` for page 2 out of 14 total pages.
+
 You can specify a custom format, like so:
 
 ```jsx
 <PageNumber format="Page %n of %t"/>
 ```
+
+### Custom format
+
+In your custom format, you can use the following placeholders, which will be replaced with their corresponding page number values.
+
+| Placeholder | Resulting Value       |
+| ----------- | --------------------- |
+| `%n`        | Current page number   |
+| `%t`        | Total number of pages |
+| `%sn`       | Sub page number       |
+| `%st`       | Sub pages total       |
 
 ### Props
 

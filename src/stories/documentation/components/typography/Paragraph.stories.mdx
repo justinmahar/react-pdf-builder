@@ -9,7 +9,22 @@ import { Paragraph } from '../../../../components/typography/Paragraph';
 
 ## Description
 
-Description of the Paragraph component.
+The Paragraph component formats text into clean, readable paragraphs, making it easy to present information clearly.
+
+Use this component to create structured text sections in your PDF.
+
+By default, Paragraphs have a bottom margin equaling the base font size, and have a line height of `1.5`. 
+
+If a paragraph is the last element, you can easily remove the bottom margin with the class name `mb-0`.
+
+To easily change the line height, the following class names are available for common line heights:
+
+```
+lh-1	{ "lineHeight": 1 }
+lh-sm	{ "lineHeight": 1.25 }
+lh-base	{ "lineHeight": 1.5 }
+lh-lg	{ "lineHeight": 2 }
+```
 
 ## Usage
 
@@ -32,12 +47,6 @@ import { Paragraph } from 'react-pdf-builder';
 | -------------------------------------------------------------------------------------------------------------------------- |
 | [ThemedText](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-basics-themedtext--docs) |
 | [Text](https://react-pdf.org/components#text)                                                                              |
-
-And supports the following props:
-
-| Prop | Type      | Description                                                      |
-| ---- | --------- | ---------------------------------------------------------------- |
-| last | `boolean` | Optional. When `true`, the paragraph will have no bottom margin. |
 
 ## Paragraph Example
 
