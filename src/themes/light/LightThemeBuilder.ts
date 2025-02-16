@@ -12,7 +12,7 @@ export class LightThemeBuilder extends ThemeBuilder {
     const emSize = 16;
     const baseFontSize = emSize;
     const classNames = createDefaultClassNames(scale, emSize, colorScheme);
-    const scaledPagePadding = 0.5 * 72 * scale; // Inches x DPI, scaled
+    const scaledPagePadding = 0.5 * 72 * scale; // Inches x dpi, scaled
     const scaledFontSize = baseFontSize * scale;
     const scaledEmSize = emSize * scale;
     const bodyBgColor = colorScheme.greyscale.white;
