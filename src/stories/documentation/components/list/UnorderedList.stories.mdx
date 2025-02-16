@@ -12,7 +12,7 @@ import { ListItem } from '../../../../components/lists/ListItem';
 
 The UnorderedList component helps you create bullet point lists easily.
 
-You can customize the bullet with a custom character, although you may need a [custom Font](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-fonts--docs#using-custom-fonts) that includes your desired symbol.
+You can customize the bullet with a custom character, although you may need to [register a custom font](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-fonts--docs#using-custom-fonts) that includes your desired symbol.
 
 The text color can also be customized with the `swatch` prop and a [swatch color](http://localhost:6006/?path=/docs/documentation-themes--docs#swatch-colors).
 
@@ -24,6 +24,22 @@ import { UnorderedList, ListItem } from 'react-pdf-builder';
 
 ```jsx
 <UnorderedList>
+  <ListItem>First list item</ListItem>
+  <ListItem>Second list item</ListItem>
+  <ListItem>Third list item</ListItem>
+</UnorderedList>
+```
+
+### List item margin and marker gap
+
+Internally, the list item marker and list item itself are wrapped in a container. By default, this container uses a Flexbox with a column gap and a bottom margin for spacing.
+
+The default spacing can be customized by providing `containerProps` with a `style` overriding the `marginBottom` and `columnGap`.
+
+The following will remove all default spacing from the list:
+
+```tsx
+<UnorderedList containerProps={{ style: { marginBottom: 0, columnGap: 0 }}}>
   <ListItem>First list item</ListItem>
   <ListItem>Second list item</ListItem>
   <ListItem>Third list item</ListItem>
