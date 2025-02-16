@@ -134,6 +134,22 @@ export const StyledMarker: Story = {
   args: { markerStyle: { width: 50, textAlign: 'right' } },
 };
 
+export const RomanUpper: Story = {
+  args: { romanUpper: true, markerStyle: { minWidth: 25 } },
+};
+
+export const RomanLower: Story = {
+  args: { romanLower: true, markerStyle: { minWidth: 25 } },
+};
+
+export const AlphaUpper: Story = {
+  args: { alphaUpper: true },
+};
+
+export const AlphaLower: Story = {
+  args: { alphaLower: true },
+};
+
 export const CustomNumbering: Story = {
   args: { numberRenderer: (num) => `#${num}` },
 };

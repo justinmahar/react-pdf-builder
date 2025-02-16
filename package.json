@@ -96,6 +96,8 @@
   },
   "dependencies": {
     "color": "^4.2.3",
+    "number-to-alphabet": "^1.0.0",
+    "romans": "^3.0.0",
     "uuid": "^11.0.5"
   }
 }

@@ -10,7 +10,13 @@ import { Paragraph } from '../../../../components/typography/Paragraph';
 
 ## Description
 
-Description of the HorizontalRule component.
+The HorizontalRule component is a simple yet effective way to add visual separation between content.
+
+It creates a clean and clear line that helps break up text and organize your layout.
+
+By default, the rule will be a neutral gray color. You can use the `swatch` prop with a [swatch color](http://localhost:6006/?path=/docs/documentation-themes--docs#swatch-colors) to use a color from the theme, if you'd like.
+
+When used after a [Paragraph](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-typography-paragraph--docs), you will likely want to remove the paragraph's bottom margin with the `mb-0` class name.
 
 ## Usage
 
@@ -31,14 +37,14 @@ import { HorizontalRule } from 'react-pdf-builder';
 
 And supports the following props:
 
-| Prop   | Type                             | Description                                                                                                                                                                  |
-| ------ | -------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Prop   | Type          | Description                                                                                                                                                                  |
+| ------ | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | swatch | `SwatchColor` | Optional. One of the [swatch color names](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-themes--docs#swatch-colors) from the theme, as a string. |
 
 ## HorizontalRule Example
 
 <DocsPDF>
-  <Paragraph className='mb-0'>This is some filler text. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</Paragraph>
+  <Paragraph className="mb-0">This is some filler text. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</Paragraph>
   <HorizontalRule />
   <Paragraph>This is some more filler text. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</Paragraph>
 </DocsPDF>
@@ -53,7 +59,7 @@ export function Example() {
     <PDFViewer style={{ width: 420, height: 600 }}>
       <Document>
         <ThemedPage size="LETTER">
-          <Paragraph className='mb-0'>This is some filler text. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</Paragraph>
+          <Paragraph className="mb-0">This is some filler text. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</Paragraph>
           <HorizontalRule />
           <Paragraph>This is some more filler text. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</Paragraph>
         </ThemedPage>

@@ -10,7 +10,11 @@ import { ListItem } from '../../../../components/lists/ListItem';
 
 ## Description
 
-Description of the OrderedList component.
+The OrderedList component allows you to easily create numbered lists.
+
+You can customize the number renderer with a number format such as alphabet letters or Roman numerals, or an entirely custom one.
+
+The text color can also be customized with the `swatch` prop and a [swatch color](http://localhost:6006/?path=/docs/documentation-themes--docs#swatch-colors).
 
 ## Usage
 
@@ -26,6 +30,39 @@ import { OrderedList, ListItem } from 'react-pdf-builder';
 </OrderedList>
 ```
 
+### Number renderers
+
+By default, ordered lists will use numbers, such as `1.` `2.` `3.` `4.`
+
+Set the following props to `true` to easily customize numbering for your lists:
+
+| Prop       | Effect                                                    |
+| ---------- | --------------------------------------------------------- |
+| romanUpper | Uppercase Roman numerals, such as `I.` `II.` `III.` `IV.` |
+| romanLower | Lowercase Roman numerals, such as `i.` `ii.` `iii.` `iv.` |
+| alphaUpper | Uppercase alphabet letters, such as `A.` `B.` `C.` `D.`   |
+| alphaLower | Lowercase alphabet letters, such as `a.` `b.` `c.` `d.`   |
+
+You can specify your own number renderer with the `numberRenderer` prop.
+
+### Vertical alignment of numbers
+
+As lists grow, you may notice the markers (numbers) pushing the list items further to the right, making the vertical alignment of your list uneven as the list grows longer.
+
+This is noticeable when a numbered list has 10 or more items, or when using Roman numerals which vary in string length.
+
+To correct for this, you can give the marker container a minimum width, like so:
+
+```tsx
+<OrderedList romanLower markerStyle={{ minWidth: 15 }}>
+  <ListItem>First list item</ListItem>
+  <ListItem>Second list item</ListItem>
+  <ListItem>Third list item</ListItem>
+</OrderedList>
+```
+
+This will give each list number a minimum width that prevents it from pushing items to the right. You can adjust the `minWidth` size according to your design.
+
 ### Props
 
 | Inherits all props from                                                                                      |
@@ -37,11 +74,15 @@ And supports the following props:
 
 | Prop           | Type                      | Description                                                                                                                                                                  |
 | -------------- | ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| wrapItems      | `boolean`                 | Optional.                                                                                                                                                                    |
 | markerStyle    | `Style`                   | Optional.                                                                                                                                                                    |
 | markerSwatch   | `SwatchColor`             | Optional. One of the [swatch color names](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-themes--docs#swatch-colors) from the theme, as a string. |
 | containerProps | `ListItemContainerProps`  | Optional.                                                                                                                                                                    |
+| romanUpper     | `boolean`                 | Optional.                                                                                                                                                                    |
+| romanLower     | `boolean`                 | Optional.                                                                                                                                                                    |
+| alphaUpper     | `boolean`                 | Optional.                                                                                                                                                                    |
+| alphaLower     | `boolean`                 | Optional.                                                                                                                                                                    |
 | numberRenderer | `(num: number) => string` | Optional.                                                                                                                                                                    |
+| wrapItems      | `boolean`                 | Optional.                                                                                                                                                                    |
 | unstyled       | `boolean`                 | Optional.                                                                                                                                                                    |
 | swatch         | `SwatchColor`             | Optional. One of the [swatch color names](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-themes--docs#swatch-colors) from the theme, as a string. |
 
@@ -49,6 +90,11 @@ And supports the following props:
 
 <DocsPDF>
   <OrderedList>
+    <ListItem>First list item</ListItem>
+    <ListItem>Second list item</ListItem>
+    <ListItem>Third list item</ListItem>
+  </OrderedList>
+  <OrderedList romanLower markerStyle={{ minWidth: 15 }}>
     <ListItem>First list item</ListItem>
     <ListItem>Second list item</ListItem>
     <ListItem>Third list item</ListItem>
@@ -66,6 +112,11 @@ export function Example() {
       <Document>
         <ThemedPage size="LETTER">
           <OrderedList>
+            <ListItem>First list item</ListItem>
+            <ListItem>Second list item</ListItem>
+            <ListItem>Third list item</ListItem>
+          </OrderedList>
+          <OrderedList romanLower markerStyle={{ minWidth: 30 }}>
             <ListItem>First list item</ListItem>
             <ListItem>Second list item</ListItem>
             <ListItem>Third list item</ListItem>

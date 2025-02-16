@@ -21,12 +21,6 @@ export interface GradientBackdropProps extends BoxProps {
   lighten?: boolean;
   /** How much to lighten each gradient color from 0 to 1, as an array. */
   lightenAmounts?: number[];
-  whiten?: boolean;
-  /** How much to whiten each gradient color from 0 to 1, as an array. */
-  whitenAmounts?: number[];
-  blacken?: boolean;
-  /** How much to blacken each gradient color from 0 to 1, as an array. */
-  blackenAmounts?: number[];
   saturate?: boolean;
   /** How much to saturate each gradient color from 0 to 1, as an array. */
   saturateAmounts?: number[];
