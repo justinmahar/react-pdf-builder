@@ -195,11 +195,11 @@ You can [see all utility classes here](https://justinmahar.github.io/react-pdf-b
 
 ## Fonts and formatting
 
-React PDF Builder includes [25 drop-in fonts](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-fonts--docs), ready to use, and supporting the Latin charset (English) with bold and italic formatting. 
+React PDF Builder includes [25 drop-in fonts](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-fonts--docs), ready to use, and supports the Latin charset (used for English) with bold and italic formatting. 
 
 All built-in fonts are hosted via [jsdelivr](https://www.jsdelivr.com/), but you can [self-host](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-fonts--docs#self-hosting-built-in-fonts) them too if you'd like.
 
-The framework also includes drop-in support for 5 different Emoji sets by JoyPixels, Noto Emoji, OpenMoji, and Twemoji. Read more about [emoji support here](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-fonts--docs#adding-emoji-support).
+The framework also includes drop-in support for 5 different emoji sets by JoyPixels, Noto Emoji, OpenMoji, and Twemoji. Read more about [emoji support here](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-fonts--docs#adding-emoji-support).
 
 ## Downloading PDFs
 
