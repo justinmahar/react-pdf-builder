@@ -95,7 +95,7 @@ Use `LETTER` page size for 8.5x11" paper used in the USA.
 
 ```jsx
 import React from 'react';
-import { Box, Button, Div, Heading3, Paragraph, ThemedPage, PDFThemeProvider } from 'react-pdf-builder'
+import { Fonts, Themes, ThemedPage, Div, Button, Box, PDFThemeProvider, Heading3, Paragraph } from 'react-pdf-builder'
 import { Document, PDFViewer } from '@react-pdf/renderer';
 
 export const QuickStart = () => {
