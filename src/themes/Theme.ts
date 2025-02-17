@@ -1,26 +1,26 @@
-import { PageProps, TextProps } from '@react-pdf/renderer';
+import { TextProps } from '@react-pdf/renderer';
+import { ThemedLinkProps } from '../components/basics/ThemedLink';
+import { ThemedPageProps } from '../components/basics/ThemedPage';
+import { ButtonProps } from '../components/button/Button';
 import { CardProps } from '../components/card/Card';
 import { CardBodyProps } from '../components/card/CardBody';
 import { CardHeaderProps } from '../components/card/CardHeader';
-import { HeadingProps } from '../components/typography/Heading';
-import { ParagraphProps } from '../components/typography/Paragraph';
-import { PageNumberProps } from '../components/pages/PageNumber';
-import { UnorderedListProps } from '../components/lists/UnorderedList';
-import { OrderedListProps } from '../components/lists/OrderedList';
-import { TableCellProps } from '../components/table/TableCell';
-import { TableRowProps } from '../components/table/TableRow';
-import { TableProps } from '../components/table/Table';
+import { HorizontalRuleProps } from '../components/hr/HorizontalRule';
 import { ListItemProps } from '../components/lists/ListItem';
 import { ListItemContainerProps } from '../components/lists/ListItemContainer';
-import { ButtonProps } from '../components/button/Button';
-import { ColorScheme } from './ColorScheme';
-import { DeepPartial } from '../util/util';
-import { ThemedLinkProps } from '../components/basics/ThemedLink';
+import { OrderedListProps } from '../components/lists/OrderedList';
+import { UnorderedListProps } from '../components/lists/UnorderedList';
+import { PageNumberProps } from '../components/pages/PageNumber';
 import { SignatureProps } from '../components/signature/Signature';
+import { TableProps } from '../components/table/Table';
+import { TableCellProps } from '../components/table/TableCell';
+import { TableRowProps } from '../components/table/TableRow';
 import { BlockquoteProps } from '../components/typography/Blockquote';
+import { HeadingProps } from '../components/typography/Heading';
+import { ParagraphProps } from '../components/typography/Paragraph';
+import { DeepPartial } from '../util/util';
 import { ClassNames } from './classnames/ClassNames';
-import { ThemedPageProps } from '../components/basics/ThemedPage';
-import { HorizontalRuleProps } from '../components/hr/HorizontalRule';
+import { ColorScheme } from './ColorScheme';
 
 export interface Theme {
   // Color scheme

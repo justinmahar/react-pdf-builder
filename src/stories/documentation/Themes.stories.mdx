@@ -4,16 +4,178 @@ import { Meta } from '@storybook/addon-docs';
 
 <h1>Themes</h1>
 
-## Description
+React PDF Builder includes a robust theming system that includes a color scheme, support for class names, and props for all components used in the framework.
 
-React PDF Builder comes with a robust theme system.
+Read on for how to use themes in React PDF Builder.
 
-## Swatch Colors
+## Table of Contents
 
-### Palette Colors
+- [Table of Contents](#table-of-contents)
+- [Available themes](#available-themes)
+- [Using themes](#using-themes)
+- [Customizing themes](#customizing-themes)
+- [Theme properties](#theme-properties)
+- [Scaling components to fit pages](#scaling-components-to-fit-pages)
+- [Color schemes](#color-schemes)
+  - [Swatch colors](#swatch-colors)
+    - [Palette colors](#palette-colors)
+    - [Grayscale](#grayscale)
+    - [Theme colors](#theme-colors)
+  - [Contrast colors](#contrast-colors)
+- [Class names](#class-names)
+- [Creating custom themes](#creating-custom-themes)
+  - [Override existing themes](#override-existing-themes)
+  - [Build themes from scratch](#build-themes-from-scratch)
+- [Example custom theme](#example-custom-theme)
 
-| Swatch Name | Default Color                                                                                                                                                     |
-| ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+## Available themes
+
+The framework comes with both a light and dark theme. Both themes are adaptations of [Bootstrap 5](https://getbootstrap.com/), and both themes share a large set of predefined [utility classes](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-utility-classes--docs) that can be used to rapidly style your PDF components.
+
+All spacing, colors, fonts sizes, and line heights used in these themes closely match those of Bootstrap 5, so you may already be familiar with how they work.
+
+## Using themes
+
+First, import `Themes` and `PDFThemeProvider`:
+
+```jsx
+import { Themes, PDFThemeProvider } from 'react-pdf-builder';
+```
+
+You can then use the `Themes` class to access both the `light` and `dark` themes. The `default` theme is set to `light`.
+
+Then, call `build()` to create the theme using the default theme configuration.
+
+```jsx
+const theme = Themes.light.build();
+```
+
+Then, in your component inside your `Document` element, wrap all components in the `PDFThemeProvider`, like so:
+
+```jsx
+const theme = Themes.default.build();
+return (
+  <PDFViewer style={{ height: 700, width: 500 }}>
+    <Document>
+      <PDFThemeProvider theme={theme}>
+        <ThemedPage size="A4">
+          <Box dir="y" className="gap-3">
+            <Div className="bg-faded-blue">This Div is themed!</Div>
+          </Box>
+        </ThemedPage>
+      </PDFThemeProvider>
+    </Document>
+  </PDFViewer>
+);
+```
+
+Now, all components inside the `PDFThemeProvider` will use the theme you've built.
+
+## Customizing themes
+
+React PDF Builder allows you to easily override themes in order to specify your own styles or scale all component sizes.
+
+Just provide a build config when building the theme, like so:
+
+```jsx
+const theme = Themes.default.build({
+  scale: 1, // Scales all components
+  override: {
+    // Override any parts of the theme here
+  },
+});
+```
+
+You can override the `colorScheme`, `classNames`, and props for the framework's components. 
+
+Your override will be merged with the existing theme (class names are merged as well), so you only need to specify the properties you'd like to add or change.
+
+You can reference the table below for all properties that can be overridden.
+
+## Theme properties
+
+A theme is an object containing the following fields:
+
+| Property               | Type                                                                                                                                 |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| colorScheme            | [ColorScheme](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-themes--docs#color-scheme)                   |
+| classNames             | [ClassNames](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-themes--docs#class-names)                     |
+| buttonProps            | [ButtonProps](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-button--docs)                     |
+| cardProps              | [CardProps](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-cards-card--docs)                   |
+| cardBodyProps          | [CardBodyProps](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-cards-cardbody--docs)           |
+| cardHeaderProps        | [CardHeaderProps](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-cards-cardheader--docs)       |
+| hrProps                | [HorizontalRuleProps](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-horizontalrule--docs)     |
+| linkProps              | [ThemedLinkProps](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-basics-themedlink--docs)      |
+| listItemProps          | [ListItemProps](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-lists-listitem--docs)           |
+| listItemContainerProps | ListItemContainerProps                                                                                                               |
+| listItemMarkerProps    | [TextProps](https://react-pdf.org/components#text)                                                                                   |
+| unorderedListProps     | [UnorderedListProps](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-lists-unorderedlist--docs) |
+| orderedListProps       | [OrderedListProps](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-lists-orderedlist--docs)     |
+| pageProps              | [ThemedPageProps](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-basics-themedpage--docs)      |
+| pageNumberProps        | [PageNumberProps](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-pagenumber--docs)             |
+| signatureProps         | [SignatureProps](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-signature--docs)               |
+| tableProps             | [TableProps](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-tables-table--docs)                |
+| tableCellProps         | [TableCellProps](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-tables-tablecell--docs)        |
+| tableRowProps          | [TableRowProps](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-tables-tablerow--docs)          |
+| blockquoteProps        | [BlockquoteProps](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-blockquote--docs)             |
+| headingProps           | [HeadingProps](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-typography-heading1--docs)       |
+| heading1Props          | [HeadingProps](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-typography-heading1--docs)       |
+| heading2Props          | [HeadingProps](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-typography-heading2--docs)       |
+| heading3Props          | [HeadingProps](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-typography-heading3--docs)       |
+| heading4Props          | [HeadingProps](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-typography-heading4--docs)       |
+| heading5Props          | [HeadingProps](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-typography-heading5--docs)       |
+| heading6Props          | [HeadingProps](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-typography-heading6--docs)       |
+| paragraphProps         | [ParagraphProps](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-horizontalrule--docs)          |
+
+All fields can be overridden and customized.
+
+## Scaling components to fit pages
+
+You can scale all of your components by passing the `scale` option to the theme builder.
+
+```ts
+const theme = Themes.default.build({
+  scale: 1, // <- Change the scale here
+});
+```
+
+By default, a scale of `1` is sized for `A4` or `LETTER` pages at 72 dpi, with a font size of `16 pts`.
+
+A scale of `2` would therefore use a font size of `32 pts` and would be sized to fit an `A2` (which is 2x the size of `A4`), a scale of `4` would be sized for an `A0` (which is 2x the size of `A2`), and so forth. 
+
+Of course, you may simply want to fit more on the page, so you could scale your `A4` or `LETTER` layout to `0.5`. It's up to you, really. But you can easily scale your entire PDF to fit any page size by changing this one config value.
+
+Just be sure to multiply any custom style sizes by the scale factor as well.
+
+Read more on [pages sizes here](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-page-sizes--docs).
+
+## Color schemes
+
+The theme includes a color scheme based on [Bootstrap 5](https://getbootstrap.com/), with both a light and dark variation.
+
+The color scheme is comprised of the following:
+
+| Property  | Type              | Description                                                                                                                                                                  |
+| --------- | ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| colors    | `PaletteColors`   | A palette of named colors of the rainbow, such as `blue`, `green`, `red`, etc.                                                                                               |
+| greyscale | `GreyscaleColors` | Greyscale colors from `black` to `white`.                                                                                                                                    |
+| theme     | `ThemeColors`     | Colors with the labels `primary`, `secondary`, `success`, `info`, `warning`, `danger`, `light`, and `dark`.                                                                  |
+| contrast  | `SwatchColors`    | Contrast colors used to make text stand out on backgrounds that use the palette colors, greyscale colors, or theme colors. Typically these colors are either black or white. |
+
+All colors can be overridden to customize the theme and re-style all components in your PDF.
+
+See below for all available colors.
+
+### Swatch colors
+
+These are the core colors defined by a theme's color scheme.
+
+The following colors can be used as the `swatch` prop for any component that supports it. 
+
+#### Palette colors
+
+| Swatch Name | Default Color                                                                                    |
+| ----------- | ------------------------------------------------------------------------------------------------ |
 | `blue`      | <span class="swatch-color" style={{ backgroundColor: "#0d6efd", color: "white" }}>#0d6efd</span> |
 | `indigo`    | <span class="swatch-color" style={{ backgroundColor: "#6610f2", color: "white" }}>#6610f2</span> |
 | `purple`    | <span class="swatch-color" style={{ backgroundColor: "#6f42c1", color: "white" }}>#6f42c1</span> |
@@ -25,10 +187,10 @@ React PDF Builder comes with a robust theme system.
 | `teal`      | <span class="swatch-color" style={{ backgroundColor: "#20c997", color: "black" }}>#20c997</span> |
 | `cyan`      | <span class="swatch-color" style={{ backgroundColor: "#0dcaf0", color: "black" }}>#0dcaf0</span> |
 
-### Grayscale
+#### Grayscale
 
-| Swatch Name | Default Color                                                                                                                                                     |
-| ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Swatch Name | Default Color                                                                                    |
+| ----------- | ------------------------------------------------------------------------------------------------ |
 | `white`     | <span class="swatch-color" style={{ backgroundColor: "#ffffff", color: "black" }}>#ffffff</span> |
 | `gray100`   | <span class="swatch-color" style={{ backgroundColor: "#f8f9fa", color: "black" }}>#f8f9fa</span> |
 | `gray200`   | <span class="swatch-color" style={{ backgroundColor: "#e9ecef", color: "black" }}>#e9ecef</span> |
@@ -41,10 +203,10 @@ React PDF Builder comes with a robust theme system.
 | `gray900`   | <span class="swatch-color" style={{ backgroundColor: "#212529", color: "white" }}>#212529</span> |
 | `black`     | <span class="swatch-color" style={{ backgroundColor: "#000000", color: "white" }}>#000000</span> |
 
-### Theme Colors
+#### Theme colors
 
-| Swatch Name | Default Color                                                                                                                                                     |
-| ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Swatch Name | Default Color                                                                                    |
+| ----------- | ------------------------------------------------------------------------------------------------ |
 | `primary`   | <span class="swatch-color" style={{ backgroundColor: "#0d6efd", color: "white" }}>#0d6efd</span> |
 | `secondary` | <span class="swatch-color" style={{ backgroundColor: "#6c757d", color: "white" }}>#6c757d</span> |
 | `success`   | <span class="swatch-color" style={{ backgroundColor: "#198754", color: "white" }}>#198754</span> |
@@ -53,10 +215,22 @@ React PDF Builder comes with a robust theme system.
 | `danger`    | <span class="swatch-color" style={{ backgroundColor: "#dc3545", color: "white" }}>#dc3545</span> |
 | `light`     | <span class="swatch-color" style={{ backgroundColor: "#f8f9fa", color: "black" }}>#f8f9fa</span> |
 | `dark`      | <span class="swatch-color" style={{ backgroundColor: "#212529", color: "white" }}>#212529</span> |
-  
-## Class Names
 
-You can define custom class names via themes.
+### Contrast colors
+
+Contrast colors are also defined in the color scheme for all swatches above.
+
+Contrast colors are used to color text that is placed over a background that uses a swatch color. For example, a [Button](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-button--docs) with the `dark` swatch will use a `white` contrast color so that the text is legible.
+
+When overriding the swatch colors, be sure to also specify the appropriate contrast color (usually white or black) to ensure text is legible when the color is used for the background.
+
+## Class names
+
+Themes include a way to define class names that are available to all components in the framework. This can be very handy for defining styles that you'd like to reuse across your design.
+
+The default light and dark themes already include a large set of [utility classes](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-utility-classes--docs) that make styling your components easy.
+
+However, you can also add your own.
 
 Just add your class names to the override option, like so:
 
@@ -64,6 +238,131 @@ Just add your class names to the override option, like so:
 const theme = Themes.default.build({
   override: {
     classNames: { 'my-custom-class': { color: 'white', backgroundColor: 'darkblue', padding: 10 } },
+  },
+});
+```
+
+Now, any React PDF Builder component using a `className` of `my-custom-class` will receive the styles specified in the override. Hooray!
+
+## Creating custom themes
+
+### Override existing themes
+
+By using the `override` theme config option with either the `light` or `dark` themes to define your own color scheme, class names, and props for components, you can create an entirely custom look for your PDF.
+
+See the example below.
+
+### Build themes from scratch
+
+To build a theme from scratch, extend the `ThemeBuilder` class. You will need to provide your own color scheme, class names, and props for every component you'd like to style. Take a look at the [LightThemeBuilder](https://github.com/justinmahar/react-pdf-builder/blob/master/src/themes/light/LightThemeBuilder.ts) as a starting point.
+
+## Example custom theme
+
+Below is an example custom theme that uses pastels for the color scheme, removes border rounding, thickens blockquotes, and gives buttons a border.
+
+As you can see, it's possible to completely change the look of the PDF with a relatively small amount of code.
+
+You can see a [live demo of this pastel color scheme here](https://justinmahar.github.io/react-pdf-builder/?path=/story/stories-theme--pastel-custom-theme).
+
+```tsx
+// Theme using pastel colors
+const theme = Themes.light.build({
+  override: {
+    pageProps: {
+      style: {
+        color: '#343a40',
+        backgroundColor: '#F5F9FD',
+      },
+    },
+    colorScheme: {
+      colors: {
+        blue: '#a3c7eb',
+        indigo: '#9a7cbe',
+        purple: '#d1a3d9',
+        pink: '#f2a3c7',
+        red: '#f2b2b7',
+        orange: '#f2c6a8',
+        yellow: '#f9e7b8',
+        green: '#a3d7a8',
+        teal: '#b2e1db',
+        cyan: '#a3d5db',
+      },
+      theme: {
+        primary: '#a3c7eb',
+        secondary: '#ced4da',
+        success: '#a3d7a8',
+        info: '#a3d5db',
+        warning: '#f9e7b8',
+        danger: '#f2b2b7',
+        light: '#f8f9fa',
+        dark: '#495057',
+      },
+      contrast: {
+        blue: '#000000',
+        purple: '#000000',
+        pink: '#000000',
+        red: '#000000',
+        orange: '#000000',
+        yellow: '#000000',
+        green: '#000000',
+        teal: '#000000',
+        cyan: '#000000',
+        white: '#000000',
+        primary: '#000000',
+        secondary: '#000000',
+        success: '#000000',
+        info: '#000000',
+        warning: '#000000',
+        danger: '#000000',
+        light: '#000000',
+        dark: '#FFFFFF',
+      },
+    },
+    linkProps: {
+      className: 'fw-bold',
+      style: {
+        color: '#5C9DFE',
+      },
+    },
+    cardHeaderProps: {
+      className: 'rounded-0',
+    },
+    cardBodyProps: {
+      className: 'rounded-0',
+      style: {
+        backgroundColor: '#F5F9FD',
+      },
+    },
+    buttonProps: {
+      className: 'border border-gray800 rounded-0',
+      linkColor: '#5C9DFE',
+    },
+    tableProps: {
+      stripeOpacity: 0.1,
+      stripeStyle: {
+        backgroundColor: '#00000009',
+      },
+    },
+    tableCellProps: {
+      swatchOpacity: 0.5,
+    },
+    headingProps: {
+      style: {
+        color: '#343a40',
+        borderBottomColor: '#343a40',
+      },
+    },
+    signatureProps: {
+      style: {
+        borderBottomColor: '#343a40',
+      },
+    },
+    blockquoteProps: {
+      swatchOpacity: 0.3,
+      style: {
+        borderLeftWidth: 20,
+      },
+    },
   },
 });
 ```
