@@ -24,6 +24,10 @@ All components support the `className` prop, allowing you to use [class names](h
 
 ### Basics
 
+These components wrap the basic [components](https://react-pdf.org/components) provided by [react-pdf](https://react-pdf.org/).
+
+They all add support for the `className` prop, allowing you to use the [utility classes](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-utility-classes--docs) and even [custom class names](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-themes--docs#class-names) from the theme to easily style your components.
+
 | Component                                                                                                                      | Description                                                                                                                            |
 | ------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------- |
 | [Div](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-basics-div--docs)                   | A flexible container for organizing and styling content, with class name support. Wraps [View](https://react-pdf.org/components#view). |
@@ -35,6 +39,8 @@ All components support the `className` prop, allowing you to use [class names](h
 | [ThemedText](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-basics-themedtext--docs)     | A styled text component with class name support. Wraps [Text](https://react-pdf.org/components#text).                                  |
 
 ### Typography & Text
+
+Headings, paragraphs, blockquotes, and horizontal rules are available for any text you want to display in your PDF.
 
 | Component                                                                                                                    | Description                                    |
 | ---------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------- |
@@ -50,6 +56,8 @@ All components support the `className` prop, allowing you to use [class names](h
 
 #### Lists
 
+Ordered and unordered lists are included, as well.
+
 | Component                                                                                                                       | Description                           |
 | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------- |
 | [OrderedList](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-lists-orderedlist--docs)     | A numbered list for sequential items. |
@@ -58,11 +66,15 @@ All components support the `className` prop, allowing you to use [class names](h
 
 ### Layout
 
+If you're familiar with CSS Flexbox, then the Box component will be your best friend.
+
 | Component                                                                                             | Description                                |
 | ----------------------------------------------------------------------------------------------------- | ------------------------------------------ |
 | [Box](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-box--docs) | A flexbox container for layout management. |
 
 #### Cards
+
+Cards are available for separating content into well-defined sections. Easily use [swatches](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-themes--docs#swatch-colors) from the theme's color scheme to customize the look.
 
 | Component                                                                                                                 | Description                         |
 | ------------------------------------------------------------------------------------------------------------------------- | ----------------------------------- |
@@ -72,12 +84,16 @@ All components support the `className` prop, allowing you to use [class names](h
 
 ### Pages
 
+Add backdrops and page numbers to your PDF pages.
+
 | Component                                                                                                                       | Description                                        |
 | ------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------- |
 | [GradientBackdrop](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-gradientbackdrop--docs) | A page background component with gradient effects. |
 | [PageNumber](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-pagenumber--docs)             | A component for displaying page numbers.           |
 
 ### Shapes
+
+Easy to use components are available for basic SVG shapes. For more advanced SVG creation, see the [react-pdf Svg component](https://react-pdf.org/svg).
 
 | Component                                                                                                                          | Description                               |
 | ---------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------- |
@@ -87,6 +103,8 @@ All components support the `className` prop, allowing you to use [class names](h
 | [SquareShape](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-shapes-squareshape--docs)       | A component for rendering SVG squares.    |
 
 ### Other
+
+Add clickable buttons and signature lines to your PDF.
 
 | Component                                                                                                         | Description                              |
 | ----------------------------------------------------------------------------------------------------------------- | ---------------------------------------- |
