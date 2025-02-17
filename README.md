@@ -147,11 +147,13 @@ You can also see the <a href="https://justinmahar.github.io/react-pdf-builder/?p
 
 ## Why use React PDF Builder?
 
-While the underlying project, [react-pdf](https://react-pdf.org/), gives you everything you need to build a beautiful PDF... you will need to build it completely from scratch.
+This framework's underlying library, [react-pdf](https://react-pdf.org/), gives you everything you need to build a beautiful PDF, and is likely the best React PDF renderer that exists.
 
-There are no headings, no tables, no buttons, no lists. 
+And while it's definitely amazing in its own right... you'll have to build your PDF entirely from scratch.
 
-Instead, you'll have to define styles for every single element in your PDF. This can be a huge hassle when all you want is to build your PDF!
+There are no headings, no tables, no buttons, no lists. Instead, you'll have to define styles for every single element in your PDF. 
+
+This can be a huge hassle when all you want is to start building!
 
 Enter React PDF Builder.
 
