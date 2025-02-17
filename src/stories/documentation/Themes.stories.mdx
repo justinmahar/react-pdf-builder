@@ -2,35 +2,11 @@ import { Meta } from '@storybook/addon-docs';
 
 <Meta title="Documentation/Themes" />
 
-<h1>Example</h1>
+<h1>Themes</h1>
 
 ## Description
 
-Description of the Example component.
-
-## Usage
-
-```jsx
-import { Example } from 'react-kindling';
-```
-
-```jsx
-<Example label="Bomb Diggity!" />
-```
-
-### Props
-
-| Inherits all props from                                                                                      |
-| ------------------------------------------------------------------------------------------------------------ |
-| [Div](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-basics-div--docs) |
-| [View](https://react-pdf.org/components#view)                                                                |
-
-And supports the following props:
-
-| Prop   | Type                             | Description                                                                                                                                                                  |
-| ------ | -------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| xxxxxx | xxxxxx                           | Optional.                                                                                                                                                                    |
-| swatch | `SwatchColor` | Optional. One of the [swatch color names](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-themes--docs#swatch-colors) from the theme, as a string. |
+React PDF Builder comes with a robust theme system.
 
 ## Swatch Colors
 
@@ -90,17 +66,4 @@ const theme = Themes.default.build({
     classNames: { 'my-custom-class': { color: 'white', backgroundColor: 'darkblue', padding: 10 } },
   },
 });
-```
-
-## Example
-
-Provide an example. Since this is MDX, you can import and use the component right within these docs.
-
-```jsx
-import * as React from 'react';
-import { Example } from 'react-kindling';
-
-export function StoryExample() {
-  return <Example label="Bomb Diggity!" />;
-}
 ```
