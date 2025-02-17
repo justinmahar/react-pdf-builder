@@ -19,38 +19,38 @@
 
 ## Documentation
 
-Read the **[official documentation](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-usage-guide--docs)**.
+Read the **[official documentation](https://justinmahar.github.io/react-pdf-builder/?path=/docs/home--docs)**.
 
 ## Overview
 
 React PDF Builder is a fully themeable component framework built on [react-pdf](https://react-pdf.org/) and [pdfkit](https://pdfkit.org/).
 
-The framework includes 30+ ready-to-use components for headings, paragraphs, lists, tables, buttons, cards, and more.
+The framework includes 30+ ready-to-use [components](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-overview--docs) for headings, paragraphs, lists, tables, buttons, cards, and more.
 
 If you want to build beautiful PDFs in React without starting from scratch, this is the library for you!
 
 ### Features include:
 
-- **🌟 30+ pre-made components to make building PDFs a breeze**
+- **🌟 30+ pre-made [components](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-overview--docs) to make building PDFs a breeze**
   - Styled and done for you, so you can start building right away.
-- **🎨 Fully themeable with built-in light and dark modes**
-  - All colors and component props can be overridden easily.
+- **🎨 Fully [themeable](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-themes--docs) with built-in light and dark modes**
+  - All colors and component props can be overridden easily, and class names are supported.
 - **📏 Scalable to any page size**
-  - Easily scale all components to match your preferred size.
+  - Easily [scale](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-themes--docs#scaling-components-to-fit-pages) all components to match your preferred size.
 - **🖋️ Drop-in support for 25 commonly used fonts, with bold & italics**
-  - Easily use popular fonts like Roboto, Lato, Raleway, or Montserrat—including formatting styles!
+  - Easily use popular [fonts](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-fonts--docs) like Roboto, Lato, Raleway, or Montserrat—including formatting styles!
 - **🥳 Support for 5 different emoji sets**
-  - Enable 5 different emoji sets by JoyPixels, Noto Emoji, OpenMoji, or Twemoji, with one line of code.
+  - Enable 5 different [emoji sets](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-fonts--docs#adding-emoji-support) by JoyPixels, Noto Emoji, OpenMoji, or Twemoji, with one line of code.
 - **📊 Table support with page wrapping, theming, and colspans**
-  - Need tables? Look no further. Beautiful tables are at your fingertips.
+  - Need tables? Look no further. [Beautiful tables](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-tables-table--docs) are at your fingertips.
 - **🟦 Easy to use gradient backdrops for your pages**
-  - Quickly and easily spruce up your PDF with gradient backdrops, with optional pre-made decorators.
+  - Quickly and easily spruce up your PDF with [gradient backdrops](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-gradientbackdrop--docs), with optional pre-made decorators.
 - **📦 Box layout system using Flexbox**
-  - If you're familiar with CSS Flexbox, you'll feel right at home using the Box component to lay out your design.
+  - If you're familiar with CSS Flexbox, you'll feel right at home using the [Box](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-box--docs) component to lay out your design.
 - **🔧 Built on well-maintained libraries**
   - This component framework is built on [react-pdf](https://react-pdf.org/) and [pdfkit](https://pdfkit.org/), which are maintained by only the best and brightest.
 - **🚀 Much more!** 
-  - Dive into the [documentation](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-usage-guide--docs) to learn more!
+  - Dive into the [documentation](https://justinmahar.github.io/react-pdf-builder/?path=/docs/home--docs) to learn more!
 
 <!-- [lock:donate] 🚫--------------------------------------- -->
 
@@ -71,6 +71,14 @@ If this project helped save you time, please consider buying me a coffee, which 
 - [Table of Contents](#table-of-contents)
 - [Installation](#installation)
 - [Quick Start](#quick-start)
+- [Why use React PDF Builder?](#why-use-react-pdf-builder)
+- [How to use React PDF Builder](#how-to-use-react-pdf-builder)
+- [Components overview](#components-overview)
+- [Themes](#themes)
+- [Utility class names](#utility-class-names)
+- [Fonts and formatting](#fonts-and-formatting)
+- [Downloading PDFs](#downloading-pdfs)
+- [Advanced](#advanced)
 - [TypeScript](#typescript)
 - [Icon Attribution](#icon-attribution)
 - [Contributing](#contributing)
@@ -87,9 +95,9 @@ npm i @react-pdf/renderer react-pdf-builder
 
 ## Quick Start
 
-Below is a component that renders a standard A4 size PDF with a heading, paragraph, button, and custom styled div. You can use this as a starting point.
+Below is a component that renders a standard [A4 size](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-page-sizes--docs) PDF with a heading, paragraph, button, and custom styled div. You can use this as a starting point.
 
-Most components can be themed using the `swatch` prop, and custom styled with CSS using `style` or `className`.
+Most components can be [themed](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-themes--docs) using the `swatch` prop, and custom styled with CSS using `style` or [`className`](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-themes--docs#class-names).
 
 Use `LETTER` page size for 8.5x11" paper used in the USA.
 
@@ -137,7 +145,69 @@ Click [here](https://justinmahar.github.io/react-pdf-builder/?path=/story/demo-d
 
 You can also see the <a href="https://justinmahar.github.io/react-pdf-builder/?path=/story/demo-demo--demo">main project demo</a> for a deeper look at what's possible with this library.
 
-Read the full [usage guide here](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-usage-guide--docs).
+## Why use React PDF Builder?
+
+While the underlying project, [react-pdf](https://react-pdf.org/), gives you everything you need to build a beautiful PDF... you will need to build it completely from scratch.
+
+There are no headings, no tables, no buttons, no lists. 
+
+Instead, you'll have to define styles for every single element in your PDF. This can be a huge hassle when all you want is to build your PDF!
+
+Enter React PDF Builder.
+
+This framework provides a set of [30+ pre-made components](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-overview--docs) (based on [Bootstrap 5](https://getbootstrap.com/)) that can help you bring your PDF to life quickly and easily.
+
+The framework also gives you the ability to define [class names](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-themes--docs#class-names) to style your PDF components.
+
+In addition, there's drop in support for 25 [fonts](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-fonts--docs) with bold and italics, and 5 different sets of [emojis](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-fonts--docs#adding-emoji-support). 
+
+All ready to go, so you can start building immediately.
+
+## How to use React PDF Builder
+
+Follow the quick start above to get up and running quickly. 
+
+Then check out the [components overview](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-overview--docs) for the components you have at your disposal. Each component page has a live example at the bottom.
+
+You may also want to familiarize yourself with [react-pdf](https://react-pdf.org/), the library this framework is built upon, for the basics.
+
+## Components overview
+
+You can see all the [available components here](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-overview--docs).
+
+## Themes
+
+React PDF Builder includes a robust theme system that allows you to quickly and easily style the components in the framework. 
+
+The framework includes both a light and dark theme based on [Bootstrap 5](https://getbootstrap.com/).
+
+Most components support a `swatch` prop that lets you quickly style the component's colors using the theme's color scheme. For instance, to swatch a [Table](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-tables-table--docs) to blue, give it the `"blue"` swatch. You can see all [swatch colors here](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-themes--docs#swatch-colors).
+
+Want to tweak a theme's appearance? You can [override](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-themes--docs#override-existing-themes) and define your own custom colors, borders, class names, spacing—you name it.
+
+You can [read more about themes here](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-themes--docs).
+
+## Utility class names
+
+The framework includes a large catalog of utility classes to make styling your PDF components easy (and concise). Utility classes are adapted from [Bootstrap 5](https://getbootstrap.com/docs/5.3/utilities/spacing/), so you may already be familiar with them.
+
+You can [see all utility classes here](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-utility-classes--docs).
+
+## Fonts and formatting
+
+React PDF Builder includes [25 drop-in fonts](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-fonts--docs), ready to use, and supporting the Latin charset (English) with bold and italic formatting. 
+
+All built-in fonts are hosted via [jsdelivr](https://www.jsdelivr.com/), but you can [self-host](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-fonts--docs#self-hosting-built-in-fonts) them too if you'd like.
+
+The framework also includes drop-in support for 5 different Emoji sets by JoyPixels, Noto Emoji, OpenMoji, and Twemoji. Read more about [emoji support here](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-fonts--docs#adding-emoji-support).
+
+## Downloading PDFs
+
+If you'd like to make your PDF Document downloadable via a link, you can use the [PDFDownloadLink from react-pdf](https://react-pdf.org/components#pdfdownloadlink).
+
+## Advanced
+
+For topics like page wrapping, document navigation, and dynamic content, see the [Advanced documentation for react-pdf](https://react-pdf.org/advanced).
 
 <!-- [lock:typescript] 🚫--------------------------------------- -->
 
