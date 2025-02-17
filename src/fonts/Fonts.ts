@@ -517,6 +517,8 @@ const createFontSrc = (fontsDirUrl: string | undefined, family: FontFilesDefinit
 /**
  * Allows drop-in support for common font families. See documentation for `Fonts.load()` for more info.
  *
+ * Read more about [fonts in React PDF Builder here](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-fonts--docs).
+ *
  * You can download TTF and WOFF fonts here: https://gwfh.mranftl.com/fonts
  *
  * For additional font support, see https://react-pdf.org/fonts
@@ -638,6 +640,8 @@ export class Fonts {
    * be loaded from there instead. The expected font files for each family can be found in the
    * [project repo](https://github.com/justinmahar/react-pdf-builder/tree/master/public/fonts).
    *
+   * Read more about [fonts in React PDF Builder here](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-fonts--docs).
+   *
    * You can download TTF and WOFF fonts here: https://gwfh.mranftl.com/fonts
    *
    * For additional font support, see https://react-pdf.org/fonts
@@ -674,7 +678,9 @@ export class Fonts {
    * Font.registerHyphenationCallback(Fonts.noHyphenation);
    * ```
    *
-   * Read more here: https://react-pdf.org/fonts#registerhyphenationcallback
+   * Read more about [fonts in React PDF Builder here](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-fonts--docs).
+   *
+   * Read even more here: https://react-pdf.org/fonts#registerhyphenationcallback
    */
   public static noHyphenation = (word: string) => [word];
 }

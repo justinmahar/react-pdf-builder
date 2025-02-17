@@ -9,7 +9,9 @@ import { usePDFThemeContext } from '../theme/PDFThemeProvider';
 
 export interface TemplateProps extends ViewProps {
   children?: any;
+  /** Optional. Class name string used to style the component. [Class names](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-themes--docs#class-names) are defined in themes. */
   className?: string;
+  /** Optional. One of the [swatch color names](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-themes--docs#swatch-colors) from the theme, as a string. */
   swatch?: SwatchColor;
 }
 

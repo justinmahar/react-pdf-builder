@@ -13,8 +13,6 @@ import { Box } from '../../../../components/layout/Box';
 
 ## Description
 
-## Description
-
 A PageNumber component allows you to easily display the page number in a customizable format within your PDF documents.
 
 You can use this in conjunction with the `fixed` prop to create headers and footers that include the page number and total number of pages. 
@@ -61,10 +59,9 @@ In your custom format, you can use the following placeholders, which will be rep
 
 And supports the following props:
 
-| Prop   | Type          | Description                                                                                                                                                                  |
-| ------ | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| format | `string`      | Optional.                                                                                                                                                                    |
-| swatch | `SwatchColor` | Optional. One of the [swatch color names](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-themes--docs#swatch-colors) from the theme, as a string. |
+| Prop   | Type          | Description                                                                                                                                                                                                                                                       |
+| ------ | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| format | `string`      | Optional. Customize how the page number string is displayed with a template string containing `%n` for the current page number, `%t` for the total number of pages, `%sn` for the sub page number, or `%st` for the sub pages total. Default format is `"%n / %t"`. |
   
 ## PageNumber Example
 

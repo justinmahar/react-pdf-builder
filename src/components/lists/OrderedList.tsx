@@ -41,19 +41,33 @@ const alphaLowerNumberRenderer = (num: number) => {
 };
 
 export interface OrderedListProps extends DivProps {
-  wrapItems?: boolean;
+  /** Optional. Styles to apply to the marker (container for numbers). For example, you may want to specify a `minWidth` to align list items vertically. */
   markerStyle?: Style;
+  /** Optional. One of the [swatch color names](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-themes--docs#swatch-colors) from the theme, as a string. */
   markerSwatch?: SwatchColor;
+  /** Optional. Props for the list item container. This contains both the marker and the list item, and provides default spacing via the `columnGap` and `marginBottom` styles. Specify a `columnGap` style here to change the distance between the numbers and list items. */
   containerProps?: ListItemContainerProps;
+  /** Optional. When `true`, numbers are displayed as uppercase Roman numerals, such as `I.` `II.` `III.` `IV.` */
   romanUpper?: boolean;
+  /** Optional. When `true`, numbers are displayed as lowercase Roman numerals, such as `i.` `ii.` `iii.` `iv.` */
   romanLower?: boolean;
+  /** Optional. When `true`, numbers are displayed as uppercase alphabet letters, such as `A.` `B.` `C.` `D.` */
   alphaUpper?: boolean;
+  /** Optional. When `true`, numbers are displayed as lowercase alphabet letters, such as `a.` `b.` `c.` `d.` */
   alphaLower?: boolean;
+  /** Optional. A function that renders numbers in a custom way. */
   numberRenderer?: (num: number) => string;
+  /** Optional. When `true`, react-pdf may break up your list item and wrap it to the next page. Not recommended. */
+  wrapItems?: boolean;
+  /** Optional. When `true`, markers are not rendered, so only the list items themselves are shown. */
   unstyled?: boolean;
+  /** Optional. One of the [swatch color names](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-themes--docs#swatch-colors) from the theme, as a string. */
   swatch?: SwatchColor;
 }
 
+/**
+ * Read the [docs](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-lists-orderedlist--docs)
+ */
 export const OrderedList = ({ children, className, style, ...props }: OrderedListProps) => {
   const theme = usePDFThemeContext();
   const themeProps = theme.orderedListProps;

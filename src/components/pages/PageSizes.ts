@@ -56,6 +56,7 @@ const pageSizes = {
 
 export type PageSizeString = keyof typeof pageSizes;
 
+/** Contains utilities for [page sizes](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-page-sizes--docs). */
 export class PageSizes {
   public static VALID_ORIENTATIONS = ['portrait', 'landscape'];
 

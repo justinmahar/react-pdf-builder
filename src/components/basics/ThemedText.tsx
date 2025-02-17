@@ -8,10 +8,15 @@ import { usePDFThemeContext } from '../theme/PDFThemeProvider';
 
 export interface ThemedTextProps extends TextProps {
   children?: any;
+  /** Optional. One of the [swatch color names](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-themes--docs#swatch-colors) from the theme, as a string. */
   swatch?: SwatchColor;
+  /** Optional. Class name string used to style the component. [Class names](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-themes--docs#class-names) are defined in themes. */
   className?: string;
 }
 
+/**
+ * Read the [docs](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-basics-themedtext--docs)
+ */
 export const ThemedText = ({ children, className, style, swatch, ...props }: ThemedTextProps) => {
   const theme = usePDFThemeContext();
 

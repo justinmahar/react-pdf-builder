@@ -50,7 +50,7 @@ export interface DemoProps extends DivProps {
 }
 
 /**
- * This is the description for the Demo component
+ * A Demo of React PDF Builder
  */
 export const Demo = ({
   themeName = 'light',

@@ -5,9 +5,13 @@ import { Style } from '../Style';
 import { usePDFThemeContext } from '../theme/PDFThemeProvider';
 
 export interface PageNumberProps extends ThemedTextProps {
+  /** Optional. Customize how the page number string is displayed with a template string containing `%n` for the current page number, `%t` for the total number of pages, `%sn` for the sub page number, or `%st` for the sub pages total. Default format is `"%n / %t"`. */
   format?: string;
 }
 
+/**
+ * Read the [docs](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-pagenumber--docs)
+ */
 export const PageNumber = ({ className, style, ...props }: PageNumberProps) => {
   const theme = usePDFThemeContext();
   const themeProps = theme.pageNumberProps;

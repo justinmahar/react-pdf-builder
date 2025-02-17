@@ -10,8 +10,6 @@ import { Box } from '../../../../components/layout/Box';
 
 ## Description
 
-## Description
-
 The Button component is an interactive element that users can click on. 
 
 By specifying the `href` prop, the button can link to any URL of your choice. 
@@ -39,9 +37,9 @@ And supports the following props:
 
 | Prop      | Type                          | Description                                                                                                                                                                                                  |
 | --------- | ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| href      | `string`                      | Optional.                                                                                                                                                                                                    |
-| pill      | `boolean`                     | Optional.                                                                                                                                                                                                    |
-| linkColor | `string`                      | Optional.                                                                                                                                                                                                    |
+| href      | `string`                      | Optional. When provided, Button becomes a clickable link.                                                                                                                                                    |
+| pill      | `boolean`                     | Optional. When `true`, corners will be round.                                                                                                                                                                |
+| linkColor | `string`                      | Optional. Color for the button text when the `link` swatch is used.                                                                                                                                          |
 | swatch    | `SwatchColor` &#124; `'link'` | Optional. One of the [swatch color names](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-themes--docs#swatch-colors) from the theme, as a string, or the special `'link'` swatch. |
   
 ## Button Example

@@ -1,18 +1,19 @@
 import React from 'react';
-import { Theme } from '../../themes/Theme';
-import { Themes } from '../../themes/Themes';
 import { ThemedText } from '../basics/ThemedText';
 import { Style } from '../Style';
-import { usePDFThemeContext } from '../theme/PDFThemeProvider';
 
 export interface ThemedChildrenProps {
   children?: any;
+  /** Styles used for themed text component when wrapping strings.  */
   textStyle?: Style;
+  /** When `true`, strings will not be wrapped in a `ThemedText`. */
   allowStrings?: boolean;
 }
 
 /**
- * Ensures that raw strings are wrapped in a ThemedText component so they can be rendered by React-PDF.
+ * Ensures that raw strings are wrapped in a ThemedText component so they can be rendered by [react-pdf](https://react-pdf.org/).
+ *
+ * Recurses on arrays and React fragments.
  */
 export const ThemedChildren = ({ children, textStyle, allowStrings }: ThemedChildrenProps) => {
   return getThemedChildren(children, textStyle, allowStrings);

@@ -55,15 +55,16 @@ The following will remove all default spacing from the list:
 
 And supports the following props:
 
-| Prop           | Type                     | Description                                                                                                                                                                  |
-| -------------- | ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| wrapItems      | `boolean`                | Optional.                                                                                                                                                                    |
-| markerStyle    | `Style`                  | Optional.                                                                                                                                                                    |
-| markerSwatch   | `SwatchColor`            | Optional. One of the [swatch color names](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-themes--docs#swatch-colors) from the theme, as a string. |
-| containerProps | `ListItemContainerProps` | Optional.                                                                                                                                                                    |
-| bullet         | `string`                 | Optional.                                                                                                                                                                    |
-| unstyled       | `boolean`                | Optional.                                                                                                                                                                    |
-| swatch         | `SwatchColor`            | Optional. One of the [swatch color names](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-themes--docs#swatch-colors) from the theme, as a string. |
+| Prop           | Type                     | Description                                                                                                                                                                                                                                                           |
+| -------------- | ------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| markerStyle    | `Style`                  | Optional. Styles to apply to the marker (container for bullets).                                                                                                                                                                                                      |
+| markerSwatch   | `SwatchColor`            | Optional. One of the [swatch color names](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-themes--docs#swatch-colors) from the theme, as a string.                                                                                          |
+| containerProps | `ListItemContainerProps` | Optional. Props for the list item container. This contains both the marker and the list item, and provides default spacing via the `columnGap` and `marginBottom` styles. Specify a `columnGap` style here to change the distance between the bullets and list items. |
+| bullet         | `string`                 | Optional. Custom bullet character. Default is `•`. You may need to [register a custom font](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-fonts--docs#using-custom-fonts) that supports your desired character.                           |
+| wrapItems      | `boolean`                | Optional. When `true`, react-pdf may break up your list item and wrap it to the next page. Not recommended.                                                                                                                                                           |
+| unstyled       | `boolean`                | Optional. When `true`, markers are not rendered, so only the list items themselves are shown.                                                                                                                                                                         |
+| swatch         | `SwatchColor`            | Optional. One of the [swatch color names](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-themes--docs#swatch-colors) from the theme, as a string.                                                                                          |
+
   
 ## UnorderedList Example
 

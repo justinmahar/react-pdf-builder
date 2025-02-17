@@ -7,9 +7,13 @@ import { Gradients, GradientType } from './Gradients';
 import { ShapeProps } from './ShapeProps';
 
 export interface RectangleShapeProps extends ShapeProps {
+  /** Optional. Props for the underlying SVG [Rect](https://react-pdf.org/svg#rect). Specify a stroke here, such as `{ stroke: 'darkblue', strokeWidth: 10 }`. */
   rectProps?: Partial<RectProps>;
 }
 
+/**
+ * Read the [docs](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-shapes-rectangleshape--docs)
+ */
 export const RectangleShape = ({
   width = 100,
   height = 100,

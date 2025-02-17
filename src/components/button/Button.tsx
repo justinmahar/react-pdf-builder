@@ -8,12 +8,19 @@ import { Style } from '../Style';
 import { usePDFThemeContext } from '../theme/PDFThemeProvider';
 
 export interface ButtonProps extends DivProps {
+  /** Optional. When provided, Button becomes a clickable link. */
   href?: string;
-  swatch?: SwatchColor | 'link';
+  /** Optional. When `true`, corners will be round. */
   pill?: boolean;
+  /** Optional. Color for the button text when the `link` swatch is used. */
   linkColor?: string;
+  /** Optional. One of the [swatch color names](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-themes--docs#swatch-colors) from the theme, as a string, or the special `'link'` swatch. */
+  swatch?: SwatchColor | 'link';
 }
 
+/**
+ * Read the [docs](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-button--docs)
+ */
 export const Button = ({ children, className, style, ...props }: ButtonProps) => {
   const theme = usePDFThemeContext();
   const themeProps = theme?.buttonProps;

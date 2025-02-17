@@ -8,20 +8,35 @@ import { Box, BoxProps } from '../layout/Box';
 import { usePDFThemeContext } from '../theme/PDFThemeProvider';
 
 export interface TableCellProps extends BoxProps {
+  /** Automatically set by parent [TableRow](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-tables-tablerow--docs). */
   colIndex?: number;
+  /** Automatically set by parent [TableRow](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-tables-tablerow--docs). */
   colCount?: number;
+  /** Automatically set by parent [TableRow](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-tables-tablerow--docs). */
   colWidths?: (string | number)[];
+  /** Automatically set by parent [TableRow](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-tables-tablerow--docs). */
   cellStyle?: Style;
+  /** Automatically set by parent [TableRow](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-tables-tablerow--docs). */
   bordered?: boolean;
+  /** Automatically set by parent [TableRow](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-tables-tablerow--docs). */
   borderedInside?: boolean;
+  /** Automatically set by parent [TableRow](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-tables-tablerow--docs). */
   borderedVertical?: boolean;
+  /** Automatically set by parent [TableRow](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-tables-tablerow--docs). */
   borderColor?: string;
+  /** Automatically set by parent [TableRow](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-tables-tablerow--docs). */
   borderWidth?: string | number;
+  /** Automatically set by parent [TableRow](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-tables-tablerow--docs). */
   borderStyle?: 'dashed' | 'dotted' | 'solid';
+  /** Optional. One of the [swatch color names](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-themes--docs#swatch-colors) from the theme, as a string. */
   swatch?: SwatchColor;
+  /** Optional. Opacity value for the swatch color, from `0` to `1`. */
   swatchOpacity?: number;
 }
 
+/**
+ * Read the [docs](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-tables-tablecell--docs)
+ */
 export const TableCell = ({ children, className, style, ...props }: TableCellProps) => {
   const theme = usePDFThemeContext();
   const themeProps = theme.tableCellProps;

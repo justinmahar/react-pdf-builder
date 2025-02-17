@@ -6,6 +6,9 @@ import { Style } from '../Style';
 import { usePDFThemeContext } from '../theme/PDFThemeProvider';
 import { HeadingProps } from './Heading';
 
+/**
+ * Read the [docs](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-typography-heading6--docs)
+ */
 export const Heading6 = ({ children, className, style, ...props }: HeadingProps) => {
   const theme = usePDFThemeContext();
   const mergedProps = {

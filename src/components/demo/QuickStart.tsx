@@ -10,6 +10,9 @@ import { PDFThemeProvider } from '../theme/PDFThemeProvider';
 import { Heading3 } from '../typography/Heading3';
 import { Paragraph } from '../typography/Paragraph';
 
+/**
+ * Quick Start from the [README](https://justinmahar.github.io/react-pdf-builder/?path=/docs/home--docs#quick-start)
+ */
 export const QuickStart = () => {
   const roboto = Fonts.load(Fonts.sansSerif.roboto);
   Font.register(roboto);

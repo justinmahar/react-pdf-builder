@@ -99,12 +99,12 @@ Below is a component that renders a standard [A4 size](https://justinmahar.githu
 
 Most components can be [themed](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-themes--docs) using the `swatch` prop, and custom styled with CSS using `style` or [`className`](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-themes--docs#class-names).
 
-Use `LETTER` page size for 8.5x11" paper used in the USA.
+Use `LETTER` [page size](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-page-sizes--docs) for 8.5x11" paper used in the USA.
 
 ```jsx
 import React from 'react';
 import { Fonts, Themes, ThemedPage, Div, Button, Box, PDFThemeProvider, Heading3, Paragraph } from 'react-pdf-builder'
-import { Document, PDFViewer } from '@react-pdf/renderer';
+import { Document, Font, PDFViewer } from '@react-pdf/renderer';
 
 export const QuickStart = () => {
   const roboto = Fonts.load(Fonts.sansSerif.roboto);
@@ -157,7 +157,7 @@ This can be a huge hassle when all you want is to start building!
 
 Enter React PDF Builder.
 
-This framework provides a set of [30+ pre-made components](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-overview--docs) (based on [Bootstrap 5](https://getbootstrap.com/)) that can help you bring your PDF to life quickly and easily.
+This framework provides a set of [30+ pre-made components](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-overview--docs) based on [Bootstrap 5](https://getbootstrap.com/) that can help you bring your PDF to life quickly and easily.
 
 The framework also gives you the ability to define [class names](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-themes--docs#class-names) to style your PDF components.
 

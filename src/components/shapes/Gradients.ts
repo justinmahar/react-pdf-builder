@@ -1,4 +1,12 @@
+/**
+ * Class with utility functions for working with gradients.
+ */
 export class Gradients {
+  /**
+   * Converts string gradient colors to proper gradient stops with offset percentages, and ensures at least 2 gradient stops are present.
+   *
+   * Returns a GradientStop[] array.
+   */
   public static normalizeGradientStops(gradient?: GradientStop[] | string[]) {
     const gradientStops = (gradient ?? []).map((g, i, arr): GradientStop => {
       if (typeof g === 'string') {
@@ -15,6 +23,9 @@ export class Gradients {
     return gradientStops;
   }
 
+  /**
+   * Converts a gradient type to an object with coordinates.
+   */
   public static toGradientCoords(gradientType: GradientType) {
     const leftToRight = { x1: 0, y1: 0.5, x2: 1, y2: 0.5 };
     let gradientCoords = leftToRight;
@@ -44,6 +55,9 @@ export class Gradients {
     return Gradients.safeLinearCoords(gradientCoords);
   }
 
+  /**
+   * The underlying library seems to have an issue with `0` and `1` values for linear gradients. This adjusts them slightly.
+   */
   public static safeLinearCoords(coords: { x1: number; y1: number; x2: number; y2: number }) {
     return {
       x1: coords.x1 === 0 ? 0.000001 : coords.x1 === 1 ? 0.999999 : coords.x1,
@@ -53,6 +67,9 @@ export class Gradients {
     };
   }
 
+  /**
+   * The underlying library seems to have an issue with `0` and `1` values for radial gradients. This adjusts them slightly.
+   */
   public static safeRadialCoords(coords: { x: number; y: number }) {
     return {
       cx: coords.x === 0 ? 0.000001 : coords.x === 1 ? 0.999999 : coords.x,
@@ -61,6 +78,9 @@ export class Gradients {
   }
 }
 
+/**
+ * Read the [docs](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-gradientbackdrop--docs)
+ */
 export enum GradientType {
   leftToRight = 'leftToRight',
   rightToLeft = 'rightToLeft',
@@ -73,6 +93,9 @@ export enum GradientType {
   radial = 'radial',
 }
 
+/**
+ * Read the [docs](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-gradientbackdrop--docs#gradient-stops)
+ */
 export interface GradientStop {
   offset: string | number;
   stopColor: string;

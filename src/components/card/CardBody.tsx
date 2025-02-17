@@ -8,12 +8,19 @@ import { Style } from '../Style';
 import { usePDFThemeContext } from '../theme/PDFThemeProvider';
 
 export interface CardBodyProps extends BoxProps {
+  /** Optional. Set to `true` when there is no header above the card body. */
   noHeader?: boolean;
+  /** Optional. Set to `true` when there is a footer below the card body. */
   withFooter?: boolean;
+  /** Optional. One of the [swatch color names](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-themes--docs#swatch-colors) from the theme, as a string. */
   swatch?: SwatchColor;
+  /** Optional. Opacity value for the swatch color, from `0` to `1`. */
   swatchOpacity?: number;
 }
 
+/**
+ * Read the [docs](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-cards-cardbody--docs)
+ */
 export const CardBody = ({ children, className, style, ...props }: CardBodyProps) => {
   const theme = usePDFThemeContext();
   const themeProps = theme.cardBodyProps;

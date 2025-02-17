@@ -8,13 +8,21 @@ import { usePDFThemeContext } from '../theme/PDFThemeProvider';
 import { Heading5 } from '../typography/Heading5';
 
 export interface CardHeaderProps extends BoxProps {
+  /** Optional. A custom component used to wrap the text. Defaults to [Heading5](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-typography-heading5--docs) with no bottom margin. */
   as?: any;
+  /** Optional. Set to `true` when there is no body below the header. */
   noBody?: boolean;
+  /** Optional. Set to `true` when there is another header above this header. */
   withHeader?: boolean;
+  /** Optional. One of the [swatch color names](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-themes--docs#swatch-colors) from the theme, as a string. */
   swatch?: SwatchColor;
+  /** Optional. Opacity value for the swatch color, from `0` to `1`. */
   swatchOpacity?: number;
 }
 
+/**
+ * Read the [docs](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-cards-cardheader--docs)
+ */
 export const CardHeader = ({ children, className, style, ...props }: CardHeaderProps) => {
   const theme = usePDFThemeContext();
   const themeProps = theme.cardHeaderProps;

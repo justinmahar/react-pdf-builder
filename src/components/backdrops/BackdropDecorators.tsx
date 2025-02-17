@@ -5,6 +5,7 @@ import { GradientType } from '../shapes/Gradients';
 /**
  * These are decorators that can be added as children to a GradientBackdrop.
  * They add overlapping shapes to create a unique look.
+ * Read more [here](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-gradientbackdrop--docs#usage).
  */
 export class BackdropDecorators {
   // === Circles 1 === === ===

@@ -7,9 +7,13 @@ import { Gradients, GradientType } from './Gradients';
 import { ShapeProps } from './ShapeProps';
 
 export interface EllipseShapeProps extends ShapeProps {
+  /** Optional. Props for the underlying SVG [Ellipse](https://react-pdf.org/svg#ellipse). Specify a stroke here, such as `{ stroke: 'darkblue', strokeWidth: 5 }`. */
   ellipseProps?: Partial<EllipseProps>;
 }
 
+/**
+ * Read the [docs](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-shapes-ellipseshape--docs)
+ */
 export const EllipseShape = ({
   width = 100,
   height = 100,

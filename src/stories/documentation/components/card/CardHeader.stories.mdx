@@ -38,13 +38,13 @@ import { CardHeader } from 'react-pdf-builder';
 
 And supports the following props:
 
-| Prop          | Type          | Description                                                                                                                                                                  |
-| ------------- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| as            | `any`         | Optional.                                                                                                                                                                    |
-| noBody        | `boolean`     | Optional.                                                                                                                                                                    |
-| withHeader    | `boolean`     | Optional.                                                                                                                                                                    |
-| swatch        | `SwatchColor` | Optional. One of the [swatch color names](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-themes--docs#swatch-colors) from the theme, as a string. |
-| swatchOpacity | `number`      | Optional.                                                                                                                                                                    |
+| Prop          | Type          | Description                                                                                                                                                                                                       |
+| ------------- | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| as            | `any`         | Optional. A custom component used to wrap the text. Defaults to [Heading5](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-typography-heading5--docs) with no bottom margin. |
+| noBody        | `boolean`     | Optional. Set to `true` when there is no body below the header.                                                                                                                                                   |
+| withHeader    | `boolean`     | Optional. Set to `true` when there is another header above this header.                                                                                                                                           |
+| swatch        | `SwatchColor` | Optional. One of the [swatch color names](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-themes--docs#swatch-colors) from the theme, as a string.                                      |
+| swatchOpacity | `number`      | Optional. Opacity value for the swatch color, from `0` to `1`.                                                                                                                                                    |
   
 ## CardHeader Example
 

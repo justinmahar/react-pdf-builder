@@ -6,9 +6,13 @@ import { Style } from '../Style';
 import { usePDFThemeContext } from '../theme/PDFThemeProvider';
 
 export interface HorizontalRuleProps extends DivProps {
+  /** Optional. One of the [swatch color names](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-themes--docs#swatch-colors) from the theme, as a string. */
   swatch?: SwatchColor;
 }
 
+/**
+ * Read the [docs](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-horizontalrule--docs)
+ */
 export const HorizontalRule = ({ className, style, ...props }: HorizontalRuleProps) => {
   const theme = usePDFThemeContext();
   const themeProps = theme?.hrProps;

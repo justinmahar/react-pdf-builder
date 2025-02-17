@@ -10,6 +10,9 @@ export interface PDFThemeProviderProps extends ElementProps {
   theme: Theme;
 }
 
+/**
+ * Provider used to specify the theme used by all React PDF Builder components.
+ */
 export function PDFThemeProvider({ children, theme }: PDFThemeProviderProps): JSX.Element {
   return <PDFThemeProviderContext.Provider value={theme}>{children}</PDFThemeProviderContext.Provider>;
 }

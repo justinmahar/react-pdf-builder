@@ -9,13 +9,21 @@ import { Box, BoxProps } from '../layout/Box';
 import { usePDFThemeContext } from '../theme/PDFThemeProvider';
 
 export interface SignatureProps extends BoxProps {
+  /** Optional. Width of the line in points. */
   lineSize?: number;
+  /** Optional. When `true`, an `X` is shown above the line indicating where to sign. */
   x?: boolean;
+  /** Optional. Props for the `X` shown above the line. */
   xProps?: TextProps;
+  /** Optional. String value of the `X` shown above the line. Defaults to `"X"`. */
   xValue?: string;
+  /** Optional. One of the [swatch color names](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-themes--docs#swatch-colors) from the theme, as a string. */
   swatch?: SwatchColor;
 }
 
+/**
+ * Read the [docs](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-signature--docs)
+ */
 export const Signature = ({ children, className, style, ...props }: SignatureProps) => {
   const theme = usePDFThemeContext();
   const themeProps = theme?.signatureProps;

@@ -8,15 +8,25 @@ import { usePDFThemeContext } from '../theme/PDFThemeProvider';
 import { ListItemContainer, ListItemContainerProps } from './ListItemContainer';
 
 export interface UnorderedListProps extends DivProps {
-  wrapItems?: boolean;
+  /** Optional. Styles to apply to the marker (container for bullets). */
   markerStyle?: Style;
+  /** Optional. One of the [swatch color names](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-themes--docs#swatch-colors) from the theme, as a string. */
   markerSwatch?: SwatchColor;
+  /** Optional. Props for the list item container. This contains both the marker and the list item, and provides default spacing via the `columnGap` and `marginBottom` styles. Specify a `columnGap` style here to change the distance between the bullets and list items. */
   containerProps?: ListItemContainerProps;
+  /** Optional. Custom bullet character. Default is `•`. You may need to [register a custom font](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-fonts--docs#using-custom-fonts) that supports your desired character. */
   bullet?: string;
+  /** Optional. When `true`, react-pdf may break up your list item and wrap it to the next page. Not recommended. */
+  wrapItems?: boolean;
+  /** Optional. When `true`, markers are not rendered, so only the list items themselves are shown. */
   unstyled?: boolean;
+  /** Optional. One of the [swatch color names](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-themes--docs#swatch-colors) from the theme, as a string. */
   swatch?: SwatchColor;
 }
 
+/**
+ * Read the [docs](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-lists-unorderedlist--docs)
+ */
 export const UnorderedList = ({ children, className, style, ...props }: UnorderedListProps) => {
   const theme = usePDFThemeContext();
   const themeProps = theme.unorderedListProps;

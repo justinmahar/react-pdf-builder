@@ -16,6 +16,7 @@ export interface ListItemContainerProps extends ViewProps {
   bullet?: string;
   numberRenderer?: (num: number) => string;
   unstyled?: boolean;
+  /** Optional. One of the [swatch color names](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-themes--docs#swatch-colors) from the theme, as a string. */
   swatch?: SwatchColor;
 }
 

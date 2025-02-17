@@ -1,3 +1,4 @@
+/** All [styles](https://react-pdf.org/styling) supported by react-pdf. */
 export interface Style {
   // Flexbox
 

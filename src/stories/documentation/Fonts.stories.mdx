@@ -36,6 +36,7 @@ Find out more below.
   - [8. Noto Sans \& Open Sans](#8-noto-sans--open-sans)
   - [9. Lato \& Poppins](#9-lato--poppins)
   - [10. Inter \& Roboto Condensed](#10-inter--roboto-condensed)
+- [Building fonts into the theme](#building-fonts-into-the-theme)
 - [Self hosting built-in fonts](#self-hosting-built-in-fonts)
 - [Using custom fonts](#using-custom-fonts)
   - [Step 1 - Upload TTF files to host](#step-1---upload-ttf-files-to-host)
@@ -260,12 +261,44 @@ Font.register(Fonts.load(Fonts.sansSerif.inter));
 Font.register(Fonts.load(Fonts.sansSerif.robotoCondensed));
 ```
 
+## Building fonts into the theme
+
+You can easily build fonts into the theme by using the [override theme config](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-themes--docs#customizing-themes).
+
+For example, let's say we want to use the "Roboto" font by default, the "Lato" font family for headings, and "Poppins" for paragraphs. 
+
+You would override the theme like so:
+
+```tsx
+const theme = Themes.default.build({
+  override: {
+    pageProps: {
+      style: {
+        fontFamily: 'Roboto',
+      },
+    },
+    headingProps: {
+      style: {
+        fontFamily: 'Lato',
+      },
+    },
+    paragraphProps: {
+      style: {
+        fontFamily: 'Poppins',
+      },
+    },
+  },
+});
+```
+
+Now, headings and paragraphs will use Lato and Poppins, and all other elements (Buttons, Blockquotes, Tables, etc) will use Roboto.
+
 ## Self hosting built-in fonts
 
 All built-in fonts are hosted via the [jsdelivr](https://www.jsdelivr.com/) CDN. However, if you'd like to self-host them instead, you can pass a base URL to `Fonts.load()`, like so:
 
 ```ts
-Font.register(Fonts.load(Fonts.sansSerif.lato), "https://example.com/fonts/");
+Font.register(Fonts.load(Fonts.sansSerif.lato, "https://example.com/fonts/"));
 ```
 
 For example, for the "Lato" font family example above, React PDF Builder would attempt to access the following files:

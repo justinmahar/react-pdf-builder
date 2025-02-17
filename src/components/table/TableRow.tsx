@@ -8,27 +8,49 @@ import { Style } from '../Style';
 import { usePDFThemeContext } from '../theme/PDFThemeProvider';
 
 export interface TableRowProps extends BoxProps {
+  /** Optional. This is automatically set by the parent [Table](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-tables-table--docs). */
   rowIndex?: number;
+  /** Optional. This is automatically set by the parent [Table](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-tables-table--docs). */
   rowCount?: number;
+  /** Optional. When `true`, this row of the table will be striped when odd. Set to `false` to disable odd row striping for this row. */
   striped?: boolean;
+  /** Optional. Styles used for the striped rows. */
   stripeStyle?: Style;
+  /** Optional. When `true`, this row of the table will be striped when even. Set to `false` to disable even row striping for this row. */
   inverseStriped?: boolean;
+  /** Optional. Opacity of the background for striped rows with a swatch. */
   stripeOpacity?: number;
+  /** Optional. This is automatically set by the parent [Table](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-tables-table--docs). */
   rowStyle?: Style;
+  /** Optional. Styles used for the cells in this row. Use this to customize the row further. */
   cellStyle?: Style;
+  /** Optional. This is automatically set by the parent [Table](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-tables-table--docs). When `true`, all rows and cells will have a border on all edges. */
   bordered?: boolean;
+  /** Optional. This is automatically set by the parent [Table](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-tables-table--docs). When `true`, the outside edges of the table will have a border. */
   borderedOutside?: boolean;
+  /** Optional. This is automatically set by the parent [Table](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-tables-table--docs). When `true`, borders will be used on edges inside the table and not facing the outside. */
   borderedInside?: boolean;
+  /** Optional. This is automatically set by the parent [Table](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-tables-table--docs). When `true`, vertical edges will have borders. */
   borderedVertical?: boolean;
+  /** Optional. This is automatically set by the parent [Table](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-tables-table--docs). When `true`, horizontal edges will have borders. */
   borderedHorizontal?: boolean;
+  /** Optional. This is automatically set by the parent [Table](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-tables-table--docs). Specify the color for the borders. */
   borderColor?: string;
+  /** Optional. This is automatically set by the parent [Table](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-tables-table--docs). Specify the border style. Default `solid`. */
   borderStyle?: 'dashed' | 'dotted' | 'solid';
+  /** Optional. This is automatically set by the parent [Table](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-tables-table--docs). Specify the width for the borders. */
   borderWidth?: string | number;
+  /** Optional. Used to customize the column widths for this row. This can be used to create colspans for rows with less columns. By default, all columns will be divided evenly. */
   colWidths?: (string | number)[];
+  /** Optional. Opacity value for the swatch color, from `0` to `1`. */
   swatchOpacity?: number;
+  /** Optional. One of the [swatch color names](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-themes--docs#swatch-colors) from the theme, as a string. */
   swatch?: SwatchColor;
 }
 
+/**
+ * Read the [docs](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-tables-tablerow--docs)
+ */
 export const TableRow = ({ children, stripeStyle, className, style, ...props }: TableRowProps) => {
   const theme = usePDFThemeContext();
   const themeProps = theme.tableRowProps;

@@ -10,6 +10,7 @@ import { SwatchColor } from '../../themes/ColorScheme';
 
 interface StoryProps {
   format?: string;
+  /** Optional. One of the [swatch color names](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-themes--docs#swatch-colors) from the theme, as a string. */
   swatch?: SwatchColor;
 }
 

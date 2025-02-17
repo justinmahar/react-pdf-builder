@@ -10,25 +10,37 @@ import { usePDFThemeContext } from '../theme/PDFThemeProvider';
 import { Backdrops } from './Backdrops';
 
 export interface GradientBackdropProps extends BoxProps {
+  /** **Required.** A [page string size](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-page-sizes--docs), such as `"A4"` or `"LETTER"`, or an object with a width and height. */
   size: PageSizeString | { width: number; height: number };
+  /** Optional. Specify either `portrait` or `landscape`. Default `portrait`. */
   orientation?: 'portrait' | 'landscape';
+  /** Optional. An array of custom gradient colors, or [gradient stops](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-gradientbackdrop--docs#gradient-stops). */
   gradient?: string[] | GradientStop[];
+  /** Optional. The [type of gradient](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-gradientbackdrop--docs#gradient-types). Defaults to linear gradient. */
   gradientType?: GradientType;
+  /** Optional. One of the [swatch color names](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-themes--docs#swatch-colors) from the theme, as a string. */
   swatch?: SwatchColor;
+  /** Optional. When `true`, gradient colors will be darkened according to the darken amounts. */
   darken?: boolean;
-  /** How much to darken each gradient color from 0 to 1, as an array. */
+  /** Optional. How much to darken each gradient color from `0` to `1`, as an array, with `0` being 0% change, and `1` being 100% change. Defaults to `[0, 0.5]` */
   darkenAmounts?: number[];
+  /** Optional. When `true`, gradient colors will be lightened according to the lighten amounts. */
   lighten?: boolean;
-  /** How much to lighten each gradient color from 0 to 1, as an array. */
+  /** Optional. How much to lighten each gradient color from `0` to `1`, as an array, with `0` being 0% change, and `1` being 100% change. Defaults to `[0, 0.5]` */
   lightenAmounts?: number[];
+  /** Optional. When true, gradient colors will be saturated according to the saturate amounts. */
   saturate?: boolean;
-  /** How much to saturate each gradient color from 0 to 1, as an array. */
+  /** Optional. How much to saturate each gradient color from `0` to `1`, as an array, with `0` being 0% change, and `1` being 100% change. Defaults to `[0, 1]` */
   saturateAmounts?: number[];
+  /** Optional. When `true`, gradient colors will be desaturated according to the desaturate amounts. */
   desaturate?: boolean;
-  /** How much to desaturate each gradient color from 0 to 1, as an array. */
+  /** Optional. How much to desaturate each gradient color from `0` to `1`, as an array, with `0` being 0% change, and `1` being 100% change. Defaults to `[0, 1]` */
   desaturateAmounts?: number[];
 }
 
+/**
+ * Read the [docs](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-gradientbackdrop--docs)
+ */
 export const GradientBackdrop = ({
   children,
   size,
