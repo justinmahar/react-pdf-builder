@@ -1,6 +1,6 @@
 import { FontWeight } from '@react-pdf/types';
 
-const rpbVersion = 'v2.0.1';
+const rpbVersion = 'v2.0.5';
 const defaultFontsCdnUrl = `https://cdn.jsdelivr.net/gh/justinmahar/react-pdf-builder@${rpbVersion}/public/fonts`;
 
 /** Matches font loading interface expected by React-PDF */
