@@ -22,7 +22,7 @@ export interface SignatureProps extends BoxProps {
 }
 
 /**
- * Read the [docs](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-signature--docs)
+ * Read the [full documentation for Signature](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-signature--docs)
  */
 export const Signature = ({ children, className, style, ...props }: SignatureProps) => {
   const theme = usePDFThemeContext();

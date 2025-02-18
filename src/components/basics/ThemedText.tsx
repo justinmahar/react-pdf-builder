@@ -15,7 +15,7 @@ export interface ThemedTextProps extends TextProps {
 }
 
 /**
- * Read the [docs](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-basics-themedtext--docs)
+ * Read the [full documentation for ThemedText](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-basics-themedtext--docs)
  */
 export const ThemedText = ({ children, className, style, swatch, ...props }: ThemedTextProps) => {
   const theme = usePDFThemeContext();

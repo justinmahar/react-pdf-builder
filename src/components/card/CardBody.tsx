@@ -19,7 +19,7 @@ export interface CardBodyProps extends BoxProps {
 }
 
 /**
- * Read the [docs](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-cards-cardbody--docs)
+ * Read the [full documentation for CardBody](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-cards-cardbody--docs)
  */
 export const CardBody = ({ children, className, style, ...props }: CardBodyProps) => {
   const theme = usePDFThemeContext();

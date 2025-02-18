@@ -20,7 +20,7 @@ export interface BoxProps extends DivProps {
 }
 
 /**
- * Read the [docs](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-box--docs)
+ * Read the [full documentation for Box](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-box--docs)
  */
 export const Box = ({ children, dir, grow, shrink, gap, padding, className, style, ...props }: BoxProps) => {
   const theme = usePDFThemeContext();

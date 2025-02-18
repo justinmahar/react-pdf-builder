@@ -19,7 +19,7 @@ export interface ButtonProps extends DivProps {
 }
 
 /**
- * Read the [docs](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-button--docs)
+ * Read the [full documentation for Button](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-button--docs)
  */
 export const Button = ({ children, className, style, ...props }: ButtonProps) => {
   const theme = usePDFThemeContext();

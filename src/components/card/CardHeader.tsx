@@ -21,7 +21,7 @@ export interface CardHeaderProps extends BoxProps {
 }
 
 /**
- * Read the [docs](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-cards-cardheader--docs)
+ * Read the [full documentation for CardHeader](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-cards-cardheader--docs)
  */
 export const CardHeader = ({ children, className, style, ...props }: CardHeaderProps) => {
   const theme = usePDFThemeContext();

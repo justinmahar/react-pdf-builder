@@ -25,7 +25,7 @@ export interface UnorderedListProps extends DivProps {
 }
 
 /**
- * Read the [docs](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-lists-unorderedlist--docs)
+ * Read the [full documentation for UnorderedList](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-lists-unorderedlist--docs)
  */
 export const UnorderedList = ({ children, className, style, ...props }: UnorderedListProps) => {
   const theme = usePDFThemeContext();

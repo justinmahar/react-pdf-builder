@@ -15,7 +15,7 @@ export interface ThemedPageProps extends PageProps {
 }
 
 /**
- * Read the [docs](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-basics-themedpage--docs)
+ * Read the [full documentation for ThemedPage](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-basics-themedpage--docs)
  */
 export const ThemedPage = ({ children, className, style, ...props }: ThemedPageProps) => {
   const theme = usePDFThemeContext();

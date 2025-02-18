@@ -39,7 +39,7 @@ export interface GradientBackdropProps extends BoxProps {
 }
 
 /**
- * Read the [docs](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-gradientbackdrop--docs)
+ * Read the [full documentation for GradientBackdrop](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-gradientbackdrop--docs)
  */
 export const GradientBackdrop = ({
   children,

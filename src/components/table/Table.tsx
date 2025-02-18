@@ -43,7 +43,7 @@ export interface TableProps extends BoxProps {
 }
 
 /**
- * Read the [docs](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-tables-table--docs)
+ * Read the [full documentation for Table](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-tables-table--docs)
  */
 export const Table = ({ children, className, style, ...props }: TableProps) => {
   const theme = usePDFThemeContext();

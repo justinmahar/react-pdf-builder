@@ -49,7 +49,7 @@ export interface TableRowProps extends BoxProps {
 }
 
 /**
- * Read the [docs](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-tables-tablerow--docs)
+ * Read the [full documentation for TableRow](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-tables-tablerow--docs)
  */
 export const TableRow = ({ children, stripeStyle, className, style, ...props }: TableRowProps) => {
   const theme = usePDFThemeContext();

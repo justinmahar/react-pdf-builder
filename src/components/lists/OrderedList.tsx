@@ -66,7 +66,7 @@ export interface OrderedListProps extends DivProps {
 }
 
 /**
- * Read the [docs](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-lists-orderedlist--docs)
+ * Read the [full documentation for OrderedList](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-lists-orderedlist--docs)
  */
 export const OrderedList = ({ children, className, style, ...props }: OrderedListProps) => {
   const theme = usePDFThemeContext();

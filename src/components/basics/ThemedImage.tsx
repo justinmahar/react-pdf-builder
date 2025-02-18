@@ -9,7 +9,7 @@ export interface ThemedImageProps {
 }
 
 /**
- * Read the [docs](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-basics-themedimage--docs)
+ * Read the [full documentation for ThemedImage](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-basics-themedimage--docs)
  */
 export const ThemedImage = ({ className, style, ...props }: ImageProps & ThemedImageProps) => {
   const theme = usePDFThemeContext();

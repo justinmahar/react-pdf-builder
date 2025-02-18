@@ -8,7 +8,7 @@ import { usePDFThemeContext } from '../theme/PDFThemeProvider';
 export interface ParagraphProps extends ThemedTextProps {}
 
 /**
- * Read the [docs](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-typography-paragraph--docs)
+ * Read the [full documentation for Paragraph](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-typography-paragraph--docs)
  */
 export const Paragraph = ({ children, className, style, ...props }: ParagraphProps) => {
   const theme = usePDFThemeContext();

@@ -12,7 +12,7 @@ export interface RectangleShapeProps extends ShapeProps {
 }
 
 /**
- * Read the [docs](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-shapes-rectangleshape--docs)
+ * Read the [full documentation for RectangleShape](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-shapes-rectangleshape--docs)
  */
 export const RectangleShape = ({
   width = 100,

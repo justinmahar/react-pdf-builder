@@ -10,7 +10,7 @@ export interface PageNumberProps extends ThemedTextProps {
 }
 
 /**
- * Read the [docs](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-pagenumber--docs)
+ * Read the [full documentation for PageNumber](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-pagenumber--docs)
  */
 export const PageNumber = ({ className, style, ...props }: PageNumberProps) => {
   const theme = usePDFThemeContext();

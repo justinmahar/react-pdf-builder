@@ -15,7 +15,7 @@ export interface BlockquoteProps extends DivProps {
 }
 
 /**
- * Read the [docs](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-blockquote--docs)
+ * Read the [full documentation for Blockquote](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-blockquote--docs)
  */
 export const Blockquote = ({ children, className, style, ...props }: BlockquoteProps) => {
   const theme = usePDFThemeContext();

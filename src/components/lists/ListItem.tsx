@@ -12,7 +12,7 @@ export interface ListItemProps extends DivProps {
 }
 
 /**
- * Read the [docs](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-lists-listitem--docs)
+ * Read the [full documentation for ListItem](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-lists-listitem--docs)
  */
 export const ListItem = ({ children, className, style, ...props }: ListItemProps) => {
   const theme = usePDFThemeContext();

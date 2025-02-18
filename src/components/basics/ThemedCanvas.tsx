@@ -9,7 +9,7 @@ export interface ThemedCanvasProps extends CanvasProps {
 }
 
 /**
- * Read the [docs](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-basics-themedcanvas--docs)
+ * Read the [full documentation for ThemedCanvas](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-basics-themedcanvas--docs)
  */
 export const ThemedCanvas = ({ className, style, ...props }: ThemedCanvasProps) => {
   const theme = usePDFThemeContext();

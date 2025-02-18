@@ -11,7 +11,7 @@ export interface DivProps extends ViewProps {
 }
 
 /**
- * Read the [docs](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-basics-div--docs)
+ * Read the [full documentation for Div](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-basics-div--docs)
  */
 export const Div = ({ children, className, style, ...props }: DivProps) => {
   const theme = usePDFThemeContext();

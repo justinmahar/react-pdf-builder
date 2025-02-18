@@ -15,7 +15,7 @@ export interface ThemedLinkProps extends LinkProps {
 }
 
 /**
- * Read the [docs](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-basics-themedlink--docs)
+ * Read the [full documentation for ThemedLink](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-basics-themedlink--docs)
  */
 export const ThemedLink = ({ children, className, style, ...props }: ThemedLinkProps) => {
   const theme = usePDFThemeContext();

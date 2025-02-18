@@ -7,7 +7,7 @@ import { usePDFThemeContext } from '../theme/PDFThemeProvider';
 import { HeadingProps } from './Heading';
 
 /**
- * Read the [docs](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-typography-heading2--docs)
+ * Read the [full documentation for Heading2](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-typography-heading2--docs)
  */
 export const Heading2 = ({ children, className, style, ...props }: HeadingProps) => {
   const theme = usePDFThemeContext();

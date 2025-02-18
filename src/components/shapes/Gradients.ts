@@ -79,7 +79,7 @@ export class Gradients {
 }
 
 /**
- * Read the [docs](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-gradientbackdrop--docs)
+ * Read the [documentation for GradientType](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-gradientbackdrop--docs)
  */
 export enum GradientType {
   leftToRight = 'leftToRight',
@@ -94,7 +94,7 @@ export enum GradientType {
 }
 
 /**
- * Read the [docs](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-gradientbackdrop--docs#gradient-stops)
+ * Read the [documentation for GradientStop](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-gradientbackdrop--docs#gradient-stops)
  */
 export interface GradientStop {
   offset: string | number;

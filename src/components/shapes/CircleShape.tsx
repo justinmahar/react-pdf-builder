@@ -7,7 +7,7 @@ export interface CircleShapeProps extends EllipseShapeProps {
 }
 
 /**
- * Read the [docs](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-shapes-circleshape--docs)
+ * Read the [full documentation for CircleShape](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-shapes-circleshape--docs)
  */
 export const CircleShape = ({ size, ...props }: CircleShapeProps) => {
   return <EllipseShape width={size} height={size} {...props} />;

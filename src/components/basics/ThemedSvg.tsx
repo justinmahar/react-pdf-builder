@@ -10,7 +10,7 @@ export interface ThemedSvgProps extends React.PropsWithChildren<SVGProps> {
 }
 
 /**
- * Read the [docs](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-basics-themedsvg--docs)
+ * Read the [full documentation for ThemedSvg](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-basics-themedsvg--docs)
  */
 export const ThemedSvg = ({ children, className, style, ...props }: ThemedSvgProps) => {
   const theme = usePDFThemeContext();

@@ -12,7 +12,7 @@ export interface EllipseShapeProps extends ShapeProps {
 }
 
 /**
- * Read the [docs](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-shapes-ellipseshape--docs)
+ * Read the [full documentation for EllipseShape](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-shapes-ellipseshape--docs)
  */
 export const EllipseShape = ({
   width = 100,

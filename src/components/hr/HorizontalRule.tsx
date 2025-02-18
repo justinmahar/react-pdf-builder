@@ -11,7 +11,7 @@ export interface HorizontalRuleProps extends DivProps {
 }
 
 /**
- * Read the [docs](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-horizontalrule--docs)
+ * Read the [full documentation for HorizontalRule](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-horizontalrule--docs)
  */
 export const HorizontalRule = ({ className, style, ...props }: HorizontalRuleProps) => {
   const theme = usePDFThemeContext();

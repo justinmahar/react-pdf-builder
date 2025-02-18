@@ -35,7 +35,7 @@ export interface TableCellProps extends BoxProps {
 }
 
 /**
- * Read the [docs](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-tables-tablecell--docs)
+ * Read the [full documentation for TableCell](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-components-tables-tablecell--docs)
  */
 export const TableCell = ({ children, className, style, ...props }: TableCellProps) => {
   const theme = usePDFThemeContext();
