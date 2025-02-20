@@ -3,7 +3,7 @@ import React from 'react';
 import { SwatchColor } from '../../themes/ColorScheme';
 import { ThemeBuilder } from '../../themes/ThemeBuilder';
 import { Div } from '../basics/Div';
-import { ThemedChildren } from '../children/ThemedChildren';
+import { sanitizeChildren } from '../children/sanitizeChildren';
 import { Style } from '../Style';
 import { usePDFThemeContext } from '../theme/PDFThemeProvider';
 
@@ -43,7 +43,7 @@ export const Template = ({ children, className, style, ...props }: TemplateProps
         ...style,
       }}
     >
-      <ThemedChildren>{children}</ThemedChildren>
+      {sanitizeChildren(children)}
     </Div>
   );
 };

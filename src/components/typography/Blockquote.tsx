@@ -3,7 +3,7 @@ import React from 'react';
 import { SwatchColor } from '../../themes/ColorScheme';
 import { ThemeBuilder } from '../../themes/ThemeBuilder';
 import { Div, DivProps } from '../basics/Div';
-import { ThemedChildren } from '../children/ThemedChildren';
+import { sanitizeChildren } from '../children/sanitizeChildren';
 import { Style } from '../Style';
 import { usePDFThemeContext } from '../theme/PDFThemeProvider';
 
@@ -44,7 +44,7 @@ export const Blockquote = ({ children, className, style, ...props }: BlockquoteP
       {...mergedProps}
       style={{ ...themeClassNameStyles, ...mergedProps?.style, ...styleOverride, ...classNameStyles, ...style }}
     >
-      <ThemedChildren>{children}</ThemedChildren>
+      {sanitizeChildren(children)}
     </Div>
   );
 };

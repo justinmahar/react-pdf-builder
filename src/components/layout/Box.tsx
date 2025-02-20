@@ -1,8 +1,7 @@
-import { ViewProps } from '@react-pdf/renderer';
 import React from 'react';
 import { ThemeBuilder } from '../../themes/ThemeBuilder';
 import { Div, DivProps } from '../basics/Div';
-import { ThemedChildren } from '../children/ThemedChildren';
+import { sanitizeChildren } from '../children/sanitizeChildren';
 import { Style } from '../Style';
 import { usePDFThemeContext } from '../theme/PDFThemeProvider';
 
@@ -35,7 +34,7 @@ export const Box = ({ children, dir, grow, shrink, gap, padding, className, styl
   const classNameStyles = ThemeBuilder.getStylesForClassName(className, theme.classNames);
   return (
     <Div {...props} style={{ ...styleInnate, ...classNameStyles, ...style }}>
-      <ThemedChildren>{children}</ThemedChildren>
+      {sanitizeChildren(children)}
     </Div>
   );
 };

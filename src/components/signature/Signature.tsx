@@ -4,7 +4,7 @@ import { SwatchColor } from '../../themes/ColorScheme';
 import { ThemeBuilder } from '../../themes/ThemeBuilder';
 import { Style } from '../Style';
 import { ThemedText } from '../basics/ThemedText';
-import { ThemedChildren } from '../children/ThemedChildren';
+import { sanitizeChildren } from '../children/sanitizeChildren';
 import { Box, BoxProps } from '../layout/Box';
 import { usePDFThemeContext } from '../theme/PDFThemeProvider';
 
@@ -69,7 +69,7 @@ export const Signature = ({ children, className, style, ...props }: SignaturePro
           {mergedProps.xValue ?? 'X'}
         </ThemedText>
       )}
-      <ThemedChildren>{children}</ThemedChildren>
+      {sanitizeChildren(children)}
     </Box>
   );
 };

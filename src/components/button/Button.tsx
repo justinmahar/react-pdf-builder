@@ -3,7 +3,7 @@ import { SwatchColor } from '../../themes/ColorScheme';
 import { ThemeBuilder } from '../../themes/ThemeBuilder';
 import { Div, DivProps } from '../basics/Div';
 import { ThemedLink } from '../basics/ThemedLink';
-import { ThemedChildren } from '../children/ThemedChildren';
+import { sanitizeChildren } from '../children/sanitizeChildren';
 import { Style } from '../Style';
 import { usePDFThemeContext } from '../theme/PDFThemeProvider';
 
@@ -50,11 +50,7 @@ export const Button = ({ children, className, style, ...props }: ButtonProps) =>
   }
 
   const hasHref = typeof mergedProps.href !== 'undefined';
-  const themedChildren = (
-    <ThemedChildren textStyle={hasHref ? { textDecoration: 'no-underline' as any } : undefined}>
-      {children}
-    </ThemedChildren>
-  );
+  const themedChildren = sanitizeChildren(children, hasHref ? { textDecoration: 'no-underline' as any } : undefined);
 
   const themeClassName = themeProps.className;
   const themeClassNameStyles = ThemeBuilder.getStylesForClassName(themeClassName, theme.classNames);

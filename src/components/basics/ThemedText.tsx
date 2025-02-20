@@ -2,7 +2,7 @@ import { Text, TextProps } from '@react-pdf/renderer';
 import React from 'react';
 import { SwatchColor } from '../../themes/ColorScheme';
 import { ThemeBuilder } from '../../themes/ThemeBuilder';
-import { ThemedChildren } from '../children/ThemedChildren';
+import { sanitizeChildren } from '../children/sanitizeChildren';
 import { Style } from '../Style';
 import { usePDFThemeContext } from '../theme/PDFThemeProvider';
 
@@ -29,7 +29,7 @@ export const ThemedText = ({ children, className, style, swatch, ...props }: The
   const classNameStyles = ThemeBuilder.getStylesForClassName(className, theme.classNames);
   return (
     <Text {...props} style={{ ...styleOverride, ...classNameStyles, ...style }}>
-      <ThemedChildren allowStrings>{children}</ThemedChildren>
+      {sanitizeChildren(children, undefined, true)}
     </Text>
   );
 };

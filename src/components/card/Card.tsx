@@ -1,7 +1,7 @@
 import React from 'react';
 import { SwatchColor } from '../../themes/ColorScheme';
 import { ThemeBuilder } from '../../themes/ThemeBuilder';
-import { getThemedChildren, ThemedChildren } from '../children/ThemedChildren';
+import { sanitizeChildren } from '../children/sanitizeChildren';
 import { Box, BoxProps } from '../layout/Box';
 import { Style } from '../Style';
 import { usePDFThemeContext } from '../theme/PDFThemeProvider';
@@ -30,8 +30,9 @@ export const Card = ({ children, className, style, ...props }: CardProps) => {
   };
 
   // Inject themed children with props from Card
-  const themedChildren = getThemedChildren(children);
-  const injectedChildArray = themedChildren.map((c, i, arr) => {
+  const themedChildren = sanitizeChildren(children);
+  const themedChildrenArray = Array.isArray(themedChildren) ? themedChildren : [themedChildren];
+  const injectedChildArray = themedChildrenArray.map((c, i, arr) => {
     const name = c.type?.displayName || c.type?.name || 'Unknown';
     const isHeader = name === 'CardHeader';
     const isBody = name === 'CardBody';
@@ -73,7 +74,7 @@ export const Card = ({ children, className, style, ...props }: CardProps) => {
       {...mergedProps}
       style={{ ...styleInnate, ...themeClassNameStyles, ...themeProps?.style, ...classNameStyles, ...style }}
     >
-      <ThemedChildren>{injectedChildArray}</ThemedChildren>
+      {sanitizeChildren(injectedChildArray)}
     </Box>
   );
 };

@@ -2,7 +2,7 @@ import { Link, LinkProps } from '@react-pdf/renderer';
 import React from 'react';
 import { SwatchColor } from '../../themes/ColorScheme';
 import { ThemeBuilder } from '../../themes/ThemeBuilder';
-import { ThemedChildren } from '../children/ThemedChildren';
+import { sanitizeChildren } from '../children/sanitizeChildren';
 import { Style } from '../Style';
 import { usePDFThemeContext } from '../theme/PDFThemeProvider';
 
@@ -51,7 +51,7 @@ export const ThemedLink = ({ children, className, style, ...props }: ThemedLinkP
         ...style,
       }}
     >
-      <ThemedChildren>{children}</ThemedChildren>
+      {sanitizeChildren(children)}
     </Link>
   );
 };

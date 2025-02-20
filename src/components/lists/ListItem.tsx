@@ -2,7 +2,7 @@ import React from 'react';
 import { SwatchColor } from '../../themes/ColorScheme';
 import { ThemeBuilder } from '../../themes/ThemeBuilder';
 import { Div, DivProps } from '../basics/Div';
-import { ThemedChildren } from '../children/ThemedChildren';
+import { sanitizeChildren } from '../children/sanitizeChildren';
 import { Style } from '../Style';
 import { usePDFThemeContext } from '../theme/PDFThemeProvider';
 
@@ -47,7 +47,7 @@ export const ListItem = ({ children, className, style, ...props }: ListItemProps
         ...style,
       }}
     >
-      <ThemedChildren>{children}</ThemedChildren>
+      {sanitizeChildren(children)}
     </Div>
   );
 };

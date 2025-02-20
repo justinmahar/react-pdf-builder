@@ -2,7 +2,7 @@ import React from 'react';
 import { ThemeBuilder } from '../../themes/ThemeBuilder';
 import { Style } from '../Style';
 import { ThemedText, ThemedTextProps } from '../basics/ThemedText';
-import { ThemedChildren } from '../children/ThemedChildren';
+import { sanitizeChildren } from '../children/sanitizeChildren';
 import { usePDFThemeContext } from '../theme/PDFThemeProvider';
 
 export interface ParagraphProps extends ThemedTextProps {}
@@ -32,7 +32,7 @@ export const Paragraph = ({ children, className, style, ...props }: ParagraphPro
       {...mergedProps}
       style={{ ...themeClassNameStyles, ...themeProps?.style, ...styleOverride, ...classNameStyles, ...style }}
     >
-      <ThemedChildren allowStrings>{children}</ThemedChildren>
+      {sanitizeChildren(children, undefined, true)}
     </ThemedText>
   );
 };

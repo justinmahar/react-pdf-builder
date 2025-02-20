@@ -3,7 +3,7 @@ import { SwatchColor } from '../../themes/ColorScheme';
 import { ThemeBuilder } from '../../themes/ThemeBuilder';
 import { Style } from '../Style';
 import { Div, DivProps } from '../basics/Div';
-import { ThemedChildren } from '../children/ThemedChildren';
+import { sanitizeChildren } from '../children/sanitizeChildren';
 import { usePDFThemeContext } from '../theme/PDFThemeProvider';
 import { ListItemContainer, ListItemContainerProps } from './ListItemContainer';
 import { romanize } from 'romans';
@@ -109,7 +109,7 @@ export const OrderedList = ({ children, className, style, ...props }: OrderedLis
       {...mergedWrapperProps}
       num={i + 1}
     >
-      <ThemedChildren>{c}</ThemedChildren>
+      {sanitizeChildren(c)}
     </ListItemContainer>
   ));
 

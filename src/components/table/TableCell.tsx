@@ -3,7 +3,7 @@ import React from 'react';
 import { SwatchColor } from '../../themes/ColorScheme';
 import { ThemeBuilder } from '../../themes/ThemeBuilder';
 import { Style } from '../Style';
-import { ThemedChildren } from '../children/ThemedChildren';
+import { sanitizeChildren } from '../children/sanitizeChildren';
 import { Box, BoxProps } from '../layout/Box';
 import { usePDFThemeContext } from '../theme/PDFThemeProvider';
 
@@ -90,7 +90,7 @@ export const TableCell = ({ children, className, style, ...props }: TableCellPro
         ...style,
       }}
     >
-      <ThemedChildren>{children}</ThemedChildren>
+      {sanitizeChildren(children)}
     </Box>
   );
 };

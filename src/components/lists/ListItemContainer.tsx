@@ -5,7 +5,7 @@ import { ThemeBuilder } from '../../themes/ThemeBuilder';
 import { Style } from '../Style';
 import { ThemedText } from '../basics/ThemedText';
 import { Div } from '../basics/Div';
-import { ThemedChildren } from '../children/ThemedChildren';
+import { sanitizeChildren } from '../children/sanitizeChildren';
 import { usePDFThemeContext } from '../theme/PDFThemeProvider';
 
 export interface ListItemContainerProps extends ViewProps {
@@ -59,7 +59,7 @@ export const ListItemContainer = ({ children, markerStyle, style, ...props }: Li
           {isNumbered ? numberRenderer(mergedProps.num ?? 0) : bullet}
         </ThemedText>
       )}
-      <ThemedChildren>{children}</ThemedChildren>
+      {sanitizeChildren(children)}
     </Div>
   );
 };

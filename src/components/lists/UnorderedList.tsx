@@ -3,7 +3,7 @@ import { SwatchColor } from '../../themes/ColorScheme';
 import { ThemeBuilder } from '../../themes/ThemeBuilder';
 import { Style } from '../Style';
 import { Div, DivProps } from '../basics/Div';
-import { ThemedChildren } from '../children/ThemedChildren';
+import { sanitizeChildren } from '../children/sanitizeChildren';
 import { usePDFThemeContext } from '../theme/PDFThemeProvider';
 import { ListItemContainer, ListItemContainerProps } from './ListItemContainer';
 
@@ -57,7 +57,7 @@ export const UnorderedList = ({ children, className, style, ...props }: Unordere
       unstyled={mergedProps.unstyled}
       {...mergedWrapperProps}
     >
-      <ThemedChildren>{c}</ThemedChildren>
+      {sanitizeChildren(c)}
     </ListItemContainer>
   ));
 

@@ -2,7 +2,7 @@ import Color from 'color';
 import React from 'react';
 import { SwatchColor } from '../../themes/ColorScheme';
 import { ThemeBuilder } from '../../themes/ThemeBuilder';
-import { getThemedChildren, ThemedChildren } from '../children/ThemedChildren';
+import { sanitizeChildren } from '../children/sanitizeChildren';
 import { Box, BoxProps } from '../layout/Box';
 import { Style } from '../Style';
 import { usePDFThemeContext } from '../theme/PDFThemeProvider';
@@ -119,8 +119,9 @@ export const TableRow = ({ children, stripeStyle, className, style, ...props }: 
   }
 
   // Inject cells with props from Table, as well as the col index and count
-  const themedChildren = getThemedChildren(children);
-  const injectedChildArray = themedChildren.map((c, i, arr) => {
+  const themedChildren = sanitizeChildren(children);
+  const themedChildrenArray = Array.isArray(themedChildren) ? themedChildren : [themedChildren];
+  const injectedChildArray = themedChildrenArray.map((c, i, arr) => {
     return React.cloneElement(c, {
       key: `col-` + i,
       colWidths: mergedProps.colWidths,
@@ -156,7 +157,7 @@ export const TableRow = ({ children, stripeStyle, className, style, ...props }: 
         ...style,
       }}
     >
-      <ThemedChildren>{injectedChildArray}</ThemedChildren>
+      {sanitizeChildren(injectedChildArray)}
     </Box>
   );
 };

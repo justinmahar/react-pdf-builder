@@ -20,7 +20,7 @@ export * from './components/card/CardBody';
 export * from './components/card/CardHeader';
 
 // Children
-export * from './components/children/ThemedChildren';
+export * from './components/children/sanitizeChildren';
 
 // Demo
 export * from './components/demo/Demo';

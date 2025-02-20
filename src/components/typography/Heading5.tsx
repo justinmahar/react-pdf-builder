@@ -1,7 +1,7 @@
 import React from 'react';
 import { ThemeBuilder } from '../../themes/ThemeBuilder';
 import { ThemedText } from '../basics/ThemedText';
-import { ThemedChildren } from '../children/ThemedChildren';
+import { sanitizeChildren } from '../children/sanitizeChildren';
 import { Style } from '../Style';
 import { usePDFThemeContext } from '../theme/PDFThemeProvider';
 import { HeadingProps } from './Heading';
@@ -41,7 +41,7 @@ export const Heading5 = ({ children, className, style, ...props }: HeadingProps)
       {...mergedProps}
       style={{ ...themeClassNameStyles, ...mergedThemeStyles, ...styleOverride, ...classNameStyles, ...style }}
     >
-      <ThemedChildren allowStrings>{children}</ThemedChildren>
+      {sanitizeChildren(children, undefined, true)}
     </ThemedText>
   );
 };

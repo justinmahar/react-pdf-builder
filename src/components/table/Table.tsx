@@ -3,7 +3,7 @@ import React from 'react';
 import { SwatchColor } from '../../themes/ColorScheme';
 import { ThemeBuilder } from '../../themes/ThemeBuilder';
 import { Style } from '../Style';
-import { getThemedChildren } from '../children/ThemedChildren';
+import { sanitizeChildren } from '../children/sanitizeChildren';
 import { Box, BoxProps } from '../layout/Box';
 import { usePDFThemeContext } from '../theme/PDFThemeProvider';
 
@@ -76,8 +76,9 @@ export const Table = ({ children, className, style, ...props }: TableProps) => {
   }
 
   // Inject rows with props from Table, as well as the row index and count
-  const themedChildren = getThemedChildren(children);
-  const injectedChildArray = themedChildren.map((c, i, arr) => {
+  const themedChildren = sanitizeChildren(children);
+  const themedChildrenArray = Array.isArray(themedChildren) ? themedChildren : [themedChildren];
+  const injectedChildArray = themedChildrenArray.map((c, i, arr) => {
     return React.cloneElement(c, {
       key: `row-` + i,
       striped: mergedProps.striped,
