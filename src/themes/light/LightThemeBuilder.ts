@@ -61,15 +61,9 @@ export class LightThemeBuilder extends ThemeBuilder {
       listItemProps: {},
       orderedListProps: {
         className: 'mb-3',
-        style: {
-          fontSize: scaledFontSize,
-        },
       },
       unorderedListProps: {
         className: 'mb-3',
-        style: {
-          fontSize: scaledFontSize,
-        },
       },
 
       // === Pages === === === === === === === === === === ===
@@ -134,9 +128,6 @@ export class LightThemeBuilder extends ThemeBuilder {
       },
       paragraphProps: {
         className: 'mb-3 lh-base',
-        style: {
-          fontSize: scaledFontSize,
-        },
       },
     };
   }
