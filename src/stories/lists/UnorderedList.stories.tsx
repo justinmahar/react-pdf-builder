@@ -10,6 +10,11 @@ import { Fonts } from '../../fonts/Fonts';
 
 const StoryComponent = ({ ...props }: UnorderedListProps) => {
   Font.registerEmojiSource(Fonts.emojis.joyPixels());
+  const listItemArray = [
+    <ListItem key="a">List Item</ListItem>,
+    <ListItem key="b">List Item</ListItem>,
+    <ListItem key="c">List Item</ListItem>,
+  ];
   return (
     <PDFStory>
       <Heading4>Unordered List</Heading4>
@@ -18,6 +23,7 @@ const StoryComponent = ({ ...props }: UnorderedListProps) => {
         <ListItem>List Item</ListItem>
         <ListItem>List Item</ListItem>
       </UnorderedList>
+      <UnorderedList {...props}>{listItemArray}</UnorderedList>
       <UnorderedList {...props} swatch="primary">
         <ListItem>This list has the "primary" swatch</ListItem>
         <ListItem>List Item</ListItem>

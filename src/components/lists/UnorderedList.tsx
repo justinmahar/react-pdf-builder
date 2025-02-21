@@ -6,6 +6,7 @@ import { Div, DivProps } from '../basics/Div';
 import { sanitizeChildren } from '../children/sanitizeChildren';
 import { usePDFThemeContext } from '../theme/PDFThemeProvider';
 import { ListItemContainer, ListItemContainerProps } from './ListItemContainer';
+import { childrenAsArray } from './OrderedList';
 
 export interface UnorderedListProps extends DivProps {
   /** Optional. Styles to apply to the marker (container for bullets). */
@@ -45,7 +46,7 @@ export const UnorderedList = ({ children, className, style, ...props }: Unordere
     styleOverride.color = ThemeBuilder.getSwatchColor(mergedProps.swatch, theme.colorScheme);
   }
 
-  const childArray = Array.isArray(children) ? children : typeof children !== 'undefined' ? [children] : [];
+  const childArray = childrenAsArray(children);
 
   const liElements: JSX.Element[] = childArray.map((c, i) => (
     <ListItemContainer

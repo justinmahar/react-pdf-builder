@@ -7,6 +7,11 @@ import { Heading5 } from '../../components/typography/Heading5';
 import { PDFStory } from '../parts/PDFStory';
 
 const StoryComponent = ({ ...props }: OrderedListProps) => {
+  const listItemArray = [
+    <ListItem key="a">List Item</ListItem>,
+    <ListItem key="b">List Item</ListItem>,
+    <ListItem key="c">List Item</ListItem>,
+  ];
   return (
     <PDFStory>
       <Heading4>Ordered List</Heading4>
@@ -15,6 +20,7 @@ const StoryComponent = ({ ...props }: OrderedListProps) => {
         <ListItem>List Item</ListItem>
         <ListItem>List Item</ListItem>
       </OrderedList>
+      <OrderedList {...props}>{listItemArray}</OrderedList>
       <OrderedList {...props} swatch="primary">
         <ListItem>This list has the "primary" swatch</ListItem>
         <ListItem>List Item</ListItem>

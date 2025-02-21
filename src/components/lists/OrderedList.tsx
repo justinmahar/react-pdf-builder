@@ -96,7 +96,7 @@ export const OrderedList = ({ children, className, style, ...props }: OrderedLis
     styleOverride.color = ThemeBuilder.getSwatchColor(mergedProps.swatch, theme.colorScheme);
   }
 
-  const childArray = Array.isArray(children) ? children : typeof children !== 'undefined' ? [children] : [];
+  const childArray = childrenAsArray(children);
 
   const liElements: JSX.Element[] = childArray.map((c, i) => (
     <ListItemContainer
@@ -137,4 +137,22 @@ export const OrderedList = ({ children, className, style, ...props }: OrderedLis
       {liElements}
     </Div>
   );
+};
+
+export const childrenAsArray = (children: any): any[] => {
+  if (Array.isArray(children)) {
+    return children;
+  } else if (
+    children &&
+    typeof children === 'object' &&
+    children !== null &&
+    children?.hasOwnProperty('type') &&
+    children.type === React.Fragment
+  ) {
+    return childrenAsArray(children.props.children);
+  } else if (typeof children === 'undefined') {
+    return [];
+  } else {
+    return [children];
+  }
 };
