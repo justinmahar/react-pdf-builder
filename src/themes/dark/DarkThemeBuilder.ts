@@ -10,7 +10,7 @@ export class DarkThemeBuilder extends ThemeBuilder {
     super(darkColorScheme);
   }
   public doBuild(scale: number, colorScheme: ColorScheme): Theme {
-    const lightTheme = new LightThemeBuilder().build({ override: { colorScheme } });
+    const lightTheme = new LightThemeBuilder().build({ scale, override: { colorScheme } });
     const bodyBackgroundColor = colorScheme.greyscale.gray900;
     const bodyColor = colorScheme.greyscale.gray300;
     const linkColor = ThemeBuilder.lighten(lightColorScheme.colors.blue, 0.4);
