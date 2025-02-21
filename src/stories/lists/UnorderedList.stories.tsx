@@ -22,8 +22,8 @@ const StoryComponent = ({ ...props }: UnorderedListProps) => {
         <ListItem>List Item</ListItem>
         <ListItem>List Item</ListItem>
         <ListItem>List Item</ListItem>
+        {listItemArray}
       </UnorderedList>
-      <UnorderedList {...props}>{listItemArray}</UnorderedList>
       <UnorderedList {...props} swatch="primary">
         <ListItem>This list has the "primary" swatch</ListItem>
         <ListItem>List Item</ListItem>

@@ -19,8 +19,8 @@ const StoryComponent = ({ ...props }: OrderedListProps) => {
         <ListItem>List Item</ListItem>
         <ListItem>List Item</ListItem>
         <ListItem>List Item</ListItem>
+        {listItemArray}
       </OrderedList>
-      <OrderedList {...props}>{listItemArray}</OrderedList>
       <OrderedList {...props} swatch="primary">
         <ListItem>This list has the "primary" swatch</ListItem>
         <ListItem>List Item</ListItem>
