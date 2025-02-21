@@ -5,6 +5,7 @@ import { sanitizeChildren } from '../children/sanitizeChildren';
 import { Box, BoxProps } from '../layout/Box';
 import { Style } from '../Style';
 import { usePDFThemeContext } from '../theme/PDFThemeProvider';
+import { childrenAsArray } from '../../util/util';
 
 export interface CardProps extends BoxProps {
   /** Optional. One of the [swatch color names](https://justinmahar.github.io/react-pdf-builder/?path=/docs/documentation-themes--docs#swatch-colors) from the theme, as a string. */
@@ -31,7 +32,7 @@ export const Card = ({ children, className, style, ...props }: CardProps) => {
 
   // Inject themed children with props from Card
   const themedChildren = sanitizeChildren(children);
-  const themedChildrenArray = Array.isArray(themedChildren) ? themedChildren : [themedChildren];
+  const themedChildrenArray = childrenAsArray(themedChildren).flat();
   const injectedChildArray = themedChildrenArray.map((c, i, arr) => {
     const name = c.type?.displayName || c.type?.name || 'Unknown';
     const isHeader = name === 'CardHeader';

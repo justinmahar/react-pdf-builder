@@ -1,13 +1,14 @@
+import { NumberToAlphabet } from 'number-to-alphabet';
 import React from 'react';
+import { romanize } from 'romans';
 import { SwatchColor } from '../../themes/ColorScheme';
 import { ThemeBuilder } from '../../themes/ThemeBuilder';
+import { childrenAsArray } from '../../util/util';
 import { Style } from '../Style';
 import { Div, DivProps } from '../basics/Div';
 import { sanitizeChildren } from '../children/sanitizeChildren';
 import { usePDFThemeContext } from '../theme/PDFThemeProvider';
 import { ListItemContainer, ListItemContainerProps } from './ListItemContainer';
-import { romanize } from 'romans';
-import { NumberToAlphabet } from 'number-to-alphabet';
 
 const toRoman = (num: number) => {
   try {
@@ -137,22 +138,4 @@ export const OrderedList = ({ children, className, style, ...props }: OrderedLis
       {liElements}
     </Div>
   );
-};
-
-export const childrenAsArray = (children: any): any[] => {
-  if (Array.isArray(children)) {
-    return children;
-  } else if (
-    children &&
-    typeof children === 'object' &&
-    children !== null &&
-    children?.hasOwnProperty('type') &&
-    children.type === React.Fragment
-  ) {
-    return childrenAsArray(children.props.children);
-  } else if (typeof children === 'undefined') {
-    return [];
-  } else {
-    return [children];
-  }
 };

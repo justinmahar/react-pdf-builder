@@ -1,3 +1,4 @@
+import React from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
 export function randomUuid() {
@@ -55,3 +56,22 @@ export function deepMerge<T extends Record<string, any>>(
 
   return merged as T;
 }
+
+/** Returns all children as an array, including those inside React fragments. */
+export const childrenAsArray = (children: any): any[] => {
+  if (Array.isArray(children)) {
+    return children;
+  } else if (
+    children &&
+    typeof children === 'object' &&
+    children !== null &&
+    children?.hasOwnProperty('type') &&
+    children.type === React.Fragment
+  ) {
+    return childrenAsArray(children.props.children);
+  } else if (typeof children === 'undefined') {
+    return [];
+  } else {
+    return [children];
+  }
+};

@@ -6,7 +6,7 @@ import { Div, DivProps } from '../basics/Div';
 import { sanitizeChildren } from '../children/sanitizeChildren';
 import { usePDFThemeContext } from '../theme/PDFThemeProvider';
 import { ListItemContainer, ListItemContainerProps } from './ListItemContainer';
-import { childrenAsArray } from './OrderedList';
+import { childrenAsArray } from '../../util/util';
 
 export interface UnorderedListProps extends DivProps {
   /** Optional. Styles to apply to the marker (container for bullets). */
